@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :dances, only: [:index, :show, :new, :create] do
-    resources :dancers, only: [:create]
+    resource :dancers, only: [:edit, :update, :show]
   end
   resources :dancers, only: [:destroy]
 end
