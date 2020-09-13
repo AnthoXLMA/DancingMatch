@@ -1,5 +1,5 @@
 class Dance < ApplicationRecord
-  has_one_attached :style
+  belongs_to :style
   has_many :users
   has_many :partners
 end

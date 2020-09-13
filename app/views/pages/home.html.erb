@@ -1,7 +1,10 @@
 <div><h1>Dancing Partners</h1></div>
 
-<a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a>
+<li><a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a></li>
 
-<a class="link"><%= link_to "Go to your profile", profile_path, class: "btn-ghost" %></a>
+<li><a class="link"><%= link_to "Go to your profile", profile_path, class: "btn-ghost" %></a></li>
 
-<a class="link"><%= link_to "See the partners", partners_path, class: "btn-ghost" %></a>
+<li><a class="link"><%= link_to "See the partners", partners_path, class: "btn-ghost" %></a></li>
+
+
+<%= @dances %>
