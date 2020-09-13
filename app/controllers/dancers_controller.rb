@@ -1,14 +1,16 @@
 class DancersController < ApplicationController
   def show
     @user = current_user
-      #@offer = Offer.find(params[:id])
-      #@apply_existing = current_user.applies.where(offer_id: @offer)
+
+    #@offer = Offer.find(params[:id])
+    #@apply_existing = current_user.applies.where(offer_id: @offer)
   end
 
   def edit
     flash[:alert] = "toto"
     @user = current_user
   end
+
 
   def update
     @user = current_user
