@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resource :profile, only: [:edit, :update, :show]
 
   resources :dances, only: [:index, :show, :new, :create] do
-    resource :dancers, only: [:edit, :update, :show]
+    resource :styles, only: [:edit, :update, :show]
   end
 
   resources :partners, only: [:index, :show] do
