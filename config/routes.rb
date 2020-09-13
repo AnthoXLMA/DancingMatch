@@ -1,9 +1,25 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#home'
+  # devise_for :users
+  # devise_for :partners
 
-  resources :dances, only: [:index, :show, :new, :create] do
-    resources :dancers, only: [:create]
+  resource :profile, only: [:edit, :update, :show]
+
+  resources :dances, only: [:index, :show] do
+    resources :appointments, only: [:create]
   end
-  resources :dancers, only: [:destroy]
+
+  namespace :partners do
+    resources :dances, only: [:index, :show, :new, :create]
+
+    resources :appointments, only: [] do
+      member do
+        patch :accept
+        patch :refuse
+
+  resources :partners, only: [:destroy]
+end
+end
+end
 end
