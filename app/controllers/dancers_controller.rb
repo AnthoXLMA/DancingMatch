@@ -1,6 +1,7 @@
 class DancersController < ApplicationController
   def show
     @user = current_user
+
     #@offer = Offer.find(params[:id])
     #@apply_existing = current_user.applies.where(offer_id: @offer)
   end
@@ -8,6 +9,13 @@ class DancersController < ApplicationController
   def edit
     flash[:alert] = "toto"
     @user = current_user
+  end
+
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to profile_path
   end
 
   private
