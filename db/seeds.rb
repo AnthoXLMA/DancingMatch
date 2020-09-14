@@ -7,6 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "cleaning DB..."
 Dance.destroy_all
+User.destroy_all
+Partner.destroy_all
+Appointment.destroy_all
 
 puts "Create users..."
 anthony = User.new(
@@ -49,6 +52,7 @@ elodie = Partner.new(
     password: "secret",
     experience: "intermediaire",
     contact: "0600112233",
+    dances: "BreakDance"
 )
 elodie.save!
 
@@ -61,6 +65,7 @@ adel = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000007",
+    dances: "Salsa"
 )
 adel.save!
 
@@ -73,6 +78,7 @@ flavien = Partner.new(
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
+    dances: "Kizomba"
 )
 flavien.save!
 
@@ -85,6 +91,7 @@ jerry = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000002",
+    dances: "Salsa Portoricaine"
 )
 jerry.save!
 
@@ -97,6 +104,7 @@ amanda = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000003",
+    dances: "merengue"
 )
 amanda.save!
 

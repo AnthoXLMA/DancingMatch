@@ -21,8 +21,8 @@ Rails.application.routes.draw do
         patch :refuse
 
   resources :partners, only: [:destroy]
+        end
       end
     end
   end
-end
 end
