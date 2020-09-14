@@ -1,1 +1,6 @@
 <h1>Partners</h1>
+
+<% @partners.each do |partner| %>
+  <h3><%= link_to partner.name, partners_path(partner) %></h3>
+    <h5><%= partner.dances %></h5>
+  <% end %>
