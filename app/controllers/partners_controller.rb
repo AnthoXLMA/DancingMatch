@@ -1,6 +1,8 @@
 class PartnersController < ApplicationController
 
   def index
+    @partners = Partner.all
+  end
     # return redirect_to edit_profile_path unless current_user.all_skills_rated?
 
     # @user = current_user
@@ -21,7 +23,6 @@ class PartnersController < ApplicationController
     #     image_url: helpers.asset_url('marker.svg')
     #   }
     # end
-  end
 
   def show
   #   @partner = Partner.select('offers.*', "#{current_user.matching_percentage_calc} AS matching_percentage")
@@ -43,3 +44,4 @@ class PartnersController < ApplicationController
   #   @already_applied = current_user.dances.where(partner_id: @partner).exists?
   # end
   end
+end
