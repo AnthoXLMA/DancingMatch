@@ -8,12 +8,16 @@
 puts "cleaning DB..."
 Dance.destroy_all
 
-puts "Creating dances..."
+puts "Create dances..."
 dance_names = [
   "Salsa",
   "Tango",
   "Rock",
   "West Coast Swing",
+  "Samba",
+  "Zumba",
+  "BreakDance",
+  "Modern Jazz",
 ]
 dance_names.each do |dance_name|
   dances = Dance.new(
@@ -97,13 +101,13 @@ amanda = Partner.new(
 amanda.save!
 
 puts "Create appointments..."
-appointment_care_amanda = Appointment.create!(
+appointment_amanda = Appointment.create!(
     user: amanda,
     partner: jerry,
     location: "Paris",
 )
 
-appointment_home_amanda = Appointment.create!(
+appointment_amanda = Appointment.create!(
     user: amanda,
     partner: flavien,
     location: "Paris",

@@ -1,3 +1,2 @@
 class Dance < ApplicationRecord
-
 end
