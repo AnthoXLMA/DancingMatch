@@ -1,10 +1,30 @@
-<div><h1>Dancing Partners</h1></div>
+  <div class="container">
+    <h1>Dancing Partners</h1>
+    <p>Rencontrez votre partenaire de danse</p>
+    <%= link_to "Discover", "#how", class: "btn btn-flat" %>
+  </div>
+</div>
 
-<li><a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a></li>
+<div class="container">
+  <div class="section">
+    <h2 id="how" class="text-center">How does it work?</h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <a class="link"><%= link_to "See all partners", partners_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <a class="link"><%= link_to "Go to your profile", profile_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-4">
+        <a class="link"><%= link_to "See all dances", dances_path, class: "btn-ghost" %></a>
+      </div>
+    </div>
+  </div>
 
-<li><a class="link"><%= link_to "Go to your profile", profile_path, class: "btn-ghost" %></a></li>
+  <div class="section">
+    <div class="text-center">
+      <%= link_to "Create my profile", profile_path, class: "btn btn-flat" %>
+    </div>
+  </div>
+</div>
 
-<li><a class="link"><%= link_to "See the partners", partners_path, class: "btn-ghost" %></a></li>
-
-
-<%= @dances %>
