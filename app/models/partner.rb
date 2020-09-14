@@ -1,4 +1,5 @@
 class Partner < ApplicationRecord
   has_many :dances
-  has_many :appointment
+  has_many :appointments
+  has_many :partners, through: :appointments
 end
