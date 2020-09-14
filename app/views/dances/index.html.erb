@@ -1,4 +1,7 @@
 <div><h1>Dancing Partners</h1></div>
 <div><h3>Choose your favorite style</h3></div>
-<%= @dances %>
-<%= @styles %>
+
+<% @dances.each do |dance| %>
+  <%= dance.style %>
+  <%= dance.location %>
+  <% end %>
