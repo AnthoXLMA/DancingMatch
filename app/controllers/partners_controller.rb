@@ -1,8 +1,8 @@
 class PartnersController < ApplicationController
 
-  # def index
-  # #   @partners = Partner.all
-  # end
+  def index
+    @partners = Partner.all
+  end
   #   return redirect_to edit_profile_path unless current_user.all_skills_rated?
 
   #   @user = current_user
