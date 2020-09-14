@@ -3,5 +3,4 @@
 
 <% @dances.each do |dance| %>
   <h3><%= link_to dance.style, dance_path(dance) %></h3>
-  <h3><%= dance.location %></h3>
   <% end %>
