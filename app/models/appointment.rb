@@ -1,5 +1,4 @@
 class Appointment < ApplicationRecord
-  has_many :user
-  has_many :partner
-  has_one :dance
+  belongs_to :user
+  belongs_to :partner
 end

@@ -96,7 +96,7 @@ amanda = Partner.new(
 )
 amanda.save!
 
-puts "Creating calls for appointments"
+puts "Create appointments..."
 appointment_care_amanda = Appointment.create!(
     user: amanda,
     partner: jerry,
