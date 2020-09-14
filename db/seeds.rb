@@ -8,6 +8,19 @@
 puts "cleaning DB..."
 Dance.destroy_all
 
+puts "Create users..."
+anthony = User.new(
+    gender: "Male",
+    name: "Anthony",
+    age: "37",
+    location: "Paris",
+    email: "antho.mani@example.com",
+    password: "secret",
+    experience: "novice",
+    contact: "0635158132",
+)
+anthony.save!
+
 puts "Create dances..."
 dance_names = [
   "Salsa",
@@ -25,19 +38,6 @@ dance_names.each do |dance_name|
     )
   dances.save!
 end
-
-puts "Create users..."
-anthony = User.new(
-    gender: "Male",
-    name: "Anthony",
-    age: "37",
-    location: "Paris",
-    email: "antho.mani@example.com",
-    password: "secret",
-    experience: "novice",
-    contact: "0635158132",
-)
-anthony.save!
 
 puts "Create partners..."
 elodie = Partner.new(
