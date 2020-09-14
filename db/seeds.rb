@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-puts "cleaning DB"
+puts "cleaning DB..."
 Dance.destroy_all
 
+puts "Creating dances..."
 dance_names = [
   "Salsa",
   "Tango",
@@ -20,3 +21,91 @@ dance_names.each do |dance_name|
     )
   dances.save!
 end
+
+puts "Create users..."
+anthony = User.new(
+    gender: "Male",
+    name: "Anthony",
+    age: "37",
+    location: "Paris",
+    email: "antho.mani@example.com",
+    password: "secret",
+    experience: "novice",
+    contact: "0635158132",
+)
+anthony.save!
+
+puts "Create partners..."
+elodie = Partner.new(
+    gender: "Female",
+    name: "Elodie",
+    age: "42",
+    location: "Nantes",
+    email: "elo.die@example.com",
+    password: "secret",
+    experience: "intermediaire",
+    contact: "0600112233",
+)
+elodie.save!
+
+adel = Partner.new(
+    gender: "Male",
+    name: "Adel",
+    age: "29",
+    location: "Paris",
+    email: "Adel@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000007",
+)
+adel.save!
+
+flavien = Partner.new(
+    gender: "male",
+    name: "flavien",
+    age: "24",
+    location: "Lyon",
+    email: "flavien@example.com",
+    password: "secret",
+    experience: "intermediaire",
+    contact: "0600000001",
+)
+flavien.save!
+
+jerry = Partner.new(
+    gender: "Male",
+    name: "jerry",
+    age: "38",
+    location: "Paris",
+    email: "jerry@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000002",
+)
+jerry.save!
+
+amanda = Partner.new(
+    gender: "Female",
+    name: "Amanda",
+    age: "34",
+    location: "Paris",
+    email: "amanda@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000003",
+)
+amanda.save!
+
+puts "Creating calls for appointments"
+appointment_care_amanda = Appointment.create!(
+    user: amanda,
+    partner: jerry,
+    location: "Paris",
+)
+
+appointment_home_amanda = Appointment.create!(
+    user: amanda,
+    partner: flavien,
+    location: "Paris",
+)
+puts "Done!"
