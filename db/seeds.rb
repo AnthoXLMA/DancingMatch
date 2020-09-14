@@ -12,21 +12,11 @@ dance_names = [
   "Salsa",
   "Tango",
   "Rock",
+  "West Coast Swing",
 ]
-
 dance_names.each do |dance_name|
-  dance_request = RestClient.get("https://source.unsplash.com/1200x700/?garden")
-  dance = Dance.new(
+  dances = Dance.new(
       style: dance_name,
     )
-  dance.save!
-  3.times do
-    partner_request = RestClient.get("https://source.unsplash.com/400x300/?flower")
-    partner = Partner.new(
-      name: Faker::FunnyName.name,
-    )
-    partner.dance = dance
-    partner.save!
-    sleep(2)
-  end
+  dances.save!
 end
