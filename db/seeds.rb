@@ -101,15 +101,19 @@ amanda = Partner.new(
 amanda.save!
 
 puts "Create appointments..."
-appointment_amanda = Appointment.create!(
-    user: amanda,
-    partner: jerry,
+
+  appointment_request_anthony = Appointment.create!(
+    user: anthony,
+    partner: amanda,
     location: "Paris",
 )
+appointment_request_anthony.save
 
-appointment_amanda = Appointment.create!(
-    user: amanda,
+  appointment_call_anthony = Appointment.create!(
+    user: anthony,
     partner: flavien,
     location: "Paris",
 )
+
+appointment_call_anthony.save
 puts "Done!"
