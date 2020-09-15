@@ -1,15 +1,8 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts "cleaning DB..."
 Appointment.delete_all
+Partner.delete_all
 Dance.delete_all
 User.delete_all
-Partner.delete_all
 
 puts "Create dances..."
 salsa = Dance.new(
@@ -87,7 +80,7 @@ elodie = Partner.new(
     password: "secret",
     experience: "2",
     contact: "0600112233",
-    dance_id: salsa.id,
+    dance_id: merengue.id,
 )
 elodie.save!
 
@@ -100,6 +93,7 @@ adel = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000007",
+    dance_id: salsa.id,
 
 )
 adel.save!
@@ -113,6 +107,7 @@ flavien = Partner.new(
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
+    dance_id: kizomba.id,
 )
 flavien.save!
 
@@ -125,6 +120,7 @@ jerry = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000002",
+    dance_id: kizomba.id,
 )
 jerry.save!
 
@@ -137,6 +133,7 @@ amanda = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000003",
+    dance_id: tango.id,
 )
 amanda.save!
 
