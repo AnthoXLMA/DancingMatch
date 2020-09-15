@@ -2,5 +2,5 @@
 <div><h3>Choose your favorite style</h3></div>
 
 <% @dances.each do |dance| %>
-  <h3><%= link_to dance.style, dance_path(dance) %></h3>
+  <h3><%= link_to dance.name.capitalize, dance_path(dance) %></h3>
   <% end %>
