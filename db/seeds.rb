@@ -30,7 +30,7 @@ marc = User.new(
     password: "secret",
     experience: "1",
     contact: "0635158132",
-    # dance_id: "salsa.id",
+    # dance_id: salsa.id,
   )
 marc.save!
 
@@ -121,7 +121,7 @@ elodie = Partner.new(
     password: "secret",
     experience: "2",
     contact: "0600112233",
-    # dance_id: merengue.id,
+    dance_id: merengue.id,
 )
 elodie.save!
 
@@ -134,7 +134,7 @@ adel = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000007",
-    # dance_id: salsa.id,
+    dance_id: salsa.id,
 
 )
 adel.save!
@@ -148,7 +148,7 @@ flavien = Partner.new(
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
-    # dance_id: kizomba.id,
+    dance_id: kizomba.id,
 )
 flavien.save!
 
@@ -161,7 +161,7 @@ jerry = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000002",
-    # dance_id: kizomba.id,
+    dance_id: salsa.id,
 )
 jerry.save!
 
@@ -174,7 +174,7 @@ amanda = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000003",
-    # dance_id: tango.id,
+    dance_id: zumba.id,
 )
 amanda.save!
 
