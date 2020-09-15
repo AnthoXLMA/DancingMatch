@@ -6,10 +6,51 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "cleaning DB..."
+Appointment.delete_all
 Dance.delete_all
 User.delete_all
 Partner.delete_all
-Appointment.delete_all
+
+puts "Create dances..."
+salsa = Dance.new(
+  style: salsa,
+  )
+salsa.save!
+
+bachata = Dance.new(
+  style: bachata,
+  )
+bachata.save!
+
+merengue = Dance.new(
+  style: merengue,
+  )
+merengue.save!
+
+kizomba = Dance.new(
+  style: kizomba,
+  )
+kizomba.save!
+
+rock = Dance.new(
+  style: rock,
+  )
+rock.save!
+
+wcs = Dance.new(
+  style: wcs,
+  )
+wcs.save!
+
+zumba = Dance.new(
+  style: zumba,
+  )
+zumba.save!
+
+tango = Dance.new(
+  style: tango,
+  )
+tango.save!
 
 puts "Create users..."
 anthony = User.new(
@@ -46,6 +87,7 @@ elodie = Partner.new(
     password: "secret",
     experience: "2",
     contact: "0600112233",
+    dance_id: salsa.id,
 )
 elodie.save!
 
@@ -58,6 +100,7 @@ adel = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000007",
+
 )
 adel.save!
 
@@ -96,26 +139,6 @@ amanda = Partner.new(
     contact: "0600000003",
 )
 amanda.save!
-
-puts "Create dances..."
-dance_names = [
-  "Salsa",
-  "Tango",
-  "Rock",
-  "West Coast Swing",
-  "Samba",
-  "Zumba",
-  "BreakDance",
-  "Modern Jazz",
-  "Merengue",
-  "Salsa Portoricaine",
-]
-dance_names.each do |dance_name|
-  dances = Dance.new(
-      style: dance_name,
-    )
-  dances.save!
-end
 
 puts "Create appointments..."
   appointment_request_anthony = Appointment.create!(
