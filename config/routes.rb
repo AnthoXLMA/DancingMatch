@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :partners, only: [:index, :show] do
-    resources :partner, only: [:create]
+    resources :dance, only: [:index]
 
   namespace :partners do
     resources :dances, only: [:index, :show, :new, :create]

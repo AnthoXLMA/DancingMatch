@@ -16,7 +16,7 @@ class DancesController < ApplicationController
   def create
     @dance = Dance.new(dance_params)
     if @dance.save
-      redirect_to dance_path(@dance)
+      redirect_to dance_path(@dances)
     else
       render :new
     end
