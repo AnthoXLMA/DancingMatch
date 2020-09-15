@@ -1,70 +1,95 @@
 puts "cleaning DB..."
-User.delete_all
-Partner.delete_all
 Dance.delete_all
+User.delete_all
 
+# users = []
+# users.appointments.each do |appointment|
+#   users << appointment.user
+# end
+
+puts "Create users..."
+anthony = User.new(
+    gender: "Male",
+    name: "Anthony",
+    age: "37",
+    location: "Paris",
+    email: "antho.mani@example.com",
+    password: "secret",
+    experience: "1",
+    contact: "0635158132",
+    # dance_id: "salsa.id",
+  )
+anthony.save!
+
+marc = User.new(
+    gender: "Male",
+    name: "Marc",
+    age: "37",
+    location: "Paris",
+    email: "antho.mani@example.com",
+    password: "secret",
+    experience: "1",
+    contact: "0635158132",
+    # dance_id: "salsa.id",
+  )
+marc.save!
+
+edouard = User.new(
+    gender: "Male",
+    name: "Edouard",
+    age: "37",
+    location: "Paris",
+    email: "antho.mani@example.com",
+    password: "secret",
+    experience: "1",
+    contact: "0635158132",
+  )
+edouard.save!
 
 puts "Create dances..."
-dance = Dance.new(name: "Salsa")
-dance.user = user
-dance.save
+salsa = Dance.new(
+  name: "Salsa"
+  )
+salsa.save!
 
-# anthony = User.last
+bachata = Dance.new(
+  name: "bachata",
+  )
+bachata.save!
+
+merengue = Dance.new(
+  name: "merengue",
+  )
+merengue.save!
+
+kizomba = Dance.new(
+  name: "kizomba",
+  )
+kizomba.save!
+
+rock = Dance.new(
+  name: "rock",
+  )
+rock.save!
+
+wcs = Dance.new(
+  name: "wcs",
+  )
+wcs.save!
+
+zumba = Dance.new(
+  name: "zumba",
+  )
+zumba.save!
+
+tango = Dance.new(
+  name: "tango",
+  )
+tango.save!
+
+
+
 # anthony.partners
-
-# salsa = Dance.new(
-#   style: "salsa",
-#   )
-# salsa.save!
-
-# bachata = Dance.new(
-#   style: "bachata",
-#   )
-# bachata.save!
-
-# merengue = Dance.new(
-#   style: "merengue",
-#   )
-# merengue.save!
-
-# kizomba = Dance.new(
-#   style: "kizomba",
-#   )
-# kizomba.save!
-
-# rock = Dance.new(
-#   style: "rock",
-#   )
-# rock.save!
-
-# wcs = Dance.new(
-#   style: "wcs",
-#   )
-# wcs.save!
-
-# zumba = Dance.new(
-#   style: "zumba",
-#   )
-# zumba.save!
-
-# tango = Dance.new(
-#   style: "tango",
-#   )
-# tango.save!
-
-# puts "Create users..."
-# anthony = User.new(
-#     gender: "Male",
-#     name: "Anthony",
-#     age: "37",
-#     location: "Paris",
-#     email: "antho.mani@example.com",
-#     password: "secret",
-#     experience: "1",
-#     contact: "0635158132",
-#     # dance_id: merengue.id,
-# )
-# anthony.save!
 
 # julien = User.new(
 #     gender: "Male",

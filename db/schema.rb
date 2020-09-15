@@ -38,18 +38,21 @@ ActiveRecord::Schema.define(version: 2020_09_15_070019) do
 
   create_table "appointments", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "partner_id"
     t.date "date"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["partner_id"], name: "index_appointments_on_partner_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
 
   create_table "dances", force: :cascade do |t|
-    t.string "style"
-    t.string "location"
+    t.string "name"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_dances_on_user_id"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -82,6 +85,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_070019) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
+  add_foreign_key "dances", "users"
   add_foreign_key "users", "dances"
 end
