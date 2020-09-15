@@ -87,8 +87,6 @@ tango = Dance.new(
   )
 tango.save!
 
-
-
 # anthony.partners
 
 # julien = User.new(
