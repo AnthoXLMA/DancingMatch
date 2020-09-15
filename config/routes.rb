@@ -7,12 +7,9 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:edit, :update, :show]
 
-  resources :dances, only: [:index, :show, :new, :create] do
-    resource :styles, only: [:edit, :update, :show]
+  resources :dances, only: [:index, :show] do
+    resource :appointments, only: [:create]
   end
-
-  resources :partners, only: [:index, :show] do
-    resources :dance, only: [:index]
 
   namespace :partners do
     resources :dances, only: [:index, :show, :new, :create]
@@ -21,10 +18,7 @@ Rails.application.routes.draw do
       member do
         patch :accept
         patch :refuse
-
-  resources :partners, only: [:destroy]
         end
       end
     end
   end
-end

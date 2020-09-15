@@ -1,12 +1,13 @@
 class DancesController < ApplicationController
   def index
     @dances = Dance.all
+    end
   end
 
   def show
     @dance = Dance.find(params[:id])
-    # @partner = Partner.new
-    # @partners = @dance.partners
+    @partner = Partner.new
+    @partners = @dance.partners
   end
 
   def new
