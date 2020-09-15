@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_14_210032) do
+ActiveRecord::Schema.define(version: 2020_09_15_054621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,18 +37,14 @@ ActiveRecord::Schema.define(version: 2020_09_14_210032) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.bigint "partners_id"
-    t.bigint "users_id"
+    t.bigint "user_id"
+    t.bigint "partner_id"
     t.date "date"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "partner_id", null: false
     t.index ["partner_id"], name: "index_appointments_on_partner_id"
-    t.index ["partners_id"], name: "index_appointments_on_partners_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
-    t.index ["users_id"], name: "index_appointments_on_users_id"
   end
 
   create_table "dances", force: :cascade do |t|
@@ -67,9 +63,11 @@ ActiveRecord::Schema.define(version: 2020_09_14_210032) do
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "dances"
     t.string "email"
     t.string "password"
-    t.string "dances"
+    t.bigint "dance_id"
+    t.index ["dance_id"], name: "index_partners_on_dance_id"
   end
 
   create_table "styles", force: :cascade do |t|
@@ -89,9 +87,13 @@ ActiveRecord::Schema.define(version: 2020_09_14_210032) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
     t.string "password"
+    t.bigint "dance_id"
+    t.index ["dance_id"], name: "index_users_on_dance_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
+  add_foreign_key "partners", "dances"
+  add_foreign_key "users", "dances"
 end

@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "cleaning DB..."
-Dance.destroy_all
-User.destroy_all
-Partner.destroy_all
-Appointment.destroy_all
+Dance.delete_all
+User.delete_all
+Partner.delete_all
+Appointment.delete_all
 
 puts "Create users..."
 anthony = User.new(
@@ -19,28 +19,22 @@ anthony = User.new(
     location: "Paris",
     email: "antho.mani@example.com",
     password: "secret",
-    experience: "novice",
+    experience: "1",
     contact: "0635158132",
 )
 anthony.save!
 
-puts "Create dances..."
-dance_names = [
-  "Salsa",
-  "Tango",
-  "Rock",
-  "West Coast Swing",
-  "Samba",
-  "Zumba",
-  "BreakDance",
-  "Modern Jazz",
-]
-dance_names.each do |dance_name|
-  dances = Dance.new(
-      style: dance_name,
-    )
-  dances.save!
-end
+julien = User.new(
+    gender: "Male",
+    name: "Julien",
+    age: "19",
+    location: "Marseille",
+    email: "julien.de@example.com",
+    password: "secret",
+    experience: "5",
+    contact: "0600010203",
+)
+julien.save!
 
 puts "Create partners..."
 elodie = Partner.new(
@@ -50,9 +44,8 @@ elodie = Partner.new(
     location: "Nantes",
     email: "elo.die@example.com",
     password: "secret",
-    experience: "intermediaire",
+    experience: "2",
     contact: "0600112233",
-    dances: "BreakDance"
 )
 elodie.save!
 
@@ -65,20 +58,18 @@ adel = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000007",
-    dances: "Salsa"
 )
 adel.save!
 
 flavien = Partner.new(
     gender: "male",
-    name: "flavien",
+    name: "Flavien",
     age: "24",
     location: "Lyon",
     email: "flavien@example.com",
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
-    dances: "Kizomba"
 )
 flavien.save!
 
@@ -91,7 +82,6 @@ jerry = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000002",
-    dances: "Salsa Portoricaine"
 )
 jerry.save!
 
@@ -104,16 +94,34 @@ amanda = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000003",
-    dances: "merengue"
 )
 amanda.save!
 
-puts "Create appointments..."
+puts "Create dances..."
+dance_names = [
+  "Salsa",
+  "Tango",
+  "Rock",
+  "West Coast Swing",
+  "Samba",
+  "Zumba",
+  "BreakDance",
+  "Modern Jazz",
+  "Merengue",
+  "Salsa Portoricaine",
+]
+dance_names.each do |dance_name|
+  dances = Dance.new(
+      style: dance_name,
+    )
+  dances.save!
+end
 
+puts "Create appointments..."
   appointment_request_anthony = Appointment.create!(
     user: anthony,
     partner: amanda,
-    location: "Paris",
+    location: "Nantes",
 )
 appointment_request_anthony.save
 
