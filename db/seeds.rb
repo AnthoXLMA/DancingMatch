@@ -1,8 +1,8 @@
 puts "cleaning DB..."
+User.delete_all
 Appointment.delete_all
 Partner.delete_all
 Dance.delete_all
-User.delete_all
 
 puts "Create dances..."
 salsa = Dance.new(
@@ -71,72 +71,72 @@ anthony.save!
 # )
 # julien.save!
 
-# puts "Create partners..."
-# elodie = Partner.new(
-#     gender: "Female",
-#     name: "Elodie",
-#     age: "42",
-#     location: "Nantes",
-#     email: "elo.die@example.com",
-#     password: "secret",
-#     experience: "2",
-#     contact: "0600112233",
-#     dance_id: merengue.id,
-# )
-# elodie.save!
+puts "Create partners..."
+elodie = Partner.new(
+    gender: "Female",
+    name: "Elodie",
+    age: "42",
+    location: "Nantes",
+    email: "elo.die@example.com",
+    password: "secret",
+    experience: "2",
+    contact: "0600112233",
+    dance_id: merengue.id,
+)
+elodie.save!
 
-# adel = Partner.new(
-#     gender: "Male",
-#     name: "Adel",
-#     age: "29",
-#     location: "Paris",
-#     email: "Adel@example.com",
-#     password: "secret",
-#     experience: "pro",
-#     contact: "0600000007",
-#     dance_id: salsa.id,
+adel = Partner.new(
+    gender: "Male",
+    name: "Adel",
+    age: "29",
+    location: "Paris",
+    email: "Adel@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000007",
+    dance_id: salsa.id,
 
-# )
-# adel.save!
+)
+adel.save!
 
-# flavien = Partner.new(
-#     gender: "male",
-#     name: "Flavien",
-#     age: "24",
-#     location: "Lyon",
-#     email: "flavien@example.com",
-#     password: "secret",
-#     experience: "intermediaire",
-#     contact: "0600000001",
-#     dance_id: kizomba.id,
-# )
-# flavien.save!
+flavien = Partner.new(
+    gender: "male",
+    name: "Flavien",
+    age: "24",
+    location: "Lyon",
+    email: "flavien@example.com",
+    password: "secret",
+    experience: "intermediaire",
+    contact: "0600000001",
+    dance_id: kizomba.id,
+)
+flavien.save!
 
-# jerry = Partner.new(
-#     gender: "Male",
-#     name: "jerry",
-#     age: "38",
-#     location: "Paris",
-#     email: "jerry@example.com",
-#     password: "secret",
-#     experience: "pro",
-#     contact: "0600000002",
-#     dance_id: kizomba.id,
-# )
-# jerry.save!
+jerry = Partner.new(
+    gender: "Male",
+    name: "jerry",
+    age: "38",
+    location: "Paris",
+    email: "jerry@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000002",
+    dance_id: kizomba.id,
+)
+jerry.save!
 
-# amanda = Partner.new(
-#     gender: "Female",
-#     name: "Amanda",
-#     age: "34",
-#     location: "Paris",
-#     email: "amanda@example.com",
-#     password: "secret",
-#     experience: "pro",
-#     contact: "0600000003",
-#     dance_id: tango.id,
-# )
-# amanda.save!
+amanda = Partner.new(
+    gender: "Female",
+    name: "Amanda",
+    age: "34",
+    location: "Paris",
+    email: "amanda@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000003",
+    dance_id: tango.id,
+)
+amanda.save!
 
 # puts "Create appointments..."
 #   appointment_request_anthony = Appointment.create!(
