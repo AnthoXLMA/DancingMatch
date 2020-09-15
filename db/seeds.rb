@@ -1,6 +1,5 @@
 puts "cleaning DB..."
 User.delete_all
-Appointment.delete_all
 Partner.delete_all
 Dance.delete_all
 
@@ -141,14 +140,14 @@ amanda.save!
 # puts "Create appointments..."
 #   appointment_request_anthony = Appointment.create!(
 #     user: anthony,
-#     partner: amanda,
+#     partner: flavien,
 #     location: "Nantes",
 # )
 # appointment_request_anthony.save
 
 #   appointment_call_anthony = Appointment.create!(
 #     user: anthony,
-#     partner: flavien,
+#     partner: amanda,
 #     location: "Paris",
 # )
 
