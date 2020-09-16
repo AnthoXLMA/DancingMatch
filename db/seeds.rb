@@ -1,5 +1,5 @@
-# puts "cleaning DB..."
-# Dance.delete_all
+puts "cleaning DB..."
+Dance.delete_all
 # User.delete_all
 
 # # users = []
@@ -46,46 +46,46 @@
 #   )
 # edouard.save!
 
-# puts "Create dances..."
-# salsa = Dance.new(
-#   name: "Salsa"
-#   )
-# salsa.save!
+puts "Create dances..."
+salsa = Dance.new(
+  name: "Salsa"
+  )
+salsa.save!
 
-# bachata = Dance.new(
-#   name: "bachata",
-#   )
-# bachata.save!
+bachata = Dance.new(
+  name: "bachata",
+  )
+bachata.save!
 
-# merengue = Dance.new(
-#   name: "merengue",
-#   )
-# merengue.save!
+merengue = Dance.new(
+  name: "merengue",
+  )
+merengue.save!
 
-# kizomba = Dance.new(
-#   name: "kizomba",
-#   )
-# kizomba.save!
+kizomba = Dance.new(
+  name: "kizomba",
+  )
+kizomba.save!
 
-# rock = Dance.new(
-#   name: "rock",
-#   )
-# rock.save!
+rock = Dance.new(
+  name: "rock",
+  )
+rock.save!
 
-# wcs = Dance.new(
-#   name: "wcs",
-#   )
-# wcs.save!
+wcs = Dance.new(
+  name: "wcs",
+  )
+wcs.save!
 
-# zumba = Dance.new(
-#   name: "zumba",
-#   )
-# zumba.save!
+zumba = Dance.new(
+  name: "zumba",
+  )
+zumba.save!
 
-# tango = Dance.new(
-#   name: "tango",
-#   )
-# tango.save!
+tango = Dance.new(
+  name: "tango",
+  )
+tango.save!
 
 # # anthony.partners
 
