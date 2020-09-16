@@ -81,7 +81,7 @@ flavien = Partner.new(
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
-    dance_id: salsa.id,
+    dance_id: tango.id,
 )
 flavien.save!
 
@@ -94,7 +94,7 @@ jerry = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000002",
-    dance_id: salsa.id,
+    dance_id: merengue.id,
 )
 jerry.save!
 
