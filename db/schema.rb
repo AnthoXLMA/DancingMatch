@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_111109) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
     t.string "password"
-    t.bigint "dance_id", null: false
+    t.bigint "dance_id"
     t.index ["dance_id"], name: "index_partners_on_dance_id"
   end
 
