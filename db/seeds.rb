@@ -36,7 +36,7 @@ elodie = Partner.new(
   dance: "Tango",
   # dance_id: rock.id,
 )
-elodie.dance = dances[2]
+elodie.dance = dances[1]
 elodie.save
 
 adel = Partner.new(
@@ -51,7 +51,7 @@ adel = Partner.new(
     dance: "Merengue",
     # dance_id: merengue.id,
 )
-adel.dance = dances[3]
+adel.dance = dances[6]
 adel.save
 
 flavien = Partner.new(
