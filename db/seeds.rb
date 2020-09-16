@@ -3,119 +3,142 @@ Dance.delete_all
 Partner.delete_all
 # User.delete_all
 
-puts "CREATE DANCES..."
-salsa = Dance.new(
-  name: "Salsa"
-  )
-salsa.save!
-
-bachata = Dance.new(
-  name: "Bachata",
-  )
-bachata.save!
-
-merengue = Dance.new(
-  name: "Merengue",
-  )
-merengue.save!
-
-kizomba = Dance.new(
-  name: "Kizomba",
-  )
-kizomba.save!
-
-rock = Dance.new(
-  name: "Rock",
-  )
-rock.save!
-
-wcs = Dance.new(
-  name: "West Coast Swing",
-  )
-wcs.save!
-
-zumba = Dance.new(
-  name: "Zumba",
-  )
-zumba.save!
-
-tango = Dance.new(
-  name: "Tango",
-  )
-tango.save!
-
+puts "Create dances..."
+dances = [
+  "Salsa Portoricana",
+  "Rock",
+  "Tango",
+  "Merengue",
+  "Salsa Cubana",
+  "Valse",
+  "West Coast Swing",
+  "Irish Taps",
+  "Country",
+  "Break Dance"
+]
+dances.each do |dance|
+  dance = Dance.new(
+      name: dance
+    )
+  dance.save
+end
 
 puts "CREATE PARTNERS..."
 elodie = Partner.new(
-    name: "Elodie",
-    gender: "lady",
-    age: "42",
-    location: "Nantes",
-    email: "elo.die@example.com",
-    password: "secret",
-    experience: "2",
-    contact: "0600112233",
-    dance: "Rock",
-    dance_id: salsa.id,
+  name: "Elodie",
+  gender: "Lady",
+  age: "42",
+  location: "Nantes",
+  email: "elo.die@example.com",
+  password: "secret",
+  experience: "5",
+  contact: "0600112233",
+  dance: "Tango",
+  # dance_id: rock.id,
 )
-elodie.save!
+elodie.dance = dances[2]
+elodie.save
 
 adel = Partner.new(
     name: "Adel",
-    gender: "Gentlemen",
+    gender: "Gentleman",
     age: "29",
     location: "Paris",
     email: "Adel@example.com",
     password: "secret",
-    experience: "pro",
+    experience: "13",
     contact: "0600000007",
     dance: "Merengue",
-    dance_id: salsa.id,
-
+    # dance_id: merengue.id,
 )
-adel.save!
+adel.dance = dances[3]
+adel.save
 
 flavien = Partner.new(
     name: "Flavien",
-    gender: "Gentlemen",
+    gender: "Gentleman",
     age: "24",
     location: "Lyon",
     email: "flavien@example.com",
     password: "secret",
-    experience: "intermediaire",
+    experience: "4",
     contact: "0600000001",
     dance: "Kizomba",
-    dance_id: tango.id,
+    # dance_id: tango.id,
 )
-flavien.save!
+flavien.dance = dances[1]
+flavien.save
 
 jerry = Partner.new(
     name: "Jerry",
-    gender: "Gentlemen",
+    gender: "Gentleman",
     age: "38",
     location: "Paris",
     email: "jerry@example.com",
     password: "secret",
-    experience: "pro",
+    experience: "12",
     contact: "0600000002",
-    dance: "Salsa Portoricaine",
-    dance_id: tango.id,
+    dance: "Salsa Portoricana",
+    # dance_id: tango.id,
 )
-jerry.save!
+jerry.dance = dances[2]
+jerry.save
 
 amanda = Partner.new(
     name: "Amanda",
-    gender: "lady",
+    gender: "Lady",
     age: "34",
     location: "Paris",
     email: "amanda@example.com",
     password: "secret",
-    experience: "pro",
+    experience: "8",
     contact: "0600000003",
     dance: "Salsa Cubana",
-    dance_id: rock.id,
+    # dance_id: rock.id,
 )
-amanda.save!
+amanda.dance = dances[4]
+amanda.save
+# puts "CREATE DANCES..."
+# salsa = Dance.new(
+#   name: "Salsa"
+#   )
+# salsa.save!
+
+# bachata = Dance.new(
+#   name: "Bachata",
+#   )
+# bachata.save!
+
+# merengue = Dance.new(
+#   name: "Merengue",
+#   )
+# merengue.save!
+
+# kizomba = Dance.new(
+#   name: "Kizomba",
+#   )
+# kizomba.save!
+
+# rock = Dance.new(
+#   name: "Rock",
+#   )
+# rock.save!
+
+# wcs = Dance.new(
+#   name: "West Coast Swing",
+#   )
+# wcs.save!
+
+# zumba = Dance.new(
+#   name: "Zumba",
+#   )
+# zumba.save!
+
+# tango = Dance.new(
+#   name: "Tango",
+#   )
+# tango.save!
+
 
 # # users = []
 # # users.appointments.each do |appointment|
