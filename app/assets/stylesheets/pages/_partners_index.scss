@@ -3,9 +3,16 @@ h1 {
   font-weight:bold;
 }
 
-.card-partner {
+.partners {
   display:flex;
   justify-content:space-between;
+
+  h3 {
+    font-size: 20px;
+  }
+}
+
+.card-partner {
 
   h3 {
     font-size: 20px;
