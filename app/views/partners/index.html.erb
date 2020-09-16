@@ -4,7 +4,7 @@
     <% @partners.each do |partner| %>
     <div class="card-partner">
       <h3><%= link_to partner.name, partner_path(partner) %></h3>
-      <h1><%= partner.dance %></h1>
+      <h1><%= partner.dance_id %></h1>
     </div>
     <% end %>
   </div>
