@@ -18,7 +18,7 @@ class PartnersController < ApplicationController
   def show
     @partner = Partner.find(params[:id])
     # @dancing = Dance.find(params[:id])
-    @style = @partner.dance_id
+    @style = @partner.dance
     # @dance = Dance.new
     # @dancer  = Dance.find(dance: params[:id])
     # @style = @partner.dances
