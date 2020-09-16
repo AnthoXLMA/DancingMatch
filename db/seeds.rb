@@ -54,7 +54,7 @@ elodie = Partner.new(
     password: "secret",
     experience: "2",
     contact: "0600112233",
-    dances: "bachata",
+    # dances: "bachata",
     dance_id: salsa.id,
 )
 elodie.save!
