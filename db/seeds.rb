@@ -1,6 +1,6 @@
-puts "cleaning DB..."
-Dance.delete_all
-Partner.delete_all
+# puts "cleaning DB..."
+# Dance.delete_all
+# Partner.delete_all
 # User.delete_all
 
 puts "Create dances..."
@@ -54,7 +54,6 @@ elodie = Partner.new(
     password: "secret",
     experience: "2",
     contact: "0600112233",
-    # dances: "bachata",
     dance_id: salsa.id,
 )
 elodie.save!
@@ -68,7 +67,6 @@ adel = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000007",
-    dances: "salsa",
     dance_id: salsa.id,
 
 )
@@ -83,7 +81,6 @@ flavien = Partner.new(
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
-    dances: "salsa",
     dance_id: salsa.id,
 )
 flavien.save!
@@ -97,7 +94,6 @@ jerry = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000002",
-    dances: "salsa",
     dance_id: salsa.id,
 )
 jerry.save!
@@ -111,7 +107,6 @@ amanda = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000003",
-    dances: "salsa",
     dance_id: salsa.id,
 )
 amanda.save!
