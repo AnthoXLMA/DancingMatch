@@ -6,9 +6,7 @@ Rails.application.routes.draw do
   # devise_for :partners
 
   resource :profile, only: [:edit, :update, :show]
-
   resources :dances, only: [:index, :show, :new, :create]
-
   resources :partners, only: [:index, :show]
 
   # resources :partners, only: [:index, :show] do
