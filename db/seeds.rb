@@ -3,48 +3,7 @@
 # Partner.delete_all
 # User.delete_all
 
-puts "Create dances..."
-salsa = Dance.new(
-  name: "Salsa"
-  )
-salsa.save!
-
-bachata = Dance.new(
-  name: "bachata",
-  )
-bachata.save!
-
-merengue = Dance.new(
-  name: "merengue",
-  )
-merengue.save!
-
-kizomba = Dance.new(
-  name: "kizomba",
-  )
-kizomba.save!
-
-rock = Dance.new(
-  name: "rock",
-  )
-rock.save!
-
-wcs = Dance.new(
-  name: "wcs",
-  )
-wcs.save!
-
-zumba = Dance.new(
-  name: "zumba",
-  )
-zumba.save!
-
-tango = Dance.new(
-  name: "tango",
-  )
-tango.save!
-
-puts "Create partners..."
+puts "CREATE PARTNERS..."
 elodie = Partner.new(
     name: "Elodie",
     gender: "lady",
@@ -54,47 +13,47 @@ elodie = Partner.new(
     password: "secret",
     experience: "2",
     contact: "0600112233",
-    dance_id: salsa.id,
+    dance: "salsa"
 )
 elodie.save!
 
 adel = Partner.new(
     name: "Adel",
-    gender: "gentlemen",
+    gender: "Gentlemen",
     age: "29",
     location: "Paris",
     email: "Adel@example.com",
     password: "secret",
     experience: "pro",
     contact: "0600000007",
-    dance_id: salsa.id,
+    dance: "Merengue"
 
 )
 adel.save!
 
 flavien = Partner.new(
     name: "Flavien",
-    gender: "gentlemen",
+    gender: "Gentlemen",
     age: "24",
     location: "Lyon",
     email: "flavien@example.com",
     password: "secret",
     experience: "intermediaire",
     contact: "0600000001",
-    dance_id: tango.id,
+    dance: "Kizomba"
 )
 flavien.save!
 
 jerry = Partner.new(
     name: "Jerry",
-    gender: "gentlemen",
+    gender: "Gentlemen",
     age: "38",
     location: "Paris",
     email: "jerry@example.com",
     password: "secret",
     experience: "pro",
     contact: "0600000002",
-    dance_id: merengue.id,
+    dance: "Salsa Portoricaine"
 )
 jerry.save!
 
@@ -107,9 +66,50 @@ amanda = Partner.new(
     password: "secret",
     experience: "pro",
     contact: "0600000003",
-    dance_id: salsa.id,
+    dance: "Salsa Cubana"
 )
 amanda.save!
+
+puts "CREATE DANCES..."
+salsa = Dance.new(
+  name: "Salsa"
+  )
+salsa.save!
+
+bachata = Dance.new(
+  name: "Bachata",
+  )
+bachata.save!
+
+merengue = Dance.new(
+  name: "Merengue",
+  )
+merengue.save!
+
+kizomba = Dance.new(
+  name: "Kizomba",
+  )
+kizomba.save!
+
+rock = Dance.new(
+  name: "Rock",
+  )
+rock.save!
+
+wcs = Dance.new(
+  name: "West Coast Swing",
+  )
+wcs.save!
+
+zumba = Dance.new(
+  name: "Zumba",
+  )
+zumba.save!
+
+tango = Dance.new(
+  name: "Tango",
+  )
+tango.save!
 
 # # users = []
 # # users.appointments.each do |appointment|
