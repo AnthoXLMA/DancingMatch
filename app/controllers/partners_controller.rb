@@ -13,11 +13,12 @@ class PartnersController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { partner: partner }),
         image_url: helpers.asset_url('marker.svg')
       }
+    end
   end
 
   def show
     @partner = Partner.find(params[:id])
     @partners = @dance.partner
   end
-
 end
+

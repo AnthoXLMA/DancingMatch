@@ -7,12 +7,15 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:edit, :update, :show]
 
+  resources :dances, only: [:index, :show, :new, :create]
+
   resources :dances, only: [:index, :show] do
-    resource :appointments, only: [:create]
+    resources :partners, only: [:index, :show]
   end
 
-  namespace :partners do
-    resources :dances, only: [:index, :show, :new, :create]
+  resources :partners, only: [:index, :show] do
+    resources :appointments, only: [:show]
+  end
 
     resources :appointments, only: [] do
       member do
@@ -21,4 +24,3 @@ Rails.application.routes.draw do
         end
       end
     end
-  end
