@@ -1,4 +1,5 @@
 class Dance < ApplicationRecord
-  belongs_to :partner
-  has_many :appointments
+has_many :partners, dependent: :destroy
+
+has_many :appointments
 end
