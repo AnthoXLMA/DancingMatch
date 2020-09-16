@@ -10,11 +10,23 @@ dances = [
   "Tango",
   "Merengue",
   "Salsa Cubana",
+  "Bachata",
+  "Rumba",
+  "Paso Doble",
+  "Milonga",
+  "Lambada",
   "Valse",
   "West Coast Swing",
   "Irish Taps",
   "Country",
-  "Break Dance"
+  "Break Dance",
+  "Lindy Hop",
+  "Charleston",
+  "Shag",
+  "Blues",
+  "Boogie Woogie",
+  "FoxTrot",
+  "ChaCha"
 ]
 dances.each do |dance|
   dance = Dance.new(

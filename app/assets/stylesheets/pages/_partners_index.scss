@@ -1,20 +1,29 @@
-h1 {
-  font-size:30px;
-  font-weight:bold;
+.title {
+  text-align:center;
+  h1 {
+    font-size:30px;
+    font-weight:bold;
+  }
 }
 
 .partners {
   display:flex;
   justify-content:space-between;
-
   h3 {
     font-size: 20px;
   }
 }
 
 .card-partner {
-
+  margin:20px;
+  width:220px;
+  height:200px;
+  border:solid grey;
+  border-radius: 5px;
+  h2 {
+    font-size: 15px;
+  }
   h3 {
-    font-size: 20px;
+    font-size: 25px;
   }
 }

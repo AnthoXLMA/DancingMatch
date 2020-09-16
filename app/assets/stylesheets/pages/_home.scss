@@ -1,11 +1,40 @@
+body {
+  background-color:#FCFCFC;
+}
+
 .container {
   background-color:#791E94;
-  color:#FFFFF2;
-  height: auto;
+  color:white;
+  height: 85vh;
+  border-radius:10px;
 
-  h1 {
-    font-family:'Marck Script';
-    font-weight:bold;
-    font-size: 120px;
+    .title {
+
+      h1 {
+        margin-right: 40px;
+        font-family:'Marck Script';
+        font-weight:bold;
+        font-size: 120px;
+      }
+    }
+  }
+
+.section {
+  justify-content:center;
+
+  .row {
+    justify-content:space-around;
+
+    .column {
+      flex-direction:row;
+      // margin-left: 20px;
+      // margin-right: 100px;
+
+      a {
+        justify-content:space-around;
+        color:white;
+        font-size:25px;
+      }
+    }
   }
 }
