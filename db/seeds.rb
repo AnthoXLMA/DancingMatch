@@ -1,6 +1,115 @@
 puts "cleaning DB..."
 Dance.delete_all
+Partner.delete_all
 # User.delete_all
+
+puts "Create dances..."
+salsa = Dance.new(
+  name: "Salsa"
+  )
+salsa.save!
+
+bachata = Dance.new(
+  name: "bachata",
+  )
+bachata.save!
+
+merengue = Dance.new(
+  name: "merengue",
+  )
+merengue.save!
+
+kizomba = Dance.new(
+  name: "kizomba",
+  )
+kizomba.save!
+
+rock = Dance.new(
+  name: "rock",
+  )
+rock.save!
+
+wcs = Dance.new(
+  name: "wcs",
+  )
+wcs.save!
+
+zumba = Dance.new(
+  name: "zumba",
+  )
+zumba.save!
+
+tango = Dance.new(
+  name: "tango",
+  )
+tango.save!
+
+puts "Create partners..."
+elodie = Partner.new(
+    name: "Elodie",
+    gender: "lady",
+    age: "42",
+    location: "Nantes",
+    email: "elo.die@example.com",
+    password: "secret",
+    experience: "2",
+    contact: "0600112233",
+    dances: "bachata",
+)
+elodie.save!
+
+adel = Partner.new(
+    name: "Adel",
+    gender: "gentlemen",
+    age: "29",
+    location: "Paris",
+    email: "Adel@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000007",
+    dances: "salsa",
+
+)
+adel.save!
+
+flavien = Partner.new(
+    name: "Flavien",
+    gender: "gentlemen",
+    age: "24",
+    location: "Lyon",
+    email: "flavien@example.com",
+    password: "secret",
+    experience: "intermediaire",
+    contact: "0600000001",
+    dances: "salsa",
+)
+flavien.save!
+
+jerry = Partner.new(
+    name: "Jerry",
+    gender: "gentlemen",
+    age: "38",
+    location: "Paris",
+    email: "jerry@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000002",
+    dances: "salsa",
+)
+jerry.save!
+
+amanda = Partner.new(
+    name: "Amanda",
+    gender: "lady",
+    age: "34",
+    location: "Paris",
+    email: "amanda@example.com",
+    password: "secret",
+    experience: "pro",
+    contact: "0600000003",
+    dances: "salsa",
+)
+amanda.save!
 
 # # users = []
 # # users.appointments.each do |appointment|
@@ -46,47 +155,6 @@ Dance.delete_all
 #   )
 # edouard.save!
 
-puts "Create dances..."
-salsa = Dance.new(
-  name: "Salsa"
-  )
-salsa.save!
-
-bachata = Dance.new(
-  name: "bachata",
-  )
-bachata.save!
-
-merengue = Dance.new(
-  name: "merengue",
-  )
-merengue.save!
-
-kizomba = Dance.new(
-  name: "kizomba",
-  )
-kizomba.save!
-
-rock = Dance.new(
-  name: "rock",
-  )
-rock.save!
-
-wcs = Dance.new(
-  name: "wcs",
-  )
-wcs.save!
-
-zumba = Dance.new(
-  name: "zumba",
-  )
-zumba.save!
-
-tango = Dance.new(
-  name: "tango",
-  )
-tango.save!
-
 # # anthony.partners
 
 # # julien = User.new(
@@ -107,74 +175,6 @@ tango.save!
 # # dance.appointments.each do |appointment|
 # #   users << appointment.user
 # # end
-
-
-# puts "Create partners..."
-# elodie = Partner.new(
-#     gender: "Female",
-#     name: "Elodie",
-#     age: "42",
-#     location: "Nantes",
-#     email: "elo.die@example.com",
-#     password: "secret",
-#     experience: "2",
-#     contact: "0600112233",
-#     dance_id: merengue.id,
-# )
-# elodie.save!
-
-# adel = Partner.new(
-#     gender: "Male",
-#     name: "Adel",
-#     age: "29",
-#     location: "Paris",
-#     email: "Adel@example.com",
-#     password: "secret",
-#     experience: "pro",
-#     contact: "0600000007",
-#     dance_id: salsa.id,
-
-# )
-# adel.save!
-
-# flavien = Partner.new(
-#     gender: "male",
-#     name: "Flavien",
-#     age: "24",
-#     location: "Lyon",
-#     email: "flavien@example.com",
-#     password: "secret",
-#     experience: "intermediaire",
-#     contact: "0600000001",
-#     dance_id: kizomba.id,
-# )
-# flavien.save!
-
-# jerry = Partner.new(
-#     gender: "Male",
-#     name: "jerry",
-#     age: "38",
-#     location: "Paris",
-#     email: "jerry@example.com",
-#     password: "secret",
-#     experience: "pro",
-#     contact: "0600000002",
-#     dance_id: salsa.id,
-# )
-# jerry.save!
-
-# amanda = Partner.new(
-#     gender: "Female",
-#     name: "Amanda",
-#     age: "34",
-#     location: "Paris",
-#     email: "amanda@example.com",
-#     password: "secret",
-#     experience: "pro",
-#     contact: "0600000003",
-#     dance_id: zumba.id,
-# )
-# amanda.save!
 
 # # puts "Create appointments..."
 # #   appointment_request_anthony = Appointment.create!(

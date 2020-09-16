@@ -1,8 +1,10 @@
 <h1>Meet all dancers</h1>
 
-  <div class="card-partner">
+  <div class="partners">
     <% @partners.each do |partner| %>
+    <div class="card-partner">
     <h3><%= link_to partner.name, partner_path(partner) %></h3>
-    <h3><%= partner.dance_id.name %></h3>
+    <h3><%= partner.dances %></h3>
+    </div>
     <% end %>
   </div>
