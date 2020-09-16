@@ -18,6 +18,6 @@ class PartnersController < ApplicationController
 
   def show
     @partner = Partner.find(params[:id])
-    # @partners = @partner.dance
+    @dance = @partner.dances
   end
 end
