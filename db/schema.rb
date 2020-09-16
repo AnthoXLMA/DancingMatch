@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_15_054518) do
+ActiveRecord::Schema.define(version: 2020_09_16_093523) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,8 @@ ActiveRecord::Schema.define(version: 2020_09_15_054518) do
     t.string "dances"
     t.string "email"
     t.string "password"
+    t.bigint "dance_id"
+    t.index ["dance_id"], name: "index_partners_on_dance_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,5 +93,6 @@ ActiveRecord::Schema.define(version: 2020_09_15_054518) do
   add_foreign_key "appointments", "users"
   add_foreign_key "dances", "partners"
   add_foreign_key "dances", "users"
+  add_foreign_key "partners", "dances"
   add_foreign_key "users", "dances"
 end

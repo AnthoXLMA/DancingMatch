@@ -6,7 +6,7 @@ class DancesController < ApplicationController
   def show
     @dance = Dance.find(params[:id])
     # @partner = Partner.new
-    # @partners = @dance.partners
+    @partners = @dance.partner
   end
 
   # def new

@@ -55,6 +55,7 @@ elodie = Partner.new(
     experience: "2",
     contact: "0600112233",
     dances: "bachata",
+    dance_id: salsa.id,
 )
 elodie.save!
 
@@ -68,6 +69,7 @@ adel = Partner.new(
     experience: "pro",
     contact: "0600000007",
     dances: "salsa",
+    dance_id: salsa.id,
 
 )
 adel.save!
@@ -82,6 +84,7 @@ flavien = Partner.new(
     experience: "intermediaire",
     contact: "0600000001",
     dances: "salsa",
+    dance_id: salsa.id,
 )
 flavien.save!
 
@@ -95,6 +98,7 @@ jerry = Partner.new(
     experience: "pro",
     contact: "0600000002",
     dances: "salsa",
+    dance_id: salsa.id,
 )
 jerry.save!
 
@@ -108,6 +112,7 @@ amanda = Partner.new(
     experience: "pro",
     contact: "0600000003",
     dances: "salsa",
+    dance_id: salsa.id,
 )
 amanda.save!
 
