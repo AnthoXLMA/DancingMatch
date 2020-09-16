@@ -9,12 +9,18 @@ Rails.application.routes.draw do
 
   resources :dances, only: [:index, :show, :new, :create]
 
-  resources :dances, only: [:index, :show] do
-    resources :partners, only: [:index, :show]
+  resources :partners, only: [:index, :show]
+
+  # resources :partners, only: [:index, :show] do
+  #   resources :appointments, only: [:show]
+  # end
+
+  namespace :partners do
+    resources :dances, only: [:index, :show]
   end
 
-  resources :partners, only: [:index, :show] do
-    resources :appointments, only: [:show]
+  namespace :dances do
+    resources :partners, only: [:index, :show]
   end
 
     resources :appointments, only: [] do
