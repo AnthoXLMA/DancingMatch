@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "partners_id"
-    t.index ["partners_id"], name: "index_dances_on_partners_id"
+    t.bigint "partner_id"
+    t.index ["partner_id"], name: "index_dances_on_partner_id"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -87,6 +87,6 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
-  add_foreign_key "dances", "partners", column: "partners_id"
+  add_foreign_key "dances", "partners"
   add_foreign_key "partners", "dances"
 end
