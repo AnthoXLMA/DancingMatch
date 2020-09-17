@@ -5,12 +5,13 @@ Partner.delete_all
 
 puts "Create dances..."
 dances = [
-  "Salsa Portoricana",
   "Rock",
   "Tango",
   "Merengue",
   "Salsa Cubana",
+  "Salsa Portoricana",
   "Bachata",
+  "Flamenco",
   "Rumba",
   "Paso Doble",
   "Milonga",
