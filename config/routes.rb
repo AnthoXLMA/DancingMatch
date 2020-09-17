@@ -6,20 +6,23 @@ Rails.application.routes.draw do
   # devise_for :partners
 
   resource :profile, only: [:edit, :update, :show]
-  resources :dances, only: [:index, :show, :new, :create]
-  resources :partners, only: [:index, :show]
 
-  # resources :partners, only: [:index, :show] do
-  #   resources :appointments, only: [:show]
-  # end
+  resources :dances, only: [:index, :show] do
+    resources :partners, only: [:index, :show]
+  end
 
-  namespace :partners do
+  resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
   end
 
-  namespace :dances do
-    resources :partners, only: [:index, :show]
-  end
+  # namespace :partner do
+  #   resources :dances, only: [:index, :show]
+  #   resources :appointments, only: [:index, :show]
+  # end
+
+  # namespace :dance do
+  #   resources :partners, only: [:index, :show]
+  # end
 
     resources :appointments, only: [] do
       member do

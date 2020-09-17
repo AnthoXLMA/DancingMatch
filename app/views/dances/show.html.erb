@@ -1,5 +1,8 @@
 <!-- <h1>Dancing Partners</h1> -->
-<h1>All <%= @dance.name %> Partners</h1>
+<h1><%= @dance.name %></h1>
 
-<h1><% @dancers %></h1>
+<h1><%= @dancers.name %></h1>
 
+<%= link_to @partners, dance_partners_path(@dance) %>
+
+<%= link_to "Back", :back %>
