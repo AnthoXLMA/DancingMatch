@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
   end
 
   create_table "dances", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "partner_id"
@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
   end
 
   create_table "partners", force: :cascade do |t|
+    t.string "pseudo"
     t.string "gender"
-    t.string "name"
     t.integer "age"
     t.string "location"
     t.integer "experience"
@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
 
   create_table "users", force: :cascade do |t|
     t.string "gender"
-    t.string "name"
+    t.string "pseudo"
     t.integer "age"
     t.string "location"
     t.integer "experience"
