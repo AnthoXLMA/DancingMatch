@@ -1,5 +1,13 @@
-<h1>Choose your favorite style</h1>
+<div class="contain">
+  <div class="title">
+    <h1>Choose your favorite style</h1>
+  </div>
 
-  <% @dances.each do |dance| %>
-  <h3><%= link_to dance.name.capitalize, dance_path(dance) %></h3>
-  <% end %>
+  <div class="partners">
+    <% @dances.each do |dance| %>
+    <div class="card-partner">
+      <h3><%= link_to dance.name.capitalize, dance_path(dance) %></h3>
+    </div>
+    <% end %>
+  </div>
+</div>
