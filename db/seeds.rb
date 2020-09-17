@@ -46,11 +46,41 @@ elodie = Partner.new(
   password: "secret",
   experience: "5",
   contact: "0600112233",
-  dance: dance_names,
+  dance: 'Tango',
   # dance_id: lambada.id,
 )
 elodie.dance = dance_names[10]
 elodie.save
+
+roger = Partner.new(
+  pseudo: "roger",
+  gender: "Lady",
+  age: "42",
+  location: "Nantes",
+  email: "roger@example.com",
+  password: "secret",
+  experience: "5",
+  contact: "0600112233",
+  dance: dance_names,
+  # dance_id: lambada.id,
+)
+roger.dance = dance_names[0]
+roger.save
+
+didier = Partner.new(
+  pseudo: "Didier",
+  gender: "Lady",
+  age: "42",
+  location: "Nantes",
+  email: "dd@example.com",
+  password: "secret",
+  experience: "5",
+  contact: "0600112233",
+  dance: dance_names,
+  # dance_id: lambada.id,
+)
+didier.dance = dance_names[0]
+didier.save
 
 adel = Partner.new(
     pseudo: "Adel",
@@ -407,9 +437,6 @@ amanda.save
 # def num_to_ip(number)
 #   # TODO: return the string IP address from the `number`
 # end
-
-# APPOINTMENTS ------------------------------------------------------
-
 
 # APPOINTMENTS ------------------------------------------------------
 # # puts "Create appointments..."
