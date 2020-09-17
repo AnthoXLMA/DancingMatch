@@ -4,10 +4,10 @@ class DancesController < ApplicationController
   end
 
   def show
-    @dance = Dance.find(params[:id])
-    @dancer = Partner.select('partners.*')
-                      .where(dance: 'tango')
-    # @dancers = @dance.dancer
+    @style = Dance.find(params[:id])
+    # @partner = Partner.where(id: :dance_name)
+    @challengers = @style.partner
+    @dancers = @challengers
   end
 
     # @partner = Partner.find(params[:id])
