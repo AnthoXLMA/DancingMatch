@@ -6,7 +6,7 @@
   <div class="partners">
     <% @partners.each do |partner| %>
     <div class="card-partner">
-      <h3><%= link_to partner.name, partner_path(partner) %></h3>
+      <h3><%= link_to partner.pseudo, partner_path(partner) %></h3>
       <h2><%= partner.dance %></h2>
     </div>
     <% end %>

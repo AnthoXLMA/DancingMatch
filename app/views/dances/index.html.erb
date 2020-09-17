@@ -6,7 +6,7 @@
   <div class="partners">
     <% @dances.each do |dance| %>
     <div class="card-partner">
-      <h3><%= link_to dance.name.capitalize, dance_path(dance) %></h3>
+      <h3><%= link_to dance.title.capitalize, dance_path(dance) %></h3>
     </div>
     <% end %>
   </div>

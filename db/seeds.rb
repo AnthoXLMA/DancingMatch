@@ -31,14 +31,14 @@ dances = [
 ]
 dances.each do |dance|
   dance = Dance.new(
-      name: dance
+      title: dance
     )
   dance.save
 end
 
 puts "CREATE PARTNERS..."
 elodie = Partner.new(
-  name: "Elodie",
+  pseudo: "Elodie",
   gender: "Lady",
   age: "42",
   location: "Nantes",
@@ -53,7 +53,7 @@ elodie.dance = dances[1]
 elodie.save
 
 adel = Partner.new(
-    name: "Adel",
+    pseudo: "Adel",
     gender: "Gentleman",
     age: "29",
     location: "Paris",
@@ -68,7 +68,7 @@ adel.dance = dances[6]
 adel.save
 
 flavien = Partner.new(
-    name: "Flavien",
+    pseudo: "Flavien",
     gender: "Gentleman",
     age: "24",
     location: "Lyon",
@@ -83,7 +83,7 @@ flavien.dance = dances[1]
 flavien.save
 
 jerry = Partner.new(
-    name: "Jerry",
+    pseudo: "Jerry",
     gender: "Gentleman",
     age: "38",
     location: "Paris",
@@ -98,7 +98,7 @@ jerry.dance = dances[2]
 jerry.save
 
 amanda = Partner.new(
-    name: "Amanda",
+    pseudo: "Amanda",
     gender: "Lady",
     age: "34",
     location: "Paris",
