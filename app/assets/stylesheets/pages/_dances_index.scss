@@ -2,8 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .contain {
-    width:100vh;
-    display:grid;
 
   .title {
     text-align:center;
@@ -14,6 +12,7 @@
   }
 
   .partners {
+    display:grid;
     width:900px;
     justify-content:space-between;
     h3 {

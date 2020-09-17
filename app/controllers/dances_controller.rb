@@ -7,7 +7,6 @@ class DancesController < ApplicationController
     @dance = Dance.find(params[:id])
     @dancer = Partner.select('partners.*')
                       .where(dance: 'tango')
-                      .pseudo
     # @dancers = @dance.dancer
   end
 
