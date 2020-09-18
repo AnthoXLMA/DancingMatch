@@ -25,29 +25,29 @@ Partner.delete_all
 
 puts "Create dances..."
 dance_names = [
-  "Rock",
-  "Tango",
-  "Merengue",
-  "Salsa Cubana",
-  "Salsa Portoricana",
-  "Bachata",
-  "Flamenco",
-  "Rumba",
-  "Paso Doble",
-  "Milonga",
-  "Lambada",
-  "Valse",
-  "West Coast Swing",
-  "Irish Taps",
-  "Country",
-  "Break Dance",
-  "Lindy Hop",
-  "Charleston",
-  "Shag",
-  "Blues",
-  "Boogie Woogie",
-  "FoxTrot",
-  "ChaCha"
+ "Rock",
+ "Tango",
+ "Merengue",
+ "Salsa Cubana",
+ "Salsa Portoricana",
+ "Bachata",
+ "Flamenco",
+ "Rumba",
+ "Paso Doble",
+ "Milonga",
+ "Lambada",
+ "Valse",
+ "West Coast Swing",
+ "Irish Taps",
+ "Country",
+ "Break Dance",
+ "Lindy Hop",
+ "Charleston",
+ "Shag",
+ "Blues",
+ "Boogie Woogie",
+ "FoxTrot",
+ "ChaCha"
 ]
 dance_names.each do |dance_name|
   dance = Dance.new(
@@ -69,11 +69,11 @@ elodie = Partner.new(
   dance: dance_names,
   # dance_id: lambada.id,
 )
-elodie.dance = dance_names[4]
+elodie.dance = dance_names[5], dance_names[4], dance_names[3]
 elodie.save
 
-roger = Partner.new(
-  pseudo: "Roger",
+bill = Partner.new(
+  pseudo: "Bill",
   gender: "Gentleman",
   age: "42",
   location: "Nantes",
@@ -84,12 +84,12 @@ roger = Partner.new(
   dance: dance_names,
   # dance_id: lambada.id,
 )
-roger.dance = dance_names[4]
-roger.save
+bill.dance = dance_names[1], dance_names[0], dance_names[12]
+bill.save
 
-didier = Partner.new(
-  pseudo: "Didier",
-  gender: "Gentleman",
+sophie = Partner.new(
+  pseudo: "Sophie",
+  gender: "Lady",
   age: "42",
   location: "Nantes",
   email: "dd@example.com",
@@ -99,11 +99,11 @@ didier = Partner.new(
   dance: dance_names,
   # dance_id: lambada.id,
 )
-didier.dance = dance_names[8]
-didier.save
+sophie.dance = dance_names[5], dance_names[3], dance_names[7]
+sophie.save
 
-adel = Partner.new(
-    pseudo: "Adel",
+homer = Partner.new(
+    pseudo: "Homer",
     gender: "Gentleman",
     age: "29",
     location: "Paris",
@@ -114,8 +114,8 @@ adel = Partner.new(
     dance: dance_names,
     # dance_id: merengue.id,
 )
-adel.dance = dance_names[4]
-adel.save
+homer.dance = dance_names[0], dance_names[2], dance_names[5]
+homer.save
 
 flavien = Partner.new(
     pseudo: "Flavien",
@@ -129,11 +129,11 @@ flavien = Partner.new(
     dance: dance_names,
     # dance_id: tango.id,
 )
-flavien.dance = dance_names[9]
+flavien.dance = dance_names[2], dance_names[5], dance_names[9]
 flavien.save
 
-jerry = Partner.new(
-    pseudo: "Jerry",
+damien = Partner.new(
+    pseudo: "Damien",
     gender: "Gentleman",
     age: "38",
     location: "Paris",
@@ -144,11 +144,11 @@ jerry = Partner.new(
     dance: dance_names,
     # dance_id: tango.id,
 )
-jerry.dance = dance_names[2]
-jerry.save
+damien.dance = dance_names[2], dance_names[4], dance_names[9]
+damien.save
 
-amanda = Partner.new(
-    pseudo: "Amanda",
+josy = Partner.new(
+    pseudo: "Josy",
     gender: "Lady",
     age: "34",
     location: "Paris",
@@ -157,10 +157,9 @@ amanda = Partner.new(
     experience: "8",
     contact: "0600000003",
     dance: dance_names,
-    # dance_id: rock.id,
-)
-amanda.dance = dance_names[4]
-amanda.save
+    )
+josy.dance = dance_names[12], dance_names[7], dance_names[9]
+josy.save
 
 # # puts "CREATE DANCES..."
 # # salsa = Dance.new(
