@@ -17,6 +17,6 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:interpersonal_skills, :rigor, :independence, :communication, :teamwork, :creativity, :initiative, :stress_management, :perseverance, :decision_making, :curiosity, :adaptability, :enthusiam, :flexibility, :empathy)
+    params.require(:user).permit()
   end
 end

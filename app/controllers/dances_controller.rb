@@ -3,32 +3,29 @@ class DancesController < ApplicationController
     @dances = Dance.all
   end
 
-  def show
-    @dance = Dance.find(params[:id])
-    @challengers = Partner.where(dances: params[:id])
-    @dancers = @challengers.first
+  def new
+    @dance = Dance.new
   end
 
-    # @partner = Partner.find(params[:id])
-    # @partners = @dance.partners
-    # @style = Dance.find(params[:id])
+  def create
+    @partner = Partner.find(params[:dance])
+    @dance = Dance.new(dance_params)
+    @dance.partner = @partner
+    if @dance.save
+      redirect_to partner_path(@partner)
+    else
+      render 'partners/show'
+    end
+  end
 
-  # def new
-  #   @dance = Dance.new
-  # end
+  def show
+    @dance = Dance.find(params[:id])
+    @partners = Partner.where(dance: params[:id])
+  end
 
-  # def create
-  #   @dance = Dance.new(dance_params)
-  #   if @dance.save
-  #     redirect_to dance_path(@dances)
-  #   else
-  #     render :new
-  #   end
-  # end
+  private
 
-  # private
-
-  # def dance_params
-  #   params.require(:dance).permit(:name)
-  # end
+  def dance_params
+    params.require(:dance).permit(:title)
+  end
 end
