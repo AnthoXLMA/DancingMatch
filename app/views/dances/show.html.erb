@@ -1,4 +1,6 @@
 <h1>Dancing Partners</h1>
+<%= link_to "Home", root_path %>
+
 <h1><%= @dance.title %></h1>
 <h1><%= @dance.partners.name %></h1>
 <h1><%= @partners.name %></h1>
@@ -8,3 +10,4 @@
       <%= render "partners/dance_card", dance: dance %>
     <% end %>
   </div>
+<%= link_to "Home", root_path %>
