@@ -7,27 +7,27 @@ Rails.application.routes.draw do
 
   resource :profile, only: [:edit, :update, :show]
 
-  resources :dances, only: [:index, :show] do
-    resources :partners, only: [:index, :show]
+  resources :dances, only: [:index, :new, :create, :show] do
+    resources :partners, only: [:index, :new, :show, :create]
   end
 
   resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
   end
 
-  namespace :partners do
-    resources :dances, only: [:index, :show]
-    resources :appointments, only: [:index, :show]
-  end
+  # namespace :partners do
+  #   resources :dances, only: [:index, :show]
+  #   resources :appointments, only: [:index, :show]
+  # end
 
-  namespace :dances do
-    resources :partners, only: [:index, :show]
-  end
+  # namespace :dances do
+  #   resources :partners, only: [:index, :show]
+  # end
 
-    resources :appointments, only: [] do
-      member do
-        patch :accept
-        patch :refuse
-        end
-      end
+  #   resources :appointments, only: [] do
+  #     member do
+  #       patch :accept
+  #       patch :refuse
+  #       end
+  #     end
     end
