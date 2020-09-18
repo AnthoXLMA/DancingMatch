@@ -143,7 +143,7 @@ flavien = Partner.new(
     experience: "4",
     contact: "0600000001",
     dance: dance_names,
-    dance_id: Dance.select(0),
+    dance_id: Dance.select(40),
 )
 flavien.dance = dance_names[2], dance_names[5], dance_names[9]
 flavien.save
@@ -158,7 +158,7 @@ damien = Partner.new(
     experience: "12",
     contact: "0600000002",
     dance: dance_names,
-    dance_id: Dance.select(0),
+    dance_id: Dance.select('Tango'),
 )
 damien.dance = dance_names[2], dance_names[4], dance_names[9]
 damien.save
@@ -173,7 +173,7 @@ josy = Partner.new(
     experience: "8",
     contact: "0600000003",
     dance: dance_names,
-    dance_id: Dance.select(0),
+    dance_id: Dance.select(dance_names[12]),
     )
 josy.dance = dance_names[12], dance_names[7], dance_names[9]
 josy.save
