@@ -1,5 +1,10 @@
 <h1>Dancing Partners</h1>
 <h1><%= @dance.title %></h1>
+<h1><%= @dance.partners.name %></h1>
+<h1><%= @partners.name %></h1>
 
-<h4><%= @challengers %></h4>
-
+  <div class="cards">
+    <% @dance.partners.each do |partner| %>
+      <%= render "partners/dance_card", dance: dance %>
+    <% end %>
+  </div>
