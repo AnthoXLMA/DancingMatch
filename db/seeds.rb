@@ -57,6 +57,22 @@ dance_names.each do |dance_name|
 end
 
 puts "CREATE PARTNERS..."
+# partner_names = [
+# "Elodie",
+# "Jerry",
+# "Amanda",
+# "Aurelien",
+# "Flavien",
+# "Julie",
+# "Bill",
+# "Homer"
+# ]
+# partner_names.each do |partner_name|
+#   partner = Partner.new(
+#     pseudo: partner
+#   )
+# partner.save!
+# end
 elodie = Partner.new(
   pseudo: "Elodie",
   gender: "Lady",
@@ -67,7 +83,7 @@ elodie = Partner.new(
   experience: "5",
   contact: "0600112233",
   dance: dance_names,
-  # dance_id: lambada.id,
+  dance_id: Dance.select(0),
 )
 elodie.dance = dance_names[5], dance_names[4], dance_names[3]
 elodie.save
@@ -82,7 +98,7 @@ bill = Partner.new(
   experience: "5",
   contact: "0600112233",
   dance: dance_names,
-  # dance_id: lambada.id,
+  dance_id: Dance.select(1),
 )
 bill.dance = dance_names[1], dance_names[0], dance_names[12]
 bill.save
@@ -97,7 +113,7 @@ sophie = Partner.new(
   experience: "5",
   contact: "0600112233",
   dance: dance_names,
-  # dance_id: lambada.id,
+  dance_id: Dance.select(0),
 )
 sophie.dance = dance_names[5], dance_names[3], dance_names[7]
 sophie.save
@@ -112,7 +128,7 @@ homer = Partner.new(
     experience: "13",
     contact: "0600000007",
     dance: dance_names,
-    # dance_id: merengue.id,
+    dance_id: Dance.select(0),
 )
 homer.dance = dance_names[0], dance_names[2], dance_names[5]
 homer.save
@@ -127,7 +143,7 @@ flavien = Partner.new(
     experience: "4",
     contact: "0600000001",
     dance: dance_names,
-    # dance_id: tango.id,
+    dance_id: Dance.select(0),
 )
 flavien.dance = dance_names[2], dance_names[5], dance_names[9]
 flavien.save
@@ -142,7 +158,7 @@ damien = Partner.new(
     experience: "12",
     contact: "0600000002",
     dance: dance_names,
-    # dance_id: tango.id,
+    dance_id: Dance.select(0),
 )
 damien.dance = dance_names[2], dance_names[4], dance_names[9]
 damien.save
@@ -157,6 +173,7 @@ josy = Partner.new(
     experience: "8",
     contact: "0600000003",
     dance: dance_names,
+    dance_id: Dance.select(0),
     )
 josy.dance = dance_names[12], dance_names[7], dance_names[9]
 josy.save
