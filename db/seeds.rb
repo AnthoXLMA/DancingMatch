@@ -1,5 +1,6 @@
 puts "cleaning DB..."
 Dance.destroy_all
+Partner.destroy_all
 
 dance_names = [
   "Rock",
@@ -32,7 +33,7 @@ dance_names.each do|dance_name|
       title: dance_name
     )
     dance.save!
-  # 2.times do
+    2.times do
     partner = Partner.new(
       pseudo: 'Anthony',
       gender: "Gentleman",
@@ -45,7 +46,7 @@ dance_names.each do|dance_name|
     partner.save!
 
     partner = Partner.new(
-      pseudo: 'Amanda',
+      pseudo: 'Zita',
       gender: "Lady",
       age: "33",
       location: "Nantes",
@@ -56,7 +57,7 @@ dance_names.each do|dance_name|
     partner.save!
 
     partner = Partner.new(
-      pseudo: 'Sophie',
+      pseudo: 'Vanessa',
       gender: "Lady",
       age: "24",
       location: "Paris",
@@ -65,9 +66,104 @@ dance_names.each do|dance_name|
     )
     partner.dance = dance
     partner.save!
-  # end
-end
+      partner = Partner.new(
+      pseudo: 'John',
+      gender: "Gentleman",
+      age: "37",
+      location: "Nantes",
+      experience: "2",
+      contact: "0600000033",
+    )
+    partner.dance = dance
+    partner.save!
 
+    partner = Partner.new(
+      pseudo: 'Amanda',
+      gender: "Lady",
+      age: "27",
+      location: "Nantes",
+      experience: "8",
+      contact: "0600110033",
+    )
+    partner.dance = dance
+    partner.save!
+
+    partner = Partner.new(
+      pseudo: 'Marion',
+      gender: "Lady",
+      age: "48",
+      location: "Paris",
+      experience: "5",
+      contact: "0600002233",
+    )
+    partner.dance = dance
+    partner.save!
+      partner = Partner.new(
+      pseudo: 'Didier',
+      gender: "Gentleman",
+      age: "49",
+      location: "Nantes",
+      experience: "2",
+      contact: "0600000033",
+    )
+    partner.dance = dance
+    partner.save!
+
+    partner = Partner.new(
+      pseudo: 'Celine',
+      gender: "Lady",
+      age: "20",
+      location: "Nantes",
+      experience: "8",
+      contact: "0600110033",
+    )
+    partner.dance = dance
+    partner.save!
+
+    partner = Partner.new(
+      pseudo: 'Maude',
+      gender: "Lady",
+      age: "19",
+      location: "Paris",
+      experience: "5",
+      contact: "0600002233",
+    )
+    partner.dance = dance
+    partner.save!
+      partner = Partner.new(
+      pseudo: 'Henri',
+      gender: "Gentleman",
+      age: "47",
+      location: "Nantes",
+      experience: "2",
+      contact: "0600000033",
+    )
+    partner.dance = dance
+    partner.save!
+
+    partner = Partner.new(
+      pseudo: 'Bob',
+      gender: "Gentleman",
+      age: "72",
+      location: "Nantes",
+      experience: "8",
+      contact: "0600110033",
+    )
+    partner.dance = dance
+    partner.save!
+
+    partner = Partner.new(
+      pseudo: 'Julien',
+      gender: "Gentleman",
+      age: "18",
+      location: "Paris",
+      experience: "3",
+      contact: "06023002233",
+    )
+    partner.dance = dance
+    partner.save!
+  end
+end
 # Partner.destroy_all
 # Dance.destroy_all
 
