@@ -32,18 +32,40 @@ dance_names.each do|dance_name|
       title: dance_name
     )
     dance.save!
-  10.times do
+  # 2.times do
     partner = Partner.new(
       pseudo: 'Anthony',
       gender: "Gentleman",
       age: "37",
       location: "Nantes",
-      experience: "5",
-      contact: "0600112233",
+      experience: "2",
+      contact: "0600000033",
     )
     partner.dance = dance
     partner.save!
-  end
+
+    partner = Partner.new(
+      pseudo: 'Amanda',
+      gender: "Lady",
+      age: "33",
+      location: "Nantes",
+      experience: "8",
+      contact: "0600110033",
+    )
+    partner.dance = dance
+    partner.save!
+
+    partner = Partner.new(
+      pseudo: 'Sophie',
+      gender: "Lady",
+      age: "24",
+      location: "Paris",
+      experience: "5",
+      contact: "0600002233",
+    )
+    partner.dance = dance
+    partner.save!
+  # end
 end
 
 # Partner.destroy_all
