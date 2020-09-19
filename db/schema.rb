@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 2020_09_19_143939) do
 
   create_table "partners", force: :cascade do |t|
     t.string "pseudo"
-    t.bigint "dance_id", null: false
     t.string "gender"
     t.integer "age"
     t.string "location"
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 2020_09_19_143939) do
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "dance_id", null: false
     t.index ["dance_id"], name: "index_partners_on_dance_id"
   end
 

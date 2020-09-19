@@ -5,7 +5,8 @@
 
   <div class="cards">
     <% @dance.partners.each do |partner| %>
-      <%= render "partners/dance_card", dance: dance %>
+      <%= render "partners/dance_card", dance: @dance %>
     <% end %>
   </div>
+
 <%= link_to "Home", root_path %>
