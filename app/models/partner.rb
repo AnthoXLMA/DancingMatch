@@ -1,5 +1,5 @@
 class Partner < ApplicationRecord
-  belongs_to :dances
+  belongs_to :dance
 
   has_many :appointments
   has_many :users, through: :appointments
