@@ -10,7 +10,9 @@ class PartnersController < ApplicationController
   def show
     @partner = Partner.find(params[:id])
     @dance = Dance.new
-    @dances = @partner.dances
+    @dance = @partner.dance
+    @styles = @dances
+    @dancers = Dance.select(:title)
   end
 
   def create
@@ -20,6 +22,7 @@ class PartnersController < ApplicationController
     @partners = @dance.partners
     if @partner.save
       redirect_to partner_path(@partner)
+      @dance.title << @partner.dance
     else
       render :new
     end

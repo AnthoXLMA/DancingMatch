@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_16_152301) do
+ActiveRecord::Schema.define(version: 2020_09_19_141230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,10 +39,12 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
   create_table "appointments", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "partner_id"
+    t.bigint "dance_id"
     t.date "date"
     t.string "location"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["dance_id"], name: "index_appointments_on_dance_id"
     t.index ["partner_id"], name: "index_appointments_on_partner_id"
     t.index ["user_id"], name: "index_appointments_on_user_id"
   end
@@ -51,8 +53,6 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "partner_id"
-    t.index ["partner_id"], name: "index_dances_on_partner_id"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -66,9 +66,6 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email"
     t.string "password"
-    t.string "dance"
-    t.bigint "dance_id"
-    t.index ["dance_id"], name: "index_partners_on_dance_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -80,13 +77,17 @@ ActiveRecord::Schema.define(version: 2020_09_16_152301) do
     t.string "contact"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "email"
-    t.string "password"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "appointments", "dances"
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
-  add_foreign_key "dances", "partners"
-  add_foreign_key "partners", "dances"
 end
