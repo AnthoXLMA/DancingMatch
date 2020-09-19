@@ -1,29 +1,12 @@
-  <h1><%= @partner.pseudo %></h1>
-  <h1><%= @partner.dance %></h1>
-
-<div class="infos-partner">
-  <h3><%= @partner.gender %></h3>
-  <h3><%= @partner.age %></h3>
-  <h3><%= @partner.experience %></h3>
-  <h3><%= @partner.location %></h3>
+<%= link_to "Back", :back %>
+<div class="container">
+    <h1><%= @partner.pseudo %></h1>
+    <h3><%= @dances %></h3>
+  <div class="infos-partner">
+    <h3><%= @partner.gender %></h3>
+    <h3><%= @partner.age %></h3>
+    <h3><%= @partner.experience %></h3>
+    <h3><%= @partner.location %></h3>
+  </div>
 </div>
 <%= link_to "Back", :back %>
-
-<div class="container">
-  <div class="cards">
-    <% @partner.dances.each do |dance| %>
-      <%= render "partners/dance_card", dance: dance %>
-    <% end %>
-  </div>
-  <div class="pt-30 row justify-content-center">
-    <div class="col-12 col-md-4">
-      <h4 class="text-center">Add your dance</h4>
-      <%= simple_form_for [ @partner, @dance ] do |f| %>
-        <%= f.input :title, placeholder: "your dance" %>
-        <div class="form-actions">
-          <%= f.submit "Add", class: "btn btn-flat" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
