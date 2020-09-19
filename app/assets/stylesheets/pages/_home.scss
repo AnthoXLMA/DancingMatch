@@ -1,25 +1,37 @@
 body {
-  background-color:#FCFCFC;
+  background-color:white;
 }
+.banner {
+  width:100%;
+  background-size: cover;
+  opacity:1;
+  img {
+    width:10px;
+  }
 
 .container {
-  background-color:#791E94;
   color:white;
-  height: 85vh;
+  height: 90vh;
   border-radius:10px;
+  width:100%;
+  margin:0;
 
     .title {
-
       h1 {
-        margin-right: 40px;
+        margin-right: 10px;
         font-family:'Marck Script';
         font-weight:bold;
         font-size: 120px;
       }
+      p {
+        color: white;
+        text-align: center;
+        font-size:30px;
+      }
     }
   }
 
-.section {
+.section1 {
   justify-content:center;
 
   .row {
@@ -37,4 +49,26 @@ body {
       }
     }
   }
+}
+
+.section2 {
+  justify-content:center;
+
+  .row {
+    justify-content:space-around;
+    margin-top:400px;
+
+    .column {
+      flex-direction:row;
+      // margin-left: 20px;
+      // margin-right: 100px;
+
+      a {
+        justify-content:space-around;
+        color:white;
+        font-size:25px;
+      }
+    }
+  }
+}
 }
