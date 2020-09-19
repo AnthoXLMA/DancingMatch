@@ -5,7 +5,7 @@
 
   <div class="cards">
     <% @dance.partners.each do |partner| %>
-      <%= render "partners/dance_card", dance: @dance %>
+      <%= render "partners/dance_card", pseudo: partner %>
     <% end %>
   </div>
 

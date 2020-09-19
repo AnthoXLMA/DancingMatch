@@ -1,15 +1,15 @@
-<div class="contain">
+<div class="contains">
   <div class="title">
     <h1>Meet all dancers</h1>
   </div>
 <%= link_to "Home", root_path %>
   <div class="partners">
     <% @partners.each do |partner| %>
-    <div class="card-partner">
+    <div class="card-partners">
       <h3><%= link_to partner.pseudo, partner_path(partner) %></h3>
       <h2><%= partner.dance.title %></h2>
     </div>
     <% end %>
   </div>
-<%= link_to "Home", root_path %>
+  <%= link_to "Home", root_path %>
 </div>
