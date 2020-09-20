@@ -24,10 +24,12 @@ class DancesController < ApplicationController
     # attribuer une variable qui recupere l'ID + le title de la danse
     @style = @dance.title
     # recuperer l'ensemble des partenaires de chaque danse
-    # @partner = Partner.find(params[:id])
+    @partner = Partner.find(params[:id])
     # @dancer = Partner.where(dance: 'rock')
-    # @dancers = @style.dancer
+    @dancer = Partner.where(dance: params[:id])
     # @dancers = Partner.select(:pseudo)
+    @partners = Partner.all
+    @dancers = @partners.where(id: 'dance_id')
   end
 
   private
