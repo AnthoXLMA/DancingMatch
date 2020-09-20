@@ -1,6 +1,30 @@
 // Place all the styles related to the dancers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+  .container-partner {
+    background-color:grey;
+    border-radius:20px;
+    box-shadow:20px;
+    width:900px;
+    height:600px;
+    margin-left:auto;
+    margin-right:auto;
+
+      h1 {
+        color:white;
+        font-size:80px;
+        margin-left:10px;
+        font-family: 'arial';
+      }
+
+      h2 {
+        color:white;
+        font-size:40px;
+        margin-left:10px;
+        font-family: 'arial';
+      }
+  }
+
   .infos-partner {
     h3 {
       font-size:20px;

@@ -15,24 +15,28 @@
   .partners {
     margin:20px;
     padding:30px;
-    background-color:snow;
-    width:1400px;
+    background-color:#fffff5;
 
     h3 {
       font-size: 20px;
     }
 
   .card-partners {
-    margin:20px;
+    margin:30px;
     width:250px;
     height:250px;
-    border:solid grey;
-    border-radius: 5px;
+    // border:solid #848ccf;
+    border-radius: 20px;
+    background-color:#848ccf;
     h2 {
-      font-size: 15px;
+      color:white;
+      margin-left:20px;
+      font-size: 40px;
     }
     h3 {
-      font-size: 25px;
+      color:white;
+      margin-left:20px;
+      font-size: 30px;
       }
     }
   }

@@ -1,7 +1,7 @@
 <h1>Dancing Partners</h1>
 <%= link_to "Home", root_path %>
 
-<h1><%= @style %></h1>
+<h1><%= link_to @style, dance_partners_path(@dance) %></h1>
 
   <div class="cards">
     <% @dance.partners.each do |partner| %>
