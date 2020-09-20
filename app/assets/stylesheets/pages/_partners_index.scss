@@ -1,9 +1,8 @@
 // Place all the styles related to the dances controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.contains {
-
   .title {
+    position:sticky;
     text-align:center;
 
     h1 {
@@ -13,7 +12,9 @@
   }
 
   .partners {
-    margin:20px;
+    display:grid;
+    width:900px;
+    margin:0;
     padding:30px;
     background-color:#fffff5;
 
@@ -22,7 +23,9 @@
     }
 
   .card-partners {
-    margin:30px;
+    justify-content:space-around;
+    margin-left:30px;
+    margin-top: 10px;
     width:250px;
     height:250px;
     // border:solid #848ccf;
@@ -40,4 +43,4 @@
       }
     }
   }
-}
+
