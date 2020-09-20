@@ -1,6 +1,7 @@
 class PartnersController < ApplicationController
   def index
     # return redirect_to edit_profile_path unless current_user.all_skills_rated?
+    @user   = current_user
     @partners = Partner.all
   end
 
@@ -9,6 +10,7 @@ class PartnersController < ApplicationController
   end
 
   def show
+    @user = current_user
     @partner = Partner.find(params[:id])
     @dance = @partner.dance.title
     @styles = @dances

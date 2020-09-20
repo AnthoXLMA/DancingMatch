@@ -3,21 +3,56 @@ Partner.destroy_all
 Dance.destroy_all
 User.destroy_all
 
-puts 'Creating Users...'
-  user = User.new(
-    pseudo: 'Youssef',
-    gender: "Gentleman",
-    age: "37",
-    email: "tna.mani@gmail.com",
-    # password: "secret",
-    encrypted_password: "password",
-    location: "Paris",
-    experience: "3",
-    contact: "06023002233",
-  )
-  user.save!
+puts "Creating USER DANCES..."
+dance_names = [
+  "Rock",
+  "Tango",
+  "Merengue",
+  "Salsa Cubana",
+  "Salsa Portoricana",
+  "Bachata",
+  "Flamenco",
+  "Rumba",
+  "Paso Doble",
+  "Milonga",
+  "Lambada",
+  "Valse",
+  "West Coast Swing",
+  "Irish Taps",
+  "Country",
+  "Break Dance",
+  "Lindy Hop",
+  "Charleston",
+  "Shag",
+  "Blues",
+  "Boogie Woogie",
+  "FoxTrot",
+  "ChaCha"
+]
 
-puts "Creating DANCES..."
+dance_names.each do |dance|
+    dance = Dance.new(
+      title: dance
+    )
+    dance.save!
+    puts 'Creating Users...'
+      user = User.new(
+        pseudo: 'Youssef',
+        gender: "Gentleman",
+        age: "37",
+        email: "tna.mani@gmail.com",
+        # password: "secret",
+        encrypted_password: "password",
+        location: "Paris",
+        experience: "3",
+        contact: "06023002233",
+        dance_id: '2',
+      )
+      user.dance = dance
+      user.save!
+end
+
+puts "2. Creating DANCES..."
 dance_names = [
   "Rock",
   "Tango",

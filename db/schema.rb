@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(version: 2020_09_20_004148) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    # t.bigint "dance_id", null: false
-    # t.index ["dance_id"], name: "index_users_on_dance_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.bigint "dance_id", null: false
+    t.index ["dance_id"], name: "index_users_on_dance_id"
+    t.index ["email"], name: "index_users_on_email", unique: false
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -93,5 +93,5 @@ ActiveRecord::Schema.define(version: 2020_09_20_004148) do
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
   add_foreign_key "partners", "dances"
-  # add_foreign_key "users", "dances"
+  add_foreign_key "users", "dances"
 end
