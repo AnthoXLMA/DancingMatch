@@ -162,6 +162,18 @@ dance_names.each do|dance_name|
     )
     partner.dance = dance
     partner.save!
+
+    user = User.new(
+      pseudo: 'Anthony',
+      gender: "Gentleman",
+      age: "37",
+      email: "anthony.mania@example.com",
+      location: "Paris",
+      experience: "3",
+      contact: "06023002233",
+    )
+    user.dance = dance
+    user.save!
   end
 end
 # Partner.destroy_all

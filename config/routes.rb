@@ -15,10 +15,10 @@ Rails.application.routes.draw do
     resources :dances, only: [:index, :show]
   end
 
-  # namespace :partners do
-  #   resources :dances, only: [:index, :show]
-  #   resources :appointments, only: [:index, :show]
-  # end
+  namespace :partners do
+    resources :dances, only: [:index, :show]
+    resources :appointments, only: [:index, :show]
+  end
 
   # namespace :dances do
   #   resources :partners, only: [:index, :show]
@@ -30,4 +30,4 @@ Rails.application.routes.draw do
   #       patch :refuse
   #       end
   #     end
-    end
+  end
