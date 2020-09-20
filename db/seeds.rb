@@ -1,39 +1,56 @@
 puts "cleaning DB..."
-Dance.destroy_all
 Partner.destroy_all
+Dance.destroy_all
+User.destroy_all
 
+puts 'Creating Users...'
+  user = User.new(
+    pseudo: 'Youssef',
+    gender: "Gentleman",
+    age: "37",
+    email: "tna.mani@gmail.com",
+    # password: "secret",
+    encrypted_password: "password",
+    location: "Paris",
+    experience: "3",
+    contact: "06023002233",
+  )
+  user.save!
+
+puts "Creating DANCES..."
 dance_names = [
   "Rock",
-   "Tango",
-   "Merengue",
-   "Salsa Cubana",
-   "Salsa Portoricana",
-   "Bachata",
-   "Flamenco",
-   "Rumba",
-   "Paso Doble",
-   "Milonga",
-   "Lambada",
-   "Valse",
-   "West Coast Swing",
-   "Irish Taps",
-   "Country",
-   "Break Dance",
-   "Lindy Hop",
-   "Charleston",
-   "Shag",
-   "Blues",
-   "Boogie Woogie",
-   "FoxTrot",
-   "ChaCha"
+  "Tango",
+  "Merengue",
+  "Salsa Cubana",
+  "Salsa Portoricana",
+  "Bachata",
+  "Flamenco",
+  "Rumba",
+  "Paso Doble",
+  "Milonga",
+  "Lambada",
+  "Valse",
+  "West Coast Swing",
+  "Irish Taps",
+  "Country",
+  "Break Dance",
+  "Lindy Hop",
+  "Charleston",
+  "Shag",
+  "Blues",
+  "Boogie Woogie",
+  "FoxTrot",
+  "ChaCha"
 ]
 
-dance_names.each do|dance_name|
+dance_names.each do |dance_name|
     dance = Dance.new(
       title: dance_name
     )
     dance.save!
-    2.times do
+    puts 'Creating Partners...'
+    5.times do
     partner = Partner.new(
       pseudo: 'Anthony',
       gender: "Gentleman",
@@ -162,18 +179,6 @@ dance_names.each do|dance_name|
     )
     partner.dance = dance
     partner.save!
-
-    user = User.new(
-      pseudo: 'Anthony',
-      gender: "Gentleman",
-      age: "37",
-      email: "anthony.mania@example.com",
-      location: "Paris",
-      experience: "3",
-      contact: "06023002233",
-    )
-    user.dance = dance
-    user.save!
   end
 end
 # Partner.destroy_all
@@ -444,7 +449,6 @@ end
 # # #   name: "Tango",
 # # #   )
 # # # tango.save!
-
 
 # # # # users = []
 # # # # users.appointments.each do |appointment|
