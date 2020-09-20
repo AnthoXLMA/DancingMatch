@@ -1,12 +1,13 @@
 class ProfilesController < ApplicationController
+  def show
+    @user = current_user
+  end
+
   def edit
     flash[:alert] = "alert"
     @user = current_user
   end
 
-  def show
-    @user = current_user
-  end
 
   def update
     @user = current_user
