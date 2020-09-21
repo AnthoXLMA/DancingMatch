@@ -1,0 +1,56 @@
+// Place all the styles related to the Style controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.partners-list {
+    display:grid;
+    grid-template-columns: 1fr 1fr 5fr;
+    grid-gap: 10px;
+    .listing-partners {
+    display: grid;
+    min-width:250px;
+    width:250px;
+    height:250px;
+    padding: 5px;
+    // flex-grow: 1;
+    margin-left:30px;
+    margin-top: 10px;
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    // box-shadow: 1px 0px 10px grey;
+    background-color:white;
+    h2 {
+      color:black;
+      padding-top:10px;
+      margin-top:20px;
+      margin-left:20px;
+      font-size: 20px;
+    }
+    h3 {
+      color:white;
+      margin-left:20px;
+      font-size: 20px;
+      }
+    }
+}
+// /* TODO: design your flexbox layout with a sticky map */
+// .main-container {
+//   display: flex;
+// }
+// /* We just give you a Gmaps with random width/height */
+// @media(min-width: 500px){
+// .cards {
+//   display: grid;
+//   grid-template-columns: 1fr 1fr 1fr;
+//   grid-gap: 16px;
+//   padding: 10px;
+//   flex-grow: 1;
+// }
+
+// }
+// #map {
+//   height: 100vh;
+//   position: sticky;
+//   top: 0;
+//   right: 0px;
+// }

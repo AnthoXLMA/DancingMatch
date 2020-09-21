@@ -1,1 +1,11 @@
 <h1>This Dance Partners</h1>
+
+<h1>This dance has <%=  @dancer.count %> Dancing Partners</h1>
+
+<div class="partners-list">
+  <%= @list.each do |surname| %>
+    <div class="listing-partners">
+      <h2><%= surname %></h2>
+    </div>
+  <% end %>
+</div>
