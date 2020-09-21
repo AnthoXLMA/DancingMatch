@@ -1,24 +1,18 @@
 <h1>Dancing Partners</h1>
-
 <%= link_to "Home", root_path %>
 
 <h1><%= link_to @style, dance_partners_path(@dance) %></h1>
-This dance has <%=  @dancer.count %> Dancing Partners
-<br>
-  <div class="cards">
-    <% @dance.partners.each do |partner| %>
-      <%= render "partners/dance_card", pseudo: partner %>
-    <% end %>
-  </div>
-<br>
-<%=  @partner_dance.pseudo %>
-<br>
-  Here are the <%= @dancer.count %> Dancing Partners
-<br>
-<%= @partners %>
 
-<%= @listing.each do |surname| %>
-    <h2><%= surname %>hello</h2>
-    <% end %>
+<h1>This dance has <%=  @dancer.count %> Dancing Partners</h1>
 
-<%= link_to "Home", root_path %>
+<div class="partners-list">
+  <%= @list.each do |surname| %>
+    <div class="listing-partners">
+      <h2><%= surname %></h2>
+    </div>
+  <% end %>
+</div>
+
+<div class="bouton-home">
+  <%= link_to "Home", root_path %>
+</div>
