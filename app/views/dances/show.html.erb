@@ -13,14 +13,12 @@ This dance has <%=  @dancer.count %> Dancing Partners
 <br>
 <%=  @partner_dance.pseudo %>
 <br>
-Here are the <%=  @dancer.count %> Dancing Partners
-<br>
-<br>
-<%=  @dancer %>
+  Here are the <%= @dancer.count %> Dancing Partners
 <br>
 <%= @partners %>
-<br>
-<%= @list %>
 
+<%= @listing.each do |surname| %>
+    <h2><%= surname %>hello</h2>
+    <% end %>
 
 <%= link_to "Home", root_path %>
