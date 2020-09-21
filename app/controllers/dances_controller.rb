@@ -20,15 +20,15 @@ class DancesController < ApplicationController
 
   def show
     # recuperer le ID de la "dance" pour afficher avec le .title dans la show
-    @dance = Dance.find(params[:id])
+    @dance = Dance.find(dance_params[:id])
     # attribuer une variable qui recupere l'ID + le title de la danse
     @style = @dance.title
     @partner_dance = Partner.find(params[:id])
     # recuperer l'ensemble des partenaires de chaque danse
-    @dancers = Partner.where(dance_id: params[:id]).select("pseudo")
+    @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
     @dancer = @dancers.each do |yd|
       puts yd
-    end
+  end
     @list = @dancer.map(&:pseudo)
     # @listing = @list.each do |surname|
     #   surname
@@ -38,6 +38,6 @@ class DancesController < ApplicationController
   private
 
   def dance_params
-    params.permit(dance: [:id, :title])
+    params.permit(:id)
   end
 end
