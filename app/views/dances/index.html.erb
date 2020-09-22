@@ -1,12 +1,13 @@
-<div class="container-dances">
   <div class="title">
     <h1>Choose your favorite style</h1>
   </div>
+<div class="container-dances">
 <%= link_to "Home", root_path %>
   <div class="dances">
     <% @dances.each do |dance| %>
     <div class="card-dances">
       <h3><%= link_to dance.title.capitalize, dance_path(dance) %></h3>
+      <p><%=  @dancer.count %> partners</p>
     </div>
     <% end %>
   </div>
