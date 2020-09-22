@@ -1,12 +1,13 @@
-body {
-  background-color:#FCFCFC;
+.background {
+  background-color:#f91be3;
+  background:cover;
 }
 
 .container {
-  background-color:#791E94;
-  color:white;
+  background-color:white;
+  color:#791E94;
   height: 85vh;
-  border-radius:10px;
+  border-radius:5px;
 
     .title {
 
@@ -15,6 +16,7 @@ body {
         font-family:'Marck Script';
         font-weight:bold;
         font-size: 120px;
+        color:#791E94;
       }
     }
   }
@@ -32,7 +34,7 @@ body {
 
       a {
         justify-content:space-around;
-        color:white;
+        color:#791E94;
         font-size:25px;
       }
     }
