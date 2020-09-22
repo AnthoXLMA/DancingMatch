@@ -9,5 +9,5 @@ class User < ApplicationRecord
   has_many :appointments
   has_many :partners, through: :appointments
 
-  validates :pseudo, presence: true
+  # validates :pseudo, presence: true
 end
