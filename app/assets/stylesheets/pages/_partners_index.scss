@@ -13,24 +13,28 @@
 
   .partners {
     display:grid;
-    width:900px;
-    margin:0;
-    padding:30px;
-    background-color:#fffff5;
+    grid-template-columns: 1fr 1fr 5fr;
+    grid-gap: 10px;
+    justify-content:space-between;
 
     h3 {
       font-size: 20px;
     }
 
   .card-partners {
-    justify-content:space-around;
-    margin-left:30px;
-    margin-top: 10px;
+    // display: grid;
+    min-width:250px;
     width:250px;
     height:250px;
-    // border:solid #848ccf;
-    border-radius: 20px;
-    background-color:#848ccf;
+    padding: 5px;
+    // flex-grow: 1;
+    margin-left:30px;
+    margin-top: 10px;
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    // box-shadow: 1px 0px 10px grey;
+    background-color:white;
     h2 {
       color:white;
       margin-left:20px;

@@ -5,19 +5,19 @@
 <%= link_to "Update your profile", edit_profile_path %>
 
 <div class="container-profil">
-  <h2>Your user name is <%= @user.pseudo %>
+  <h2>Your user name is <%= @user.pseudo %></h2>
   <h2><%= @user.age %></h2>
   <h2><%= @user.location %></h2>
-  <h2><%= @user.experience %></h2>
+  <h2><%= @user.experience %> years</h2>
 </div>
 
 <div class="user-dances">
-  <h3>My dances</h3>
-  <h2><% @user.dances.each do |user_dance| %>
+  <h3><%= @dances %></h3>
+  <h2><%= @user.dances.each do |dance| %>
     <div class="list-mydances">
-     <h2><%= dance.title %></h2>
+     <h2><%= @dance.title %></h2>
     </div>
-    <% end %>
+  <% end %>
 </div>
 
 <div class="user-partners">
@@ -25,4 +25,6 @@
 </div>
 <div class="user-addon">
   <h3>Add a video</h3>
+  <h3>Meet all partners</h3>
+  <h3>See all dances</h3>
 </div>
