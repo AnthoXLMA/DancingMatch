@@ -26,13 +26,12 @@ class DancesController < ApplicationController
     # @partner_dance = Partner.find(partner_params[:id])
     # recuperer l'ensemble des partenaires de chaque danse
     @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
+
     @dancer = @dancers.each do |yd|
       puts yd
-  end
+    end
+
     @list = @dancer.map(&:pseudo)
-    # @listing = @list.each do |surname|
-    #   surname
-    # end
   end
 
   private

@@ -35,6 +35,7 @@ User.destroy_all
 #       title: dance
 #     )
 #     dance.save!
+#   end
 #     puts 'Creating Users...'
 #       user = User.new(
 #         pseudo: 'Youssef',
@@ -50,7 +51,6 @@ User.destroy_all
 #       )
 #       user.dance = dance
 #       user.save!
-# end
 
 puts "2. Creating DANCES..."
 dance_names = [
@@ -85,7 +85,7 @@ dance_names.each do |dance_name|
     )
     dance.save!
     puts 'Creating Partners...'
-    5.times do
+    # 5.times do
     partner = Partner.new(
       pseudo: 'Anthony',
       gender: "Gentleman",
@@ -214,7 +214,7 @@ dance_names.each do |dance_name|
     )
     partner.dance = dance
     partner.save!
-  end
+  # end
 end
 # Partner.destroy_all
 # Dance.destroy_all

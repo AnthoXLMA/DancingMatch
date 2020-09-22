@@ -2,7 +2,8 @@
 
 <div class="container-partner">
     <h1><%= @partner.pseudo %></h1>
-    <h2><%= link_to @dance, dance_partner_path(@dance) %></h2>
+<!--     lien pour voir les partenaires de ce partenaire dans cette danse
+ -->    <h2><%= link_to @dance, dance_partner_path(@dance) %></h2>
   <div class="infos-partner">
     <h3><%= @partner.gender %></h3>
     <h3><%= @partner.age %></h3>
