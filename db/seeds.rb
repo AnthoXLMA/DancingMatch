@@ -36,33 +36,33 @@ dances.each do |dance|
   end
 
 puts 'Creating Users...'
-user = User.new(
+youssef = User.new(
   pseudo: 'Youssef',
   gender: "Gentleman",
   age: "37",
-  email: "tna.mani@gmail.com",
+  email: "youss@exemple.com",
   password: "secret",
-  encrypted_password: "password",
+  # encrypted_password: "password",
   location: "Paris",
   experience: "3",
   contact: "06023002233",
   dance_id: '2'
 )
-user.save!
+youssef.save!
 
-user = User.new(
+jimmy = User.new(
   pseudo: 'Jimmy',
   gender: "Gentleman",
   age: "30",
-  email: "jimmy@gmail.com",
+  email: "jimmy@exemple.com",
   password: "secret",
-  encrypted_password: "password",
+  # encrypted_password: "password",
   location: "Marseille",
   experience: "1",
   contact: "06025002233",
   dance_id: '5'
 )
-user.save!
+jimmy.save!
 
 puts 'Creating Partners...'
 anthony = Partner.new(
