@@ -10,6 +10,11 @@
   <% end %>
 </div>
 
+<div>
+  <h2>Add this dance to your experience</h2>
+  <%= link_to "Add this dance", dance_partners_path(@dance.id),method: :post, class:"btn-ghost", id: "dance" %>
+</div>
+
 <div class="bouton-home">
   <%= link_to "Home", root_path %>
 </div>
