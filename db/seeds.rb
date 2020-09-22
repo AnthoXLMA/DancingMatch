@@ -36,8 +36,8 @@ dances.each do |dance|
   end
 
 puts 'Creating Users...'
-youssef = User.new(
-  pseudo: 'Youssef',
+anthony = User.new(
+  pseudo: 'Anthony',
   gender: "Gentleman",
   age: "37",
   email: "youss@exemple.com",
@@ -48,7 +48,7 @@ youssef = User.new(
   contact: "06023002233",
   dance_id: '2'
 )
-youssef.save!
+anthony.save!
 
 jimmy = User.new(
   pseudo: 'Jimmy',

@@ -1,8 +1,22 @@
-<h1>Profil de<% @user %></h1>
+<h1>Profil de <%= @user.pseudo %></h1>
+
 <%= link_to "Home", root_path %>
+
 <%= link_to "Update your profile", edit_profile_path %>
-your user name is<%= @user %>
 
-<h1>My partners</h1>
-<h1>Add a video</h1>
+<div class="container-profil">
+  <h2>Your user name is <%= @user.pseudo %>
+  <h2><%= @user.age %></h2>
+  <h2><%= @user.location %></h2>
+  <h2><%= @user.experience %></h2>
+</div>
 
+<div class="user-dances">
+  <h3>My dances</h3>
+</div>
+<div class="user-partners">
+  <h3>My partners</h3>
+</div>
+<div class="user-addon">
+  <h3>Add a video</h3>
+</div>
