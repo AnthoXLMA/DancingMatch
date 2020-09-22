@@ -65,8 +65,8 @@ jimmy = User.new(
 jimmy.save!
 
 puts 'Creating Partners...'
-anthony = Partner.new(
-  pseudo: 'Anthony',
+adel = Partner.new(
+  pseudo: 'Adel',
   gender: "Gentleman",
   age: "37",
   location: "Nantes",
@@ -75,7 +75,7 @@ anthony = Partner.new(
   dance_id: '3',
 )
 # anthony.dances = dances
-anthony.save!
+adel.save!
 
 zita = Partner.new(
   pseudo: 'Zita',

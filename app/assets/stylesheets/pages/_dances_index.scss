@@ -15,20 +15,20 @@
 
   .dances {
     display:grid;
-    grid-template-columns: 1fr 1fr 5fr;
+    grid-template-columns: 1fr 1fr 1fr 5fr;
     grid-gap: 10px;
-    width:900px;
     justify-content:space-between;
+
     h3 {
       font-size: 20px;
     }
 
   .card-dances {
     margin:20px;
-    border-radius: 5px;
+    border-radius: 2px;
     min-width:250px;
     width:250px;
-    height:250px;
+    height:120px;
     padding: 5px;
     // flex-grow: 1;
     margin-left:30px;

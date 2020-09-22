@@ -1,12 +1,12 @@
   <div class="title">
-    <h1>Meet all dancers</h1>
+    <h1>Our Dancing Community</h1>
   </div>
 <%= link_to "Home", root_path %>
   <div class="partners">
     <% @partners.each do |partner| %>
     <div class="card-partners">
       <h2><%= link_to partner.pseudo, partner_path(partner) %></h2>
-      <h3><%= partner.dance.title %></h3>
+
     </div>
     <% end %>
   </div>
