@@ -1,18 +1,16 @@
 <h1>Dancing Partners</h1>
-<%= link_to "Home", root_path %>
-
-<h1><%= link_to @style, dance_partners_path(@dance) %></h1>
-
-<h1>This dance has <%=  @dancer.count %> Dancing Partners</h1>
+<h1><%= link_to @style, dances_path(@dance) %></h1>
+<h1>This dance has <%=  @dancer.count %> partners</h1>
 
 <div class="partners-list">
-  <%= @list.each do |pseudo| %>
+  <% @list.each do |pseudo| %>
     <div class="listing-partners">
       <h2><%= pseudo %></h2>
     </div>
   <% end %>
+</div>
+
 <div class="bouton-home">
   <%= link_to "Home", root_path %>
-</div>
 </div>
 

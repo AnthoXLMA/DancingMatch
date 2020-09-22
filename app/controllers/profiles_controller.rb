@@ -1,11 +1,22 @@
 class ProfilesController < ApplicationController
   def show
     @user = current_user
+    @dances = Dance.all
+    @dancing_user = @user.dances
   end
 
   def edit
-    flash[:alert] = "alert"
+    # flash[:alert] = "alert"
     @user = current_user
+    @dances = Dance.all
+    @menu_dances = @dances.each do |dance|
+      dance
+    end
+  end
+
+  def new
+    @dance = Dance.new
+    @dances = @partner.dance
   end
 
   def update

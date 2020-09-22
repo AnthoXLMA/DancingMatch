@@ -40,6 +40,18 @@
   </div>
 </div>
 
+<div class="pt-30 row justify-content-center">
+  <div class="col-12 col-md-4">
+    <h4 class="text-center">Add a dance</h4>
+    <%= simple_form_for current_user, url: profile_path do |f| %>
+      <%= f.input :dances, placeholder: "Your dance" %>
+      <div class="form-actions">
+        <%= f.submit "Add", class: "btn btn-flat" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
 <div class="show-profile">
   <div class="container-left">
     <h2>My videos</h2>

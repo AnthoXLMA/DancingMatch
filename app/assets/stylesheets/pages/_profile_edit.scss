@@ -1,0 +1,32 @@
+// Place all the styles related to the Styles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.title {
+  text-align:center;
+}
+
+.dance-selection {
+  margin-right:auto;
+  margin-left:auto;
+  display:grid;
+  background-color: #791E94;
+  width:800px;
+  h1 {
+    color:white;
+  }
+
+  .dances_menu {
+    background-color: #791E94;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1px;
+
+    ol {
+        color:white;
+        font-size: 20px;
+      }
+      .menu {
+        border-radius:10px;
+      }
+    }
+  }
