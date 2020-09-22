@@ -1,6 +1,10 @@
 class DancesController < ApplicationController
   def index
     @dances = Dance.all
+    @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
+    @dancer = @dancers.each do |yd|
+      puts yd
+    end
   end
 
   def new
