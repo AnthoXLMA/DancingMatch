@@ -13,7 +13,7 @@ class PartnersController < ApplicationController
   def show
     @user = current_user
     @partner = Partner.find(params[:id])
-    @dance = @partner.dance.title
+    @dance = Dance.find(params[:id])
     @styles = @dances
     @dancers = Dance.select(:title)
   end
@@ -34,6 +34,6 @@ class PartnersController < ApplicationController
   private
 
   def partner_params
-    params.require(:partner).permit(:pseudo, :gender, :age, :location, :dance, :experience, :contact, :email, :password, :dance_id)
+    params.permit(:pseudo, :gender, :age, :location, :dance, :experience, :contact, :email, :password, :dance_id)
   end
 end

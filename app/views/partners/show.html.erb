@@ -1,9 +1,10 @@
 <%= link_to "Back", :back %>
+<%= link_to "Home", root_path %>
+<%= link_to "My profile", profile_path %>
 
 <div class="container-partner">
     <h1><%= @partner.pseudo %></h1>
-<!--     lien pour voir les partenaires de ce partenaire dans cette danse
- -->    <h2><%= link_to @dance, dance_partner_path(@dance) %></h2>
+    <h2><%= link_to @dance.title, dance_partner_path(@dance) %></h2>
   <div class="infos-partner">
     <h3><%= @partner.gender %></h3>
     <h3><%= @partner.age %></h3>
@@ -11,4 +12,7 @@
     <h3><%= @partner.location %></h3>
   </div>
 </div>
-<%= link_to "Back", :back %>
+  <div class="contact-partner">
+    <h4>Contact this dancer</h4>
+  </div>
+
