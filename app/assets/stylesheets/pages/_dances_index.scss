@@ -1,30 +1,43 @@
 // Place all the styles related to the dances controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.contain {
+.container-dances {
+  background-color: grey;
 
   .title {
     text-align:center;
+
     h1 {
       font-size:30px;
       font-weight:bold;
     }
   }
 
-  .partners {
-    // display:grid;
+  .dances {
+    display:grid;
+    grid-template-columns: 1fr 1fr 5fr;
+    grid-gap: 10px;
     width:900px;
     justify-content:space-between;
     h3 {
       font-size: 20px;
     }
 
-  .card-partner {
+  .card-dances {
     margin:20px;
-    width:220px;
-    height:200px;
-    border:solid grey;
     border-radius: 5px;
+    min-width:250px;
+    width:250px;
+    height:250px;
+    padding: 5px;
+    // flex-grow: 1;
+    margin-left:30px;
+    margin-top: 10px;
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    // box-shadow: 1px 0px 10px grey;
+    background-color:white;
     h2 {
       font-size: 15px;
     }

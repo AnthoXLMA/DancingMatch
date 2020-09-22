@@ -13,7 +13,13 @@
 
 <div class="user-dances">
   <h3>My dances</h3>
+  <h2><% @user.dances.each do |user_dance| %>
+    <div class="list-mydances">
+     <h2><%= dance.title %></h2>
+    </div>
+    <% end %>
 </div>
+
 <div class="user-partners">
   <h3>My partners</h3>
 </div>
