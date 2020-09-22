@@ -1,7 +1,7 @@
 class DancesController < ApplicationController
   def index
     @dances = Dance.all
-    @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
+    @dancers = Partner.where(dance_id: dance_params[:id])
     @dancer = @dancers.each do |yd|
       puts yd
     end
@@ -28,9 +28,7 @@ class DancesController < ApplicationController
     # attribuer une variable qui recupere l'ID + le title de la danse
     @style = @dance.title
     # @partner_dance = Partner.find(partner_params[:id])
-    # recuperer l'ensemble des partenaires de chaque danse
     @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
-
     @dancer = @dancers.each do |yd|
       puts yd
     end
