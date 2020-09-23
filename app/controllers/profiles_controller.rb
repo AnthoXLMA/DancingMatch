@@ -2,19 +2,28 @@ class ProfilesController < ApplicationController
   def show
     @user = current_user
     @dances = Dance.all
-    @dance = @dances.each do |dance|
-      puts dance
-    end
-    @user_dance = @user
-    # @dance_existing = current_user.dances.where(dance_id: @dance)
+    @dance = Dance.new
+    @dance.save
+    # redirect_to profile_path
+  end
+
+  def new
+    @dance = Dance.new
   end
 
   def edit
     flash[:alert] = "alert"
     @user = current_user
+  end
+
+  def create
+    @user = current_user
     @dances = Dance.all
-    @menu_dances = @dances.each do |dance|
-      dance.title
+    @dance = Dance.find(dance_params)
+    if @dance.save
+      redirect_to dance_path(@dance)
+    else
+      render :new
     end
   end
 

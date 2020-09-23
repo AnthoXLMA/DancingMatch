@@ -11,9 +11,8 @@
 </div>
 
 <div class="add-dance">
-  <%= link_to "Select this dance", profile_path, method: :create, class:"btn-ghost", id: "dance" %>
+  <%= link_to "Select this dance", profile_dance_path(@dance.id),method: :post, class:"btn-ghost", id: "dance" %>
 </div>
-
 
 <div class="bouton-home">
   <%= link_to "Home", root_path %>
