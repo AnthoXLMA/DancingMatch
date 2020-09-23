@@ -1,7 +1,36 @@
 puts "cleaning DB..."
 Partner.destroy_all
-User.destroy_all
 Dance.destroy_all
+User.destroy_all
+
+puts 'Creating Users...'
+anthony = User.new(
+  pseudo: 'Anthony',
+  gender: "Gentleman",
+  age: "37",
+  email: "antho@example.com",
+  password: "secret",
+  # encrypted_password: "password",
+  location: "Paris",
+  experience: "3",
+  contact: "06023002233",
+  dance: ["Reggaeton", "Kizomba", "Salsa"]
+)
+anthony.save!
+
+jimmy = User.new(
+  pseudo: 'Jimmy',
+  gender: "Gentleman",
+  age: "30",
+  email: "jimmy@example.com",
+  password: "secret",
+  # encrypted_password: "password",
+  location: "Marseille",
+  experience: "1",
+  contact: "06025002233",
+  dance: ["Reggaeton", "Kizomba", "Salsa"]
+)
+jimmy.save!
 
 puts "Creating dances..."
 dances = [
@@ -34,35 +63,6 @@ dances.each do |dance|
     )
     dance.save!
   end
-
-puts 'Creating Users...'
-anthony = User.new(
-  pseudo: 'Anthony',
-  gender: "Gentleman",
-  age: "37",
-  email: "youss@exemple.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Paris",
-  experience: "3",
-  contact: "06023002233",
-  dance_id: '2'
-)
-anthony.save!
-
-jimmy = User.new(
-  pseudo: 'Jimmy',
-  gender: "Gentleman",
-  age: "30",
-  email: "jimmy@exemple.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Marseille",
-  experience: "1",
-  contact: "06025002233",
-  dance_id: '5'
-)
-jimmy.save!
 
 puts 'Creating Partners...'
 adel = Partner.new(

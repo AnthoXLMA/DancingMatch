@@ -7,7 +7,8 @@
   <h3><%= link_to "Meet all partners", partners_path %></h3>
   <h3><%= link_to "See all dances", dances_path %></h3>
   <h3><%= link_to "Update your profile", edit_profile_path %></h3>
-  <h3>Add a video</h3>
+  <h3><%= link_to "Add a video" %></h3>
+  <h3><%= link_to "Create an event" %></h3>
 </div>
 
 <div class="show-profile">
@@ -16,39 +17,43 @@
     <h2><%= @user.age %> years old</h2>
     <h2><%= @user.location %></h2>
     <h2><%= @user.experience %> years dancing XP</h2>
+
     <div class="user-dances">
-        <h3>My dances</h3>
-        <h3><%= @dances %></h3>
-        <h2><%= @user.dances.each do |dance| %>
-          <div class="list-mydances">
-           <h2><%= @dances.title %></h2>
-          </div>
-        <% end %></h2>
-          <div class="your-Xp">
-          <h3>Experiences</h3>
-           <h2><%= link_to "Add an experience", edit_profile_path %></h2>
-          </div>
+      <h3>My dances</h3>
+      <!-- formulaire de Add a Dance -->
+      <div class="pt-30 row justify-content-center">
+        <div class="col-12 col-md-4">
+        <h4 class="text-center">Add a dance</h4>
+          <%= simple_form_for current_user, url: profile_path do |f| %>
+          <%= f.input :dances, placeholder: "Your dance" %>
+        <div class="form-actions">
+          <%= f.submit "Add", class: "btn btn-flat" %>
+        </div>
+          <% end %>
+        </div>
       </div>
+      <h3>You have <%= @user.dances.count %> dance selected</h3>
+        <h2><%= @dances.each do |dance| %>
+        <div class="list-mydances">
+         <h2><% @dance %></h2>
+        </div>
+        <% end %></h2>
+      <div class="your-Xp">
+        <h3>Experiences</h3>
+        <h2><%= link_to "Add an experience", edit_profile_path %></h2>
+      </div>
+    </div>
   </div>
   <div class="container-right">
       <div class="user-partners">
         <h3>My partners</h3>
       </div>
       <div class="user-partners">
-        <h3>My appointments</h3>
+        <h3>Appointments</h3>
       </div>
-  </div>
-</div>
-
-<div class="pt-30 row justify-content-center">
-  <div class="col-12 col-md-4">
-    <h4 class="text-center">Add a dance</h4>
-    <%= simple_form_for current_user, url: profile_path do |f| %>
-      <%= f.input :dances, placeholder: "Your dance" %>
-      <div class="form-actions">
-        <%= f.submit "Add", class: "btn btn-flat" %>
+      <div class="user-partners">
+        <h3>Events</h3>
       </div>
-    <% end %>
   </div>
 </div>
 

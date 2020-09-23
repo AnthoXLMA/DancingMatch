@@ -7,7 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :location
       t.integer :experience
       t.string :contact
-      t.references :dances
+      t.references :dances, foreign_key: true
 
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""

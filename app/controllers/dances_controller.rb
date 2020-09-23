@@ -12,27 +12,21 @@ class DancesController < ApplicationController
   end
 
   def create
-    @partner = Partner.find(params[:dance])
-    @dance = Dance.new(dance_params)
-    @dance.title = @partner.dance
+    @dance = Dance.find(dance_params[:id])
     if @dance.save
-      redirect_to partner_path(@partner)
+      redirect_to profile_path
     else
-      render 'partners/show'
+      render 'users/show'
     end
   end
 
   def show
-    # recuperer le ID de la "dance" pour afficher avec le .title dans la show
     @dance = Dance.find(dance_params[:id])
-    # attribuer une variable qui recupere l'ID + le title de la danse
     @style = @dance.title
-    # @partner_dance = Partner.find(partner_params[:id])
     @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
     @dancer = @dancers.each do |yd|
       puts yd
     end
-
     @list = @dancer.map(&:pseudo)
   end
 

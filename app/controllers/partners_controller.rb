@@ -19,13 +19,13 @@ class PartnersController < ApplicationController
   end
 
   def create
-    @dance = Dance.find(params[:id])
+    # @dance = Dance.find(params[:id])
     @partner = Partner.new(partner_params)
-    @partner.dance = @dance
-    @partners = @dance.partners
+    @dances = @partner.dance_id
+    # @partners = @dance.partners
     if @partner.save
       redirect_to partner_path(@partner)
-      @dance.title << @partner.dance
+      # @dance << @partner.dance
     else
       render :new
     end

@@ -19,6 +19,7 @@
   <div class="col-12 col-md-4">
     <h4 class="text-center">Add a dance</h4>
     <%= simple_form_for current_user, url: profile_path do |f| %>
+      <%= link_to "Add this dance", profile_path(@dances),method: :update, class:"btn-ghost", id: "dance" %>
       <%= f.input :dances, placeholder: "Your dance" %>
       <div class="form-actions">
         <%= f.submit "Add", class: "btn btn-flat" %>
@@ -46,3 +47,4 @@
     </div>
   </div>
 </div>
+
