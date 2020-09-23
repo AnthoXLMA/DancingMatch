@@ -21,24 +21,43 @@
 
   .container-left {
     display:grid;
-    border:solid grey;
-    border-width:1px;
-    // border-radius: 20px 20px 20px 20px;
     width:100%;
     margin-left:0px;
     height:auto;
-    padding:20px;
-    // box-shadow: 10px 10px 25px 10px rgba(0,0,0,0.21);
-
     h2 {
       line-height: 1.3;
       font-size:20px;
     }
+    .user-details {
+      display:flex;
+      width:100%;
+      background-color:#791E94;
+      justify-content:space-between;
+      align-items:center;
+      align-self:center;
+      h1 {
+      margin-right: 10px;
+      margin-left:10px;
+      padding:10px;
+      font-size:40px;
+      font-weight: bold;
+      color:white;
+      }
+
+      h2 {
+      margin-right: 10px;
+      margin-left:10px;
+      padding:10px;
+      font-size:20px;
+      font-weight: bold;
+      color:white;
+    }
+  }
 
   }
   .container-right {
     display:grid;
-    border:solid grey;
+    background-color:#B3B6B7;
     border-width:1px;
     border-radius:0px;
     min-width:200px;

@@ -2,6 +2,38 @@
   <h1>Update your profile</h1>
 </div>
 
+
+<form>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Example select</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Example multiple select</label>
+    <select multiple class="form-control" id="exampleFormControlSelect2">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+</form>
+
 <div class="dance-selection">
   <h1>Select a dance</h1>
   <div class="alt-menu">
@@ -14,37 +46,3 @@
     </div>
   </div>
 </div>
-
-<div class="pt-30 row justify-content-center">
-  <div class="col-12 col-md-4">
-    <h4 class="text-center">Add a dance</h4>
-    <%= simple_form_for current_user, url: profile_path do |f| %>
-      <%= link_to "Add this dance", profile_path(@dances),method: :update, class:"btn-ghost", id: "dance" %>
-      <%= f.input :dances, placeholder: "Your dance" %>
-      <div class="form-actions">
-        <%= f.submit "Add", class: "btn btn-flat" %>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<div class="pt-30 container">
-  <h1 class="text-center">New Dance</h1>
-  <div class="row justify-content-center">
-    <div class="col-6">
-      <%= simple_form_for current_user, url: profile_path do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-        <div class="form-inputs">
-          <%= f.input :dances %>
-        </div>
-
-        <div class="form-actions">
-          <%= f.button :submit, class: "btn btn-flat" %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
