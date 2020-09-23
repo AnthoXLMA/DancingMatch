@@ -2,8 +2,8 @@ class AppointmentsController < ApplicationController
   def create
     @appointment = Appointment.new
     @appointment.user = current_user
-    @partner = Partner.find(params[:partner_id])
-    @appointment.partner = @partner
-    redirect_to partner_path(@partner, appointed: true) if @appointment.save
+    @dance = Dance.find(params[:dance_id])
+    @appointment.dance = @dance
+    redirect_to dance_path(@dance, appointment: true) if @appointment.save
   end
 end

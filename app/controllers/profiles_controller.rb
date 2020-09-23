@@ -2,21 +2,20 @@ class ProfilesController < ApplicationController
   def show
     @user = current_user
     @dances = Dance.all
-    @dancing_user = @user.dances
+    @dance = @dances.each do |dance|
+      puts dance
+    end
+    @user_dance = @user
+    # @dance_existing = current_user.dances.where(dance_id: @dance)
   end
 
   def edit
-    # flash[:alert] = "alert"
+    flash[:alert] = "alert"
     @user = current_user
     @dances = Dance.all
     @menu_dances = @dances.each do |dance|
-      dance
+      dance.title
     end
-  end
-
-  def new
-    @dance = Dance.new
-    @dances = @partner.dance
   end
 
   def update
@@ -28,6 +27,6 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:pseudo, :gender, :age, :location, :experience, :contact, :email)
+    params.permit(:pseudo, :gender, :age, :location, :experience, :contact, :email, :dance)
   end
 end
