@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     resources :appointments, only: [:create]
   end
 
-  resources :dances, only: [:index, :show]
+  resources :dances, only: [:index, :show, :create]do
+  resources :users
+end
 
   resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
