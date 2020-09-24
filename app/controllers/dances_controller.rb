@@ -13,6 +13,7 @@ class DancesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @dance = Dance.find(params[:id])
     @style = @dance.title
     @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
@@ -23,10 +24,21 @@ class DancesController < ApplicationController
   end
 
   def create
+  #   @user = current_user
+  #   @dance = Dance.find(params[:id])
+  #   @dance_user = @dance.user_id
+  #   @dance = Dance.new
+  #   @dances = @user.dances
+  #   # @dance.save
+  # def create
     @user = current_user
-    @dance = Dance.find(params[:id])
-    @dance_user = @dance.user_id
-    @dance.save
+    @dance = Dance.new(dance_params)
+    @dance.user = @user
+    if @dance.save
+      redirect_to dance_path(@dance)
+    else
+      render 'dances/show'
+    end
   end
 
   def update

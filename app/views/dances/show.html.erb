@@ -18,3 +18,26 @@
   <%= link_to "Home", root_path %>
 </div>
 
+
+  <div class="contain">
+    <h1><%= @dance.title %></h1>
+  </div>
+
+<div class="contain">
+  <div class="cards">
+    <% @user.dances.each do |dance| %>
+      <%= render "dances/dance_card", dance: dance %>
+    <% end %>
+  </div>
+  <div class="pt-30 row justify-content-center">
+    <div class="col-12 col-md-4">
+      <h4 class="text-center">Add a dance</h4>
+      <%= simple_form_for @dance do |f| %>
+        <%= f.input :title, placeholder: "your dance" %>
+        <div class="form-actions">
+          <%= f.submit "Add", class: "btn btn-flat" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
