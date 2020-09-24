@@ -42,6 +42,7 @@
          <h2><% @user.dance %></h2>
         </div>
         <% end %></h2>
+  <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
       <div class="your-Xp">
         <h3>Experiences</h3>
         <h2><%= link_to "Add an experience", edit_profile_path %></h2>
@@ -68,3 +69,5 @@
     </div>
   </div>
 </div>
+
+
