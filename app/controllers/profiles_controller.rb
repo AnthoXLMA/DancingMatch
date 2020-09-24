@@ -1,10 +1,10 @@
 class ProfilesController < ApplicationController
   def show
     @user = current_user
-    @dances = Dance.all
+    @dances = Dance.select('dances.*')
     @dance = Dance.new
+    @style = @dance.title
     @dance.save
-    # redirect_to profile_path
   end
 
   def new

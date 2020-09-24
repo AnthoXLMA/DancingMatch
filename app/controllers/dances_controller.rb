@@ -1,5 +1,4 @@
 class DancesController < ApplicationController
-  before_action :set_dance, only: [:show, :new, :edit, :update, :destroy]
   def index
     @dances = Dance.all
     @dancers = Partner.where(dance_id: dance_params[:id])
@@ -14,10 +13,6 @@ class DancesController < ApplicationController
   end
 
   def show
-    @user = current_user
-    @dance = Dance.new
-    @dances = @user.dances
-
     @dance = Dance.find(params[:id])
     @style = @dance.title
     @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
@@ -29,13 +24,14 @@ class DancesController < ApplicationController
 
   def create
     @user = current_user
-    @dance = Dance.new(dance_params)
+    @dance = Dance.find(params[:id])
     @dance_user = @dance.user_id
     @dance.save
   end
 
   def update
-    @dance = Dance.new
+    @dance = Dance.find(params[:id])
+    @dance.update(params[:dance])
     redirect_to profile_path
   end
 
@@ -43,9 +39,5 @@ class DancesController < ApplicationController
 
   def dance_params
     params.permit(:id)
-  end
-
-  def set_dance
-    @dance = Dance.find(params[:id])
   end
 end

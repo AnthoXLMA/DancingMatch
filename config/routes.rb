@@ -5,13 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   # devise_for :partners
 
-  resource :profile, only: [:edit, :update, :show, :new] do
-    resources :dances, only: [:index, :new, :create, :update]
+  resource :profile, only: [:edit, :update, :show] do
+    resources :appointments, only: [:create]
   end
 
-  resources :dances, only: [:index, :new, :create, :show, :update] do
-    resources :partners, only: [:index, :new, :show, :create]
-  end
+  resources :dances, only: [:index, :show]
 
   resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
