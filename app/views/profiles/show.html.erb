@@ -21,44 +21,50 @@
     </div>
     <div class="user-dances">
       <!-- formulaire de Add a Dance -->
+      <div class="cards">
+    <%= @user.dances.each do |dance| %>
+      <% render "dances/dance_card", dances: @dances %>
+    <% end %>
+  </div>
       <div class="pt-30 row justify-content-center">
         <div class="col-12 col-md-4">
         <h4 class="text-center">Add a dance</h4>
-          <%= simple_form_for(@dance) do |f| %>
+          <%= simple_form_for (@dance) do |f| %>
           <%= f.label :dance, placeholder: "Your dance" %>
             <%= f.input :title %>
-            <%= f.submit "Add", class: "btn btn-flat" %>
+            <%= f.submit "Add", method: :patch, class: "btn btn-flat" %>
           <% end %>
         </div>
       </div>
+      <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
+      <h4>My selected dances</h4>
       <h3>You have <%= @user.dances.count %> dances selected</h3>
-
-
-      <h4>My dances by group</h4>
-      <h3><%= @user.dances.each do |dance| %>
-        <h3><% @dances.each do |title| %>
-          <%= title.title %>
+      <h3><%= @user.dances.each do |my_dance| %>
+        <h3><%= @user.dances.each do |title| %>
+          <% title.title %>
         </h3>
           <% end %>
         <% end %>
-          <h3>My dances by own</h3>
-            <h2><%= @user.dances.each do |dance| %>
+          <h3>My dances</h3>
+            <h2><% @user.dances.each do |dance| %>
           <div class="list-mydances">
-            <h2><%= @user.dance %></h2>
+            <h2><% @dances.each do |style| %>
+              <%= style %>
+            </h2>
+            <% end %>
           </div>
         <% end %></h2>
-
-
-        <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
       <div class="your-Xp">
         <h3>Experiences</h3>
         <h2><%= link_to "Add an experience", edit_profile_path %></h2>
       </div>
     </div>
-  </div>
   <div class="container-right">
       <div class="user-partners">
         <h3>My partners</h3>
+        <%= @user_partners.each do |partner|%>
+        <% partner.pseudo %>
+        <% end %>
       </div>
       <div class="user-partners">
         <h3>Appointments</h3>
