@@ -34,10 +34,10 @@
       <h3>You have <%= @user.dances.count %> dances selected</h3>
 
 
-      <h3>My dances by group</h3>
+      <h4>My dances by group</h4>
       <h3><%= @user.dances.each do |dance| %>
-        <h3><%= @dances.each do |title| %>
-          <%= title %>
+        <h3><% @dances.each do |title| %>
+          <%= title.title %>
         </h3>
           <% end %>
         <% end %>
