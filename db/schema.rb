@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_09_23_112642) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "dance"
+    t.string "dances"
     t.bigint "dance_id"
     t.index ["dance_id"], name: "index_users_on_dance_id"
     t.index ["email"], name: "index_users_on_email", unique: true

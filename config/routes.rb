@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # devise_for :partners
 
   resource :profile, only: [:edit, :update, :show] do
-    resources :appointments, only: [:create]
+    resources :dances, only: [:create, :show]
   end
 
   resources :dances, only: [:index, :show, :create]do

@@ -16,14 +16,15 @@
       <option>3</option>
       <option>4</option>
       <option>5</option>
+      <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
     </select>
   </div>
   <div class="form-group">
     <label for="exampleFormControlSelect2">Example multiple select</label>
     <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
+      <option><% @user.dances %></option>
+      <option>@user.dances</option>
+      <option>@user.dances</option>
       <option>4</option>
       <option>5</option>
     </select>
@@ -38,7 +39,7 @@
   <h1>Select a dance</h1>
   <div class="alt-menu">
     <div class="dances_menu">
-      <h2><% @menu_dances.map do |dance| %></h2>
+      <h2><% @user.dances.map do |dance| %></h2>
         <div class="menu">
          <ol><%= dance.title %></ol>
         </div>

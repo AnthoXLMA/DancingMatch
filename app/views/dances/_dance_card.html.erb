@@ -1,8 +1,8 @@
-<%= link_to dance_path(dance) do %>
-  <div class="card-garden">
-    <div class="card-garden-infos">
+<%= link_to dances_path(@dances) do %>
+  <div class="card-dance">
+    <div class="card-dances-infos">
       <div>
-        <h2><%= dance.title %></h2>
+        <h2><% @dances %></h2>
       </div>
     </div>
   </div>
