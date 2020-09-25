@@ -1,14 +1,5 @@
 <h1>Dancing Partners</h1>
   <h1><%= link_to @style, dances_path(@dance) %></h1>
-<h1>This dance has <%=  @dancer.count %> partners</h1>
-
-<div class="partners-list">
-  <% @list.each do |pseudo| %>
-    <div class="listing-partners">
-      <h2><%= pseudo %></h2>
-    </div>
-  <% end %>
-</div>
 
 <div class="add-dance">
   <%= link_to "Select this dance", profile_path(@user),method: :post, dance: @user %>
@@ -17,7 +8,6 @@
 <div class="bouton-home">
   <%= link_to "Home", root_path %>
 </div>
-
 
   <div class="contain">
     <h1><%= @dance.title %></h1>
@@ -31,7 +21,7 @@
   </div>
   <div class="pt-30 row justify-content-center">
     <div class="col-12 col-md-4">
-      <h4 class="text-center">Add a dance</h4>
+      <h4 class="text-center">Add this dance to your profile</h4>
       <%= simple_form_for @dance do |f| %>
         <%= f.input :title, placeholder: "your dance" %>
         <div class="form-actions">

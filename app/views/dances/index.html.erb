@@ -1,11 +1,11 @@
-  <div class="title">
-    <h1>Dances</h1>
-  </div>
+<div class="title">
+  <h1>Dances</h1>
+</div>
 <div class="container-dances">
-<%= link_to "Home", root_path %>
-<%= link_to "create a dance", new_dance_path %>
-  <div class="dances">
-    <% @dances.each do |dance| %>
+  <%= link_to "Home", root_path %>
+  <%= link_to "Create a Dance", new_dance_path %>
+    <div class="dances">
+      <% @dances.each do |dance| %>
     <div class="card-dances">
       <h3><%= link_to dance.title, dance_path(dance) %></h3>
       <p><%=  @dancer.count %> partners</p>
@@ -14,4 +14,3 @@
   </div>
   <%= link_to "Back", :back %>
 </div>
-<%= link_to "Home", root_path %>
