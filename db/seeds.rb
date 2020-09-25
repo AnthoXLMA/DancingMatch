@@ -14,7 +14,6 @@ anthony = User.new(
   location: "Paris",
   experience: "3",
   contact: "06023002233",
-  dance: "Reggaeton",
   dance_id: [2, 4, 6],
 )
 anthony.save!
@@ -29,7 +28,6 @@ jimmy = User.new(
   location: "Marseille",
   experience: "1",
   contact: "06025002233",
-  dance: ["Reggaeton", "Kizomba", "Salsa"],
   dance_id: [2, 4, 6],
 )
 jimmy.save!
