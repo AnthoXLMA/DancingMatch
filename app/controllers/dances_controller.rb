@@ -14,6 +14,7 @@ class DancesController < ApplicationController
 
   def show
     @user = current_user
+    @dance = Dance.new(dance_params)
     @dance = Dance.find(params[:id])
     @style = @dance.title
     @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
@@ -30,12 +31,11 @@ class DancesController < ApplicationController
   #   @dance = Dance.new
   #   @dances = @user.dances
   #   # @dance.save
-  # def create
     @user = current_user
     @dance = Dance.new(dance_params)
     @dance.user = @user
     if @dance.save
-      redirect_to dance_path(@dance)
+      redirect_to profile_path
     else
       render 'dances/show'
     end
@@ -43,13 +43,13 @@ class DancesController < ApplicationController
 
   def update
     @dance = Dance.find(params[:id])
-    @dance.update(params[:dance])
+    @dance.update(dance_params)
     redirect_to profile_path
   end
 
   private
 
   def dance_params
-    params.permit(:id)
+    params.permit(:id, :title)
   end
 end

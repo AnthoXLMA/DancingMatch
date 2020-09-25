@@ -11,7 +11,7 @@
 </div>
 
 <div class="add-dance">
-  <%= link_to "Select this dance", profile_path(@user),method: :post, class:"btn-ghost", id: "dance" %>
+  <%= link_to "Select this dance", profile_path(@user),method: :post, dance: @user %>
 </div>
 
 <div class="bouton-home">
@@ -26,7 +26,7 @@
 <div class="contain">
   <div class="cards">
     <% @user.dances.each do |dance| %>
-      <%= render "dances/dance_card", dance: dance %>
+      <%= render "dances/dance_card", dances: @dances %>
     <% end %>
   </div>
   <div class="pt-30 row justify-content-center">
@@ -35,7 +35,7 @@
       <%= simple_form_for @dance do |f| %>
         <%= f.input :title, placeholder: "your dance" %>
         <div class="form-actions">
-          <%= f.submit "Add", class: "btn btn-flat" %>
+          <%= f.submit "Add", method: :post, class: "btn btn-flat" %>
         </div>
       <% end %>
     </div>

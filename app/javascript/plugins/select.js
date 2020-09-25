@@ -10,10 +10,10 @@ button.addEventListener('click', (e) => {
 
 
 
-const franceElement = () => {
+const salsaElement = () => {
   // TODO 2: select the France list item and return it!
-  const france = document.getElementById('france');
-  return france;
+  const salsa = document.getElementById('salsa');
+  return salsa;
 };
 
-module.exports = franceElement; // Do not remove.
+module.exports = salsaElement; // Do not remove.

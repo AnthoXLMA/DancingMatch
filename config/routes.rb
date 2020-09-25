@@ -5,18 +5,17 @@ Rails.application.routes.draw do
   devise_for :users
   # devise_for :partners
 
-  resource :profile, only: [:edit, :update, :show] do
-    resources :dances, only: [:create, :show]
+  resource :profile, only: [:edit, :update, :show, :create] do
+    resources :dances, only: [:create, :show, :new]
   end
 
-  resources :dances, only: [:index, :show, :create]do
-  resources :users
-end
+  resources :dances, only: [:index, :show, :create, :update, :new]do
+    resources :users
+  end
 
   resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
   end
-
 
   namespace :partners do
     resources :dances, only: [:index, :show]

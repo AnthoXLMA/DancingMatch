@@ -2,44 +2,12 @@
   <h1>Update your profile</h1>
 </div>
 
-
-<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Example select</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect2">Example multiple select</label>
-    <select multiple class="form-control" id="exampleFormControlSelect2">
-      <option><% @user.dances %></option>
-      <option>@user.dances</option>
-      <option>@user.dances</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
-
 <div class="dance-selection">
   <h1>Select a dance</h1>
   <div class="alt-menu">
+    <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
     <div class="dances_menu">
-      <h2><% @user.dances.map do |dance| %></h2>
+      <h2><% @user.dances.each do |dance| %></h2>
         <div class="menu">
          <ol><%= dance.title %></ol>
         </div>
