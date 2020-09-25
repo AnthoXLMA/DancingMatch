@@ -9,7 +9,11 @@ class DancesController < ApplicationController
 
   def new
     @dance = Dance.new
-    @dance.save
+    if @dance.save
+    redirect_to dances_path
+    else
+      render :new
+    end
   end
 
   def show
@@ -17,11 +21,11 @@ class DancesController < ApplicationController
     @dance = Dance.new(dance_params)
     @dance = Dance.find(params[:id])
     @style = @dance.title
-    @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
-    @dancer = @dancers.each do |yd|
-      puts yd
-    end
-    @list = @dancer.map(&:pseudo)
+    # @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
+    # @dancer = @dancers.each do |yd|
+    #   puts yd
+    # end
+    # @list = @dancer.map(&:pseudo)
   end
 
   def create
@@ -33,7 +37,7 @@ class DancesController < ApplicationController
   #   @dance.save
     @user = current_user
     @dance = Dance.new(dance_params)
-    @dance.user = @user
+    @user.dance = @user
     if @dance.save
       redirect_to profile_path
     else

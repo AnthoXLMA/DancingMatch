@@ -1,14 +1,13 @@
 <div class="user-infos">
   <h2>Hello <%= @user.pseudo %></h2>
-</div>
-
-<div class="user-addon">
-  <h3><%= link_to "Home", root_path %><h3>
-  <h3><%= link_to "Meet all partners", partners_path %></h3>
-  <h3><%= link_to "See all dances", dances_path %></h3>
-  <h3><%= link_to "Update your profile", edit_profile_path %></h3>
-  <h3><%= link_to "Add a video" %></h3>
-  <h3><%= link_to "Create an event" %></h3>
+  <div class="user-addon">
+    <h3><%= link_to "Home", root_path %><h3>
+    <h3><%= link_to "Meet all partners", partners_path %></h3>
+    <h3><%= link_to "See all dances", dances_path %></h3>
+    <h3><%= link_to "Update your profile", edit_profile_path %></h3>
+    <h3><%= link_to "Add a video" %></h3>
+    <h3><%= link_to "Create an event" %></h3>
+  </div>
 </div>
 
 <div class="show-profile">
@@ -22,41 +21,35 @@
     <div class="user-dances">
       <!-- formulaire de Add a Dance -->
       <div class="cards">
-      <h3>You have <%= @user.dances.count %> dances selected</h3>
-        <br>
-        <%= @user.dances.each do |dance| %>
+        <h3>You have <%= @user.dances.count %> dances selected</h3>
+          <br>
+          <%= @user.dances.each do |dance| %>
           <% dance.title %>
-        <% end %>
-      <div class="pt-30 row justify-content-center">
-        <div class="col-12 col-md-4">
-        <h4 class="text-center">Add a dance</h4>
-          <%= simple_form_for(@dance) do |f| %>
-          <%= f.select :title , Dance.all.collect { |p| [p.title, p.id] } %>
-          <%= f.submit "Add", method: :post, class: "btn btn-flat" %>
           <% end %>
-        </div>
-      </div>
-      </div>
-      <h4>My selected dances</h4>
-      <h3><%= @dances.each do |my_dance| %>
-        <h3><% my_dance.title %>
-        </h3>
-          <% end %>
-          <h3>My dances</h3>
-            <h2><% @user.dances.each do |dance| %>
-          <div class="list-mydances">
-            <h2><% @dances.each do |style| %>
-              <% style.title %>
-            </h2>
+        <div class="pt-30 row justify-content-center">
+          <div class="col-12 col-md-4">
+          <h4 class="text-center">Add a dance</h4>
+            <%= simple_form_for(@dance) do |f| %>
+            <%= f.select :title , Dance.all.collect { |p| [p.title, p.id] } %>
+            <%= f.submit "Add", method: :post, class: "btn btn-flat" %>
             <% end %>
           </div>
+        </div>
+      </div>
+        <h3>My dances</h3>
+          <h2><% @user.dances.each do |dance| %>
+        <div class="list-mydances">
+          <h2><% @dances.each do |style| %>
+            <% style.title %>
+          </h2>
+          <% end %>
         <% end %></h2>
+        </div>
       <div class="your-Xp">
         <h3>Experiences</h3>
         <h2><%= link_to "Add an experience", edit_profile_path %></h2>
       </div>
-
-  <div class="container-right">
+    <div class="container-right">
       <div class="user-partners">
         <h3>Partners</h3>
       </div>
@@ -66,15 +59,8 @@
       <div class="user-partners">
         <h3>Events</h3>
       </div>
-  </div>
-</div>
-
-<div class="show-profile">
-  <div class="container-left">
     <h2>My videos</h2>
-    <div class="user-dances">
     </div>
   </div>
 </div>
-
 

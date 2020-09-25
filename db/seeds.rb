@@ -14,7 +14,6 @@ anthony = User.new(
   location: "Paris",
   experience: "3",
   contact: "06023002233",
-  dance_id: [2, 4, 6],
 )
 anthony.save!
 
@@ -28,7 +27,6 @@ jimmy = User.new(
   location: "Marseille",
   experience: "1",
   contact: "06025002233",
-  dance_id: [2, 4, 6],
 )
 jimmy.save!
 
@@ -61,7 +59,7 @@ dances.each do |dance|
     dance = Dance.new(
       title: dance
     )
-    dance.save!
+    dance.save
   end
 
 # puts 'Creating Partners...'
