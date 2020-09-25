@@ -30,7 +30,7 @@ class DancesController < ApplicationController
   #   @dance_user = @dance.user_id
   #   @dance = Dance.new
   #   @dances = @user.dances
-  #   # @dance.save
+  #   @dance.save
     @user = current_user
     @dance = Dance.new(dance_params)
     @dance.user = @user
