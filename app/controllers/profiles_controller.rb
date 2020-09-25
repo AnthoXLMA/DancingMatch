@@ -1,10 +1,9 @@
 class ProfilesController < ApplicationController
   def show
     @user = current_user
-    @dance = Dance.new
-    @dances = Dance.select('dances.*')
+    @dances = Dance.all
+    @dance= Dance.new
     @user_partners = Partner.includes(dance: @user.dance)
-    @style = @dance.title
     @appointments = @user.appointments
   end
 
@@ -24,12 +23,10 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @dances = Dance.all
-    @dance = Dance.find(dance_params)
-    if @dance.save
-      redirect_to user_path(@dance)
-    else
-      render :new
-    end
+    @dance = Dance.new(dance_params)
+    @dance_name = Dance.find(dance_params[:dance])
+    @dance.save
+      redirect_to profile_path(@dances)
   end
 
   def update

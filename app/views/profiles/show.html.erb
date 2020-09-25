@@ -22,34 +22,31 @@
     <div class="user-dances">
       <!-- formulaire de Add a Dance -->
       <div class="cards">
-    <%= @user.dances.each do |dance| %>
-      <% render "dances/dance_card", dances: @dances %>
-    <% end %>
-  </div>
+      <h3>You have <%= @user.dances.count %> dances selected</h3>
+        <br>
+        <%= @user.dances.each do |dance| %>
+          <% dance.title %>
+        <% end %>
       <div class="pt-30 row justify-content-center">
         <div class="col-12 col-md-4">
         <h4 class="text-center">Add a dance</h4>
-          <%= simple_form_for (@dance) do |f| %>
-          <%= f.label :dance, placeholder: "Your dance" %>
-            <%= f.input :title %>
-            <%= f.submit "Add", method: :patch, class: "btn btn-flat" %>
+          <%= simple_form_for(@dance) do |f| %>
+          <%= f.select :title , Dance.all.collect { |p| [p.title, p.id] } %>
+          <%= f.submit "Add", method: :post, class: "btn btn-flat" %>
           <% end %>
         </div>
       </div>
-      <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
+      </div>
       <h4>My selected dances</h4>
-      <h3>You have <%= @user.dances.count %> dances selected</h3>
-      <h3><%= @user.dances.each do |my_dance| %>
-        <h3><%= @user.dances.each do |title| %>
-          <% title.title %>
+      <h3><%= @dances.each do |my_dance| %>
+        <h3><% my_dance.title %>
         </h3>
           <% end %>
-        <% end %>
           <h3>My dances</h3>
             <h2><% @user.dances.each do |dance| %>
           <div class="list-mydances">
             <h2><% @dances.each do |style| %>
-              <%= style %>
+              <% style.title %>
             </h2>
             <% end %>
           </div>
@@ -58,7 +55,7 @@
         <h3>Experiences</h3>
         <h2><%= link_to "Add an experience", edit_profile_path %></h2>
       </div>
-    </div>
+
   <div class="container-right">
       <div class="user-partners">
         <h3>My partners</h3>
