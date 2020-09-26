@@ -14,7 +14,8 @@ anthony = User.new(
   location: "Paris",
   experience: "3",
   contact: "06023002233",
-)
+  dance_id: '4',
+  )
 anthony.save!
 
 jimmy = User.new(
@@ -27,6 +28,7 @@ jimmy = User.new(
   location: "Marseille",
   experience: "1",
   contact: "06025002233",
+  dance_id: '8',
 )
 jimmy.save!
 
@@ -55,37 +57,37 @@ dances = [
   "FoxTrot",
   "ChaCha"
 ]
-dances.each do |dance|
+dances.each do |dance_name|
     dance = Dance.new(
-      title: dance
+      title: dance_name
     )
     dance.save
   end
 
-# puts 'Creating Partners...'
-# adel = Partner.new(
-#   pseudo: 'Adel',
-#   gender: "Gentleman",
-#   age: "37",
-#   location: "Nantes",
-#   experience: "2",
-#   contact: "0600000033",
-#   dance_id: '3',
-# )
-# # anthony.dances = dances
-# adel.save!
+puts 'Creating Partners...'
+adel = Partner.new(
+  pseudo: 'Adel',
+  gender: "Gentleman",
+  age: "32",
+  experience: "16",
+  location: "La Havane",
+  contact: "0600000033",
+  dance_id: '3',
+)
+# anthony.dances = dances
+adel.save!
 
-# zita = Partner.new(
-#   pseudo: 'Zita',
-#   gender: "Lady",
-#   age: "33",
-#   location: "Nantes",
-#   experience: "8",
-#   contact: "0600110033",
-#   dance_id: '8',
-# )
-# # zita.dances = dances
-# zita.save!
+sylvia = Partner.new(
+  pseudo: 'Sylvia',
+  gender: "Lady",
+  age: "28",
+  location: "Berlin",
+  experience: "8",
+  contact: "0600110033",
+  dance_id: '9',
+)
+# zita.dances = dances
+sylvia.save!
 
 # vanessa = Partner.new(
 #   pseudo: 'Vanessa',

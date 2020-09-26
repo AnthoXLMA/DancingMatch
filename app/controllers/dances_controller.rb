@@ -1,7 +1,8 @@
 class DancesController < ApplicationController
   def index
     @dances = Dance.all
-    @dancers = Partner.where(dance_id: dance_params[:id])
+    @dance = Dance.select('title')
+    @dancers = Partner.where(params[:id])
     @dancer = @dancers.each do |yd|
       puts yd
     end
@@ -9,37 +10,27 @@ class DancesController < ApplicationController
 
   def new
     @dance = Dance.new
-    if @dance.save
-    redirect_to dances_path
-    else
-      render :new
-    end
   end
 
   def show
     @user = current_user
-    @dance = Dance.new(dance_params)
+    @dances = Dance.all
+    @dance = Dance.new(dance_params {:title})
     @dance = Dance.find(params[:id])
     @style = @dance.title
-    # @dancers = Partner.where(dance_id: dance_params[:id]).select("pseudo")
-    # @dancer = @dancers.each do |yd|
-    #   puts yd
-    # end
-    # @list = @dancer.map(&:pseudo)
+    @dancers = Partner.where(params[:id])
+    @dancer = @dancers.each do |yd|
+      puts yd
+    end
+    @list = @dancer.map(&:pseudo)
   end
 
   def create
-  #   @user = current_user
-  #   @dance = Dance.find(params[:id])
-  #   @dance_user = @dance.user_id
-  #   @dance = Dance.new
-  #   @dances = @user.dances
-  #   @dance.save
     @user = current_user
-    @dance = Dance.new(dance_params)
-    @user.dance = @user
+    @dance = Dance.new(dance_params {:title})
+    @dance.user = @user
     if @dance.save
-      redirect_to profile_path
+      redirect_to profile_path(@dances)
     else
       render 'dances/show'
     end
@@ -48,12 +39,12 @@ class DancesController < ApplicationController
   def update
     @dance = Dance.find(params[:id])
     @dance.update(dance_params)
-    redirect_to profile_path
+    redirect_to dance_path
   end
 
   private
 
   def dance_params
-    params.permit(:id, :title)
+    params.require(:dance).permit(:title, :id, :user_id)
   end
 end

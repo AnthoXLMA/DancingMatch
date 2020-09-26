@@ -1,9 +1,4 @@
-<%= link_to dances_path(@dances) do %>
-  <div class="card-dance">
-    <div class="card-dances-infos">
-      <div>
-        <h2><%= @dances %></h2>
-      </div>
-    </div>
-  </div>
-<% end %>
+<div class="card-plant">
+  <%= dance %>
+  <%= link_to "+", dances_path(@dances), method: :post, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+</div>

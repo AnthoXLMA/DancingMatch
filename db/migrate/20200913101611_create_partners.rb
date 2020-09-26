@@ -7,7 +7,7 @@ class CreatePartners < ActiveRecord::Migration[6.0]
       t.string :location
       t.integer :experience
       t.string :contact
-      t.references :dance
+      t.references :dances, foreign_key: true
       t.timestamps
     end
   end

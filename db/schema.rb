@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2020_09_25_110354) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "dance"
+    t.bigint "style"
     t.bigint "dance_id"
     t.index ["dance_id"], name: "index_users_on_dance_id"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -96,5 +96,5 @@ ActiveRecord::Schema.define(version: 2020_09_25_110354) do
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
   add_foreign_key "dances", "users"
-  add_foreign_key "users", "dances"
+  # add_foreign_key "users", "dances"
 end
