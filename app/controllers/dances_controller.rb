@@ -15,14 +15,14 @@ class DancesController < ApplicationController
   def show
     @user = current_user
     @dances = Dance.all
-    @dance = Dance.new(dance_params {:title})
+    # @dance = Dance.new(dance_params {:title})
     @dance = Dance.find(params[:id])
     @style = @dance.title
-    @dancers = Partner.where(params[:id])
-    @dancer = @dancers.each do |yd|
-      puts yd
-    end
-    @list = @dancer.map(&:pseudo)
+    # @dancers = Partner.where(params[:id])
+    # @dancer = @dancers.each do |yd|
+    #   puts yd
+    # end
+  #   @list = @dancer.map(&:pseudo)
   end
 
   def create
