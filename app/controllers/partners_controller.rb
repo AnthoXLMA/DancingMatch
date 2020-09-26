@@ -4,6 +4,12 @@ class PartnersController < ApplicationController
     @user = current_user
     @partners = Partner.all
     # @dance = Dance.find(params[:id])
+    # @markers = @partners.geocoded.map do |partner|
+    #   {
+    #     lat: partner.latitude,
+    #     lng: partner.longitude
+    #   }
+    # end
   end
 
   def new

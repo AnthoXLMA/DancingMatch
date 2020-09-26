@@ -10,5 +10,7 @@ class User < ApplicationRecord
   has_many :appointments
   has_many :partners, through: :appointments
 
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   # validates :pseudo, presence: true
 end
