@@ -1,16 +1,18 @@
 class ProfilesController < ApplicationController
+  def index
+    @users = User.all
+  end
+
   def show
     @user = current_user
     @dances = Dance.all
-    @dance= Dance.new
-    @user_partners = Partner.includes(dance: @user.dance)
-    @appointments = @user.appointments
+    @dance = Dance.new
+    @user_dances = @user.dances
   end
 
   def new
     @dance = Dance.new
-    @dance.save
-    redirect_to user_path(@dance)
+    redirect_to user_path
   end
 
   def edit
@@ -20,14 +22,41 @@ class ProfilesController < ApplicationController
     @menu_dances = @user.dances
   end
 
-  def create
-    @user = current_user
+  def ask_user
     @dances = Dance.all
-    @dance = Dance.new(dance_params)
-    @dance_name = Dance.find(dance_params[:dance])
-    @dance.save
-      redirect_to profile_path(@dances)
+    @my_dances = {}
+    @your_dances = @dances.each do |dance|
+      puts "#{dance}"
+    end
   end
+  # def create
+  #   @dances = Dance.all
+  #   @my_dances = @dances.each do |title|
+  #       puts "#{title}"
+  #   end
+  # end
+    # @user_choice = nil
+    #   until user_choice == "quit"
+    #   puts "Fill your dances! (or quit)"
+    #   print ">"
+    #   user_choice = gets.chomp
+    #   end
+    #   if dance.key?(user_choice)
+    #   puts "How many #{user_choice} do you want?"
+    #   print ">"
+    #   @user_quantity = gets.chomp.to_i
+    #   my_dances[user_choice] = user_quantity
+    #   puts "Your cart is #{cart}"
+
+    #   elsif user_choice == "quit"
+    #   puts "We're calculating your bill."
+    #   else
+    #   puts "Item is not in our store"
+    #   end
+    #   p my_dances
+    #   # End the Loop
+    #   end
+    # end
 
   def update
     @user = current_user
@@ -38,6 +67,6 @@ class ProfilesController < ApplicationController
   private
 
   def user_params
-    params.permit(:pseudo, :gender, :age, :location, :experience, :contact, :email, :dance)
+    params.permit(:pseudo, :gender, :age, :location, :experience, :contact, :email, :dance, :id)
   end
 end

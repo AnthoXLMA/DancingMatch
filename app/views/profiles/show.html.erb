@@ -12,6 +12,7 @@
 
 <div class="show-profile">
   <div class="container-left">
+    <div>
     <div class="user-details">
       <h1><%= @user.pseudo %></h1>
       <h2><%= @user.location %></h2>
@@ -19,48 +20,50 @@
       <h2><%= @user.experience %> years dancing XP</h2>
     </div>
     <div class="user-dances">
-      <!-- formulaire de Add a Dance -->
       <div class="cards">
-        <h3>You have <%= @user.dances.count %> dances selected</h3>
-          <br>
-          <%= @user.dances.each do |dance| %>
-          <% dance.title %>
-          <% end %>
-        <div class="pt-30 row justify-content-center">
-          <div class="col-12 col-md-4">
-          <h4 class="text-center">Add a dance</h4>
-            <%= simple_form_for(@dance) do |f| %>
-            <%= f.select :title , Dance.all.collect { |p| [p.title, p.id] } %>
-            <%= f.submit "Add", method: :post, class: "btn btn-flat" %>
-            <% end %>
+      <h3>You have <%= @user.dances.count %> dances selected</h3>
+      LIST OF ALL DANCES by NAME<br>
+        <% @user.dances.each do |style| %>
+        <%= style.title %>
+        <% end %>
+    <div class="pt-30 row justify-content-center">
+      <div class="col-12 col-md-4">
+        <h4 class="text-center">Add a dance</h4>
+        <%= simple_form_for @dance do |f| %>
+          <div class="fields">
+            <%= f.label :dance %><br>
+            <%= f.input :title, placeholder: @dance %>
+            <%= f.submit "Add", class: "btn btn-flat" %>
           </div>
-        </div>
+          <div class="actions">
+          </div>
+        <% end %>
       </div>
-        <h3>My dances</h3>
-          <h2><% @user.dances.each do |dance| %>
-        <div class="list-mydances">
-          <h2><% @dances.each do |style| %>
-            <% style.title %>
-          </h2>
-          <% end %>
-        <% end %></h2>
-        </div>
-      <div class="your-Xp">
-        <h3>Experiences</h3>
-        <h2><%= link_to "Add an experience", edit_profile_path %></h2>
+    </div>
+    </div>
+      <h3>MY DANCES</h3>
+    </div>
+<div class="pt-30 container">
+  <div class="cards">
+    <% @user.dances.each do |dance| %>
+      <%= render "dances/dance_card", dance: dance %>
+    <% end %>
+  </div>
+  <div class="pt-30 row justify-content-center">
+    <div class="col-12 col-md-4">
+      <h4 class="text-center">Add a dance</h4>
+        <%= simple_form_for [ @dance ] do |f| %>
+        <%= f.input :title, placeholder: "Your Dance" %>
+      <div class="form-actions">
+        <%= f.submit "Add", class: "btn btn-flat" %>
       </div>
-    <div class="container-right">
-      <div class="user-partners">
-        <h3>Partners</h3>
-      </div>
-      <div class="user-partners">
-        <h3>Appointments</h3>
-      </div>
-      <div class="user-partners">
-        <h3>Events</h3>
-      </div>
-    <h2>My videos</h2>
+      <% end %>
     </div>
   </div>
+</div>
+
+<div class="your-Xp">
+  <h3>Experiences</h3>
+  <h2><%= link_to "Add an experience", edit_profile_path %></h2>
 </div>
 
