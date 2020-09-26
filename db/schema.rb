@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_25_110354) do
+ActiveRecord::Schema.define(version: 2020_09_26_210842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,9 @@ ActiveRecord::Schema.define(version: 2020_09_25_110354) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "style"
     t.bigint "dance_id"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["dance_id"], name: "index_users_on_dance_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -96,5 +99,4 @@ ActiveRecord::Schema.define(version: 2020_09_25_110354) do
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
   add_foreign_key "dances", "users"
-  # add_foreign_key "users", "dances"
 end

@@ -21,14 +21,18 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 //import 'progressbar/dist/progressbar.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
-import { initProgressBar } from '../plugins/init_progressbar';
-import { initChart } from '../plugins/init_chart';
-import { initSiema } from '../plugins/init_siema';
+// import { initProgressBar } from '../plugins/init_progressbar';
+// import { initChart } from '../plugins/init_chart';
+// import { initSiema } from '../plugins/init_siema';
 // ----------------------------------------------------
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
+import { initMapbox } from '../plugins/init_mapbox';
 
+document.addEventListener('turbolinks:load', () => {
+  initMapbox();
+})
 // External imports
 import "bootstrap";
 // import swal from 'sweetalert';
@@ -39,12 +43,12 @@ import "bootstrap";
 // import "fichier js "
 // import initNavTabs from '../components/init_nav_tabs';
 
-document.addEventListener('turbolinks:load', () => {
-  // Call your functions here, e.g:
-  // initSelect2();
-  initMapbox();
-  initProgressBar();
-  initChart();
-  initSiema();
-  // initNavTabs();
-});
+// document.addEventListener('turbolinks:load', () => {
+//   // Call your functions here, e.g:
+//   // initSelect2();
+//   initMapbox();
+//   // initProgressBar();
+//   // initChart();
+//   // initSiema();
+//   // initNavTabs();
+// });
