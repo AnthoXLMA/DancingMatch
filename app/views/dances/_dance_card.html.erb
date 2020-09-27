@@ -1,4 +1,4 @@
 <div class="card-plant">
-  <%= dance %>
-  <%= link_to "+", dances_path(@dances), method: :post, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
+  <%= dance.name %>
+  <%= link_to "+", profile_path(@dances), method: :delete, data: { confirm: "Are you sure?" }, class: "card-remove-link" %>
 </div>

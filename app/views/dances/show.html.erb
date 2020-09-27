@@ -2,7 +2,8 @@
   <h1><%= link_to @style, dances_path(@dance) %></h1>
 
 <div class="add-dance">
-  <%= link_to "Select this dance", profile_path(@user),method: :post, dance: @dances %>
+  <%= link_to "Select this dance", profile_path(@user.dances),method: :get, id: "dance" %>
+
 </div>
 
 <div class="bouton-home">

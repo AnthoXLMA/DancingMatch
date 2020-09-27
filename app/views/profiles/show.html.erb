@@ -23,8 +23,8 @@
       <div class="cards">
       <h3>You have <%= @user.dances.count %> dances selected</h3>
         <% @user.dances.each do |style| %>
-        <ol><%= style.title %></ol>
-        <% end %>
+          <ol><%= style.title %></ol>
+          <% end %>
     <div class="pt-30 row justify-content-center">
       <div class="col-12 col-md-4">
         <h4 class="text-center">Add a dance</h4>
@@ -34,7 +34,17 @@
             <%= f.input :title, placeholder: @dance %>
             <%= f.submit "Add", class: "btn btn-flat" %>
           </div>
-          <div class="actions">
+        <% end %>
+      </div>
+    </div>
+    <div class="pt-30 row justify-content-center">
+      <div class="col-12 col-md-4">
+        <h4 class="text-center">Search a Partner</h4>
+        <%= simple_form_for @dance do |f| %>
+          <div class="fields">
+            <%= f.label :name %><br>
+            <%= f.input :title, placeholder: @partner %>
+            <%= f.submit "Search", class: "btn btn-flat" %>
           </div>
         <% end %>
       </div>
