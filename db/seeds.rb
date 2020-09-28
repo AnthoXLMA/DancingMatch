@@ -3,35 +3,6 @@ puts "cleaning DB..."
 Dance.destroy_all
 User.destroy_all
 
-puts 'Creating Users...'
-anthony = User.new(
-  pseudo: 'Anthony',
-  gender: "Gentleman",
-  age: "37",
-  email: "antho@example.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Paris",
-  experience: "3",
-  contact: "06023002233",
-  dance_id: '4',
-  )
-anthony.save!
-
-jimmy = User.new(
-  pseudo: 'Jimmy',
-  gender: "Gentleman",
-  age: "30",
-  email: "jimmy@example.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Marseille",
-  experience: "1",
-  contact: "06025002233",
-  dance_id: '8',
-)
-jimmy.save!
-
 puts "Creating dances..."
 dances = [
   "Rock",
@@ -63,6 +34,36 @@ dances.each do |dance_name|
     )
     dance.save
   end
+
+puts 'Creating Users...'
+anthony = User.new(
+  pseudo: 'Anthony',
+  gender: "Gentleman",
+  age: "37",
+  email: "antho@example.com",
+  password: "secret",
+  # encrypted_password: "password",
+  location: "Paris",
+  experience: "3",
+  contact: "06023002233",
+  dance_id: '4',
+  )
+anthony.save!
+
+jimmy = User.new(
+  pseudo: 'Jimmy',
+  gender: "Gentleman",
+  age: "30",
+  email: "jimmy@example.com",
+  password: "secret",
+  # encrypted_password: "password",
+  location: "Marseille",
+  experience: "1",
+  contact: "06025002233",
+  dance_id: '8',
+)
+jimmy.save!
+
 
 puts 'Creating Partners...'
 adel = Partner.new(
@@ -118,7 +119,7 @@ amanda = Partner.new(
   location: "Nantes",
   experience: "8",
   contact: "0600110033",
-  dance_id: [1, 2, 3],
+  dance_id: '3',
 )
 amanda.save
 
@@ -143,6 +144,85 @@ marion.save
   dance_id: '8'
 )
 didier.save
+
+bob = Partner.new(
+  pseudo: 'Bob',
+  gender: "Gentleman",
+  age: "78",
+  experience: "16",
+  location: "Londres",
+  contact: "0600000033",
+  dance_id: '1',
+)
+# anthony.dances = dances
+bob.save
+
+ludo = Partner.new(
+  pseudo: 'Ludo',
+  gender: "Gentleman",
+  age: "28",
+  location: "Paris",
+  experience: "8",
+  contact: "0600110033",
+  dance_id: '12',
+)
+# zita.dances = dances
+sylvia.save
+
+olivier = Partner.new(
+  pseudo: 'Olivier',
+  gender: "Gentleman",
+  age: "24",
+  location: "Paris",
+  experience: "5",
+  contact: "0600002233",
+  dance_id: '12'
+)
+olivier.save
+
+  cedric = Partner.new(
+  pseudo: 'Cedric',
+  gender: "Gentleman",
+  age: "37",
+  location: "Nantes",
+  experience: "2",
+  contact: "0600000033",
+  dance_id: '14'
+)
+john.save
+
+cecile = Partner.new(
+  pseudo: 'Cecile',
+  gender: "Lady",
+  age: "27",
+  location: "Paris",
+  experience: "8",
+  contact: "0600110033",
+  dance_id: '11',
+)
+cecile.save
+
+nath = Partner.new(
+  pseudo: 'Nath',
+  gender: "Lady",
+  age: "48",
+  location: "Paris",
+  experience: "5",
+  contact: "0600002233",
+  dance_id: '5'
+)
+nath.save
+
+  philippe = Partner.new(
+  pseudo: 'Philippe',
+  gender: "Gentleman",
+  age: "49",
+  location: "Nantes",
+  experience: "2",
+  contact: "0600000033",
+  dance_id: '7'
+)
+philippe.save
 
 # Appointments
 # # # # # puts "retrieving user dance..."
