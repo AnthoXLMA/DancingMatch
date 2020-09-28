@@ -18,11 +18,11 @@ class DancesController < ApplicationController
     # @dance = Dance.new(dance_params {:title})
     @dance = Dance.find(params[:id])
     @style = @dance.title
-    @user.dances = Dance.where(id: params[:id])
+    # @user.dances = Dance.where(id: params[:id]) # => select et s'ajoute dans la show du profil
     @partners = Partner.all
-    @dancers = Partner.where(dance_id: :id)
-    @dancer = @dancers.each do |yd|
-      puts yd
+    @dancers = Partner.where(dance_id: @dance)
+    @dancer = @dancers.each do |dancer|
+      puts dancer
     end
     @list = @dancer.map(&:pseudo)
   end
@@ -58,6 +58,6 @@ class DancesController < ApplicationController
   private
 
   def dance_params
-    params.require(:dance).permit(:title, :id, :user_id)
+    params.require(:dance).permit(:title, :id, :user_id, :dance_id)
   end
 end
