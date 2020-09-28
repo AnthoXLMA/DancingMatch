@@ -10,13 +10,24 @@
   <%= link_to "Home", root_path %>
 </div>
 
+<div class="container3">
 
-<div class="bouton">
-  <%= @dancer.each do |dance_man| %>
-  <%= dance_man.pseudo %>
-  <% end %>
-  <br>
-  <%= @list.each do |man| %>
-  <% puts man %>
-  <% end %>
+  <div class="bouton">
+    <% @dancer.each do |dance_man| %>
+    <div class="card-partner">
+      <%= dance_man.pseudo %>
+      <%= dance_man.gender %>
+      <%= dance_man.age %>
+      <%= dance_man.location %>
+    </div>
+      <% end %>
+    <br>
+    <%= @list.each do |man| %>
+    <% puts man %>
+    <% end %>
+  </div>
+  <div class="news">
+    <h1>NEWS</h1>
+    <h3><'Adel status' is looking for 'rock' partners></h3>
+  </div>
 </div>

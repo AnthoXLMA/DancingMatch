@@ -35,6 +35,66 @@
       }
     }
 }
+
+.container3 {
+  display:flex;
+
+  .news {
+  // display: grid;
+    min-width:200px;
+    width:300px;
+    height:200px;
+    padding: 5px;
+    // flex-grow: 1;
+    margin-left:800px;
+    margin-top: 10px;
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    // box-shadow: 1px 0px 10px grey;
+    background-color:white;
+    h2 {
+      color:black;
+      margin-left:20px;
+      font-size: 40px;
+    }
+    h3 {
+      color:black;
+      margin-left:20px;
+      font-size: 30px;
+      }
+    }
+
+  .bouton {
+    width: 300px;
+
+  .card-partner {
+  // display: grid;
+    min-width:200px;
+    width:200px;
+    height:200px;
+    padding: 5px;
+    // flex-grow: 1;
+    margin-left:30px;
+    margin-top: 10px;
+    border: black;
+    border-style:solid;
+    border-width: 1px;
+    // box-shadow: 1px 0px 10px grey;
+    background-color:white;
+    h2 {
+      color:white;
+      margin-left:20px;
+      font-size: 40px;
+    }
+    h3 {
+      color:white;
+      margin-left:20px;
+      font-size: 30px;
+      }
+    }
+  }
+}
 // /* TODO: design your flexbox layout with a sticky map */
 // .main-container {
 //   display: flex;
