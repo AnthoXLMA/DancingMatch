@@ -75,7 +75,7 @@ adel = Partner.new(
   dance_id: '3',
 )
 # anthony.dances = dances
-adel.save!
+adel.save
 
 sylvia = Partner.new(
   pseudo: 'Sylvia',
@@ -87,62 +87,62 @@ sylvia = Partner.new(
   dance_id: '9',
 )
 # zita.dances = dances
-sylvia.save!
+sylvia.save
 
-# vanessa = Partner.new(
-#   pseudo: 'Vanessa',
-#   gender: "Lady",
-#   age: "24",
-#   location: "Paris",
-#   experience: "5",
-#   contact: "0600002233",
-#   dance_id: '12'
-# )
-# vanessa.save!
+vanessa = Partner.new(
+  pseudo: 'Vanessa',
+  gender: "Lady",
+  age: "24",
+  location: "Paris",
+  experience: "5",
+  contact: "0600002233",
+  dance_id: '12'
+)
+vanessa.save
 
-#   john = Partner.new(
-#   pseudo: 'John',
-#   gender: "Gentleman",
-#   age: "37",
-#   location: "Nantes",
-#   experience: "2",
-#   contact: "0600000033",
-#   dance_id: '14'
-# )
-# john.save!
+  john = Partner.new(
+  pseudo: 'John',
+  gender: "Gentleman",
+  age: "37",
+  location: "Nantes",
+  experience: "2",
+  contact: "0600000033",
+  dance_id: '14'
+)
+john.save
 
-# amanda = Partner.new(
-#   pseudo: 'Amanda',
-#   gender: "Lady",
-#   age: "27",
-#   location: "Nantes",
-#   experience: "8",
-#   contact: "0600110033",
-#   dance_id: [1, 2, 3],
-# )
-# amanda.save!
+amanda = Partner.new(
+  pseudo: 'Amanda',
+  gender: "Lady",
+  age: "27",
+  location: "Nantes",
+  experience: "8",
+  contact: "0600110033",
+  dance_id: [1, 2, 3],
+)
+amanda.save
 
-# marion = Partner.new(
-#   pseudo: 'Marion',
-#   gender: "Lady",
-#   age: "48",
-#   location: "Paris",
-#   experience: "5",
-#   contact: "0600002233",
-#   dance_id: '8'
-# )
-# marion.save!
+marion = Partner.new(
+  pseudo: 'Marion',
+  gender: "Lady",
+  age: "48",
+  location: "Paris",
+  experience: "5",
+  contact: "0600002233",
+  dance_id: '8'
+)
+marion.save
 
-#   didier = Partner.new(
-#   pseudo: 'Didier',
-#   gender: "Gentleman",
-#   age: "49",
-#   location: "Nantes",
-#   experience: "2",
-#   contact: "0600000033",
-#   dance_id: '8'
-# )
-# didier.save!
+  didier = Partner.new(
+  pseudo: 'Didier',
+  gender: "Gentleman",
+  age: "49",
+  location: "Nantes",
+  experience: "2",
+  contact: "0600000033",
+  dance_id: '8'
+)
+didier.save
 
 # Appointments
 # # # # # puts "retrieving user dance..."
