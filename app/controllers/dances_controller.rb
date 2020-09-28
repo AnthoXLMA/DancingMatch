@@ -18,8 +18,8 @@ class DancesController < ApplicationController
     # @dance = Dance.new(dance_params {:title})
     @dance = Dance.find(params[:id])
     @style = @dance.title
-    # @user.dances = Dance.select
-    #                       .where(id: params[:id])
+    @user.dances = Dance.where(id: params[:id])
+    @partners = Partner.all
     @dancers = Partner.where(dance_id: :id)
     @dancer = @dancers.each do |yd|
       puts yd

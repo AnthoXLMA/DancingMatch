@@ -12,6 +12,9 @@
 
 
 <div class="bouton">
-  <%= @dancers %>
-  <%= @list %>
+  <%= @dancers.name %>
+
+  <%= @list.each do |name| %>
+  puts name
+  <% end %>
 </div>
