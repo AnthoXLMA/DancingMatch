@@ -19,8 +19,12 @@ class PartnersController < ApplicationController
   def show
     @user = current_user
     @partner = Partner.find(params[:id])
-    @dance = Dance.find(params[:id])
-    @styles = @dances
+    @dances = @partner.dance_id
+    @dance = Dance.where(id: @dances)
+    @style = @dance.each do |style|
+      puts style
+    end
+    @move = @style[0]
     @dancers = Dance.select(:title)
   end
 
