@@ -12,9 +12,11 @@
 
 
 <div class="bouton">
-  <%= @dancers.name %>
-
-  <%= @list.each do |name| %>
-  puts name
+  <%= @dancer.each do |dance_man| %>
+  <%= dance_man.pseudo %>
+  <% end %>
+  <br>
+  <%= @list.each do |man| %>
+  <% puts man %>
   <% end %>
 </div>
