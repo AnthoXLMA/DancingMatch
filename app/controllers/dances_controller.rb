@@ -20,11 +20,11 @@ class DancesController < ApplicationController
     @style = @dance.title
     # @user.dances = Dance.select
     #                       .where(id: params[:id])
-    # @dancers = Partner.where(params[:id])
-    # @dancer = @dancers.each do |yd|
-    #   puts yd
-    # end
-    # @list = @dancer.map(&:pseudo)
+    @dancers = Partner.where(dance_id: :id)
+    @dancer = @dancers.each do |yd|
+      puts yd
+    end
+    @list = @dancer.map(&:pseudo)
   end
 
   def create
