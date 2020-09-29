@@ -18,6 +18,7 @@ class PartnersController < ApplicationController
 
   def show
     @user = current_user
+    @partners = Partner.all
     @partner = Partner.find(params[:id])
     @dances = @partner.dance_id
     @dance = Dance.where(id: @dances)

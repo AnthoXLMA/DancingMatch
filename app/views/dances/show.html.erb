@@ -19,7 +19,7 @@
       <%= dance_man.gender %>
       <%= dance_man.age %>
       <%= dance_man.location %>
-      <%= link_to "Contact", partners_path(@partner) %>
+      <%= link_to "Contact", partner_path(dance_man) %>
     </div>
       <% end %>
     <br>
@@ -28,8 +28,10 @@
     <% end %>
   </div>
   <div class="news">
-    <h1>NEWS</h1>
-    <h3><'Adel status' is looking for 'rock' partners></h3>
+      <h2>NEWS</h2>
+    <div class="card-news">
+      <h3><'Adel status' is looking for 'rock' partners></h3>
+    </div>
   </div>
 </div>
 

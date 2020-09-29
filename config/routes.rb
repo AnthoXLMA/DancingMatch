@@ -10,11 +10,15 @@ Rails.application.routes.draw do
   end
 
   resources :profile, only: [:show] do
-  resources :chatrooms, only: [:show]
+    resources :chatrooms, only: [:show]
   end
 
-  resources :chatrooms, only: :show do
-  resources :messages, only: :create
+  resources :chatrooms, only: [:show] do
+    resources :messages, only: [:create]
+  end
+
+  resources :dances, only: [:show] do
+    resources :partners, only: [:show]
   end
 
   resources :dances, only: [:index, :show, :create, :update, :new]do
@@ -27,7 +31,7 @@ Rails.application.routes.draw do
 
   namespace :partners do
     resources :dances, only: [:index, :show]
-    resources :appointments, only: [:index, :show]
+      resources :appointments, only: [:index, :show]
   end
 end
   # namespace :dances do
