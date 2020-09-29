@@ -1,11 +1,20 @@
 class DancesController < ApplicationController
   def index
     @dances = Dance.all
-    @dance = Dance.select('title')
-    @dancers = Partner.where(params[:id])
-    @dancer = @dancers.each do |yd|
+    @dance  = @dances.each do |dance|
+      puts dance
+    end
+    @style = @dance.find(params[:id])
+    @dancer = @style.each do |yd|
       puts yd
     end
+    # @move = Dance.find(params[:id])
+    @partners = Partner.all
+    @partner = @partners.each do |partner|
+      puts partner
+    end
+    @dancers = Partner.where(dance_id: @dancer)
+    # @partner = @partner
   end
 
   def new
@@ -58,6 +67,6 @@ class DancesController < ApplicationController
   private
 
   def dance_params
-    params.require(:dance).permit(:title, :id, :user_id, :dance_id)
+    params.require(:dance).permit(:title, :id, :user_id)
   end
 end

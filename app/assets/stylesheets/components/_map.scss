@@ -1,0 +1,25 @@
+#map {
+  height:100vh;
+  // margin:30px;
+  // margin-top:100px;
+  // margin-bottom:0px;
+  // margin-right:30px;
+  // position: sticky;
+  // right: 0px;
+}
+.mapboxgl-popup {
+  max-width: 500px;
+  background-color: #2F97C1;
+  color: #222222;
+}
+
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: #2F97C1;
+
+  h2 {
+    color:#2F97C1;
+    font-weight: lighter;
+  }
+}

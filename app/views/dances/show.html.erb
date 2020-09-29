@@ -10,8 +10,8 @@
   <%= link_to "Home", root_path %>
 </div>
 
+  <h1>This dance has <%= @dancers.count %> partners</h1>
 <div class="container3">
-
   <div class="bouton">
     <% @dancer.each do |dance_man| %>
     <div class="card-partner">
