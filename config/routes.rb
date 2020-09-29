@@ -9,6 +9,14 @@ Rails.application.routes.draw do
     resources :dances, only: [:create, :show, :new]
   end
 
+  resources :profile, only: [:show] do
+  resources :chatrooms, only: [:show]
+  end
+
+  resources :chatrooms, only: :show do
+  resources :messages, only: :create
+  end
+
   resources :dances, only: [:index, :show, :create, :update, :new]do
     resources :users
   end
@@ -21,7 +29,7 @@ Rails.application.routes.draw do
     resources :dances, only: [:index, :show]
     resources :appointments, only: [:index, :show]
   end
-
+end
   # namespace :dances do
   #   resources :partners, only: [:index, :show]
   # end
@@ -32,4 +40,4 @@ Rails.application.routes.draw do
   #       patch :refuse
   #       end
   #     end
-  end
+  # end
