@@ -14,6 +14,7 @@ class ProfilesController < ApplicationController
     @dances = Dance.all
     @dance = Dance.new
     @user_dances = @user.dances
+    @chatrooms = Chatroom.all
   end
 
   def new

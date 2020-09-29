@@ -3,9 +3,10 @@
 <%= link_to "My profile", profile_path %>
 
 <div class="container-partner">
-    <h1><%= @partner.pseudo %></h1>
-    <h2><%= link_to @move.title , dance_path(@dances) %>
-      </h2>
+  <div class="top-card">
+  <h1><%= @partner.pseudo %></h1>
+  <h2><%= link_to @move.title , dance_path(@dances) %></h2>
+  </div>
   <div class="infos-partner">
     <h3><%= @partner.gender %></h3>
     <h3><%= @partner.age %></h3>
@@ -13,6 +14,8 @@
     <h3><%= @partner.location %></h3>
   </div>
 </div>
+
+
   <div class="contact-partner">
     <h4>Contact this dancer</h4>
   </div>
