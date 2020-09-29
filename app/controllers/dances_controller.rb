@@ -12,12 +12,13 @@ class DancesController < ApplicationController
     @dancer = @style.each do |yd|
       puts yd
     end
-    # @move = Dance.find(params[:id])
+    @move = Dance.select('id')
     @partners = Partner.all
     @partner = @partners.each do |partner|
       puts partner
     end
     @dancers = Partner.where(dance_id: @dancer)
+    @gentlers = Partner.includes(dance_id: @move)
   end
 
   def new

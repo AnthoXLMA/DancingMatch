@@ -3,7 +3,11 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .container-dances {
   background-color: grey;
-
+  .search {
+    width:300px;
+    margin-left:auto;
+    margin-right:auto;
+  }
   .title {
     text-align:center;
 
