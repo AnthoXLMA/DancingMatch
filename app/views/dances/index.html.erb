@@ -4,7 +4,17 @@
 <div class="container-dances">
   <%= link_to "Home", root_path %>
   <%= link_to "Create a Dance", new_dance_path %>
-  <h1> Dancing Partners has <%=  @style.count %> dances </h1>
+  <h1> Dancing Partners has found <%=  @style.count %> result(s) </h1>
+  <!-- [...] -->
+<%= form_tag dances_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a dance"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<!-- the list of movies -->
     <div class="dances">
       <% @dances.each do |dance| %>
     <div class="card-dances">
@@ -15,3 +25,4 @@
   </div>
   <%= link_to "Back", :back %>
 </div>
+

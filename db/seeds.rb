@@ -1,7 +1,10 @@
 puts "cleaning DB..."
-# Partner.destroy_all
+Partner.destroy_all
 Dance.destroy_all
 User.destroy_all
+
+require "open-uri"
+require "yaml"
 
 puts "Creating dances..."
 dances = [

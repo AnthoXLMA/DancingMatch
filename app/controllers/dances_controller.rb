@@ -1,7 +1,11 @@
 class DancesController < ApplicationController
   def index
-    @dances = Dance.all
-    @dance  = @dances.each do |dance|
+    if params[:query].present?
+      @dances = Dance.where(title: params[:query])
+    else
+      @dances = Dance.all
+    end
+    @dance = @dances.each do |dance|
       puts dance
     end
     @style = @dance.find(params[:id])
@@ -14,7 +18,6 @@ class DancesController < ApplicationController
       puts partner
     end
     @dancers = Partner.where(dance_id: @dancer)
-    # @partner = @partner
   end
 
   def new
