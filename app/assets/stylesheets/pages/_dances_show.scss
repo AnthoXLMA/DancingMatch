@@ -41,37 +41,46 @@
 
   .news {
   // display: grid;
-    min-width:200px;
-    width:300px;
-    height:200px;
+    width:320px;
+    min-height:200px;
     padding: 5px;
     // flex-grow: 1;
     margin-left:800px;
     margin-top: 10px;
     border: black;
-    border-style:solid;
+    border-style:solid grey;
     border-width: 1px;
     // box-shadow: 1px 0px 10px grey;
     background-color:white;
-    h2 {
-      color:black;
+
+      .card-news {
+      width:300px;
+      background-color:#791E94;
+      border-radius:50px;
+      height:200px;
+      margin-right: auto;
+      margin-left: auto;
+      h2 {
+      color:white;
       margin-left:20px;
-      font-size: 40px;
-    }
-    h3 {
-      color:black;
+      font-size: 20px;
+      }
+      h3 {
+      color:white;
       margin-left:20px;
-      font-size: 30px;
+      font-size: 20px;
       }
     }
+  }
 
   .bouton {
     width: 300px;
 
   .card-partner {
   // display: grid;
+    // align-item:center;
     min-width:200px;
-    width:200px;
+    width:250px;
     height:200px;
     padding: 5px;
     // flex-grow: 1;
