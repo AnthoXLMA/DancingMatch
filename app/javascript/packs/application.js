@@ -28,11 +28,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 // Note(lewagon): ABOVE IS RAILS DEFAULT CONFIGURATION
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
-import { initMapbox } from '../plugins/init_mapbox';
+// import { initMapbox } from '../plugins/init_mapbox';
 
-document.addEventListener('turbolinks:load', () => {
-  initMapbox();
-})
+// document.addEventListener('turbolinks:load', () => {
+//   initMapbox();
+// })
 // External imports
 import "bootstrap";
 // import swal from 'sweetalert';
@@ -43,10 +43,10 @@ import "bootstrap";
 // import "fichier js "
 // import initNavTabs from '../components/init_nav_tabs';
 
-// document.addEventListener('turbolinks:load', () => {
+document.addEventListener('turbolinks:load', () => {
 //   // Call your functions here, e.g:
 //   // initSelect2();
-//   initMapbox();
+  initMapbox();
 //   // initProgressBar();
 //   // initChart();
 //   // initSiema();

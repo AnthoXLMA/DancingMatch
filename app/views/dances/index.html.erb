@@ -4,11 +4,12 @@
 <div class="container-dances">
   <%= link_to "Home", root_path %>
   <%= link_to "Create a Dance", new_dance_path %>
+  <h1> Dancing Partners has <%=  @style.count %> dances </h1>
     <div class="dances">
       <% @dances.each do |dance| %>
     <div class="card-dances">
       <h3><%= link_to dance.title, dance_path(dance) %></h3>
-      <p><%=  @dancer.count %> partners</p>
+        <p><%=  @dancers.count %> partners</p>
     </div>
     <% end %>
   </div>
