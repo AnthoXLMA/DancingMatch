@@ -12,6 +12,7 @@ class DancesController < ApplicationController
     @dancer = @style.each do |yd|
       puts yd
     end
+
     @partners = Partner.all
     @dancers = Partner.where(dance_id: @dance)
     @partner = @partners.each do |partner|
