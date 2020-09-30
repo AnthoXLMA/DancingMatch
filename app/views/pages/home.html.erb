@@ -24,5 +24,15 @@
         </div>
       </div>
     </div>
+    <div class="search">
+      <%= form_tag dances_path, method: :get do %>
+      <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a dance"
+      %>
+      <%= submit_tag "Search", class: "b-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>
