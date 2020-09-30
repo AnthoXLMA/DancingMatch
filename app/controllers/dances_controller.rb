@@ -43,7 +43,7 @@ class DancesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new(dance_params {:title})
-    @dance.user = @user
+    @user.dance = @dance
     if @dance.save
       redirect_to profile_path(@dances)
     else
