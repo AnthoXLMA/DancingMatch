@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_09_29_123037) do
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
   add_foreign_key "dances", "users"
+  add_foreign_key "users", "dances"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
 end
