@@ -46,6 +46,21 @@ dance13.save!
 dance14 = Dance.new(title: "Salsa Colombiana")
 dance14.save!
 
+dance15 = Dance.new(title: "FoxTrot")
+dance15.save!
+
+dance16 = Dance.new(title: "Lindy Hop")
+dance16.save!
+
+dance17 = Dance.new(title: "Paso Doble")
+dance17.save!
+
+dance18 = Dance.new(title: "Milonga")
+dance18.save!
+
+dance19 = Dance.new(title: "Lambada")
+dance19.save!
+
 # dances = [
 #   "Rock",
 #   "Tango",
