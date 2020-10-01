@@ -4,8 +4,12 @@
       <h1>Dancing Partners</h1>
     </div>
   </div>
+<%= link_to "Back", :back %>
+<%= link_to "Home", root_path %>
+<%= link_to "My profile", profile_path %>
 </div>
 
+    <h2>Hello <%= @user.pseudo %></h2>
 <div class="user-infos">
   <div class="user-addon">
     <h3><%= link_to "Home", root_path %><h3>
@@ -19,14 +23,13 @@
 
 <div class="show-profile">
   <div class="container-left">
-    <div>
+
     <div class="user-details">
       <h1><%= @user.pseudo %></h1>
       <h2><%= @user.location %></h2>
       <h2><%= @user.age %> years old</h2>
       <h2><%= @user.experience %> years dancing XP</h2>
     </div>
-    <h2>Hello <%= @user.pseudo %></h2>
     <div class="user-dances">
       <div class="cards">
       <h3>You have <%= @user.dances.count %> dances selected</h3>
