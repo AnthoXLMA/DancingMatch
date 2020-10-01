@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .user-infos {
   text-align:center;
+  margin-top:20px;
   // height:100px;
 }
 
@@ -125,6 +126,10 @@
           font-weight:bold;
           font-size: 120px;
           color:#791E94;
+        }
+
+        a {
+          margin-right:20px;
         }
 
         .logo-text {

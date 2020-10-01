@@ -8,9 +8,6 @@
 <%= link_to "Home", root_path %>
 <%= link_to "My profile", profile_path %>
 </div>
-
-
-
 <div class="container-partner">
   <div class="top-card">
     <h1><%= @partner.pseudo %></h1>
@@ -18,8 +15,8 @@
   </div>
   <div class="infos-partner">
     <h3><%= @partner.gender %></h3>
-    <h3><%= @partner.age %></h3>
-    <h3><%= @partner.experience %></h3>
+    <h3><%= @partner.age %> years old</h3>
+    <h3><%= @partner.experience %> years experience</h3>
     <h3><%= @partner.location %></h3>
   </div>
 </div>
