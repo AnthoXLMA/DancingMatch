@@ -50,7 +50,7 @@
     border: black;
     border-style:solid grey;
     border-width: 1px;
-    // box-shadow: 1px 0px 10px grey;
+    box-shadow: 1px 0px 10px grey;
     background-color:white;
 
       .card-news {
@@ -86,10 +86,11 @@
     // flex-grow: 1;
     margin-left:30px;
     margin-top: 10px;
-    border: black;
-    border-style:solid;
+    // border: black;
+    // border-style:solid;
+    border-radius:10px;
     border-width: 1px;
-    // box-shadow: 1px 0px 10px grey;
+    box-shadow: 1px 1px 10px 1px;
     background-color:white;
     h2 {
       color:white;

@@ -3,13 +3,15 @@
     <div class="logo-text">
       <h1>Dancing Partners</h1>
     </div>
+  <h2>Hello <%= @user.pseudo %></h2>
   </div>
-<%= link_to "Back", :back %>
-<%= link_to "Home", root_path %>
-<%= link_to "My profile", profile_path %>
+  <div class="menu-navbar">
+    <%= link_to "Back", :back %>
+    <%= link_to "Home", root_path %>
+    <%= link_to "My profile", profile_path %>
+  </div>
 </div>
 
-    <h2>Hello <%= @user.pseudo %></h2>
 <div class="user-infos">
   <div class="user-addon">
     <h3><%= link_to "Home", root_path %><h3>
