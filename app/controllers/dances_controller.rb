@@ -23,15 +23,17 @@ class DancesController < ApplicationController
 
   def new
     @dance = Dance.new
+    dance.save
+    redirect_to profile_path(@dances)
   end
 
   def show
     @user = current_user
     @dances = Dance.all
-    # @dance = Dance.new(dance_params {:title})
-    @dance = Dance.find(params[:id])
+    @new_dance = Dance.new(dance_params {:title})
+    @dance = Dance.find(dance_params[:id])
     @style = @dance.title
-    # @user.dances = Dance.where(id: params[:id]) # => select et s'ajoute dans la show du profil
+    @user.dances = Dance.where(id: params[:id]) # => select et s'ajoute dans la show du profil
     @partners = Partner.all
     @dancers = Partner.where(dance_id: @dance)
     @dancer = @dancers.each do |dancer|
@@ -71,6 +73,6 @@ class DancesController < ApplicationController
   private
 
   def dance_params
-    params.require(:dance).permit(:title, :id, :user_id)
+    params.permit(:id, :title, :user_id)
   end
 end

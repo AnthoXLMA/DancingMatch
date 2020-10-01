@@ -19,12 +19,12 @@
         color:#791E94;
         font-size:25px;
         transition-duration: 0.4s;
-      }
-      a:hover{
+    }
+    a:hover{
         color:#f91be3;
         // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
         text-decoration: none;
-      }
+    }
   }
 
 .show-profile {
@@ -104,8 +104,7 @@
   display:flex;
   position:sticky;
   justify-content:space-between;
-  top:0;
-  height:200px;
+  height:180px;
   background-color:white;
   z-index: 9;
   opacity:10;
@@ -127,7 +126,9 @@
           font-size: 120px;
           color:#791E94;
         }
-
+        h2 {
+          font-size: 20px;
+        }
         a {
           margin-right:20px;
         }

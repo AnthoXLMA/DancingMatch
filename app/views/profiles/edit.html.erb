@@ -4,6 +4,11 @@
       <h1>Dancing Partners</h1>
     </div>
   </div>
+   <div class="menu-navbar">
+    <%= link_to "Back", :back %>
+    <%= link_to "Home", root_path %>
+    <%= link_to "My profile", profile_path %>
+  </div>
 </div>
 
 <div class="title">
@@ -11,7 +16,7 @@
 </div>
 
 <div class="dance-selection">
-  <h1>Select a dance</h1>
+  <h1>Select your dances</h1>
   <div class="alt-menu">
     <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
     <div class="dances_menu">
@@ -21,5 +26,26 @@
         </div>
       <% end %>
     </div>
+    <p>Your nickname / pseudo<p>
+    <p>Your age<p>
+    <p>Your location<p>
+    <p>Your dancing experience<p>
+    <p>Which dancer are you? independent coach / professional / Entertainment / Novice <p>
+    <p>What is your level? professional / intermediary / novice <p>
+      <div class="col-12 col-md-4">
+        <h4 class="text-center">Update</h4>
+        <%= simple_form_for profile_path do |f| %>
+          <div class="fields">
+            <%= f.label :dance %><br>
+            <%= f.input :title, placeholder: @user %>
+            <%= f.input :age, placeholder: @user %>
+            <%= f.input :location, placeholder: @user %>
+            <%= f.input :experience, placeholder: @user %>
+            <%= f.input :level, placeholder: @user %>
+            <%= f.input :type, placeholder: @user %>
+            <%= f.submit "Add", class: "btn btn-flat" %>
+          </div>
+        <% end %>
+      </div>
   </div>
 </div>

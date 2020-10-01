@@ -25,6 +25,18 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  resources :appointments, only: [:index, :new, :create]
+
+  namespace :user do
+    resources :partners, only: [:index]
+    resources :appointments, only: [:index] do
+      member do
+        patch :accept
+        patch :refuse
+    end
+  end
+end
+
   resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
   end
@@ -32,7 +44,7 @@ Rails.application.routes.draw do
   namespace :partners do
     resources :dances, only: [:index, :show]
       resources :appointments, only: [:index, :show]
-  end
+    end
 end
   # namespace :dances do
   #   resources :partners, only: [:index, :show]
