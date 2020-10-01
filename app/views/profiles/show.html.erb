@@ -1,5 +1,12 @@
+<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
+  <div class="logo">
+    <div class="logo-text">
+      <h1>Dancing Partners</h1>
+    </div>
+  </div>
+</div>
+
 <div class="user-infos">
-  <h2>Hello <%= @user.pseudo %></h2>
   <div class="user-addon">
     <h3><%= link_to "Home", root_path %><h3>
     <h3><%= link_to "Meet all partners", partners_path %></h3>
@@ -19,6 +26,7 @@
       <h2><%= @user.age %> years old</h2>
       <h2><%= @user.experience %> years dancing XP</h2>
     </div>
+    <h2>Hello <%= @user.pseudo %></h2>
     <div class="user-dances">
       <div class="cards">
       <h3>You have <%= @user.dances.count %> dances selected</h3>
