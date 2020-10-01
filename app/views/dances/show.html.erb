@@ -1,5 +1,13 @@
-<h1>Dancing Partners</h1>
-  <h1><%= link_to @style, dances_path(@dance) %></h1>
+<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
+  <div class="logo">
+    <div class="logo-text">
+      <h1>Dancing Partners</h1>
+    </div>
+    <%= link_to "Home", root_path %>
+  </div>
+</div>
+
+<h1><%= link_to @style, dances_path(@dance) %></h1>
 
 <div class="add-dance">
   <%= link_to "Select this dance", profile_path(@user.dances),method: :get, id: "dance" %>
