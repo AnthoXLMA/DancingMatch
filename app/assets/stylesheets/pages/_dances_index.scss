@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .container-dances {
   background-color: #f1f2f5;
+  margin-top:40px;
+
   .search {
     width:300px;
     margin-left:auto;
@@ -90,7 +92,15 @@
       font-size: 15px;
     }
     h3 {
-      font-size: 25px;
+      justify-content:space-around;
+      color:#791E94;
+      font-size:25px;
+      transition-duration: 0.4s;
+      }
+    h3:hover{
+    color:#f91be3;
+    // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    text-decoration: none;
       }
     }
   }

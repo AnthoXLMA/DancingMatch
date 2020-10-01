@@ -9,20 +9,22 @@
   margin-right:auto;
   margin-left:auto;
   display:grid;
-  background-color: #791E94;
+  background-color: #f91be3;
+  border-radius:10px;
   width:800px;
+  padding:20px;
   h1 {
-    color:white;
+    color:#f1f2f5;
   }
 
   .dances_menu {
-    background-color: #791E94;
+    background-color: #f91be3;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1px;
 
     ol {
-        color:white;
+        color:#f1f2f5;
         font-size: 20px;
       }
       .menu {
