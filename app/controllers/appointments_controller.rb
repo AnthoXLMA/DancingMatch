@@ -8,7 +8,7 @@ class AppointmentsController < ApplicationController
   # end
 
   def index
-    @appointments = Rental.all
+    @appointments = Appointment.all
   end
 
   def new

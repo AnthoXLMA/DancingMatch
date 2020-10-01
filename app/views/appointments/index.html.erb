@@ -1,0 +1,27 @@
+<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
+  <div class="logo">
+    <div class="logo-text">
+      <h1>Dancing Partners</h1>
+    </div>
+  </div>
+  <div class="menu-navbar">
+    <%= link_to "Back", :back %>
+    <%= link_to "Home", root_path %>
+    <%= link_to "My profile", profile_path %>
+  </div>
+</div>
+
+<div class="title_text">
+  <p>Your appointments</p>
+</div>
+
+  <div class="appointment">
+    <% @appointments.each do |appointment| %>
+        <div class="user_name">
+          <h1 class="card_category_show"> <%= appointment.dance_id %></h1>
+        </div>
+      <div class="appointment">
+        <h4><i class="fas fa-user"></i> <%= appointment.user.pseudo %> <%= appointment.user.location %></h4>
+      </div>
+    <% end %>
+  </div>
