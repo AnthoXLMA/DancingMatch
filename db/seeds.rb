@@ -2,6 +2,7 @@ puts "cleaning DB..."
 Partner.destroy_all
 User.destroy_all
 Dance.destroy_all
+Appointment.destroy_all
 
 puts "Creating dances..."
 dance1 = Dance.new(title: "Salsa Cubana")
@@ -349,19 +350,19 @@ philippe.save
 # # # # # end
 
 # # # # APPOINTMENTS ------------------------------------------------------
-# # # # # puts "Create appointments..."
-# # # # #   appointment_request_anthony = Appointment.create!(
-# # # # #     user: anthony,
-# # # # #     partner: flavien,
-# # # # #     location: "Nantes",
-# # # # # )
-# # # # # appointment_request_anthony.save
+puts "Create appointments..."
+  appointment_request_anthony = Appointment.create!(
+    user: anthony,
+    partner: didier,
+    location: "Nantes",
+)
+appointment_request_anthony.save
 
-# # # # #   appointment_call_anthony = Appointment.create!(
-# # # # #     user: anthony,
-# # # # #     partner: amanda,
-# # # # #     location: "Paris",
-# # # # # )
+  appointment_call_anthony = Appointment.create!(
+    user: anthony,
+    partner: amanda,
+    location: "Paris",
+)
 
-# # # # # appointment_call_anthony.save
-# # # # # puts "Done!"
+appointment_call_anthony.save
+puts "Done!"
