@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_29_123037) do
+ActiveRecord::Schema.define(version: 2020_10_01_154545) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_123037) do
 
   create_table "messages", force: :cascade do |t|
     t.string "content"
-    t.bigint "chatroom_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "chatroom_id"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
@@ -83,7 +83,9 @@ ActiveRecord::Schema.define(version: 2020_09_29_123037) do
     t.bigint "dance_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
     t.index ["dance_id"], name: "index_partners_on_dance_id"
+    t.index ["user_id"], name: "index_partners_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -116,7 +118,8 @@ ActiveRecord::Schema.define(version: 2020_09_29_123037) do
   add_foreign_key "appointments", "partners"
   add_foreign_key "appointments", "users"
   add_foreign_key "dances", "users"
-  add_foreign_key "users", "dances"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-end
+  add_foreign_key "partners", "users"
+  add_foreign_key "users", "dances"
+  end

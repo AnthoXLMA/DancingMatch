@@ -20,7 +20,7 @@ require("channels")
 import 'mapbox-gl/dist/mapbox-gl.css';
 //import 'progressbar/dist/progressbar.css';
 // internal imports
-import { initMapbox } from '../plugins/init_mapbox';
+// import { initMapbox } from '../plugins/init_mapbox';
 // import { initProgressBar } from '../plugins/init_progressbar';
 // import { initChart } from '../plugins/init_chart';
 // import { initSiema } from '../plugins/init_siema';
