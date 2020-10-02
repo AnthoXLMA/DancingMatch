@@ -15,6 +15,8 @@ class ProfilesController < ApplicationController
     @dance = Dance.new
     @user_dances = @user.dances
     @chatrooms = Chatroom.all
+    @salsa = Chatroom.find_by(name: "salsa")
+    redirect_to chatroom_path(@salsa) if @salsa
   end
 
   def new
@@ -33,9 +35,17 @@ class ProfilesController < ApplicationController
     @dances = Dance.all
     @my_dances = {}
     @your_dances = @dances.each do |dance|
-      puts "#{dance}"
-    end
+     puts "#{dance}"
   end
+
+  def chatroom
+    general = Chatroom.find_by(name: "general")
+    redirect_to chatroom_path(general) if general
+  end
+
+  def update
+  end
+end
   # def create
   #   @dances = Dance.all
   #   @my_dances = @dances.each do |title|

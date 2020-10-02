@@ -10,11 +10,11 @@ Rails.application.routes.draw do
   end
 
   resources :profile, only: [:show] do
-    resources :chatrooms, only: [:show]
+    resources :chatrooms, only: [:show, :new]
   end
 
-  resources :chatrooms, only: [:show] do
-    resources :messages, only: [:create]
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
   end
 
   resources :dances, only: [:show] do

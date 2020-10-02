@@ -24,17 +24,16 @@
 <div class="container3">
   <div class="bouton">
     <% @dancer.each do |dance_man| %>
-    <div class="card-partner">
-      <%= dance_man.pseudo %>
-      <%= dance_man.gender %>
-      <%= dance_man.age %>
-      <%= dance_man.location %>
-      <%= link_to "Contact this partner", partner_path(dance_man) %>
-    </div>
-      <% end %>
-    <br>
-    <%= @list.each do |man| %>
-    <% puts man %>
+  <div class="card-partner">
+    <%= dance_man.pseudo %>
+    <%= dance_man.gender %>
+    <%= dance_man.age %>
+    <%= dance_man.location %>
+    <%= link_to "Contact this partner", partner_path(dance_man) %>
+  </div>
+    <% end %>
+      <%= @list.each do |man| %>
+      <% puts man %>
     <% end %>
   </div>
   <div class="news">
