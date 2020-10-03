@@ -1,15 +1,7 @@
 class PartnersController < ApplicationController
   def index
-    # return redirect_to edit_profile_path unless current_user.all_skills_rated?
     @user = current_user
     @partners = Partner.all
-    # @dance = Dance.find(params[:id])
-    # @markers = @partners.geocoded.map do |partner|
-    #   {
-    #     lat: partner.latitude,
-    #     lng: partner.longitude
-    #   }
-    # end
   end
 
   def new

@@ -70,8 +70,7 @@ dance20.save!
 # SEEDS 1 avec dance
 puts 'Creating Users...'
 anthony = User.new(
-  pseudo: 'Anthony',
-  gender: "Gentleman",
+  first_name: 'Anthony',
   age: "37",
   email: "antho@example.com",
   password: "secret",
@@ -84,8 +83,7 @@ anthony = User.new(
 anthony.save!
 
 jimmy = User.new(
-  pseudo: 'Jimmy',
-  gender: "Gentleman",
+  first_name: 'Jimmy',
   age: "30",
   email: "jimmy@example.com",
   password: "secret",
@@ -99,8 +97,7 @@ jimmy.save!
 
 
 stephanie = User.new(
-  pseudo: 'Stephanie',
-  gender: "Lady",
+  first_name: 'Stephanie',
   age: "32",
   email: "steph@example.com",
   password: "secret",
@@ -112,8 +109,7 @@ stephanie = User.new(
 stephanie.save
 
 peter = User.new(
-  pseudo: 'Peter',
-  gender: "Gentleman",
+  first_name: 'Peter',
   age: "28",
   email: "peter@example.com",
   password: "secret",

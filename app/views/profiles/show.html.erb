@@ -3,7 +3,7 @@
     <div class="logo-text">
       <h1>Dancing Partners</h1>
     </div>
-  <h2>Hello <%= @user.pseudo %></h2>
+  <h2>Hello <%= @user.first_name %></h2>
   </div>
   <div class="menu-navbar">
     <%= link_to "Back", :back %>
@@ -26,7 +26,7 @@
 <div class="show-profile">
   <div class="container-left">
     <div class="user-details">
-      <h1><%= @user.pseudo %></h1>
+      <h1><%= @user.first_name %></h1>
       <h2><%= @user.location %></h2>
       <h2><%= @user.age %> years old</h2>
       <h2><%= @user.experience %> years dancing XP</h2>
@@ -34,38 +34,37 @@
     <div class="user-dances">
       <div class="cards">
       <h3>You have <%= @user.dances.count %> dances selected</h3>
-        <% @user.dances.each do |style| %>
-          <ol><%= style.title %></ol>
-          <% end %>
-              <%= select_tag 'dances', options_for_select(@dances.collect{ |u| [u.title, u.id] }) %>
-
+          <ol><% @user_dances.each do |user_dance| %>
+            <%= user_dance.title %>
+            <% end %></ol>
     <div class="pt-30 row justify-content-center">
       <div class="col-12 col-md-4">
         <h4 class="text-center">Add a dance</h4>
         <%= simple_form_for @dance do |f| %>
           <div class="fields">
-            <%= f.label :dance %><br>
-            <%= f.input :title, placeholder: @dance %>
-            <%= f.submit "Add", class: "btn btn-flat" %>
+            <%= f.input :title, placeholder: @user %>
+            <%= f.submit "Add" %>
           </div>
         <% end %>
-      </div>
-    </div>
-    <div class="pt-30 row justify-content-center">
-      <div class="col-12 col-md-4">
-        <h4 class="text-center">Search a Partner</h4>
-        <%= simple_form_for @dance do |f| %>
+        <h4 class="text-center">Select a dance</h4>
+        <%= form_for @dance do |f| %>
           <div class="fields">
-            <%= f.label :name %><br>
-            <%= f.input :title, placeholder: @partner %>
-            <%= f.submit "Search", class: "btn btn-flat" %>
+            <%= f.select(:title, dances_for_select, :prompt => 'Select') %>
+            <%= f.submit "Select" %>
           </div>
         <% end %>
       </div>
-    </div>
-<div>
-  <h1><%= link_to "Create a new chat", new_profile_chatroom_path(@chatrooms) %></h1>
-</div>
+
+      <div>
+      <%= form_for @dance do |f| %>
+      <%= f.collection_check_boxes :title, Dance.all, :id, :title %>
+      <%= f.submit %>
+        <% end %>
+      </div>
+
+  <div>
+    <h1><%= link_to "Create a new chat", new_profile_chatroom_path(@chatrooms) %></h1>
+  </div>
     <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"

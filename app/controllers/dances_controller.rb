@@ -1,4 +1,6 @@
 class DancesController < ApplicationController
+   before_action :set_dance, only: [:show]
+
   def index
     if params[:query].present?
       @dances = Dance.where(title: params[:query])
@@ -12,7 +14,6 @@ class DancesController < ApplicationController
     @dancer = @style.each do |yd|
       puts yd
     end
-
     @partners = Partner.all
     @dancers = Partner.where(dance_id: @dance)
     @partner = @partners.each do |partner|
@@ -23,16 +24,16 @@ class DancesController < ApplicationController
 
   def new
     @dance = Dance.new
-    dance.save
-    redirect_to profile_path(@dances)
+    @dance.save
+    redirect_to profile_path(@user)
   end
 
   def show
     @user = current_user
     @dances = Dance.all
-    @new_dance = Dance.new(dance_params {:title})
-    @dance = Dance.find(dance_params[:id])
+    # @dance = Dance.find(dance_params)
     @style = @dance.title
+    @user.dances = []
     @user.dances = Dance.where(id: params[:id]) # => select et s'ajoute dans la show du profil
     @partners = Partner.all
     @dancers = Partner.where(dance_id: @dance)
@@ -44,17 +45,14 @@ class DancesController < ApplicationController
 
   def create
     @user = current_user
-    @dance = Dance.new(dance_params {:title})
+    @dance = Dance.new(dance_params)
+    @dances = Dance.all
     @user.dance = @dance
     if @dance.save
-      redirect_to profile_path(@dances)
+      redirect_to dances_path(@dance)
     else
       render :new
     end
-  end
-
-  def set_dance
-    @dance = Dance.find(params[:id])
   end
 
   def update
@@ -72,7 +70,11 @@ class DancesController < ApplicationController
 
   private
 
+  def set_dance
+    @dance = Dance.find(params[:id])
+  end
+
   def dance_params
-    params.permit(:id, :title, :user_id)
+    params.require(:dance).permit(:id, :title)
   end
 end
