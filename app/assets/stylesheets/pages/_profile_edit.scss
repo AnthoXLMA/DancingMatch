@@ -9,7 +9,10 @@
   margin-right:auto;
   margin-left:auto;
   display:grid;
-  background-color: #f91be3;
+  box-shadow: 1px 10px 6px 1px grey;
+  background-color: #f1f2f5;
+  border:solid;
+  border-width: 1px;
   border-radius:10px;
   width:800px;
   padding:20px;
@@ -18,7 +21,6 @@
   }
 
   .dances_menu {
-    background-color: #f91be3;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 1px;
