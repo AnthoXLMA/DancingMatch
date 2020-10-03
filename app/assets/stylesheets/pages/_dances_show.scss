@@ -106,89 +106,90 @@
   }
 }
 
-.navbar-yourjob {
-  display:flex;
-  position:sticky;
-  justify-content:space-between;
-  top:0;
-  height:70px;
-  background-color:white;
-  z-index: 9;
-  opacity:10;
+// .navbar-yourjob {
+//   display:flex;
+//   position:sticky;
+//   justify-content:space-between;
+//   top:0;
+//   height:70px;
+//   background-color:white;
+//   box-shadow: 10px 3px 25px #bababa;
+//   z-index: 9;
+//   opacity:10;
 
-    .logo {
-      padding-top: 4px;
-      padding-left: 6px;
-      position:sticky;
-        img {
-          height:50px;
-          width:50px;
-          margin-top: 0px;
-          margin-right: 0px;
-        }
-        h1 {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
-        }
+//     .logo {
+//       padding-top: 4px;
+//       padding-left: 6px;
+//       position:sticky;
+//         img {
+//           height:50px;
+//           width:50px;
+//           margin-top: 0px;
+//           margin-right: 0px;
+//         }
+//         h1 {
+//           margin-right: 40px;
+//           font-family:'Marck Script';
+//           font-weight:bold;
+//           font-size: 20px;
+//           color:#791E94;
+//         }
 
-        .logo-text {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
-        }
-      }
+//         .logo-text {
+//           margin-right: 40px;
+//           font-family:'Marck Script';
+//           font-weight:bold;
+//           font-size: 20px;
+//           color:#791E94;
+//         }
+//       }
 
-      .avatar {
-      margin-top: 2px;
-      margin-right: 5px;
-      position:sticky;
-      height: 50px;
-      width: 50px;
-      }
-}
-
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-// .logo {
-//   width:300px;
-//   height:400px;
-
+//       .avatar {
+//       margin-top: 2px;
+//       margin-right: 5px;
+//       position:sticky;
+//       height: 50px;
+//       width: 50px;
+//       }
 // }
 
-// /* TODO: design your flexbox layout with a sticky map */
-// .main-container {
-//   display: flex;
-// }
-// /* We just give you a Gmaps with random width/height */
-// @media(min-width: 500px){
-// .cards {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr;
-//   grid-gap: 16px;
-//   padding: 10px;
-//   flex-grow: 1;
+// .navbar-lewagon {
+//   justify-content: space-between;
+//   background: white;
 // }
 
+// .navbar-lewagon .navbar-collapse {
+//   flex-grow: 0;
 // }
-// #map {
-//   height: 100vh;
-//   position: sticky;
-//   top: 0;
-//   right: 0px;
+
+// .navbar-lewagon .navbar-brand img {
+//   width: 40px;
 // }
+
+// // .logo {
+// //   width:300px;
+// //   height:400px;
+
+// // }
+
+// // /* TODO: design your flexbox layout with a sticky map */
+// // .main-container {
+// //   display: flex;
+// // }
+// // /* We just give you a Gmaps with random width/height */
+// // @media(min-width: 500px){
+// // .cards {
+// //   display: grid;
+// //   grid-template-columns: 1fr 1fr 1fr;
+// //   grid-gap: 16px;
+// //   padding: 10px;
+// //   flex-grow: 1;
+// // }
+
+// // }
+// // #map {
+// //   height: 100vh;
+// //   position: sticky;
+// //   top: 0;
+// //   right: 0px;
+// // }

@@ -1,10 +1,10 @@
 .navbar-yourjob {
   display:flex;
   position:sticky;
-  justify-content:space-between;
   top:0;
-  height:70px;
+  height:200px;
   background-color:white;
+  box-shadow: 10px 3px 25px #bababa;
   z-index: 9;
   opacity:10;
 
@@ -24,6 +24,10 @@
           font-weight:bold;
           font-size: 20px;
           color:#791E94;
+        }
+
+        a {
+          margin-right:100px;
         }
 
         .logo-text {
