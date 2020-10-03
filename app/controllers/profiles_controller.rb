@@ -1,4 +1,12 @@
 class ProfilesController < ApplicationController
+  def create
+    @user = current_user
+    @dance = Dance.new
+    @user.dance = @dance
+    @dance.save
+      redirect_to profile_path
+  end
+
   def index
     @users = User.all
     @markers = @users.geocoded.map do |user|
@@ -25,13 +33,6 @@ class ProfilesController < ApplicationController
       redirect_to profile_path
   end
 
-  def create
-    @user = current_user
-    @dance = Dance.new
-    @user.dance = @dance
-    @dance.save
-      redirect_to profile_path
-  end
 
   def edit
     flash[:alert] = "alert"
