@@ -355,3 +355,7 @@ vanessa.save!
 adel = Appointment.new(user_id: '1', location: "Paris", date: "23/02/2021", partner_id: '5')
 adel.save!
 puts 'Finished!'
+
+
+
+

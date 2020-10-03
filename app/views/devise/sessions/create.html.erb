@@ -1,0 +1,38 @@
+<h1>Create your Profil</h1>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
+<%= f.error_notification %>
+
+<div class="form-inputs">
+    <%= f.input :email, required: false, autofocus: true %>
+    <%= f.input :location,
+                required: true,
+                input_html: { autocomplete: "location" } %>
+    <%= f.input :experience,
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+    <%= f.input :dance,
+                required: true,
+                input_html: { autocomplete: "Coach, Student, Entertainment" } %>
+    <%= f.input :experience,
+                required: true,
+                input_html: { autocomplete: "current-password" } %>
+    <%= f.select(:dances, [['Salsa'],
+                          ['Merengue'],
+                          ['Bachata'],
+                          ['Type D', 'Type D'],
+                          ['Type E', 'Type E']
+                         ],{ :prompt => "Please select"},
+                           { :multiple => true, :size => 10 }
+                         ) %>
+      <%= f.input :dance,
+        required: true,
+        autofocus: true,
+        label: "Your dance",
+        collection: ["Salsa", "Merengue", "Bachata", "Kizomba"],
+        input_html: { multiple: true },
+        include_hidden: false
+    %>
+<h3><%= link_to "Change Your Password", edit_user_registration_path %></h3>
+<% end %>
+</div>
