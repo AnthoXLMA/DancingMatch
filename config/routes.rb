@@ -34,9 +34,9 @@ Rails.application.routes.draw do
     member do
       patch :accept
         patch :refuse
+      end
     end
   end
-end
 
   resources :partners, only: [:index, :show] do
     resources :dances, only: [:index, :show]
@@ -46,7 +46,7 @@ end
     resources :dances, only: [:index, :show]
       resources :appointments, only: [:index, :show]
     end
-end
+  end
   # namespace :dances do
   #   resources :partners, only: [:index, :show]
   # end

@@ -2,6 +2,7 @@
   <div class="logo">
     <div class="logo-text">
       <h1>Dancing Partners</h1>
+
     </div>
   <h2>Hello <%= @user.first_name %></h2>
   </div>
@@ -37,7 +38,12 @@
       <h3>You have <%= @user.dances.count %> dances selected</h3>
           <ol><% @user_dances.each do |user_dance| %>
             <%= user_dance.title %>
-            <% end %></ol>
+            <%= @user_style %>
+            <br>
+            your favorite dance is <%= @user.dance.title %>
+            </br>
+            <% end %>
+          </ol>
     <div class="pt-30 row justify-content-center">
       <div class="col-12 col-md-4">
         <h4 class="text-center">Add a dance</h4>
@@ -55,7 +61,11 @@
           </div>
         <% end %>
       </div>
-
+  </div>
+</div>
+</div>
+</div>
+</div>
       <div>
       <%= form_for @dance do |f| %>
       <%= f.collection_check_boxes :title, Dance.all, :id, :title %>
