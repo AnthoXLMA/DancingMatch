@@ -11,12 +11,6 @@
     <%= f.input :experience,
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :dance,
-                required: true,
-                input_html: { autocomplete: "Coach, Student, Entertainment" } %>
-    <%= f.input :experience,
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
     <%= f.select(:dances, [['Salsa'],
                           ['Merengue'],
                           ['Bachata'],
@@ -25,7 +19,7 @@
                          ],{ :prompt => "Please select"},
                            { :multiple => true, :size => 10 }
                          ) %>
-      <%= f.input :dance,
+      <%= f.input :dances,
         required: true,
         autofocus: true,
         label: "Your dance",

@@ -1,13 +1,40 @@
 puts "cleaning DB..."
 Partner.destroy_all
 User.destroy_all
-Dance.destroy_all
 Appointment.destroy_all
 Message.destroy_all
 Chatroom.destroy_all
 
+# Dance.destroy_all
+
+# dance_names = [
+#   "Salsa",
+#   "Tango",
+#   "Bachata",
+#   "Rock and Roll",
+#   "Merengue",
+#   "Breakdance"
+# ]
+
+# dance_names.each do |dance_name|
+#   dance = Dance.new(
+#       title: dance_name,
+#     )
+#   dance.save!
+# end
+#   # 3.times do
+#   #   partner = Partner.new(
+#   #     name: JohnnyBgoode,
+#   #   )
+#   #   partner.dance = dance
+#   #   partner.save!
+#   #   sleep(2)
+#   # end
+# end
+
 puts "Creating dances..."
-dance1 = Dance.new(title: "Salsa Cubana")
+dance1 = Dance.new(
+  title: "Salsa Cubana")
 dance1.save!
 
 dance2 = Dance.new(title: "Merengue")
@@ -78,7 +105,7 @@ anthony = User.new(
   location: "Paris",
   experience: "3",
   contact: "06023002233",
-  dance: dance6,
+  dance: dance2,
   )
 anthony.save!
 
@@ -91,7 +118,7 @@ jimmy = User.new(
   location: "Marseille",
   experience: "1",
   contact: "06025002233",
-  dance: dance2,
+  dance: dance19,
 )
 jimmy.save!
 
@@ -104,7 +131,7 @@ stephanie = User.new(
   experience: "16",
   location: "La Havane",
   contact: "0600000033",
-  dance: dance5,
+  dance: dance19,
 )
 stephanie.save
 
@@ -116,10 +143,9 @@ peter = User.new(
   location: "Berlin",
   experience: "8",
   contact: "0600110033",
-  dance: dance3,
+  dance: dance19,
 )
 peter.save
-
 
 #SEEDS 2 avec dance_id
 # puts 'Creating Users...'
@@ -153,7 +179,7 @@ peter.save
 
 
 puts 'Creating Partners...'
-adel = Partner.new(
+michou = Partner.new(
   pseudo: 'Adel',
   gender: "Gentleman",
   age: "32",
@@ -163,7 +189,7 @@ adel = Partner.new(
   dance_id: '3',
 )
 # anthony.dances = dances
-adel.save
+michou.save
 
 sylvia = Partner.new(
   pseudo: 'Sylvia',
@@ -199,8 +225,8 @@ vanessa.save
 )
 john.save
 
-amanda = Partner.new(
-  pseudo: 'Amanda',
+julie = Partner.new(
+  pseudo: 'julie',
   gender: "Lady",
   age: "27",
   location: "Nantes",
@@ -208,7 +234,7 @@ amanda = Partner.new(
   contact: "0600110033",
   dance_id: '3',
 )
-amanda.save
+julie.save
 
 marion = Partner.new(
   pseudo: 'Marion',
@@ -254,7 +280,7 @@ ludo = Partner.new(
   dance_id: '12',
 )
 # zita.dances = dances
-sylvia.save
+ludo.save
 
 olivier = Partner.new(
   pseudo: 'Olivier',
@@ -330,32 +356,28 @@ Message.create(chatroom: general, user: tony, content: "It seems we have N+1 que
 # # # # # end
 
 # # # # APPOINTMENTS ------------------------------------------------------
-puts "Create appointments..."
-  appointment_request_anthony = Appointment.create!(
-    user: anthony,
-    partner: didier,
-    location: "Nantes",
-)
-appointment_request_anthony.save
+# puts "Create appointments..."
+#   appointment_request_anthony = Appointment.create!(
+#     user: anthony,
+#     partner: didier,
+#     location: "Nantes",
+# )
+# appointment_request_anthony.save
 
-  appointment_call_anthony = Appointment.create!(
-    user: anthony,
-    partner: amanda,
-    location: "Paris",
-)
+#   appointment_call_anthony = Appointment.create!(
+#     user: anthony,
+#     partner: amanda,
+#     location: "Paris",
+# )
 
-appointment_call_anthony.save
-puts "Done!"
+# appointment_call_anthony.save
+# puts "Done!"
 
-puts 'Creating appointments 1...'
-new_appointment = Appointment.new(user_id: '4', location: "Paris", date: "23/02/2021", partner_id: '3')
-new_appointment.save!
-vanessa = Appointment.new(user_id: '2', location: "Paris", date: "23/02/2021", partner_id: '5')
-vanessa.save!
-adel = Appointment.new(user_id: '1', location: "Paris", date: "23/02/2021", partner_id: '5')
-adel.save!
-puts 'Finished!'
-
-
-
-
+# puts 'Creating appointments 1...'
+# new_appointment = Appointment.new(user_id: '4', location: "Paris", date: "23/02/2021", partner_id: '3')
+# new_appointment.save!
+# vanessa = Appointment.new(user_id: '2', location: "Paris", date: "23/02/2021", partner_id: '5')
+# vanessa.save!
+# adel = Appointment.new(user_id: '1', location: "Paris", date: "23/02/2021", partner_id: '5')
+# adel.save!
+# puts 'Finished!'

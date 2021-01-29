@@ -5,5 +5,5 @@ has_many :partners
 has_many :users
 has_many :appointments
 
-validates :title, presence: true, uniqueness: true
+validates :title, presence: true
 end

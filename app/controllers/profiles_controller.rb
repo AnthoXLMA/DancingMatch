@@ -21,7 +21,6 @@ class ProfilesController < ApplicationController
     @user = current_user
     @dances = Dance.all
     @dance = Dance.new
-    @user_styles = []
     @user_dances = Dance.where(user_id: @user)
     @chatrooms = Chatroom.all
   end

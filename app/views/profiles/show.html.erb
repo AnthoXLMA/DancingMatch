@@ -2,8 +2,8 @@
   <div class="logo">
     <div class="logo-text">
       <h1>Dancing Partners</h1>
-
     </div>
+
   <h2>Hello <%= @user.first_name %></h2>
   </div>
   <div class="menu-navbar">
@@ -36,14 +36,14 @@
     <div class="user-dances">
       <div class="cards">
       <h3>You have <%= @user.dances.count %> dances selected</h3>
-          <ol><% @user_dances.each do |user_dance| %>
-            <%= user_dance.title %>
-            <%= @user_style %>
-            <br>
-            your favorite dance is <%= @user.dance.title %>
-            </br>
-            <% end %>
+          <ol>
+            <% @user_dances.each do |user_dance| %>
+              <%= user_dance.title %>
+              <% end %>
           </ol>
+            <br>
+              Your favorite dance is <%= @user.dance.title %>
+              </br>
     <div class="pt-30 row justify-content-center">
       <div class="col-12 col-md-4">
         <h4 class="text-center">Add a dance</h4>
@@ -76,94 +76,10 @@
   <div>
     <h1><%= link_to "Create a new chat", new_profile_chatroom_path(@chatrooms) %></h1>
   </div>
+
     <div id="map"
        style="width: 100%; height: 600px;"
        data-markers="<%= @markers.to_json %>"
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-
-<div class="all-elements">
-    <%# carte profil %>
-    <div class="profile-card">
-        <%# haut de la carte %>
-        <div class="profile-card-top">
-          <%# picture + age %>
-          <div class="image-block">
-          </div>
-          <%# Name %>
-          <div class="line-infos">
-          <div class="name-infos">
-            <div class="full-name">
-              <h1><span><%= @user.first_name %></span> <%= @user.last_name %></h1>
-            </div>
-            <div class="user-infos">
-              <p><i class="far fa-envelope", style="margin-right:2px;"></i> <%= @user.email %></p>
-              <p><i class="fas fa-map-marker-alt", style="margin-right:5px;"></i> <%= @user.location %></p>
-            </div>
-          </div>
-          <h3><%= @user.dance %> -  <%= @user.age %> - <%= @user.location %></h3>
-            <div class="quote">
-              <h5>About Me</h5>
-              <h4>Add your description: "I am ready to start a new challenge. I've been studying code during two months at LeWagon. Now, I am a Junior Developer enable to program interfaces with the
-              knowledge of CSS, HTML and Ruby languages."</h4>
-            </div>
-          </div>
-
-        </div>
-        <%# centre de la carte %>
-        <div class="tableaux">
-          <div class=tableau1>
-            <div class="grid-skills">
-              <div class="skills-line" id="full-stars-rating">
-                <div class="rating-group">
-                  <%# pour n == user[skill.value] n.star=> orange && star=< n.star => orange && star> n.star => gris %>
-                    <% if current_user.dances.nil? %>
-                      <h5 >To complete</h5>
-                        <% else %>
-                          <% (current_user.dances).each do |n| %>
-                              <label aria-label="<%= n %> star" class="rating__label" for="interpersonal_skills-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star orange" style="color: orange;"></i></label>
-                          <% end %>
-                          <% (current_user.dances).each do |n| %>
-                              <label aria-label="<%= n %> star" class="rating__label" for="interpersonal_skills-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star grey" style="color: grey;"></i></label>
-                            <% end %>
-                          <% end %>
-                        </div>
-
-        <div class="testbutton profil-test-btn" >
-              <% if current_user.dances.blank?%>
-            <a class="link"><%= link_to "Apply for a new job", dances_path, data:{turbolinks: false}, class:"btn-ghost"%></a>
-          <% else %>
-          <a class="link"><%= link_to "Complete your registration", dances_path, data:{turbolinks: false}, class:"btn-ghost"%></a>
-        <% end %>
-      </div>
-    </div>
-    <%# OFFRES d'emploi candidaté %>
-    <div class="applications-column">
-        <h3>Appointments</h3>
-        <div class="scroll-offers">
-          <% if @user.appointments.blank? %>
-            <h4 class="sentence">No pending appointments.<br>Check out the offers that match your personality.<br>Recruiters are waiting to hear from you, <%= @user.first_name %>.</h4 class="sentence">
-          <% else %>
-            <%# offer cards %>
-              <% @user.dances.each do |dance| %>
-            <%# offer_applies_path(@offer.id) %>
-                  <%= link_to dance_path(appointments_url), data:{turbolinks: false}, class: "btn-apply-card" do %>
-            <div class="offer-card">
-                <div class="company-logo-infos">
-                <div class="logo-company">
-                  </div>
-<!--                             <div class="border_card"></div>
--->                            <div class="company-infos">
-                    <h2><strong><% @dance.title %></strong></h2>
-                    <div class="colored-text">
-                    </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
 
