@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new
-    @user.dance = @dance
+    # @user.dance = @dance
     @dance.save
       redirect_to profile_path
   end
@@ -17,13 +17,23 @@ class ProfilesController < ApplicationController
     end
   end
 
+  # def show
+  #   @user = current_user
+  #   @dances = Dance.all
+  #   @dance = Dance.new
+  #   @user_styles = []
+  #   @user_dances = Dance.where(user_id: @user)
+  #   @chatrooms = Chatroom.all
+  # end
+
   def show
     @user = current_user
-    @dances = Dance.all
     @dance = Dance.new
-    @user_styles = []
-    @user_dances = Dance.where(user_id: @user)
-    @chatrooms = Chatroom.all
+    @dances = Dance.all
+    @user_dances = []
+    @dances.each do |dance|
+      @user_dances << dance
+    end
   end
 
   def new

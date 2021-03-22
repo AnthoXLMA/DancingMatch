@@ -7,18 +7,22 @@ class DancesController < ApplicationController
     else
       @dances = Dance.all
     end
+
     @dance = @dances.each do |dance|
       puts dance
     end
+
     @style = @dance.find(params[:id])
     @dancer = @style.each do |yd|
       puts yd
     end
+
     @partners = Partner.all
     @dancers = Partner.where(dance_id: @dance)
     @partner = @partners.each do |partner|
       puts partner
     end
+
     @counters = Partner.where(dance_id: :id)
   end
 
@@ -46,14 +50,24 @@ class DancesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new(dance_params)
-    @dances = Dance.all
-    @user.dance = @dance
+    @user.dance = Dance.all
     if @dance.save
       redirect_to dances_path(@dance)
     else
-      render :new
+      render 'profile'
     end
   end
+
+  # def create
+  #   @playground = Playground.find(params[:playground_id])
+  #   @event = Event.new(event_params)
+  #   @event.playground = @playground
+  #   if @event.save
+  #     redirect_to playground_path(@playground)
+  #   else
+  #     render 'playgrounds/show'
+  #   end
+  # end
 
   def update
     @dance = Dance.find(params[:id])

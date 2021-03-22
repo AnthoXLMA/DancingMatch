@@ -1,0 +1,15 @@
+current directory: /Users/anthony/code/AnthoXLMA/DancingMatch/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.8/ext/bootsnap
+/Users/anthony/.rbenv/versions/2.6.6/bin/ruby -I /Users/anthony/.rbenv/versions/2.6.6/lib/ruby/site_ruby/2.6.0 -r ./siteconf20210205-86870-zpyen7.rb extconf.rb
+creating Makefile
+
+current directory: /Users/anthony/code/AnthoXLMA/DancingMatch/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.8/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/anthony/code/AnthoXLMA/DancingMatch/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.8/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/anthony/code/AnthoXLMA/DancingMatch/vendor/bundle/ruby/2.6.0/gems/bootsnap-1.4.8/ext/bootsnap
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20210205-86870-1108q19/bootsnap

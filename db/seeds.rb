@@ -1,10 +1,10 @@
 puts "cleaning DB..."
-Partner.destroy_all
-User.destroy_all
+# Partner.destroy_all
 Dance.destroy_all
-Appointment.destroy_all
-Message.destroy_all
-Chatroom.destroy_all
+User.destroy_all
+# Appointment.destroy_all
+# Message.destroy_all
+# Chatroom.destroy_all
 
 puts "Creating dances..."
 dance1 = Dance.new(title: "Salsa Cubana")
@@ -311,15 +311,15 @@ nath.save
 )
 philippe.save
 
-tony = User.create(email: "ma@lewagon.org", password: "chatroom", nickname: "Tony")
-antho = User.create(email: "am@lewagon.org", password: "chatroom", nickname: "Antho")
+# tony = User.create(email: "ma@lewagon.org", password: "chatroom", nickname: "Tony")
+# antho = User.create(email: "am@lewagon.org", password: "chatroom", nickname: "Antho")
 
-general = Chatroom.create(name: "general")
+# general = Chatroom.create(name: "general")
 
-Message.create(chatroom: general, user: tony, content: "Hello all :wave:")
-Message.create(chatroom: general, user: antho, content: "Hello Seb :wave:")
-Message.create(chatroom: general, user: antho, content: "Action Cable rocks :rocket:")
-Message.create(chatroom: general, user: tony, content: "It seems we have N+1 queries though, let's fix that :ok_hand:")
+# Message.create(chatroom: general, user: tony, content: "Hello all :wave:")
+# Message.create(chatroom: general, user: antho, content: "Hello Seb :wave:")
+# Message.create(chatroom: general, user: antho, content: "Action Cable rocks :rocket:")
+# Message.create(chatroom: general, user: tony, content: "It seems we have N+1 queries though, let's fix that :ok_hand:")
 
 # Appointments
 # # # # # puts "retrieving user dance..."
@@ -330,31 +330,31 @@ Message.create(chatroom: general, user: tony, content: "It seems we have N+1 que
 # # # # # end
 
 # # # # APPOINTMENTS ------------------------------------------------------
-puts "Create appointments..."
-  appointment_request_anthony = Appointment.create!(
-    user: anthony,
-    partner: didier,
-    location: "Nantes",
-)
-appointment_request_anthony.save
+# puts "Create appointments..."
+#   appointment_request_anthony = Appointment.create!(
+#     user: anthony,
+#     partner: didier,
+#     location: "Nantes",
+# )
+# appointment_request_anthony.save
 
-  appointment_call_anthony = Appointment.create!(
-    user: anthony,
-    partner: amanda,
-    location: "Paris",
-)
+#   appointment_call_anthony = Appointment.create!(
+#     user: anthony,
+#     partner: amanda,
+#     location: "Paris",
+# )
 
-appointment_call_anthony.save
-puts "Done!"
+# appointment_call_anthony.save
+# puts "Done!"
 
-puts 'Creating appointments 1...'
-new_appointment = Appointment.new(user_id: '4', location: "Paris", date: "23/02/2021", partner_id: '3')
-new_appointment.save!
-vanessa = Appointment.new(user_id: '2', location: "Paris", date: "23/02/2021", partner_id: '5')
-vanessa.save!
-adel = Appointment.new(user_id: '1', location: "Paris", date: "23/02/2021", partner_id: '5')
-adel.save!
-puts 'Finished!'
+# puts 'Creating appointments 1...'
+# new_appointment = Appointment.new(user_id: '4', location: "Paris", date: "23/02/2021", partner_id: '3')
+# new_appointment.save!
+# vanessa = Appointment.new(user_id: '2', location: "Paris", date: "23/02/2021", partner_id: '5')
+# vanessa.save!
+# adel = Appointment.new(user_id: '1', location: "Paris", date: "23/02/2021", partner_id: '5')
+# adel.save!
+# puts 'Finished!'
 
 
 
