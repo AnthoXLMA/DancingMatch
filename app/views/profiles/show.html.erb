@@ -1,8 +1,16 @@
 <%= @user.first_name %>
+<%= @user.last_name %>
+<%= @user.experience %>
+<%= @user.age %>
+
+<%= @user_dances.each do |dance| %>
+  <% dance.title %>
+  <%end%>
+
 <br>
 
 
-<% @user_dances %>
+<%= @user_dances %>
 
 <br>
 
