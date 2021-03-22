@@ -16,14 +16,6 @@ class DancesController < ApplicationController
     @dancer = @style.each do |yd|
       puts yd
     end
-
-    @partners = Partner.all
-    @dancers = Partner.where(dance_id: @dance)
-    @partner = @partners.each do |partner|
-      puts partner
-    end
-
-    @counters = Partner.where(dance_id: :id)
   end
 
   def new
@@ -37,14 +29,14 @@ class DancesController < ApplicationController
     @dances = Dance.all
     # @dance = Dance.find(dance_params)
     @style = @dance.title
-    @user.dances = []
-    @user.dances = Dance.where(id: params[:id]) # => select et s'ajoute dans la show du profil
-    @partners = Partner.all
-    @dancers = Partner.where(dance_id: @dance)
-    @dancer = @dancers.each do |dancer|
-      puts dancer
-    end
-    @list = @dancer.map(&:pseudo)
+    #Select et s'ajoute dans la show du profil
+    # @user.dances = Dance.where(id: params[:id])
+    # @partners = Partner.all
+    # @dancers = Partner.where(dance_id: @dance)
+    # @dancer = @dancers.each do |dancer|
+    #   puts dancer
+    # end
+    # @list = @dancer.map(&:pseudo)
   end
 
   def create

@@ -36,49 +36,11 @@ ActiveRecord::Schema.define(version: 2020_10_03_150330) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "appointments", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "partner_id"
-    t.bigint "dance_id"
-    t.date "date"
-    t.string "location"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "status"
-    t.index ["dance_id"], name: "index_appointments_on_dance_id"
-    t.index ["partner_id"], name: "index_appointments_on_partner_id"
-    t.index ["user_id"], name: "index_appointments_on_user_id"
-  end
-
-  create_table "chatrooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "dances", force: :cascade do |t|
     t.string "title"
-    # t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    # t.index ["user_id"], name: "index_dances_on_user_id"
-  end
-
-  create_table "genders", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
-  create_table "messages", force: :cascade do |t|
-    t.string "content"
-    t.bigint "chatroom_id"
-    # t.bigint "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
-    # t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
 
   create_table "users", force: :cascade do |t|
     t.integer "age"
@@ -92,25 +54,15 @@ ActiveRecord::Schema.define(version: 2020_10_03_150330) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    # t.bigint "dance_id"
     t.float "latitude"
     t.float "longitude"
     t.string "nickname"
     t.string "first_name"
     t.string "last_name"
     t.boolean "terms"
-    # t.index ["dance_id"], name: "index_users_on_dance_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  # add_foreign_key "appointments", "dances"
-  # add_foreign_key "appointments", "partners"
-  # add_foreign_key "appointments", "users"
-  # add_foreign_key "dances", "users"
-  # add_foreign_key "messages", "chatrooms"
-  # add_foreign_key "messages", "users"
-  # add_foreign_key "partners", "users"
-  # add_foreign_key "users", "dances"
 end
