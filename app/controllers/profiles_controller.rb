@@ -19,9 +19,12 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
-    @dances = Dance.all
+    @dances = Dance.select('dances.*')
     @dance = Dance.new
-    @user_dances = Dance.where(user_id: @user)
+    @user_dances = []
+    @my_dances = @dances.each do |user_dance|
+      @user_dances << user_dance
+    end
   end
 
   def new
