@@ -22,14 +22,7 @@
             <%= f.label :email %><br>
             <%= f.text_field :email %>
           </p>
-              <%= f.select(:dances, [['Salsa'],
-                          ['Merengue'],
-                          ['Bachata'],
-                          ['Type D', 'Type D'],
-                          ['Type E', 'Type E']
-                         ],{ :prompt => "Please select"},
-                           { :multiple => true, :size => 10 }
-                         ) %>
+
           <p>
             <%= f.submit %>
           </p>
