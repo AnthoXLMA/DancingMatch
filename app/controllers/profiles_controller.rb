@@ -19,12 +19,10 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
-    @dances = Dance.select('dances.*')
+    @user_dances = Dance.where(id: params[:id])
+    # @user = User.find(params[:id])
     @dance = Dance.new
-    @user_dances = []
-    @my_dances = @dances.each do |user_dance|
-      @user_dances << user_dance
-    end
+    @dances = @user.dances
   end
 
   def new

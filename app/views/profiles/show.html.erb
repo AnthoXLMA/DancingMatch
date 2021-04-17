@@ -3,18 +3,12 @@
 <%= @user.experience %>
 <%= @user.age %>
 
-<%= @user_dances.each do |dance| %>
-  <% dance.title %>
+<% @user_dances.each do |dance| %>
+  <%= dance.title %>
   <%end%>
 
 <br>
 
 
-<%= @user_dances %>
 
-<br>
-
-<% @dances.each do |dance| %>
-  <%= dance.title %>
-  <% end %>
 <br>

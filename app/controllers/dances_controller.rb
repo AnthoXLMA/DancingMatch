@@ -28,9 +28,10 @@ class DancesController < ApplicationController
     @user = current_user
     @dances = Dance.all
     # @dance = Dance.find(dance_params)
+    @dance = Dance.find(params[:id])
     @style = @dance.title
     #Select et s'ajoute dans la show du profil
-    # @user.dances = Dance.where(id: params[:id])
+    @user_dances = Dance.where(id: params[:id])
     # @partners = Partner.all
     # @dancers = Partner.where(dance_id: @dance)
     # @dancer = @dancers.each do |dancer|
