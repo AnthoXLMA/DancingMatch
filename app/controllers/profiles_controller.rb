@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
     @user_dances = Dance.where(id: params[:id])
     # @user = User.find(params[:id])
     @dance = Dance.new
-    @dances = @user.dances
+    @dances = @user.dance
   end
 
   def new
@@ -46,9 +46,13 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @user = current_user
+    # @user = current_user
+    @dances = Dance.all
+    @my_dances = @dances.each_with_index do |dance, index|
+      index << dance
+    end
     @user.update(user_params)
-    redirect_to profile_path
+    # redirect_to user_path
   end
 
   private

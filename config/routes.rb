@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :dances, only: [:create, :show, :new]
   end
 
-  resources :dances, only: [:index, :show] do
+  resources :dances, only: [:index, :show, :new, :create] do
     resources :users
   end
 end
