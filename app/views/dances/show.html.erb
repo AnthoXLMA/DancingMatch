@@ -9,10 +9,10 @@
 <%= link_to "My profile", profile_path %>
 </div>
 
-<h1><%= link_to @style, dances_path(@dance) %></h1>
+<h1><%= link_to @style, dance_path(@dance) %></h1>
 
 <div class="add-dance">
-  <%= link_to "Select this dance", profile_path %>
+  <%= link_to "Select this dance", profile_path(@my_dances) %>
   <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
 
 </div>
@@ -31,7 +31,7 @@
   <div class="news">
       <h2>NEWS</h2>
     <div class="card-news">
-      <h3>< Adel is looking for a partner></h3>
+      <h3>< Adel is looking for a partner ></h3>
     </div>
   </div>
 </div>
