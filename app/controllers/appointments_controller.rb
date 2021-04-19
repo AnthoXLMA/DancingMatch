@@ -26,17 +26,15 @@ class AppointmentsController < ApplicationController
   def show
     @user = current_user
     @appointments = Appointment.all
-    # @appointment = Appointment.where(id: params[:id])
-    #Select et s'ajoute dans la show du profil
-    # @user_events = Appointment.where(id: params[:id])
+      # @appointment = Appointment.where(id: params[:id])
+      # Select et s'ajoute dans la show du profil
+      # @user_events = Appointment.where(id: params[:id])
   end
 
   private
-
   def set_appointment
     @appointment = Appointment.find(params[:id])
   end
-
 
   def appointment_params
     params.require(:appointment).permit(:id, :name, :address, :start_on, :end_on)
