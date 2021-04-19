@@ -12,16 +12,19 @@
 </div>
 
 <div class="title_text">
-  <p>Your appointments</p>
+  <p>Check the appointments</p>
 </div>
-
   <div class="appointment">
-    <%= @appointments.each do |appointment| %>
-      <div class="user_name">
-        <h1 class="card_category_show"><% appointment %></h1>
-      </div>
-      <div class="appointment">
-        <h4><i class="fas fa-user"></i> <%= @appointment %></h4>
-      </div>
-    <% end %>
+    <% @appointments.each do |my_appointment| %>
+        <h4>
+          <i class="fas fa-user">
+            <%= my_appointment.id %>
+            <%= my_appointment.id %>
+            <%= my_appointment.id %>
+            <%= my_appointment.id %>
+            <%= my_appointment.id %>
+            <%= my_appointment.id %>
+          </i>
+        </h4>
+      <% end %>
   </div>
