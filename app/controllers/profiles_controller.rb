@@ -46,13 +46,22 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    # @user = current_user
+    @user = current_user
+    @my_dances = []
     @dances = Dance.all
-    @my_dances = @dances.each_with_index do |dance, index|
-      index << dance
+    @user_dances = @dances.each_with_index do |dance, index|
+      @my_dances << dance
     end
-    @user.update(user_params)
+    # @user.update(user_params)
     # redirect_to user_path
+    # @user_dances = Dance.find(params[:dance_id])
+    # @profile = Dance.new(dance_params)
+    # @dance.user = @user
+    if @dance.save
+      redirect_to profile_path(@profile)
+    else
+      render 'profiles/show'
+    end
   end
 
   private

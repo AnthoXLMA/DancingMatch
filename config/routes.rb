@@ -13,4 +13,12 @@ Rails.application.routes.draw do
   resources :dances, only: [:index, :show, :new, :create] do
     resources :users
   end
+
+  resource :profile, only: [:index, :edit, :update, :show, :create] do
+    resources :appointments, only: [:create, :show, :new]
+  end
+
+  resources :appointments, only: [:index, :show, :new, :create] do
+    resources :users
+  end
 end

@@ -11,4 +11,8 @@
 
 <%= link_to "Add a dance", new_dance_path, method: :post %>
 <%= link_to "See all dances", dances_path %>
-<%= @my_dances %>
+<%= link_to "Make an event", new_appointment_path %>
+
+<%= @user_dances.each do |user_dance| %>
+  <%= @user_dance.title %>
+  <% end %>

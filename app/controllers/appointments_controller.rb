@@ -1,37 +1,44 @@
 class AppointmentsController < ApplicationController
-  # def create
-  #   @appointment = Appointment.new
-  #   @appointment.user = current_user
-  #   @dance = Dance.find(params[:dance_id])
-  #   @appointment.user = @user
-  #   redirect_to user_path(@user, appointment: true) if @appointment.save
-  # end
+     before_action :set_appointment, only: [:show]
 
   def index
     @appointments = Appointment.all
+    @appointment = @appointments.each do |appointment|
+      puts appointment
+    end
   end
 
   def new
-    @dance = Dance.find(params[:dance_id])
+    # @dance = Dance.find(params[:dance_id])
     @appointment = Appointment.new
+    @appointment.save
   end
 
   def create
-    @appointment = Appointment.new(appointment_params)
-    @appointment.user = current_user
-    @appointment = Appointment.find(params[:dance_id])
-    @appointment.dance = @dance
+    @user = current_user
+    @appointment = Appointment.new
+    # @dance = Dance.new(params[:dance_id])
+    # @appointment.user = @user
+    @appointment.save
+    redirect_to appointments_path(@appointment)
+  end
 
-    if @appointment.save
-      redirect_to appointments_path
-    else
-      render :new
-    end
+  def show
+    @user = current_user
+    @appointments = Appointment.all
+    # @appointment = Appointment.where(id: params[:id])
+    #Select et s'ajoute dans la show du profil
+    # @user_events = Appointment.where(id: params[:id])
   end
 
   private
 
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
+  end
+
+
   def appointment_params
-    params.require(:appointment).permit(:user_id, :partner_id, :status, :date, :location)
+    params.require(:appointment).permit(:id, :name, :address, :start_on, :end_on)
   end
 end

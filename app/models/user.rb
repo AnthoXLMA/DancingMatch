@@ -5,11 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # has_one_attached :profile_pic
- belongs_to :dance
-  # has_many :messages, through: :chatrooms
-  # has_many :appointments
-  # has_many :partners, through: :appointments
-  # geocoded_by :location
-  # after_validation :geocode, if: :will_save_change_to_location?
-  # validates :pseudo, presence: true
+belongs_to :dance
+has_many :messages, through: :chatrooms
+has_many :appointments
+has_many :dances, through: :appointments
+geocoded_by :location
+after_validation :geocode, if: :will_save_change_to_location?
+validates :pseudo, presence: true
 end

@@ -16,12 +16,12 @@
 </div>
 
   <div class="appointment">
-    <% @appointments.each do |appointment| %>
-        <div class="user_name">
-          <h1 class="card_category_show"> <%= appointment.dance_id %></h1>
-        </div>
+    <%= @appointments.each do |appointment| %>
+      <div class="user_name">
+        <h1 class="card_category_show"><% appointment %></h1>
+      </div>
       <div class="appointment">
-        <h4><i class="fas fa-user"></i> <%= appointment.user.first_name %> <%= appointment.user.location %></h4>
+        <h4><i class="fas fa-user"></i> <%= @appointment %></h4>
       </div>
     <% end %>
   </div>
