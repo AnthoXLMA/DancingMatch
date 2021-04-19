@@ -42,7 +42,9 @@ class DancesController < ApplicationController
 
   def create
     @user = current_user
+    # @user = User.find(user_params[:dance_id])
     @dance = Dance.new(dance_params)
+    # @dance.profile = @profile
     if @dance.save
       redirect_to dances_path(@dance)
     else

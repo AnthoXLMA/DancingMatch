@@ -9,11 +9,11 @@
 <%= link_to "My profile", profile_path %>
 </div>
 
-<h1><%= link_to @style, dance_path(@dance) %></h1>
+<h1><%= link_to @style, appointment_path(@appointment) %></h1>
 
 <div class="add-dance">
-  <%= link_to "Select this dance", profile_path(@my_dances) %>
-  <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
+  <%= link_to "Select this dance", profile_path(@my_appointment) %>
+  <%= link_to "Choose", profile_path(@appointment.id),method: :post, class:"btn-ghost", id: "appointment" %>
 </div>
 
 <div class="bouton-home">
