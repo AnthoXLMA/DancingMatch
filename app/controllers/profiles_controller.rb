@@ -33,7 +33,6 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    flash[:alert] = "alert"
     @user = current_user
     @dances = Dance.select('dances.*')
     @menu_dances = @user.dances
@@ -49,7 +48,7 @@ class ProfilesController < ApplicationController
     @my_dances = []
     @dances = Dance.all
     #Select et s'ajoute dans la show du profil
-      @user_dances = Dance.where(id: params[:id])
+    @user_dances = Dance.where(id: params[:id])
     # @user.update(user_params)
     # redirect_to user_path
     # @user_dances = Dance.find(params[:dance_id])
