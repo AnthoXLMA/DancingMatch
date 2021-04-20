@@ -38,8 +38,6 @@
   <%= @my_dances %>
 </div>
 
-
-
 <div>
   <%= simple_form_for :user do |f| %>
       <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
