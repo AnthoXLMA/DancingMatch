@@ -13,12 +13,12 @@
 
 <div class="title_text">
   <p>Check the appointments</p>
-  <div class="appointment">
+</div>
+  <div class="container-appointment">
     <% @appointments.each do |appointment| %>
-    <div class="card">
+    <div class="appointment-card">
         <%= appointment.name %>
         <%= appointment.address %>
-      <% end %>
     </div>
+      <% end %>
   </div>
-</div>
