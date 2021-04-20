@@ -1,12 +1,22 @@
 .title_text {
-  font-size:60px;
+  font-size:20px;
   color:black;
 }
 
-.appointment {
-  width:800px;
-  height:200px;
-  background-color:#FFF234;
+.container-appointments {
+  display:grid;
+  width:100%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px 10px ;
+  grid-auto-rows: minmax(100px, auto);
+  margin-left:10px;
+  margin-right:auto;
+.card-app {
+  width:300px;
+  height:300px;
   font-size:20px;
-  margin:200px;
+  background-color:white;
+  border: solid black;
+  border-radius:10px;
+  }
 }

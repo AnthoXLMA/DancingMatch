@@ -11,14 +11,14 @@
   </div>
 </div>
 
-<div class="title_text">
-  <p>Check the appointments</p>
-  <div class="appointment">
-    <% @appointments.each do |appointment| %>
-    <div class="card">
+  <div class="title_text">
+    <p>Check all the events</p>
+  </div>
+    <div class ="container-appointments">
+      <% @appointments.each do |appointment| %>
+    <div class="card-app">
         <%= appointment.name %>
         <%= appointment.address %>
-      <% end %>
     </div>
+      <% end %>
   </div>
-</div>
