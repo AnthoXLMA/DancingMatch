@@ -13,11 +13,12 @@
 
 <div class="title_text">
   <p>Check the appointments</p>
-</div>
   <div class="appointment">
-    <%= @appointments.each do |appointment| %>
-          <i class="fas fa-user">
-            <% appointment %>
-          </i>
+    <% @appointments.each do |appointment| %>
+    <div class="card">
+        <%= appointment.name %>
+        <%= appointment.address %>
       <% end %>
+    </div>
   </div>
+</div>
