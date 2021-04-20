@@ -19,9 +19,11 @@ class ProfilesController < ApplicationController
 
   def show
     @user = current_user
-    @user_dances = Dance.where(id: params[:id])
-    # @user = User.find(params[:id])
-    @dance = Dance.new
+    @my_dances = []
+    @user.dances.each do |user_dance|
+      @dance = user_dance.title
+      @my_dances << @dance if !@my_dances.include?(@dance)
+    end
   end
 
   def new
@@ -29,37 +31,36 @@ class ProfilesController < ApplicationController
     @user = current_user
     @dances = Dance.all
     @dances.user = @user
-      redirect_to profile_path
+    if dance.save
+    redirect_to profile_path
+    else
+      render 'dances/show'
+    end
   end
 
   def edit
-    flash[:alert] = "alert"
     @user = current_user
     @dances = Dance.select('dances.*')
-    @menu_dances = @user.dances
+    #Select et s'ajoute dans la show du profil
+    @my_dances = @dances.select(params[:id])
+    # @user_dances = @dances.select(params[:id])
+      redirect_to edit_profile_path(@dances)
   end
 
-  def chatroom
-    general = Chatroom.find_by(name: "general")
-    redirect_to chatroom_path(general) if general
-  end
+  # def chatroom
+  #   general = Chatroom.find_by(name: "general")
+  #   redirect_to chatroom_path(general) if general
+  # end
 
   def update
     @user = current_user
-    @my_dances = []
-    @dances = Dance.all
-    #Select et s'ajoute dans la show du profil
-      @user_dances = Dance.where(id: params[:id])
-    # @user.update(user_params)
-    # redirect_to user_path
-    # @user_dances = Dance.find(params[:dance_id])
-    # @profile = Dance.new(dance_params)
-    # @dance.user = @user
-    if @dance.save
-      redirect_to profile_path(@profile)
-    else
-      render 'profiles/show'
+    @user_dances = Dance.select(params[:dance_id])
+    @dance = Dance.find_by(id: params[:dance_id])
+    user.dances.each do |user_dance|
+      @dance = user_dance.dance
+      @my_dances << @dance if !my_dances.include?(dance)
     end
+    @user.save
   end
 
   private

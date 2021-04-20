@@ -93,7 +93,6 @@ anthony.save!
 # )
 # jimmy.save!
 
-
 # stephanie = User.new(
 #   first_name: 'Stephanie',
 #   age: "32",

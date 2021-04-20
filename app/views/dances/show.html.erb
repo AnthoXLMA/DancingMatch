@@ -12,7 +12,7 @@
 <h1><%= link_to @style, dance_path(@dance) %></h1>
 
 <div class="add-dance">
-  <%= link_to "Select this dance", profile_path(@my_dances) %>
+  <%= link_to "Select this dance", dance_profile_path(@user) %>
   <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
   <%= link_to "Create an Event for this dance", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
 </div>
