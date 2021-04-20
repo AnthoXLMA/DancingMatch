@@ -3,20 +3,17 @@
   color:black;
 }
 
-.container-appointments {
-  display:grid;
+.container-appointment {
   width:100%;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 10px 10px ;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
-  margin-left:10px;
-  margin-right:auto;
-.card-app {
-  width:300px;
-  height:300px;
-  font-size:20px;
-  background-color:white;
-  border: solid black;
-  border-radius:10px;
+  margin-left:30px;
+  .appointment-card{
+    width:250px;
+    height:150px;
+    border:solid;
+    border-radius:10px;
   }
 }
