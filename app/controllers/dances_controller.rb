@@ -40,15 +40,16 @@ class DancesController < ApplicationController
     @dances = Dance.all
     # @dance = Dance.find(dance_params)
     @dance = Dance.find(params[:id])
-      @style = @dance.title
+    @style = @dance.title
     #Select et s'ajoute dans la show du profil
-      @user_dances = Dance.where(id: params[:id])
+    @user_dances = Dance.where(id: params[:id])
+      # redirect_to profile_dance_path
   end
 
   def update
     @dance = Dance.find(params[:id])
-    @dance.update(dance_params)
-    redirect_to dance_path
+    @dance.user = user.dance
+      redirect_to profile_path
   end
 
   def destroy
