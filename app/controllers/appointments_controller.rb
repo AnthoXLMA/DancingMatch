@@ -16,18 +16,18 @@ class AppointmentsController < ApplicationController
 
   def create
     @user = current_user
-    @appointment = Appointment.new
+    @appointment = Appointment.new(params[:appointment])
     # @dance = Dance.new(params[:dance_id])
     # @appointment.user = @user
     @appointment.save
-    redirect_to appointments_path(@appointment)
+    redirect_to @appointment
   end
 
   def show
     @user = current_user
     @appointments = Appointment.all
     # @appointment = Appointment.where(id: params[:id])
-    #Select et s'ajoute dans la show du profil
+    # Select et s'ajoute dans la show du profil
     # @user_events = Appointment.where(id: params[:id])
   end
 
@@ -39,6 +39,6 @@ class AppointmentsController < ApplicationController
 
 
   def appointment_params
-    params.require(:appointment).permit(:id, :name, :address, :start_on, :end_on)
+    params.require(:appointment).permit(:id, :name, :address, :user_id, :dance_id, :start_on, :end_on)
   end
 end

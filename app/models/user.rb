@@ -6,10 +6,12 @@ class User < ApplicationRecord
 
   # has_one_attached :profile_pic
 belongs_to :dance
+
 has_many :messages, through: :chatrooms
 has_many :appointments
 has_many :dances, through: :appointments
-geocoded_by :location
-after_validation :geocode, if: :will_save_change_to_location?
-validates :pseudo, presence: true
+# geocoded_by :location
+# after_validation :geocode, if: :will_save_change_to_location?
+
+validates :first_name, presence: true
 end

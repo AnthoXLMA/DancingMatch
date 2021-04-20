@@ -22,7 +22,6 @@ class ProfilesController < ApplicationController
     @user_dances = Dance.where(id: params[:id])
     # @user = User.find(params[:id])
     @dance = Dance.new
-    @dances = @user.dance
   end
 
   def new
@@ -67,6 +66,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.permit(:pseudo, :gender, :age, :location, :experience, :contact, :email, :dance, :id)
+    params.permit( :gender, :age, :location, :experience, :contact, :email, :id)
   end
 end

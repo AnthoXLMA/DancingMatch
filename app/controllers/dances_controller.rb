@@ -21,7 +21,6 @@ class DancesController < ApplicationController
   def new
     @dance = Dance.new
     @dance.save
-    # redirect_to profile_path(@user)
   end
 
   def show

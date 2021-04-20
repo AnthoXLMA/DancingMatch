@@ -4,64 +4,6 @@ User.destroy_all
 Dance.destroy_all
 
 # SEEDS 1 avec dance
-puts 'Creating Users...'
-anthony = User.new(
-  first_name: 'Anthony',
-  age: "37",
-  email: "antho@example.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Paris",
-  experience: "3",
-  contact: "06023002233",
-  # dance: dance20,
-  )
-anthony.save!
-
-jimmy = User.new(
-  first_name: 'Jimmy',
-  age: "30",
-  email: "jimmy@example.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Marseille",
-  experience: "1",
-  contact: "06025002233",
-  # dance: dance2,
-)
-jimmy.save!
-
-
-stephanie = User.new(
-  first_name: 'Stephanie',
-  age: "32",
-  email: "steph@example.com",
-  password: "secret",
-  experience: "16",
-  location: "La Havane",
-  contact: "0600000033",
-  # dance: dance5,
-)
-stephanie.save
-
-peter = User.new(
-  first_name: 'Peter',
-  age: "28",
-  email: "peter@example.com",
-  password: "secret",
-  location: "Berlin",
-  experience: "8",
-  contact: "0600110033",
-  # dance: dance3,
-)
-peter.save
-# Appointment.destroy_all
-# Message.destroy_all
-# Chatroom.destroy_all
-
-# puts "Creating Dances..."
-# dances = ['salsa', 'rock', 'bachata']
-
 puts "Creating dances..."
 dance1 = Dance.new(title: "Salsa Cubana")
 dance1.save!
@@ -123,7 +65,66 @@ dance19.save!
 dance20 = Dance.new(title: "Forro")
 dance20.save!
 
-#SEEDS 2 avec dance_id
+
+puts 'Creating Users...'
+anthony = User.new(
+  first_name: 'Anthony',
+  age: "37",
+  email: "antho@example.com",
+  password: "secret",
+  # encrypted_password: "password",
+  location: "Paris",
+  experience: "3",
+  contact: "06023002233",
+  dance: dance4,
+  )
+anthony.save!
+
+# jimmy = User.new(
+#   first_name: 'Jimmy',
+#   age: "30",
+#   email: "jimmy@example.com",
+#   password: "secret",
+#   # encrypted_password: "password",
+#   location: "Marseille",
+#   experience: "1",
+#   contact: "06025002233",
+#   # dance: dance2,
+# )
+# jimmy.save!
+
+
+# stephanie = User.new(
+#   first_name: 'Stephanie',
+#   age: "32",
+#   email: "steph@example.com",
+#   password: "secret",
+#   experience: "16",
+#   location: "La Havane",
+#   contact: "0600000033",
+#   # dance: dance5,
+# )
+# stephanie.save
+
+# peter = User.new(
+#   first_name: 'Peter',
+#   age: "28",
+#   email: "peter@example.com",
+#   password: "secret",
+#   location: "Berlin",
+#   experience: "8",
+#   contact: "0600110033",
+#   # dance: dance3,
+# )
+# peter.save
+# Appointment.destroy_all
+# Message.destroy_all
+# Chatroom.destroy_all
+
+# puts "Creating Dances..."
+# dances = ['salsa', 'rock', 'bachata']
+
+# SEEDS 2 avec dance_id
 # puts 'Creating Users...'
 # anthony = User.new(
 #   pseudo: 'Anthony',
@@ -152,7 +153,6 @@ dance20.save!
 #   dance_id: '8',
 # )
 # jimmy.save!
-
 
 # puts 'Creating Partners...'
 # adel = Partner.new(
