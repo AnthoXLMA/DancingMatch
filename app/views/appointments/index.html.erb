@@ -15,16 +15,9 @@
   <p>Check the appointments</p>
 </div>
   <div class="appointment">
-    <% @appointments.each do |my_appointment| %>
-        <h4>
+    <%= @appointments.each do |appointment| %>
           <i class="fas fa-user">
-            <%= my_appointment.id %>
-            <%= my_appointment.id %>
-            <%= my_appointment.id %>
-            <%= my_appointment.id %>
-            <%= my_appointment.id %>
-            <%= my_appointment.id %>
+            <% appointment %>
           </i>
-        </h4>
       <% end %>
   </div>

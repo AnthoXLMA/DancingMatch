@@ -10,13 +10,13 @@
 </div>
 
 <div class="container">
-  <%= simple_form_for :appointments, url: appointments_path do |f| %>
+  <%= simple_form_for (@appointment) do |f| %>
     <div class="container_one">
-      <%= f.input :start_on, as: :date %>
-      <%= f.input :end_on, as: :date %>
-      <%= f.input :name, placeholder: "Donne un nom à ton rendez vous" %>
-      <%= text_field_tag :address, params[:address], class: "form-control", placeholder: "Où vas tu danser?" %>
-      <%= text_field_tag :dance_id, params[:dance_id], class: "form-control", placeholder: "Quelle danse vas tu danser?" %>
+      <%= f.input :start_on %>
+      <%= f.input :end_on %>
+      <%= f.input :name, placeholder: "Donne un nom à ton événement" %>
+      <%= f.input :address %>
+
       <%= f.button :submit, method: :post %>
     </div>
   <% end %>

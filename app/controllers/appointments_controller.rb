@@ -3,9 +3,6 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
-    @appointment = @appointments.each do |appointment|
-      puts appointment
-    end
   end
 
   def new
@@ -15,12 +12,14 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @appointment = Appointment.new(params[:appointment])
-    # @dance = Dance.new(params[:dance_id])
-    # @appointment.user = @user
-    @appointment.save
-    redirect_to @appointment
+    @dance = Dance.find(params[:dance_id])
+    @appointment = Appointment.new(appointment_params)
+    @appointment.dance = @appointment
+    if @appointment.save
+      redirect_to appointments_path(@appointment)
+    else
+      render 'dance/show'
+    end
   end
 
   def show
@@ -39,6 +38,6 @@ class AppointmentsController < ApplicationController
 
 
   def appointment_params
-    params.require(:appointment).permit(:id, :name, :address, :user_id, :dance_id, :start_on, :end_on)
+    params.require(:appointment).permit(:id, :start_on, :end_on, :name, :address, :user_id, :dance_id)
   end
 end

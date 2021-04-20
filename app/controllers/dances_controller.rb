@@ -23,22 +23,6 @@ class DancesController < ApplicationController
     @dance.save
   end
 
-  def show
-    @user = current_user
-    @dances = Dance.all
-    # @dance = Dance.find(dance_params)
-    @dance = Dance.find(params[:id])
-    @style = @dance.title
-    #Select et s'ajoute dans la show du profil
-    @user_dances = Dance.where(id: params[:id])
-    # @partners = Partner.all
-    # @dancers = Partner.where(dance_id: @dance)
-    # @dancer = @dancers.each do |dancer|
-    #   puts dancer
-    # end
-    # @list = @dancer.map(&:pseudo)
-  end
-
   def create
     @user = current_user
     # @user = User.find(user_params[:dance_id])
@@ -51,16 +35,15 @@ class DancesController < ApplicationController
     end
   end
 
-  # def create
-  #   @playground = Playground.find(params[:playground_id])
-  #   @event = Event.new(event_params)
-  #   @event.playground = @playground
-  #   if @event.save
-  #     redirect_to playground_path(@playground)
-  #   else
-  #     render 'playgrounds/show'
-  #   end
-  # end
+  def show
+    @user = current_user
+    @dances = Dance.all
+    # @dance = Dance.find(dance_params)
+    @dance = Dance.find(params[:id])
+      @style = @dance.title
+    #Select et s'ajoute dans la show du profil
+      @user_dances = Dance.where(id: params[:id])
+  end
 
   def update
     @dance = Dance.find(params[:id])
