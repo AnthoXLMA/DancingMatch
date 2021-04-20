@@ -1,18 +1,42 @@
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.experience %>
-<%= @user.age %>
+<div class="title">
+  <h1>Dancing Partners</h1>
+  <p>The First WorldWide Dancers Community</p>
+</div>
+<div class="section">
+  <div class="row">
+    <div class="column">
+      <a class="link"><%= link_to "Profile", profile_path, class: "btn-ghost" %></a>
+    </div>
+    <div class="column">
+      <a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a>
+    </div>
+    <div class="column">
+      <a class="link"><%= link_to "Events", appointments_path, class: "btn-ghost" %></a>
+    </div>
+    <div class="column">
+      <a class="link"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
+    </div>
+  </div>
+</div>
 
-<% @user_dances.each do |dance| %>
-  <%= dance.title %>
-  <%end%>
+<div class="my_profile">
+  <h1><%= @user.first_name %></h1>
+  <h1><%= @user.last_name %></h1>
+  <h1><%= @user.experience %> years</h1>
+  <h1><%= @user.age %></h1>
+</div>
 
-<br>
+<div class="menu">
+  <%= link_to "Add a dance", new_dance_path, method: :post %>
+  <%= link_to "See all dances", dances_path %>
+  <%= link_to "See all events", appointments_path %>
+  <%= link_to "Create an event", new_appointment_path %>
+</div>
 
-<%= link_to "Add a dance", new_dance_path, method: :post %>
-<%= link_to "See all dances", dances_path %>
-<%= link_to "Make an event", new_appointment_path %>
 
-<%= @user_dances.each do |user_dance| %>
-  <%= @user_dance.title %>
+<div class="my_dances">
+<%= @user_dances.each do |dance| %>
+  <% dance.title %>
   <% end %>
+</div>
+

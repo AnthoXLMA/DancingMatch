@@ -48,9 +48,8 @@ class ProfilesController < ApplicationController
     @user = current_user
     @my_dances = []
     @dances = Dance.all
-    @user_dances = @dances.each_with_index do |dance, index|
-      @my_dances << dance
-    end
+    #Select et s'ajoute dans la show du profil
+      @user_dances = Dance.where(id: params[:id])
     # @user.update(user_params)
     # redirect_to user_path
     # @user_dances = Dance.find(params[:dance_id])
