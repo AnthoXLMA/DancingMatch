@@ -14,6 +14,7 @@
 <div class="add-dance">
   <%= link_to "Select this dance", profile_path(@my_dances) %>
   <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
+  <%= link_to "Events", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
 </div>
 
 <div class="bouton-home">

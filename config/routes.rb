@@ -21,4 +21,8 @@ Rails.application.routes.draw do
   resources :appointments, only: [:index, :show, :new, :create] do
     resources :users
   end
+
+  resources :dances do
+    resources :appointments
+    end
 end

@@ -12,22 +12,19 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    @dance = Dance.find(params[:dance_id])
+    @user = current_user
     @appointment = Appointment.new(appointment_params)
-    @appointment.dance = @appointment
-    if @appointment.save
-      redirect_to appointments_path(@appointment)
-    else
-      render 'dance/show'
-    end
+    @appointment.user = @user
+    @appointment.save
+      redirect_to appointments_path(@appointments)
   end
 
   def show
     @user = current_user
     @appointments = Appointment.all
-    # @appointment = Appointment.where(id: params[:id])
+    @appointment = Appointment.where(id: params[:id])
     # Select et s'ajoute dans la show du profil
-    # @user_events = Appointment.where(id: params[:id])
+    @user_events = Appointment.where(id: params[:id])
   end
 
   private
