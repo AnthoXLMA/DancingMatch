@@ -76,7 +76,7 @@ anthony = User.new(
   location: "Paris",
   experience: "3",
   contact: "06023002233",
-  # dance: dance4,
+  dance: dance4,
   )
 anthony.save!
 

@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # has_one_attached :profile_pic
-# belongs_to :dance
+belongs_to :dance
 
 has_many :messages, through: :chatrooms
 has_many :appointments
