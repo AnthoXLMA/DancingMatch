@@ -42,7 +42,7 @@ class DancesController < ApplicationController
     @dance = Dance.find(params[:id])
     @style = @dance.title
     #Select et s'ajoute dans la show du profil
-    @user_dances = Dance.where(id: params[:id])
+    # @user_dances = Dance.where(id: params[:id])
       # redirect_to profile_dance_path
   end
 
