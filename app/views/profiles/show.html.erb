@@ -39,13 +39,13 @@
   <div class="appointment-card">
     <%= dance %>
   </div>
-   <% end %>
+  <% end %>
 </div>
 
 
 <div>
   <%= simple_form_for :user do |f| %>
-      <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
-      <%= f.button :submit, method: :patch %>
+      <%= f.collection_select :dance_id, Dance.all, :id, :title %>
+      <%= f.button :submit, method: :put %>
   <% end %>
 </div>

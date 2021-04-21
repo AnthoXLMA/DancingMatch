@@ -9,29 +9,15 @@
 <%= link_to "My profile", profile_path %>
 </div>
 
-<h1><%= link_to @style, dance_path(@dance) %></h1>
-
-<div class="add-dance">
-  <%= link_to "Select this dance", dance_profile_path(@user) %>
-  <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
-  <%= link_to "Create an Event for this dance", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
-</div>
-
-<div class="bouton-home">
-  <%= link_to "Home", root_path %>
-</div>
-
 <div class="container3">
-  <div class="bouton">
-  <div class="card-partner">
-
-  </div>
-
-  </div>
-  <div class="news">
-      <h2>NEWS</h2>
-    <div class="card-news">
-      <h3>< **** is looking for a partner ></h3>
+  <div class="container-appointments">
+    <div class="appointment-card2">
+      <h1><%= link_to @style, dance_path(@dance) %></h1>
+      <div class="add-dance">
+        <%= link_to "Select this dance", dance_profile_path(@user) %>
+        <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
+        <%= link_to "Create an Event for this dance", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
+      </div>
     </div>
   </div>
 </div>

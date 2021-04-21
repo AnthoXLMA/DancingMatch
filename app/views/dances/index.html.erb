@@ -20,9 +20,9 @@
     <%= submit_tag "Search", class: "b-prima" %>
     <% end %>
   </div>
-  <div class="dances">
+  <div class="container-appointments">
       <% @dances.each do |dance| %>
-    <div class="card-dances">
+    <div class="appointment-card">
       <h3><%= link_to dance.title, dance_path(dance) %></h3>
     </div>
     <% end %>

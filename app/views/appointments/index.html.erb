@@ -18,8 +18,8 @@
     <div class ="container-appointments">
       <% @appointments.each do |appointment| %>
     <div class="appointment-card">
-        <%= appointment.name %>
+        <%= link_to appointment.name, appointment_path(@appointments) %>
         <%= appointment.address %>
     </div>
-      <% end %>
+    <% end %>
   </div>
