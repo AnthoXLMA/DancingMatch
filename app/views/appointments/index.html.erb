@@ -17,9 +17,12 @@
   </div>
     <div class ="container-appointments">
       <% @appointments.each do |appointment| %>
-    <div class="appointment-card">
-        <%= link_to appointment.name, appointment_path(@appointments) %>
-        <%= appointment.address %>
+    <div class="appointment-card3">
+        <p><%= link_to appointment.name, appointments_path(appointment) %></p>
+        <p> This event is located in <%= appointment.address %></p>
+        <p> This event starts on <%= appointment.start_on %></p>
+        <p> This event ends on <%= appointment.end_on %></p>
+        <p> This event is created by <%= appointment.user.first_name %></p>
     </div>
     <% end %>
   </div>

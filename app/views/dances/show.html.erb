@@ -14,9 +14,8 @@
     <div class="appointment-card2">
       <h2>Meet the <%= link_to @style, dance_path(@dance) %> worldwide community</h2>
       <div class="add-dance">
-        <%= link_to "Select this dance", dance_profile_path(@user) %>
-        <%= link_to "Choose", profile_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
-        <%= link_to "Create an Event for this dance", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %>
+        <div class="button"><a><%= link_to "Select this dance", dance_profile_path(@user) %></a></div>
+        <div class="button"><a><%= link_to "Create an Event", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %></a></div>
       </div>
     </div>
   </div>
