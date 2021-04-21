@@ -16,13 +16,16 @@
           <a class="link"><%= link_to "Events", appointments_path, class: "btn-ghost" %></a>
         </div>
         <div class="column">
+          <a class="link"><%= link_to "Community", profile_path, class: "btn-ghost" %></a>
+        </div>
+        <div class="column">
           <a class="link"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
         </div>
       </div>
     </div>
     <div class="search2">
       <%= form_tag dances_path, method: :get do %>
-      <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Find a dance" %>
+      <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Find a dance" %>
       <%= submit_tag "Search", class: "b-primary" %>
       <% end %>
     </div>
