@@ -56,10 +56,6 @@ class ProfilesController < ApplicationController
     @user = current_user
     @user_dances = Dance.select(params[:dance_id])
     @dance = Dance.find_by(id: params[:dance_id])
-    user.dances.each do |user_dance|
-      @dance = user_dance.dance
-      @my_dances << @dance if !my_dances.include?(dance)
-    end
     @user.save
   end
 

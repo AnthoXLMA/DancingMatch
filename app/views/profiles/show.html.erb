@@ -34,10 +34,13 @@
   <%= link_to "Create an event", new_appointment_path %>
 </div>
 
-<div class="my_dances">
-  <%= @my_dances %>
+<div class="container-appointments">
+  <% @my_dances.each do |dance| %>
+  <div class="appointment-card">
+    <%= dance %>
+  </div>
+   <% end %>
 </div>
-
 
 
 <div>
