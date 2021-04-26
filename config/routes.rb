@@ -29,4 +29,8 @@ Rails.application.routes.draw do
   resources :dances do
     resource :profile
   end
+
+  resource :appointments do
+    resources :profile
+  end
 end

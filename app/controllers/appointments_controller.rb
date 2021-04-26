@@ -21,7 +21,7 @@ class AppointmentsController < ApplicationController
 
   def show
     @user = current_user
-    @appointments = Appointment.all
+    # @appointments = Appointment.all
     @appointment = Appointment.find(params[:id])
     # Select et s'ajoute dans la show du profil
     @user_events = Appointment.where(id: params[:id])

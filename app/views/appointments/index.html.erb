@@ -10,10 +10,11 @@
     <%= link_to "My profile", profile_path %>
   </div>
 </div>
-
-
   <div class="title_text">
-    <p>Check all the events</p>
+    <p>Check all the events online</p>
+  </div>
+  <div class="title_text">
+    <p><%= link_to "Create an event", new_appointment_path %></p>
   </div>
     <div class ="container-appointments">
       <% @appointments.each do |appointment| %>
