@@ -26,6 +26,7 @@ class DancesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new(dance_params)
+    # @dance.user = @user
     if @dance.save
       redirect_to dances_path(@dance)
     else
@@ -41,7 +42,12 @@ class DancesController < ApplicationController
     @style = @dance.title
     #Select et s'ajoute dans la show du profil
     @user_dances = Dance.where(id: params[:id])
-  end
+    # @dance_partners = []
+    # @dance.partners.each do |dance_partner|
+    #   @partner_of_style = dance_partner.count
+    #   @dance_partners << @partner_of_style if !@my_partners.include(@partner_of_style)
+  # end
+end
 
   def update
     @dance = Dance.find(params[:id])

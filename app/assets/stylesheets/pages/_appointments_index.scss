@@ -9,9 +9,10 @@
   width:100%;
   display:grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 40px;
   grid-auto-rows: minmax(100px, auto);
   margin-left:30px;
+  margin-right:auto;
   .appointment-card{
     width:250px;
     height:150px;
