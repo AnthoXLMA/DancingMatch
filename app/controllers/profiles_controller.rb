@@ -24,6 +24,11 @@ class ProfilesController < ApplicationController
       @dance = user_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
     end
+    # @my_partners = []
+    # @user.partners.each do |user_partner|
+    #   @partner = user_partner.name
+    #   @my_partners << @partner if !@my_partners.include(@partner)
+    # end
   end
 
   def new

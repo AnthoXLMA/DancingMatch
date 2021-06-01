@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-     before_action :set_appointment, only: [:show]
+    before_action :set_appointment, only: [:show]
 
   def index
     @appointments = Appointment.all
@@ -22,7 +22,7 @@ class AppointmentsController < ApplicationController
   def show
     @user = current_user
     # @appointments = Appointment.all
-    @appointment = Appointment.find(id: params[:id])
+    @appointment = Appointment.find(params[:id])
     # Select et s'ajoute dans la show du profil
     @user_events = Appointment.where(id: params[:id])
   end
@@ -30,7 +30,7 @@ class AppointmentsController < ApplicationController
   private
 
   def set_appointment
-    @appointment = Appointment.find(params[:dance_id])
+    @appointment = Appointment.find(params[:id])
   end
 
 

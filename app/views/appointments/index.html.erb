@@ -10,16 +10,20 @@
     <%= link_to "My profile", profile_path %>
   </div>
 </div>
-
-
   <div class="title_text">
-    <p>Check all the events</p>
+    <p>Check all the events online</p>
+  </div>
+  <div class="title_text">
+    <p><%= link_to "Create an event", new_appointment_path %></p>
   </div>
     <div class ="container-appointments">
       <% @appointments.each do |appointment| %>
-    <div class="appointment-card">
-        <%= link_to appointment.name, appointment_path(@appointments) %>
-        <%= appointment.address %>
+    <div class="appointment-card3">
+        <p><%= link_to appointment.name, appointments_path(appointment) %></p>
+        <p> This event is located in <%= appointment.address %></p>
+        <p> This event starts on <%= appointment.start_on %></p>
+        <p> This event ends on <%= appointment.end_on %></p>
+        <p> This event is created by <%= appointment.user.first_name %></p>
     </div>
     <% end %>
   </div>

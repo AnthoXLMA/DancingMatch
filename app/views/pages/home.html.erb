@@ -25,7 +25,7 @@
     </div>
     <div class="search2">
       <%= form_tag dances_path, method: :get do %>
-      <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Find a dance" %>
+      <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Enter your dance and find your community" %>
       <%= submit_tag "Search", class: "b-primary" %>
       <% end %>
     </div>
