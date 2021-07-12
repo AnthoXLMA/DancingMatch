@@ -28,26 +28,31 @@
 
 <div class="container1">
   <div class="my_profile">
-    <div>
+    <div class="image-profile">
+      <h2><%= @user.photo %></h2>
+    </div>
+    <div class="my-informations">
       <h1><%= @user.first_name %></h1>
       <h1><%= @user.last_name %></h1>
-    </div>
-    <div class="image-profile">
-      <h2><%= @user.photo %> years</h2>
-    </div>
-    <div>
       <h2><%= @user.experience %> years</h2>
       <h2><%= @user.location %></h2>
       <h2><%= @user.age %></h2>
     </div>
   </div>
   <div class="container-appointments-profile">
+    <h1> My dances </h1>
     <% @my_dances.each do |dance| %>
     <div class="appointment-card">
       <%= dance %>
     </div>
     <% end %>
   </div>
+</div>
+
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
 
 <div>
