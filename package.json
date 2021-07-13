@@ -14,7 +14,8 @@
     "progressbar.js": "^1.1.0",
     "siema": "^1.5.1",
     "sweetalert": "^2.1.2",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "worker-loader": "^3.0.8"
   },
   "version": "0.1.0",
   "devDependencies": {
@@ -22,4 +23,3 @@
     "webpack-dev-server": "^3.11.0"
   }
 }
-

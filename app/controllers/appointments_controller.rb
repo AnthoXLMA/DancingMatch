@@ -3,7 +3,6 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
-
     @markers = @appointments.geocoded.map do |appointment|
       {
         lat: appointment.latitude,
