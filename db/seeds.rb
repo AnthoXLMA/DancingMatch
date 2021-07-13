@@ -78,6 +78,7 @@ anthony = User.new(
   contact: "06023002233",
   dance: dance4,
   )
+anthony.photo.attach(io: File.open(Rails.root.join('../assets/images/logo.png')), filename: 'logo.png')
 anthony.save!
 
 # jimmy = User.new(
