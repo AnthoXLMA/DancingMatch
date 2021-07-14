@@ -14,16 +14,24 @@
     <p>Check all the events online</p>
   </div>
   <div class="title_text">
-    <p><%= link_to "Create an event", new_appointment_path %></p>
+    <p><%= link_to "Crée ton évenement", new_appointment_path %></p>
   </div>
+  <div class="map-n-card">
     <div class ="container-appointments">
-      <% @appointments.each do |appointment| %>
-    <div class="appointment-card3">
-        <p><%= link_to appointment.name, appointments_path(appointment) %></p>
-        <p> This event is located in <%= appointment.address %></p>
-        <p> This event starts on <%= appointment.start_on %></p>
-        <p> This event ends on <%= appointment.end_on %></p>
-        <p> This event is created by <%= appointment.user.first_name %></p>
+          <% @appointments.each do |appointment| %>
+        <div class="appointment-card3">
+            <p><%= link_to appointment.name, appointments_path(appointment) %></p>
+            <p> Cet évenement a lieu à <%= appointment.address %></p>
+            <p> <%= appointment.latitude %></p>
+            <p> <%= appointment.longitude %></p>
+            <p> Commence le  <%= appointment.start_on %></p>
+            <p> Termine <%= appointment.end_on %></p>
+            <p> Organisateur: <%= appointment.user.first_name %></p>
+        </div>
+      <% end %>
     </div>
-    <% end %>
+    <div id="map" style="width:1000px"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
