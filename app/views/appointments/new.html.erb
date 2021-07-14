@@ -16,6 +16,8 @@
       <%= f.input :end_on %>
       <%= f.input :name, placeholder: "Donne un nom à ton événement" %>
       <%= f.input :address %>
+      <%= f.input :latitude %>
+      <%= f.input :longitude %>
       <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
       <%= f.button :submit, method: :post %>
     </div>
