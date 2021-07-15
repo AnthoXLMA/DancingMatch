@@ -26,6 +26,7 @@ gem 'redis', '~> 4.0'
 gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
 gem 'ipinfo-rails'
+gem 'PriorityQueue', '~> 0.1.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -38,7 +39,8 @@ gem 'devise'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-group :development, :test do  gem 'pry-byebug'
+group :development, :test do
+  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails'
 

@@ -269,6 +269,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  PriorityQueue (~> 0.1.2)
   autoprefixer-rails
   bootsnap (>= 1.4.2)
   byebug
