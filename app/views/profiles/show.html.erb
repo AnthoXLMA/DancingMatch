@@ -44,7 +44,7 @@
     <p> Mes danses </p>
     <% @my_dances.each do |dance| %>
     <div class="appointment-card">
-      <%= dance %>
+      <%= link_to dance, dance_path(dance) %>
     </div>
     <% end %>
   </div>

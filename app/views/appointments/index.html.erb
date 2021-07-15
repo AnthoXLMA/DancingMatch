@@ -25,10 +25,6 @@
             <p> Commence le  <%= appointment.start_on %></p>
             <p> Termine le <%= appointment.end_on %></p>
             <p> Organisateur: <%= link_to appointment.user.first_name %></p>
-            <%= cl_image_tag @appointment.pic.key, height: 200, width: 100, crop: :fill %>
-            <img class="pic"
-     src="/images/event-images/skye-studios-L6zXAJD01Ak-unsplash.jpg">
-
         </div>
       <% end %>
     </div>
