@@ -9,7 +9,7 @@ class AppointmentsController < ApplicationController
         lat: appointment.latitude,
         lng: appointment.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
-        image_url: helpers.asset_url('mapbox-marker-icon-20px-green.png')
+        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
   end
