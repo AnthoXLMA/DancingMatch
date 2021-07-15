@@ -23,7 +23,6 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Mes gems
-gem 'cloudinary', '~> 1.16.0'
 gem 'geocoder'
 gem 'ipinfo-rails'
 gem 'PriorityQueue', '~> 0.1.2'
