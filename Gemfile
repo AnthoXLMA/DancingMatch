@@ -25,7 +25,6 @@ gem 'redis', '~> 4.0'
 # Mes gems
 gem 'geocoder'
 gem 'ipinfo-rails'
-gem 'PriorityQueue', '~> 0.1.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
