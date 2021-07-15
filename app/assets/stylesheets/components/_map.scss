@@ -8,22 +8,15 @@
 //   // right: 0px;
 // }
 
-// .mapboxgl-popup {
-//   max-width: 500px;
-//   background-color: #2F97C1;
-//   color: #222222;
-// }
+.mapboxgl-popup {
+  max-width: 200px;
+}
 
-// .mapboxgl-popup-content {
-//   text-align: center;
-//   font-family: 'Roboto', sans-serif;
-//   color: #2F97C1;
+.mapboxgl-popup-content {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
 
-//   h2 {
-//     color:#2F97C1;
-//     font-weight: lighter;
-//   }
-// }
 #map {
   margin-top:10px;
   width:400px;

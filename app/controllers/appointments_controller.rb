@@ -3,10 +3,13 @@ class AppointmentsController < ApplicationController
 
   def index
     @appointments = Appointment.all
+    # @appointments  = @appointments.near(appointment.address, 10) if appointment.address.present?
     @markers = @appointments.geocoded.map do |appointment|
       {
         lat: appointment.latitude,
-        lng: appointment.longitude
+        lng: appointment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
+        image_url: helpers.asset_url('mapbox-marker-icon-20px-green.png')
       }
     end
   end
