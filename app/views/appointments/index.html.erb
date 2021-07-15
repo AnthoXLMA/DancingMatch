@@ -22,11 +22,9 @@
         <div class="appointment-card3">
             <p><%= link_to appointment.name, appointments_path(appointment) %></p>
             <p> Cet évenement a lieu à <%= appointment.address %></p>
-            <p> <%= appointment.latitude %></p>
-            <p> <%= appointment.longitude %></p>
             <p> Commence le  <%= appointment.start_on %></p>
-            <p> Termine <%= appointment.end_on %></p>
-            <p> Organisateur: <%= appointment.user.first_name %></p>
+            <p> Termine le <%= appointment.end_on %></p>
+            <p> Organisateur: <%= link_to appointment.user.first_name %></p>
         </div>
       <% end %>
     </div>
