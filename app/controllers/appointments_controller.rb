@@ -44,6 +44,6 @@ class AppointmentsController < ApplicationController
 
 
   def appointment_params
-    params.require(:appointment).permit(:id, :start_on, :end_on, :name, :address, :user_id, :dance_id)
+    params.require(:appointment).permit(:id, :start_on, :end_on, :name, :address, :user_id, :dance_id, :pic)
   end
 end

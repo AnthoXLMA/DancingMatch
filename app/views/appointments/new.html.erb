@@ -17,6 +17,7 @@
       <%= f.input :name, placeholder: "Donne un nom à ton événement" %>
       <%= f.input :address %>
       <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
+      <%= f.input :pic, as: :file %>
       <%= f.button :submit, method: :post %>
     </div>
   <% end %>
