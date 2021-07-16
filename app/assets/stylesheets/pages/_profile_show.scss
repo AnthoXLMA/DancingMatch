@@ -16,17 +16,17 @@
 .container1 {
   display:flex;
   margin-top:30px;
-  // border:solid; //permet de voir les bordures du container -- à supprimer
+  margin-right:10px;
+  margin-left:10px;
 
   .my_profile {
-    // display:flex;
-    // border:solid //permet de voir les bordures du container -- à supprimer
-    // margin-bottom:20px;
-    margin-left:20px;
+    // margin-right:10px;
+    margin-left:10px;
     margin-top:5px;
-    padding-top:10px;
-    width:90%;
-    height:600px;
+    margin-bottom:30px;
+    // padding-top:10px;
+    width:500px;
+    height:710px;
     box-shadow: 3px 3px 20px 1px grey ;
     border-radius:10px;
     background-color: white;
@@ -39,16 +39,16 @@
   }
   .image-profile{
     border: thin dotted black;
-    width:200px;
-    height:200px;
+    width:70px;
+    height:70px;
     margin-left:10px;
     margin-top:5px;
-    border-radius:2px 2px 2px 2px;
+    border-radius:50%;
   }
   .container-card-profile {
     display:flex;
-    background-color:#F49097;
-    height:210px;
+    background-color:#F12301;
+    height:100px;
   }
   .my-informations {
     width:300px;
@@ -59,18 +59,20 @@
  }
 }
 
+
 .container-appointments-profile {
-  width:700px;
-  display:grid;
-  // grid-template-columns: repeat(2, 1fr);
-  grid-gap: 10px;
-  grid-auto-rows: minmax(100px, auto);
-  margin-left:30px;
+    width: 150px;
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+    grid-gap: 5px;
+    grid-auto-rows: minmax(10px, auto);
+    margin-left: 10px;
   .appointment-card{
     width:150px;
-    height:100px;
-    box-shadow: 3px 3px 20px 1px grey ;
-    border-radius:25px;
+    height:30px;
+    box-shadow: 1px 1px 7px 1px grey ;
+    border-radius:12px;
     background-color: white;
     padding:20px;
     font-family: helvetica;
@@ -102,17 +104,6 @@
     margin-bottom:20px;
     margin-left:50px;
   }
-}
-
-.menu {
-  margin-top:20px;
-  box-shadow:1px 1px 20px 1px grey;
-  background-color: #ffff;
-  color:black;
-  height:120px;
-  justify-content:space-around;
-  flex-wrap:wrap;
-  padding:20px;
 }
 
 .my_dances {
