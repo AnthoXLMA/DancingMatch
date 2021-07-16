@@ -5,26 +5,20 @@
 <div class="section">
   <div class="row">
     <div class="column">
-      <a class="link"><%= link_to "Profile", profile_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Profil", profile_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Events", appointments_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
+      <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
     </div>
   </div>
 </div>
-<div class="container1">
-  <div id="map"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  <div class="my_profile">
-    <div class="container-card-profile">
+  <div class="container-card-profile">
       <div class="image-profile">
         <h2><%= @user.photo %></h2>
       </div>
@@ -35,9 +29,18 @@
         <p><%= @user.location %></p>
         <p><%= @user.age %></p>
       </div>
-      </div>
+    </div>
+<div class="container1">
+  <div id="map"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+  <div class="my_profile">
       <div class="container-appointments-profile">
-        <p> Mes danses </p>
+        <div class="titres-cadre">
+          <p> Mes danses </p>
+        </div>
         <% @my_dances.each do |dance| %>
       <div class="appointment-card">
         <%= link_to dance, dances_path(dance) %>
