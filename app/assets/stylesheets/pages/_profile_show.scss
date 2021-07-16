@@ -47,13 +47,16 @@
   }
   .container-card-profile {
     display:flex;
-    background-color:#F12301;
+    background-color:#DB3069;
     height:100px;
+    padding:10px;
   }
   .my-informations {
+    display:flex;
     width:300px;
     height:120px;
-    color:grey;
+    color:white;
+    font-weight:bold;
     margin-left:30px;
   }
  }

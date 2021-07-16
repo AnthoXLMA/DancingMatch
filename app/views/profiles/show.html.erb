@@ -5,16 +5,16 @@
 <div class="section">
   <div class="row">
     <div class="column">
-      <a class="link"><%= link_to "Profile", profile_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Profil", profile_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Events", appointments_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Sign out", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
+      <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
     </div>
   </div>
 </div>
@@ -31,9 +31,9 @@
        <div class="my-informations">
         <a><%= @user.first_name %></a>
         <h1><%= @user.last_name %></h1>
-        <p><%= @user.experience %> years dancing</p>
+        <p><%= @user.experience %></p>
         <p><%= @user.location %></p>
-        <p><%= @user.age %></p>
+        <p><%= @user.age %> ans</p>
       </div>
       </div>
       <div class="container-appointments-profile">
