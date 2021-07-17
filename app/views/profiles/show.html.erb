@@ -21,6 +21,7 @@
   <div class="container-card-profile">
       <div class="image-profile">
         <h2><%= @user.photo %></h2>
+        <%= cl_image_tag @usser.photo.key %>
       </div>
        <div class="my-informations">
         <a><%= @user.first_name %></a>
