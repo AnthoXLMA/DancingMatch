@@ -17,7 +17,14 @@
     // display:flex;
     background-color:#DB3069;
     height:100px;
-    padding:10px
+  }
+  .image-profile{
+    border: thin dotted black;
+    width:70px;
+    height:70px;
+    margin-left:10px;
+    margin-top:5px;
+    border-radius:50%;
   }
   .my-informations {
     text-align: justify;
@@ -42,14 +49,6 @@
     color:black;
     margin-right:10px;
     margin-left:10px;
-  }
-  .image-profile{
-    border: thin dotted black;
-    width:70px;
-    height:70px;
-    margin-left:10px;
-    margin-top:5px;
-    border-radius:50%;
   }
  }
 }

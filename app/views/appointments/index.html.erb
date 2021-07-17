@@ -21,9 +21,9 @@
           <% @appointments.each do |appointment| %>
         <div class="appointment-card3">
             <p><%= link_to appointment.name, appointments_path(appointment) %></p>
-            <p> Cet évenement a lieu à <%= appointment.address %></p>
-            <p> Commence le  <%= appointment.start_on %></p>
-            <p> Termine le <%= appointment.end_on %></p>
+            <p> <%= appointment.address %></p>
+            <p> Début: <%= appointment.start_on %></p>
+            <p> Fin: <%= appointment.end_on %></p>
             <p> Organisateur: <%= link_to appointment.user.first_name %></p>
         </div>
       <% end %>
