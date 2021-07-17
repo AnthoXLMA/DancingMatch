@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new
+    # @user.photo.attach(params[:photo])
     # @user.dance = @dance
     @dance.save
       redirect_to profile_path
@@ -67,6 +68,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.permit( :gender, :age, :location, :experience, :contact, :email, :id)
+    params.permit( :gender, :age, :location, :experience, :contact, :photo, :email, :id)
   end
 end

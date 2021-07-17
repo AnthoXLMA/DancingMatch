@@ -20,8 +20,7 @@
 </div>
   <div class="container-card-profile">
       <div class="image-profile">
-        <h2><%= @user.photo %></h2>
-        <%= cl_image_tag @usser.photo.key %>
+        <h2><%= @user.photo.attached? %></h2>
       </div>
        <div class="my-informations">
         <a><%= @user.first_name %></a>
@@ -30,7 +29,7 @@
         <p><%= @user.location %></p>
         <p><%= @user.age %></p>
       </div>
-    </div>
+
 <div class="container1">
   <div id="map"
      data-markers="<%= @markers.to_json %>"

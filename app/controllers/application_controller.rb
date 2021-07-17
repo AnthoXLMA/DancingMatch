@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:gender, :first_name, :location, :email, :password, :experience, :contact])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:gender, :first_name, :location, :email, :password, :experience, :contact, :photo])
   end
 
   def default_url_options
