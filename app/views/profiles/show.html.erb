@@ -20,7 +20,7 @@
 </div>
   <div class="container-card-profile">
       <div class="image-profile">
-        <h2><%= @user.photo.attached? %></h2>
+        <%= image_tag(@user.photo) if @user.photo.attached? %>
       </div>
        <div class="my-informations">
         <a><%= @user.first_name %></a>
@@ -59,6 +59,12 @@
     <%= link_to "Les danses", dances_path %>
     <%= link_to "Agenda d'évenements", appointments_path %>
     <%= link_to "Crée ton évenement", new_appointment_path %>
+    <p><input type="text" name="Input1" id="Input1" value="Cliquez sur cette zone pour cocher la case via du JavaScript" size="70" onclick="fctCocherCase(1);"></p>
+    Ma case à cocher : <input TYPE=CHECKBOX UNCHECKED name="Checkbox1" id="Checkbox1" value="Pouet" type="CHECKBOX"></br>
+
+  <p>Player 1: Chris</p>
+
+
     </div>
   </div>
 </div>

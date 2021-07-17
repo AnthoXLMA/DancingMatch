@@ -25,6 +25,9 @@
             <p> Début: <%= appointment.start_on %></p>
             <p> Fin: <%= appointment.end_on %></p>
             <p> Organisateur: <%= link_to appointment.user.first_name %></p>
+            <div class ="image-card-appointments">
+              <%= image_tag(appointment.pic) %>
+            </div>
         </div>
       <% end %>
     </div>
