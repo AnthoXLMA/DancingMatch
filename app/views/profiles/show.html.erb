@@ -35,25 +35,32 @@
      data-markers="<%= @markers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-  <div class="my_profile">
+    <div class="my_profile">
       <div class="container-appointments-profile">
-        <div class="titres-cadre">
-          <p> Mes danses </p>
+        <div class="button-block">
+          <div class="titres-cadre">
+            <p> Mes danses </p>
+          </div>
+          <div class="titres-cadre">
+            <p> Mes contacts </p>
+          </div>
         </div>
-        <% @my_dances.each do |dance| %>
-      <div class="appointment-card">
-        <%= link_to dance, dances_path(dance) %>
-      </div>
-    <% end %>
-  </div>
+        <div class="accroche">
+          <p> Découvre ton profil </p>
+        </div>
+          <% @my_dances.each do |dance| %>
+        <div class="appointment-card">
+          <%= link_to dance, dances_path(dance) %>
+        </div>
+      <% end %>
+    </div>
   <div class="menu">
     <%= link_to "Ajoute ta danse", new_dance_path %>
     <%= link_to "Les danses", dances_path %>
     <%= link_to "Agenda d'évenements", appointments_path %>
     <%= link_to "Crée ton évenement", new_appointment_path %>
+    </div>
   </div>
-</div>
 </div>
 <!-- <div class="container-appointments-profile">
 
