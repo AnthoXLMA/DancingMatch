@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new
-    @user.photo.attach(params[:photo])
+    # @user.photo.attach(params[:photo])
     # @user.dance = @dance
     @dance.save
       redirect_to profile_path

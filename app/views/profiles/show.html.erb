@@ -20,7 +20,7 @@
 </div>
   <div class="container-card-profile">
       <div class="image-profile">
-        <%= image_tag(@user.photo) if @user.photo.attached? %>
+        <%= image_tag(user.photo) %>
       </div>
        <div class="my-informations">
         <a><%= @user.first_name %></a>
