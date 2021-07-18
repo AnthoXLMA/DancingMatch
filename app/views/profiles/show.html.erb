@@ -19,17 +19,17 @@
   </div>
 </div>
   <div class="container-card-profile">
+    <div class="banner-profile">
       <div class="image-profile">
-        <%= image_tag(user.photo) %>
+          <%= image_tag('https://res.cloudinary.com/dzbj8ezt0/image/upload/v1626486246/j575hh0oa5ryl3mh7k1b4zdm1uss.jpg') %>
       </div>
        <div class="my-informations">
         <a><%= @user.first_name %></a>
-        <h1><%= @user.last_name %></h1>
-        <p><%= @user.experience %> years dancing</p>
-        <p><%= @user.location %></p>
-        <p><%= @user.age %></p>
+        <a><%= @user.experience %> years experience</a>
+        <a><%= @user.location %></a>
+        <a><%= @user.age %> years old</a>
       </div>
-
+  </div>
 <div class="container1">
   <div id="map"
      data-markers="<%= @markers.to_json %>"
@@ -62,12 +62,10 @@
     <p><input type="text" name="Input1" id="Input1" value="Cliquez sur cette zone pour cocher la case via du JavaScript" size="70" onclick="fctCocherCase(1);"></p>
     Ma case à cocher : <input TYPE=CHECKBOX UNCHECKED name="Checkbox1" id="Checkbox1" value="Pouet" type="CHECKBOX"></br>
 
-  <p>Player 1: Chris</p>
-
-
+        <p>Player 1: Chris</p>
+      </div>
     </div>
   </div>
-</div>
 <!-- <div class="container-appointments-profile">
 
   <%= simple_form_for :user do |f| %>
