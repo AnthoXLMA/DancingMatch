@@ -67,6 +67,11 @@
     </div>
 
     <div class="mb-6">
+       <%= f.label :photo %><br>
+        <%= f.file_field :photo, as: :file %>
+    </div>
+
+    <div class="mb-6">
       <%= f.check_box :terms, class: "mr-2" %>
       <%= f.label :terms, "I agree to terms and conditions" %>
     </div>

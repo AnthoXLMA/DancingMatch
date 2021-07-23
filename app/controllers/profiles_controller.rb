@@ -2,9 +2,7 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @dance = Dance.new
-    # @user.photo.attach(params[:photo])
-    # @user.dance = @dance
-    @dance.save
+    @user.save
       redirect_to profile_path
   end
 
@@ -25,11 +23,15 @@ class ProfilesController < ApplicationController
       @dance = user_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
     end
-    # @my_partners = []
-    # @user.partners.each do |user_partner|
-    #   @partner = user_partner.name
-    #   @my_partners << @partner if !@my_partners.include(@partner)
-    # end
+    @appointments = Appointment.all
+    @markers = @appointments.geocoded.map do |appointment|
+      {
+        lat: appointment.latitude,
+        lng: appointment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
+        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
+      }
+    end
   end
 
   def new
@@ -53,11 +55,6 @@ class ProfilesController < ApplicationController
       redirect_to edit_profile_path(@dances)
   end
 
-  # def chatroom
-  #   general = Chatroom.find_by(name: "general")
-  #   redirect_to chatroom_path(general) if general
-  # end
-
   def update
     @user = current_user
     @user_dances = Dance.select(params[:dance_id])
@@ -68,6 +65,6 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.permit( :gender, :age, :location, :experience, :contact, :photo, :email, :id)
+    params.require(:user).permit(:gender, :age, :location, :experience, :contact, :email, :id, :photo)
   end
 end
