@@ -15,14 +15,14 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:first_name)
   end
 
-  # def sign_out
-  #   devise_parameter_sanitizer.destroy(:sign_out)
-  # end
+  def sign_out
+    devise_parameter_sanitizer.destroy(:sign_out)
+  end
 
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:gender, :first_name, :location, :email, :password, :experience, :contact, :photo])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:gender, :first_name, :location, :email, :password, :experience, :contact])
   end
 
   def default_url_options

@@ -5,7 +5,7 @@
 <div class="section">
   <div class="row">
     <div class="column">
-      <a class="link"><%= link_to "Profil", profile_path, class: "btn-ghost" %></a>
+      <a class="link"><%= link_to "Partenaires", profile_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
       <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
@@ -21,13 +21,27 @@
   <div class="container-card-profile">
     <div class="banner-profile">
       <div class="image-profile">
-          <%= image_tag('https://res.cloudinary.com/dzbj8ezt0/image/upload/v1626486246/j575hh0oa5ryl3mh7k1b4zdm1uss.jpg') %>
+        <%= cl_image_tag(@user) %>
       </div>
        <div class="my-informations">
         <a><%= @user.first_name %></a>
         <a><%= @user.experience %> years experience</a>
         <a><%= @user.location %></a>
         <a><%= @user.age %> years old</a>
+      </div>
+      <div class="dance-query">
+        <div class="query">
+          <%= form_tag dances_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:dance],
+            class: "form-control",
+            placeholder: "Quelle danse cherches-tu?"
+          %>
+        </div>
+        <div class="button-OK">
+          <%= submit_tag "Search" %>
+          <% end %>
+        </div>
       </div>
   </div>
 <div class="container1">
@@ -36,33 +50,28 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
     <div class="my_profile">
+       <div class="menu">
+          <%= link_to "Ajoute ta danse", new_dance_path %>
+          <%= link_to "Crée ton évenement", new_appointment_path %>
+        </div>
       <div class="container-appointments-profile">
         <div class="button-block">
           <div class="titres-cadre">
             <p> Mes danses </p>
           </div>
           <div class="titres-cadre">
-            <p> Mes contacts </p>
+            <p> Mes partenaires </p>
           </div>
         </div>
         <div class="accroche">
           <p> Découvre ton profil </p>
         </div>
+
           <% @my_dances.each do |dance| %>
         <div class="appointment-card">
           <%= link_to dance, dances_path(dance) %>
         </div>
       <% end %>
-    </div>
-  <div class="menu">
-    <%= link_to "Ajoute ta danse", new_dance_path %>
-    <%= link_to "Les danses", dances_path %>
-    <%= link_to "Agenda d'évenements", appointments_path %>
-    <%= link_to "Crée ton évenement", new_appointment_path %>
-    <p><input type="text" name="Input1" id="Input1" value="Cliquez sur cette zone pour cocher la case via du JavaScript" size="70" onclick="fctCocherCase(1);"></p>
-    Ma case à cocher : <input TYPE=CHECKBOX UNCHECKED name="Checkbox1" id="Checkbox1" value="Pouet" type="CHECKBOX"></br>
-
-        <p>Player 1: Chris</p>
       </div>
     </div>
   </div>

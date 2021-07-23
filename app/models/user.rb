@@ -12,8 +12,8 @@ has_many :dances, through: :appointments
 has_many :partners, through: :dances
 
 has_one_attached :photo
-# geocoded_by :location
-# after_validation :geocode, if: :will_save_change_to_location?
+geocoded_by :location
+after_validation :geocode, if: :will_save_change_to_location?
 
 validates :first_name, presence: true
 end

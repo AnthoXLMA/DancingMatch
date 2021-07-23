@@ -20,6 +20,7 @@
   }
   .banner-profile {
     display:flex;
+    height:155px;
     .image-profile{
       padding:10px;
       img {
@@ -42,6 +43,23 @@
         width:200px;
       }
     }
+    .dance-query {
+      display:flex;
+      width:500px;
+      height: 70px;
+      margin-left:400px;
+      margin-top:10px;
+      justify-content:center;
+      .query {
+        width:60%;
+        height:20px;
+      }
+      .button-OK {
+        width:40%;
+        margin-left:10px;
+        height:30px;
+      }
+    }
   }
 
 .container1 {
@@ -53,6 +71,7 @@
     background-color: white;
     font-family: helvetica;
     color:black;
+    width:40%;
   h1 {
     color:black;
     margin-right:10px;
@@ -100,14 +119,14 @@
       }
   }
   .appointment-card{
-    width:150px;
-    height:2.5rem;
+    width: 8.5rem;
+    height: 5.5rem;
     background-color: white;
     padding:20px;
     font-family: helvetica;
     color:black;
     border: 1px solid grey;
-    border-radius: 30px;
+    border-radius: 5px;
   }
   .appointment-card2{
     width:1200px;

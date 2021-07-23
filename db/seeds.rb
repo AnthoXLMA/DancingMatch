@@ -80,30 +80,30 @@ anthony = User.new(
   )
 anthony.save!
 
-# jimmy = User.new(
-#   first_name: 'Jimmy',
-#   age: "30",
-#   email: "jimmy@example.com",
-#   password: "secret",
-#   # encrypted_password: "password",
-#   location: "Marseille",
-#   experience: "1",
-#   contact: "06025002233",
-#   # dance: dance2,
-# )
-# jimmy.save!
+jimmy = User.new(
+  first_name: 'Jimmy',
+  age: "30",
+  email: "jimmy@example.com",
+  password: "secret",
+  # encrypted_password: "password",
+  location: "Marseille",
+  experience: "1",
+  contact: "06025002233",
+  dance: dance2,
+)
+jimmy.save!
 
-# stephanie = User.new(
-#   first_name: 'Stephanie',
-#   age: "32",
-#   email: "steph@example.com",
-#   password: "secret",
-#   experience: "16",
-#   location: "La Havane",
-#   contact: "0600000033",
-#   # dance: dance5,
-# )
-# stephanie.save
+stephanie = User.new(
+  first_name: 'Stephanie',
+  age: "32",
+  email: "steph@example.com",
+  password: "secret",
+  experience: "16",
+  location: "La Havane",
+  contact: "0600000033",
+  dance: dance5,
+)
+stephanie.save!
 
 # peter = User.new(
 #   first_name: 'Peter',

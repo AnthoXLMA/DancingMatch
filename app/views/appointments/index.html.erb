@@ -20,13 +20,15 @@
     <div class ="container-appointments">
           <% @appointments.each do |appointment| %>
         <div class="appointment-card3">
+            <div class ="image-card-appointments">
+              <%= image_tag(appointment.pic) %>
+            </div>
+            <div class ="information-event">
             <p><%= link_to appointment.name, appointments_path(appointment) %></p>
             <p> <%= appointment.address %></p>
             <p> Début: <%= appointment.start_on %></p>
             <p> Fin: <%= appointment.end_on %></p>
             <p> Organisateur: <%= link_to appointment.user.first_name %></p>
-            <div class ="image-card-appointments">
-              <%= image_tag(appointment.pic) %>
             </div>
         </div>
       <% end %>
