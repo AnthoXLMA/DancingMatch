@@ -2,7 +2,7 @@
   <div class="container">
     <div class="title">
       <h1>Dancing Partners</h1>
-      <p>The First WorldWide Dancers Community</p>
+        <p>The First WorldWide Dancers Community</p>
     </div>
     <div class="section">
       <div class="row">
@@ -10,8 +10,8 @@
       </div>
     </div>
     <div class="cont-input">
-      <h2>Log in</h2>
-      <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h1>Connexion</h1>
+      <%= simple_form_for(resource, as: resource_name, url: user_session_path(resource_name)) do |f| %>
       <div class="form-inputs">
         <%= f.input :email,
                     required: false,

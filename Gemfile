@@ -25,7 +25,7 @@ gem 'redis', '~> 4.0'
 # Mes gems
 gem 'geocoder'
 gem 'ipinfo-rails'
-
+gem 'omniauth', '~> 1.0.0'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 
