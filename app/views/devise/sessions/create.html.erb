@@ -5,6 +5,32 @@
 
   <div class="form-inputs">
     <%= f.input :email, required: false, autofocus: true %>
+          <p>
+            <%= f.label :name %><br>
+            <%= f.text_field :first_name %>
+          </p>
+
+          <p>
+            <%= f.label :age %><br>
+            <%= f.text_field :age %>
+          </p>
+          <p>
+            <%= f.label :experience %><br>
+            <%= f.text_field :experience %>
+          </p>
+          <p>
+            <%= f.label :address %><br>
+            <%= f.text_area :location %>
+          </p>
+          <p>
+            <%= f.label :email %><br>
+            <%= f.text_field :email %>
+          </p>
+
+          <p>
+            <%= f.label :photo %><br>
+            <%= f.file_field :photo, as: :file %>
+          </p>
     <h3>
       <%= link_to "Valide ton compte", edit_user_registration_path %>
     </h3>

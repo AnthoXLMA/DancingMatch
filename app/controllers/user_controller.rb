@@ -1,12 +1,5 @@
 class UserController < ApplicationController
-  def create
-    @user = current_user
-    @dance = Dance.new
-    session[:user_id] = user.id
-    redirect_to root_path
-    @user.save
-      redirect_to profile_path
-  end
+  # before_action :set_user, only: [:show]
 
   def index
     @users = User.all
@@ -18,6 +11,26 @@ class UserController < ApplicationController
     end
   end
 
+  def new
+    @user = User.new(user_params)
+    @user.save
+  end
+
+  def create
+    # @user = current_user
+    @user = User.new(user_params)
+    @user.save
+    #   redirect_to users_path(@users)
+    # else
+    #   render 'home'
+    # end
+    # @dance = Dance.new
+    # session[:user_id] = user.id
+    #   redirect_to registration_path
+    # @user.save
+    #   redirect_to profile_path
+  end
+
   def show
     @user = current_user
     @my_dances = []
@@ -25,48 +38,43 @@ class UserController < ApplicationController
       @dance = user_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
     end
-    @appointments = Appointment.all
-    @markers = @appointments.geocoded.map do |appointment|
-      {
-        lat: appointment.latitude,
-        lng: appointment.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
-        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
-      }
-    end
   end
 
-  def new
-    @dance = Dance.new
-    @user = current_user
-    @dances = Dance.all
-    @dances.user = @user
-    if dance.save
-    redirect_to profile_path
-    else
-      render 'dances/show'
-    end
-  end
+  # def new
+  #   @dance = Dance.new
+  #   @user = current_user
+  #   @dances = Dance.all
+  #   @dances.user = @user
+  #   if dance.save
+  #   redirect_to profile_path
+  #   else
+  #     render 'dances/show'
+  #   end
+  # end
 
-  def edit
-    @user = current_user
-    @dances = Dance.select('dances.*')
-    #Select et s'ajoute dans la show du profil
-    @my_dances = @dances.select(params[:id])
-    # @user_dances = @dances.select(params[:id])
-      redirect_to edit_profile_path(@dances)
-  end
+  # def edit
+  #   @user = current_user
+  #   @dances = Dance.select('dances.*')
+  #   #Select et s'ajoute dans la show du profil
+  #   @my_dances = @dances.select(params[:id])
+  #   # @user_dances = @dances.select(params[:id])
+  #     redirect_to edit_profile_path(@dances)
+  # end
 
-  def update
-    @user = current_user
-    @user_dances = Dance.select(params[:dance_id])
-    @dance = Dance.find_by(id: params[:dance_id])
-    @user.save
-  end
+  # def update
+  #   @user = current_user
+  #   @user_dances = Dance.select(params[:dance_id])
+  #   @dance = Dance.find_by(id: params[:dance_id])
+  #   @user.save
+  # end
 
   private
 
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
+
   def user_params
-    params.require(:user).permit(:gender, :age, :location, :experience, :contact, :email, :id, :photo)
+    params.require(:user).permit(:gender, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
   end
 end

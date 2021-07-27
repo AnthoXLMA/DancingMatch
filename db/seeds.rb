@@ -4,106 +4,106 @@ User.destroy_all
 Dance.destroy_all
 
 # SEEDS 1 avec dance
-puts "Creating dances..."
-dance1 = Dance.new(title: "Salsa Cubana")
-dance1.save!
+# puts "Creating dances..."
+# dance1 = Dance.new(title: "Salsa Cubana")
+# dance1.save!
 
-dance2 = Dance.new(title: "Merengue")
-dance2.save!
+# dance2 = Dance.new(title: "Merengue")
+# dance2.save!
 
-dance3 = Dance.new(title: "Bachata")
-dance3.save!
+# dance3 = Dance.new(title: "Bachata")
+# dance3.save!
 
-dance4 = Dance.new(title: "Kizomba")
-dance4.save!
+# dance4 = Dance.new(title: "Kizomba")
+# dance4.save!
 
-dance5 = Dance.new(title: "Reggaeton")
-dance5.save!
+# dance5 = Dance.new(title: "Reggaeton")
+# dance5.save!
 
-dance6 = Dance.new(title: "Samba")
-dance6.save!
+# dance6 = Dance.new(title: "Samba")
+# dance6.save!
 
-dance7 = Dance.new(title: "Tango")
-dance7.save!
+# dance7 = Dance.new(title: "Tango")
+# dance7.save!
 
-dance8 = Dance.new(title: "Flamenco")
-dance8.save!
+# dance8 = Dance.new(title: "Flamenco")
+# dance8.save!
 
-dance9 = Dance.new(title: "Modern Jazz")
-dance9.save!
+# dance9 = Dance.new(title: "Modern Jazz")
+# dance9.save!
 
-dance10 = Dance.new(title: "Rumba")
-dance10.save!
+# dance10 = Dance.new(title: "Rumba")
+# dance10.save!
 
-dance11 = Dance.new(title: "West Coast Swing")
-dance11.save!
+# dance11 = Dance.new(title: "West Coast Swing")
+# dance11.save!
 
-dance12 = Dance.new(title: "Break Dance")
-dance12.save!
+# dance12 = Dance.new(title: "Break Dance")
+# dance12.save!
 
-dance13 = Dance.new(title: "Salsa Portoricana")
-dance13.save!
+# dance13 = Dance.new(title: "Salsa Portoricana")
+# dance13.save!
 
-dance14 = Dance.new(title: "Salsa Colombiana")
-dance14.save!
+# dance14 = Dance.new(title: "Salsa Colombiana")
+# dance14.save!
 
-dance15 = Dance.new(title: "FoxTrot")
-dance15.save!
+# dance15 = Dance.new(title: "FoxTrot")
+# dance15.save!
 
-dance16 = Dance.new(title: "Lindy Hop")
-dance16.save!
+# dance16 = Dance.new(title: "Lindy Hop")
+# dance16.save!
 
-dance17 = Dance.new(title: "Paso Doble")
-dance17.save!
+# dance17 = Dance.new(title: "Paso Doble")
+# dance17.save!
 
-dance18 = Dance.new(title: "Milonga")
-dance18.save!
+# dance18 = Dance.new(title: "Milonga")
+# dance18.save!
 
-dance19 = Dance.new(title: "Lambada")
-dance19.save!
+# dance19 = Dance.new(title: "Lambada")
+# dance19.save!
 
-dance20 = Dance.new(title: "Forro")
-dance20.save!
+# dance20 = Dance.new(title: "Forro")
+# dance20.save!
 
+# puts 'Creating Users...'
+# anthony = User.new(
+#   first_name: 'Anthony',
+#   age: '37',
+#   email: 'antho@example.com',
+#   password: 'secret',
+#   # encrypted_password: "password",
+#   location: 'Paris',
+#   experience: '3',
+#   contact: '06023002233',
+#   dance: dance4
+# )
+# anthony.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/antho.jpeg')), filename: 'antho.jpeg')
+# anthony.save!
 
-puts 'Creating Users...'
-anthony = User.new(
-  first_name: 'Anthony',
-  age: "37",
-  email: "antho@example.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Paris",
-  experience: "3",
-  contact: "06023002233",
-  dance: dance4,
-  )
-anthony.save!
+# jimmy = User.new(
+#   first_name: 'Jimmy',
+#   age: "30",
+#   email: "jimmy@example.com",
+#   password: "secret",
+#   # encrypted_password: "password",
+#   location: "Marseille",
+#   experience: "1",
+#   contact: "06025002233",
+#   dance: dance2,
+# )
+# jimmy.save!
 
-jimmy = User.new(
-  first_name: 'Jimmy',
-  age: "30",
-  email: "jimmy@example.com",
-  password: "secret",
-  # encrypted_password: "password",
-  location: "Marseille",
-  experience: "1",
-  contact: "06025002233",
-  dance: dance2,
-)
-jimmy.save!
-
-stephanie = User.new(
-  first_name: 'Stephanie',
-  age: "32",
-  email: "steph@example.com",
-  password: "secret",
-  experience: "16",
-  location: "La Havane",
-  contact: "0600000033",
-  dance: dance5,
-)
-stephanie.save!
+# stephanie = User.new(
+#   first_name: 'Stephanie',
+#   age: "32",
+#   email: "steph@example.com",
+#   password: "secret",
+#   experience: "16",
+#   location: "La Havane",
+#   contact: "0600000033",
+#   dance: dance5,
+# )
+# stephanie.save!
 
 # peter = User.new(
 #   first_name: 'Peter',

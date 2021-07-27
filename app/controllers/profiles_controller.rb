@@ -1,5 +1,7 @@
 class ProfilesController < ApplicationController
   def create
+    # @profile = current_user.create_profile(profile_params)
+    # @profile.avatar.attach(params[:profile][:avatar])
     @user = current_user
     @dance = Dance.new
     @user.save
@@ -17,6 +19,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
+    # @profile = current_user.profile
     @user = current_user
     @my_dances = []
     @user.dances.each do |user_dance|
@@ -35,6 +38,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
+    # @profile = current_user.build_profile
     @dance = Dance.new
     @user = current_user
     @dances = Dance.all
