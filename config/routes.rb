@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  # resource :profile, only: [:index, :edit, :update, :show, :create] do
-  #   resources :dances, only: [:create, :show, :new]
-  # end
+  resource :profile, only: [:index, :edit, :update, :show, :create] do
+    resources :dances, only: [:create, :show, :new]
+  end
 
   resources :dances, only: [:index, :show, :new, :create] do
     resources :users

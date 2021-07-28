@@ -1,5 +1,5 @@
 class DancesController < ApplicationController
-   # before_action :set_dance, only: [:show]
+   before_action :set_dance, only: [:show]
 
   def index
     if params[:query].present?
@@ -64,9 +64,9 @@ end
 
   private
 
-  # def set_dance
-  #   @dance = Dance.find(params[:id])
-  # end
+  def set_dance
+    @dance = Dance.find(params[:id])
+  end
 
   def dance_params
     params.require(:dance).permit(:id, :title)

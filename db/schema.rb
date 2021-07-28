@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 2021_07_26_221733) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
-    t.bigint "dance_id", null: false
+    t.bigint "dance_id", null: true
     t.index ["dance_id"], name: "index_profiles_on_dance_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
@@ -91,9 +91,9 @@ ActiveRecord::Schema.define(version: 2021_07_26_221733) do
     t.string "first_name"
     t.string "last_name"
     t.boolean "terms"
-    # t.bigint "dance_id", null: false
+    t.bigint "dance_id", null: true
     t.string "photo"
-    # t.index ["dance_id"], name: "index_users_on_dance_id"
+    t.index ["dance_id"], name: "index_users_on_dance_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -103,5 +103,5 @@ ActiveRecord::Schema.define(version: 2021_07_26_221733) do
   add_foreign_key "appointments", "users"
   add_foreign_key "profiles", "dances"
   add_foreign_key "profiles", "users"
-  # add_foreign_key "users", "dances"
+  add_foreign_key "users", "dances"
 end

@@ -1,13 +1,4 @@
 class ProfilesController < ApplicationController
-  def create
-    # @profile = current_user.create_profile(profile_params)
-    # @profile.avatar.attach(params[:profile][:avatar])
-    @user = current_user
-    @dance = Dance.new
-    @user.save
-      redirect_to profile_path
-  end
-
   def index
     @users = User.all
     @markers = @users.geocoded.map do |user|
@@ -18,12 +9,21 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def show
-    # @profile = current_user.profile
+  def create
+    @profile = current_user.create_profile(profile_params)
+    @profile.avatar.attach(params[:profile][:avatar])
     @user = current_user
+    @dance = Dance.new
+    @user.save
+      redirect_to profile_path
+  end
+
+  def show
+    @profile = current_user
+    # @profile = current_user.build_profile
     @my_dances = []
-    @user.dances.each do |user_dance|
-      @dance = user_dance.title
+    @profile.dances.each do |profile_dance|
+      @dance = profile_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
     end
     @appointments = Appointment.all
@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    # @profile = current_user.build_profile
+    @profile = current_user.build_profile
     @dance = Dance.new
     @user = current_user
     @dances = Dance.all
@@ -69,6 +69,7 @@ class ProfilesController < ApplicationController
   private
 
   def profile_params
-    params.require(:user).permit(:gender, :age, :location, :experience, :contact, :email, :id, :photo)
+    params.require(:profile).permit(:user_id, :dance_id, :gender, :age, :location,
+     :experience, :contact, :email, :id, :photo)
   end
 end
