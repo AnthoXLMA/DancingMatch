@@ -4,66 +4,66 @@ User.destroy_all
 Dance.destroy_all
 
 # SEEDS 1 avec dance
-# puts "Creating dances..."
-# dance1 = Dance.new(title: "Salsa Cubana")
-# dance1.save!
+puts "Creating dances..."
+dance1 = Dance.new(title: "Salsa Cubana")
+dance1.save!
 
-# dance2 = Dance.new(title: "Merengue")
-# dance2.save!
+dance2 = Dance.new(title: "Merengue")
+dance2.save!
 
-# dance3 = Dance.new(title: "Bachata")
-# dance3.save!
+dance3 = Dance.new(title: "Bachata")
+dance3.save!
 
-# dance4 = Dance.new(title: "Kizomba")
-# dance4.save!
+dance4 = Dance.new(title: "Kizomba")
+dance4.save!
 
-# dance5 = Dance.new(title: "Reggaeton")
-# dance5.save!
+dance5 = Dance.new(title: "Reggaeton")
+dance5.save!
 
-# dance6 = Dance.new(title: "Samba")
-# dance6.save!
+dance6 = Dance.new(title: "Samba")
+dance6.save!
 
-# dance7 = Dance.new(title: "Tango")
-# dance7.save!
+dance7 = Dance.new(title: "Tango")
+dance7.save!
 
-# dance8 = Dance.new(title: "Flamenco")
-# dance8.save!
+dance8 = Dance.new(title: "Flamenco")
+dance8.save!
 
-# dance9 = Dance.new(title: "Modern Jazz")
-# dance9.save!
+dance9 = Dance.new(title: "Modern Jazz")
+dance9.save!
 
-# dance10 = Dance.new(title: "Rumba")
-# dance10.save!
+dance10 = Dance.new(title: "Rumba")
+dance10.save!
 
-# dance11 = Dance.new(title: "West Coast Swing")
-# dance11.save!
+dance11 = Dance.new(title: "West Coast Swing")
+dance11.save!
 
-# dance12 = Dance.new(title: "Break Dance")
-# dance12.save!
+dance12 = Dance.new(title: "Break Dance")
+dance12.save!
 
-# dance13 = Dance.new(title: "Salsa Portoricana")
-# dance13.save!
+dance13 = Dance.new(title: "Salsa Portoricana")
+dance13.save!
 
-# dance14 = Dance.new(title: "Salsa Colombiana")
-# dance14.save!
+dance14 = Dance.new(title: "Salsa Colombiana")
+dance14.save!
 
-# dance15 = Dance.new(title: "FoxTrot")
-# dance15.save!
+dance15 = Dance.new(title: "FoxTrot")
+dance15.save!
 
-# dance16 = Dance.new(title: "Lindy Hop")
-# dance16.save!
+dance16 = Dance.new(title: "Lindy Hop")
+dance16.save!
 
-# dance17 = Dance.new(title: "Paso Doble")
-# dance17.save!
+dance17 = Dance.new(title: "Paso Doble")
+dance17.save!
 
-# dance18 = Dance.new(title: "Milonga")
-# dance18.save!
+dance18 = Dance.new(title: "Milonga")
+dance18.save!
 
-# dance19 = Dance.new(title: "Lambada")
-# dance19.save!
+dance19 = Dance.new(title: "Lambada")
+dance19.save!
 
-# dance20 = Dance.new(title: "Forro")
-# dance20.save!
+dance20 = Dance.new(title: "Forro")
+dance20.save!
 
 # puts 'Creating Users...'
 # anthony = User.new(

@@ -20,7 +20,6 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user
-    # @profile = current_user.build_profile
     @my_dances = []
     @profile.dances.each do |profile_dance|
       @dance = profile_dance.title
