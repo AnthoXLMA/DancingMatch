@@ -1,7 +1,8 @@
 class AppointmentsController < ApplicationController
-    # before_action :set_appointment, only: [:show]
+    before_action :set_appointment, only: [:show]
 
   def index
+    @user = current_user
     @appointments = Appointment.all
     # @appointments  = @appointments.near(appointment.address, 10) if appointment.address.present?
     @markers = @appointments.geocoded.map do |appointment|
@@ -38,9 +39,9 @@ class AppointmentsController < ApplicationController
 
   private
 
-  # def set_appointment
-  #   @appointment = Appointment.find(params[:id])
-  # end
+  def set_appointment
+    @appointment = Appointment.find(params[:id])
+  end
 
   def appointment_params
     params.require(:appointment).permit(:id, :start_on, :end_on, :name, :address, :user_id, :dance_id, :pic)

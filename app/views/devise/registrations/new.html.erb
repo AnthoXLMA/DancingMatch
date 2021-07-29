@@ -39,6 +39,8 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Ta ville" }%>
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo, as: :file %>
   </div>
 
     <div class="mb-6">

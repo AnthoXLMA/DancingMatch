@@ -21,7 +21,7 @@
           <% @appointments.each do |appointment| %>
         <div class="appointment-card3">
             <div class ="image-card-appointments">
-              <%= image_tag(appointment.pic) %>
+              <%= image_tag(@appointment.pic) if @appointment.pic.attached? %>
             </div>
             <div class ="information-event">
             <p><%= link_to appointment.name, appointments_path(appointment) %></p>
