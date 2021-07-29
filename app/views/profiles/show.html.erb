@@ -24,7 +24,7 @@
   <div class="container-card-profile">
     <div class="banner-profile">
       <div class="image-profile">
-        <%= image_tag (@profile_avatar) %>
+        <%= image_tag (@profile_avatar) if @profile_avatar.attached? %>
       </div>
        <div class="my-informations">
         <a><%= @profile.first_name %></a>
