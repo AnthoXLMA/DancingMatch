@@ -36,6 +36,6 @@ Rails.application.routes.draw do
   end
 
   resource :users, only: [:create, :new, :delete] do
-    resources :profile, only: [:show]
+    resources :profile, only: [:show, :edit]
   end
 end

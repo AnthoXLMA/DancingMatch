@@ -1,6 +1,10 @@
+<%= link_to 'Profile', profile_path %>
 <%= link_to 'Home', root_path %>
-        <h2>Edit user</h2>
-        <%= form_for :user, url: user_session_path do |f| %>
+<%= link_to 'Dances', dances_path %>
+<%= link_to 'Agenda', appointments_path %>
+
+        <h2>Edit your profile</h2>
+        <%= form_for :user, url: users_path do |f| %>
           <p>
             <%= f.label :name %><br>
             <%= f.text_field :first_name %>
@@ -29,6 +33,6 @@
           </p>
 
           <p>
-            <%= f.submit %>
+            <%= f.submit "Update Profile", :class => 'btn btn-primary'  %>
           </p>
         <% end %>

@@ -1,7 +1,8 @@
 class ProfilesController < ApplicationController
+  # before_action :set_profile, only: [:show]
   def index
-    @users = User.all
-    @markers = @users.geocoded.map do |user|
+    @profiles = User.all
+    @markers = @profiles.geocoded.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude
@@ -10,8 +11,8 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @profile = current_user.create_profile(profile_params)
-    @profile.avatar.attach(params[:profile][:avatar])
+    # @profile = current_user.create_profile(profile_params)
+    # @profile.avatar.attach(params[:profile][:avatar])
     @user = current_user
     @dance = Dance.new
     @user.save
@@ -20,10 +21,10 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = current_user
-    @my_dances = []
+    @profile_avatar = @profile.photo
     @profile.dances.each do |profile_dance|
       @dance = profile_dance.title
-      @my_dances << @dance if !@my_dances.include?(@dance)
+      # @my_dances << @dance if !@my_dances.include?(@dance)
     end
     @appointments = Appointment.all
     @markers = @appointments.geocoded.map do |appointment|
@@ -43,32 +44,32 @@ class ProfilesController < ApplicationController
     @dances = Dance.all
     @dances.user = @user
     if dance.save
-    redirect_to profile_path
+      redirect_to profile_path
     else
       render 'dances/show'
     end
   end
 
   def edit
-    @user = current_user
+    @profile = current_user
     @dances = Dance.select('dances.*')
-    #Select et s'ajoute dans la show du profil
+    # Select et s'ajoute dans la show du profil
     @my_dances = @dances.select(params[:id])
-    # @user_dances = @dances.select(params[:id])
-      redirect_to edit_profile_path(@dances)
+    @user_dances = @dances.select(params[:id])
   end
 
   def update
-    @user = current_user
-    @user_dances = Dance.select(params[:dance_id])
-    @dance = Dance.find_by(id: params[:dance_id])
-    @user.save
+    @profile = current_user
+    # @user_dances = Dance.select(params[:dance_id])
+    # @dance = Dance.find_by(id: params[:dance_id])
+    @profile.update(profile_params)
+      redirect_to profile_path
   end
 
   private
 
   def profile_params
-    params.require(:profile).permit(:user_id, :dance_id, :gender, :age, :location,
-     :experience, :contact, :email, :id, :photo)
+    params.require(:user).permit(:user_id, :dance_id, :photo, :gender, :age, :location, :experience, :contact, :email, :id)
+    # params.require(:profile).permit(:avatar, :user_id, :dance_id)
   end
 end
