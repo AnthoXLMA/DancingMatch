@@ -3,6 +3,7 @@
     <div class="logo-text">
       <h1>Dancing Partners</h1>
     </div>
+    <%= link_to "Back", :back %>
   </div>
    <div class="menu-navbar">
     <%= link_to "Back", :back %>
@@ -11,80 +12,25 @@
   </div>
 </div>
 
-<%= simple_form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
+<%= simple_form_for(@profile, url: profile_path(@profile)) do |f| %>
 <%= f.error_notification %>
 
 <div class="form-inputs">
     <%= f.input :email, required: false, autofocus: true %>
+    <%= f.input :first_name, required: false, autofocus: true %>
+    <%= f.input :age, required: false, autofocus: true %>
     <%= f.input :location,
                 required: true,
                 input_html: { autocomplete: "location" } %>
     <%= f.input :experience,
                 required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :dance,
-                required: true,
-                input_html: { autocomplete: "Coach, Student, Entertainment" } %>
-    <%= f.input :experience,
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.select(:dances, [['Salsa'],
-                          ['Merengue'],
-                          ['Bachata'],
-                          ['Type D', 'Type D'],
-                          ['Type E', 'Type E']
-                         ],{ :prompt => "Please select"},
-                           { :multiple => true, :size => 10 }
-                         ) %>
-      <%= f.input :dance,
-        required: true,
-        autofocus: true,
-        label: "Your dance",
-        collection: ["Salsa", "Merengue", "Bachata", "Kizomba"],
-        input_html: { multiple: true },
-        include_hidden: false
-    %>
+                input_html: { autocomplete: "Années d'expérience'" } %>
+    <%= f.label :photo %><br>
+    <%= f.file_field :photo, as: :file %>
   </div>
-
-<div class="dance-selection">
-  <h1>Select your dances</h1>
-  <div class="alt-menu">
-    <div class="dances_menu">
-      <h2><% @user.dances.each do |dance| %></h2>
-        <div class="menu">
-         <ol><%= dance.title %></ol>
-        </div>
-      <% end %>
-    </div>
-      <p><%= @menu_dances.each do |dance| %>
-        <% dance.title %>
-        <% end %>
-        <p>
-    <p>Which dancer are you?
-      independent coach / professional / Entertainment / Novice <p>
-    <p>What is your level? professional / intermediary / novice <p>
-      <div class="col-12 col-md-4">
-        <h4 class="text-center">Update</h4>
-        <%= simple_form_for profile_path do |f| %>
-          <div class="fields">
-            <%= f.select(:dance, dances_for_select, :prompt => @dances) %>
-            <%= f.input :age, placeholder: @user %>
-            Your dancing experience: <%= f.input :experience, placeholder: @user %>
-            <%= f.input :type, placeholder: @user %>
-            <%= f.button :submit, class: "btn btn-flat" %>
-          </div>
-        <% end %>
-      </div>
-  </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
 </div>

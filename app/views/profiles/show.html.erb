@@ -14,20 +14,21 @@
       <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
     </div>
     <div class="column">
+      <a class="link"><%= link_to "Edit", edit_profile_path, class:  "btn-ghost" %></a>
+    </div>
+    <div class="column">
       <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
     </div>
   </div>
 </div>
-    <%= user_signed_in? %>
-    <%= current_user.first_name %>
   <div class="container-card-profile">
     <div class="banner-profile">
       <div class="image-profile">
-
+        <%= image_tag (@profile_avatar) %>
       </div>
        <div class="my-informations">
-        <a><%= current_user.first_name %></a>
-        <a><%= current_user.experience %> years experience</a>
+        <a><%= @profile.first_name %></a>
+        <a><%= @profile.experience %> years experience</a>
         <a><%= current_user.location %></a>
         <a><%= current_user.age %> years old</a>
       </div>
@@ -68,12 +69,6 @@
         <div class="accroche">
           <p> Découvre ton profil </p>
         </div>
-
-          <% @my_dances.each do |dance| %>
-        <div class="appointment-card">
-          <%= link_to dance, dances_path(dance) %>
-        </div>
-      <% end %>
       </div>
     </div>
   </div>
