@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-    before_action :set_appointment, only: [:show]
+  before_action :set_appointment, only: [:show]
 
   def index
     @user = current_user
