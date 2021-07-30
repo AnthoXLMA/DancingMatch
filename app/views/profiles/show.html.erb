@@ -71,19 +71,21 @@
         </div>
       </div>
       <div class="dances_menu">
-        <h3><% @current_user.dances.each do |dance| %></h3>
+        <!-- <h3><% @current_user.dances.each do |dance| %></h3>
           <div class="menu">
            <ol><%= dance.title %></ol>
+            <% end %> -->
+          </div>
+            <% @my_dances.each do |dance| %>
+            <%= dance %>
             <% end %>
           </div>
-      </div>
+        </div>
       </div>
     </div>
-  </div>
 <!-- <div class="container-appointments-profile">
-
-  <%= simple_form_for :user do |f| %>
-      <%= f.collection_select :dance_id, Dance.all, :id, :title %>
+  <%= simple_form_for :profile do |f| %>
+      <%= f.collection_select :dances, Dance.all, :id, :title %>
       <%= f.button :submit, method: :put %>
   <% end %>
 </div> -->

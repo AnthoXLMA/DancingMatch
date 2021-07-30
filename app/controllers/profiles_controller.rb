@@ -22,9 +22,10 @@ class ProfilesController < ApplicationController
   def show
     @profile = current_user
     @profile_avatar = @profile.photo
+    @my_dances = []
     @profile.dances.each do |profile_dance|
       @dance = profile_dance.title
-      # @my_dances << @dance if !@my_dances.include?(@dance)
+      @my_dances << @dance if !@my_dances.include?(@dance)
     end
     @appointments = Appointment.all
     @markers = @appointments.geocoded.map do |appointment|
