@@ -26,14 +26,14 @@
       img {
         height:130px;
         width: 130px;
-        background-image: url(your_image_path.jpg);
+        // background-image: url(your_image_path.jpg);
         border: solid 4px  white;
         margin-left:30px;
         margin-top:5px;
         border-radius:50%;
         background-size:     cover;
         background-repeat:   no-repeat;
-        background-position: center center;
+        background-position: center;
       }
     }
     .my-informations {
@@ -111,6 +111,16 @@
         font-size: 1rem;
         color: white;
         text-align: center;
+      }
+      img {
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        border:solid;
+        background-size:     cover;
+        background-repeat:   no-repeat;
+        background-position: center;
+        background-image: url(user.photo);
       }
     }
     }

@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
     @profile.dances.each do |profile_dance|
       @dance = profile_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
-    end
+      end
     @appointments = Appointment.all
     @markers = @appointments.geocoded.map do |appointment|
       {
@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
-    end
+      end
     @users = User.all
     @dancers = @users.geocoded.map do |user|
       {
@@ -46,7 +46,10 @@ class ProfilesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
-    end
+      end
+      # @user = @users.each do |user|
+      #   user = user.photo
+      # end
   end
 
   def new

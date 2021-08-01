@@ -69,10 +69,11 @@
             <%= dance %><br>
             <% end %>
           </div>
-          <div class="titres-cadre">
+          <div class="titres-cadre" style="background-color: green;">
             <p> Partenaires </p>
             <% @users.each do |user| %>
-            <%= user.first_name %><br>
+            <%= image_tag user.photo if user.photo.attached? %>
+            <%= user.first_name  %><br>
           <% end %>
           </div>
         </div>
