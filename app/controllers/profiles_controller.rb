@@ -1,11 +1,13 @@
 class ProfilesController < ApplicationController
   # before_action :set_profile, only: [:show]
   def index
-    @profiles = User.all
-    @markers = @profiles.geocoded.map do |user|
+    @users = User.all
+    @dancers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
-        lng: user.longitude
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
   end
@@ -36,7 +38,15 @@ class ProfilesController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
-    @partenaires = User.all
+    @users = User.all
+    @dancers = @users.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
+      }
+    end
   end
 
   def new

@@ -53,6 +53,7 @@
 <div class="container1">
   <div id="map"
      data-markers="<%= @markers.to_json %>"
+     data-dancers="<%= @dancers.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
     <div class="my_profile">
@@ -70,8 +71,8 @@
           </div>
           <div class="titres-cadre">
             <p> Partenaires </p>
-            <% @partenaires.each do |partenaire| %>
-            <%= partenaire.first_name %><br>
+            <% @users.each do |user| %>
+            <%= user.first_name %><br>
           <% end %>
           </div>
         </div>
