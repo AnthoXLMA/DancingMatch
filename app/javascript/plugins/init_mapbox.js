@@ -30,6 +30,26 @@ const initMapbox = () => {
     .setPopup(popup)
     .addTo(map);
     });
+
+    // dancers_location
+    const dancers = JSON.parse(mapElement.dataset.dancers);
+
+      dancers.forEach((dancer) => {
+
+    const popup = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+
+    const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${dancer.image_url}')`;
+      element.style.backgroundSize = 'no-repeat';
+      element.style.width = '25px';
+      element.style.height = '60px';
+
+  new mapboxgl.Marker(element)
+    .setLngLat([dancer.lng, dancer.lat])
+    .setPopup(popup)
+    .addTo(map);
+    });
   };
 }
 
