@@ -31,6 +31,9 @@
         <a><%= @profile.experience %> years experience</a>
         <a><%= current_user.location %></a>
         <a><%= current_user.age %> years old</a>
+      <% @my_dances.each do |dance| %>
+            <%= dance %>
+            <% end %>
       </div>
       <div class="dance-query">
         <div class="query">
@@ -61,9 +64,15 @@
         <div class="button-block">
           <div class="titres-cadre">
             <p> Mes danses </p>
+            <% @my_dances.each_with_index do |dance| %>
+            <%= dance %><br>
+            <% end %>
           </div>
           <div class="titres-cadre">
-            <p> Mes partenaires </p>
+            <p> Partenaires </p>
+            <% @partenaires.each do |partenaire| %>
+            <%= partenaire.first_name %><br>
+          <% end %>
           </div>
         </div>
         <div class="accroche">
@@ -76,9 +85,6 @@
            <ol><%= dance.title %></ol>
             <% end %> -->
           </div>
-            <% @my_dances.each do |dance| %>
-            <%= dance %>
-            <% end %>
           </div>
         </div>
       </div>

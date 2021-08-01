@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
+    @partenaires = User.all
   end
 
   def new
