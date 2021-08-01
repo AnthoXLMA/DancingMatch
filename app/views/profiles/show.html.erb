@@ -31,6 +31,9 @@
         <a><%= @profile.experience %> years experience</a>
         <a><%= current_user.location %></a>
         <a><%= current_user.age %> years old</a>
+      <% @my_dances.each do |dance| %>
+            <%= dance %>
+            <% end %>
       </div>
       <div class="dance-query">
         <div class="query">
@@ -61,9 +64,15 @@
         <div class="button-block">
           <div class="titres-cadre">
             <p> Mes danses </p>
+            <% @my_dances.each_with_index do |dance| %>
+            <%= dance %><br>
+            <% end %>
           </div>
           <div class="titres-cadre">
-            <p> Mes partenaires </p>
+            <p> Partenaires </p>
+            <% @partenaires.each do |partenaire| %>
+            <%= partenaire.first_name %><br>
+          <% end %>
           </div>
         </div>
         <div class="accroche">
@@ -71,19 +80,18 @@
         </div>
       </div>
       <div class="dances_menu">
-        <h3><% @current_user.dances.each do |dance| %></h3>
+        <!-- <h3><% @current_user.dances.each do |dance| %></h3>
           <div class="menu">
            <ol><%= dance.title %></ol>
-            <% end %>
+            <% end %> -->
           </div>
-      </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 <!-- <div class="container-appointments-profile">
-
-  <%= simple_form_for :user do |f| %>
-      <%= f.collection_select :dance_id, Dance.all, :id, :title %>
+  <%= simple_form_for :profile do |f| %>
+      <%= f.collection_select :dances, Dance.all, :id, :title %>
       <%= f.button :submit, method: :put %>
   <% end %>
 </div> -->
