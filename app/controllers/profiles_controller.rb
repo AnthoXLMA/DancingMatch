@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  # before_action :set_profile, only: [:show]
+  # before_action :set_user, only: [:show, :destroy]
   def index
     @users = User.all
     @dancers = @users.geocoded.map do |user|
@@ -50,6 +50,9 @@ class ProfilesController < ApplicationController
       # @user = @users.each do |user|
       #   user = user.photo
       # end
+      if params[:dance]
+      @dances = @dances.select { |dance| dance.find(params[:dance_id]) }
+    end
   end
 
   def new
@@ -79,6 +82,10 @@ class ProfilesController < ApplicationController
     # @dance = Dance.find_by(id: params[:dance_id])
     @profile.update(profile_params)
       redirect_to profile_path
+  end
+
+  def destroy
+    session.destroy
   end
 
   private

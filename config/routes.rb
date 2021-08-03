@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   devise_for :users
-  # do
-  #   get '/users/sign_out' => 'devise/sessions#destroy'
-  # end
+
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
 
   root to: 'pages#home'
 
-  resource :profile, only: [:index, :edit, :update, :show, :create] do
+  resource :profile, only: [:index, :edit, :update, :show, :create, :destroy] do
     resources :dances, only: [:create, :show, :new]
   end
 
@@ -35,7 +36,7 @@ Rails.application.routes.draw do
     resources :profile
   end
 
-  resource :users, only: [:create, :new, :delete] do
+  resource :users, only: [:create, :new, :destroy] do
     resources :profile, only: [:show, :edit]
   end
 end

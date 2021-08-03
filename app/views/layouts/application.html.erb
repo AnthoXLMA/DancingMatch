@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DancingPartners</title>
+    <title>Dancing Partners</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -12,10 +12,18 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
 
-  <body>
+  <body id="monBody">
+    <!-- <h1 id="monH1"></h1> -->
+  </body>
 
     <%= yield %>
-  </body>
+ <!--  <script type="text/javascript">
+    var monH1=document.createElement("h1");
+    monH1.innerHTML="Ready To Dance?";
+    document.getElementById("monBody").appendChild(monH1);
+    // document.getElementById("monH1").innerHTML="Dancing Partners";
+    // alert("Bienvenue!");
+  </script> -->
 </html>
 
 
