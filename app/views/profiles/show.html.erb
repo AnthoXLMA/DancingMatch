@@ -1,6 +1,6 @@
 <div class="title-profile">
-  <h1>Dancing Partners</h1>
-  <p>The First WorldWide Dancers Community</p>
+  <h1><%= link_to "Dancing Partners", root_path %></h1>
+  <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
 </div>
 <div class="section">
   <div class="row">
@@ -17,7 +17,7 @@
       <a class="link"><%= link_to "Edit", edit_profile_path, class:  "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "nav-link" %></a>
+      <a class="link"><%= link_to "Déconnexion", user_registration_path, method: :get, class:  "btn-ghost" %></a>
     </div>
   </div>
 </div>
@@ -77,10 +77,18 @@
           <% end %>
           </div>
         </div>
-        <div class="accroche">
-          <p> Découvre ton profil </p>
-        </div>
-      </div>
+          <p> Mes événements </p>
+            <div class="accroche">
+              <% @profile.appointments.each do |user_events| %>
+              <div class="event-cards">
+                <h2><%= user_events.name %></h2>
+                <p><%= user_events.start_on %></p>
+                <p><%= user_events.address %></p>
+                <img src="user_events.pic">
+              </div>
+              <% end %>
+            </div>
+          </div>
       <div class="dances_menu">
         <!-- <h3><% @current_user.dances.each do |dance| %></h3>
           <div class="menu">

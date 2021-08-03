@@ -96,6 +96,11 @@ class UserController < ApplicationController
       redirect_to profile_path
   end
 
+  def destroy
+    log_out
+    redirect_to '/login'
+  end
+
   private
 
   def set_user

@@ -8,9 +8,10 @@
     <%= link_to "Accueil", root_path %>
     <%= link_to "Profil", profile_path %>
     <%= link_to "Agenda", profile_path %>
+    <%= link_to "Back", :back %>
   </div>
-  <div class="container-dances">
-    <h2> Dancing Partners has found <%=  @style.count %> result(s) </h2>
+<div class="container-dances">
+  <p> Dancing Partners has found <%=  @style.count %> dance(s) </p>
     <div class="search1">
       <%= form_tag dances_path, method: :get do %>
       <%= text_field_tag :query,
@@ -21,12 +22,11 @@
       <%= submit_tag "Search", class: "b-prima" %>
       <% end %>
     </div>
-    <div class="container-appointments">
+    <div class="container-card_dances">
       <% @dances.each do |dance| %>
-    <div class="appointment-card">
-      <h3><%= link_to dance.title, dance_path(dance) %></h3>
-    </div>
-    <% end %>
+      <div class="dance_card">
+        <h3><%= link_to dance.title, dance_path(dance) %></h3>
+      </div>
+      <% end %>
   </div>
-    <%= link_to "Back", :back %>
-  </div>
+</div>

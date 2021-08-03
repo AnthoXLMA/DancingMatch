@@ -26,7 +26,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.user = @user
     @appointment.save
-      redirect_to appointments_path(@appointments)
+    redirect_to appointments_path(@appointments)
   end
 
   def show
@@ -35,6 +35,12 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     # Select et s'ajoute dans la show du profil
     @user_events = Appointment.where(id: params[:id])
+  end
+
+  def destroy
+    @appointment = Appointment.find(params[:id])
+    @appointment.destroy
+    redirect_to appointments_path
   end
 
   private
