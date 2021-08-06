@@ -69,7 +69,7 @@
             <%= dance %><br>
             <% end %>
           </div>
-          <div class="titres-cadre" style="background-color: green;">
+          <div class="titres-cadre" style="background-color: grey;">
             <p> Partenaires </p>
             <% @users.each do |user| %>
             <%= image_tag user.photo if user.photo.attached? %>
@@ -88,8 +88,23 @@
               </div>
               <% end %>
             </div>
+            <% @my_select_dances.each do |my_select_dance| %>
+              <%= my_select_dance.title %>
+            <% end %>
+            <% @user_dances.each do |i| %>
+            <%= i.id %>
+            <%= i.title %>
+            <% end %>
           </div>
-      <div class="dances_menu">
+      <!-- <div class="dances_menu">
+        <select name="select-ur-dance" onchange="action('clickonMe')">
+          <option value="Salsa" selected>Salsa</option>
+          <option value="Bachata">Bachata</option>
+          <option value="Kizomba">Kizomba</option>
+        </select>
+          Ma case à cocher : <input TYPE=CHECKBOX UNCHECKED name="Checkbox1" id="Checkbox1" value="Pouet" type="CHECKBOX"></br>
+          <p><input type="text" name="Input1" id="Input1" value="Cliquez sur cette zone pour cocher la case via du JavaScript" size="70" onclick="fctCocherCase(1);"></p>
+ -->
         <!-- <h3><% @current_user.dances.each do |dance| %></h3>
           <div class="menu">
            <ol><%= dance.title %></ol>
@@ -99,10 +114,26 @@
         </div>
       </div>
     </div>
-<!-- <div class="container-appointments-profile">
-  <%= simple_form_for :profile do |f| %>
+
+    <div id="bloc_page">
+<!--     sélectionner une danse et l'ajouter à l'index des danses du profile
+ -->
+<!--  <div class="container-appointments-profile">
+  <p>Dancing Partners te permet de choisir les danses que tu pratiques et de découvrir les partenaires et les événements de cette danse.</p>
+  <p>Ici, choisis ta danse:</p>
+      <%= simple_form_for @profile, url: profile_path(@profile) do |f| %>
       <%= f.collection_select :dances, Dance.all, :id, :title %>
-      <%= f.button :submit, method: :put %>
+      <%= f.button :submit, method: :update, class:"btn-ghost" %>
+  <% end %>
+</div>
+# selectionner un événément et l'ajouter à l'agenda personnel
+<div class="container-appointments-profile">
+  <p>Dancing Partners te permet de choisir les événements auxquels tu veux participer.</p>
+  <p>Ici, choisis ton événement:</p>
+      <%= simple_form_for :appointment do |f| %>
+      <%= f.collection_select :appointments, Appointment.all, :id, :name %>
+      <div class="button"><%= f.button :submit, method: :put, class:"btn-ghost", id: "appointment" %></div>
   <% end %>
 </div> -->
+
 

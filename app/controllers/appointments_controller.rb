@@ -37,6 +37,20 @@ class AppointmentsController < ApplicationController
     @user_events = Appointment.where(id: params[:id])
   end
 
+  def accept
+    @appointment = Appointment.find(params[:id])
+    @appointment.status = 'accepted'
+    @appointment.save
+    redirect_to appointment_user_path
+  end
+
+  def refuse
+    @appintment = Appointment.find(params[:id])
+    @appointment.status = 'refused'
+    @appointment.save
+    redirect_to apppointment_user_path
+  end
+
   def destroy
     @appointment = Appointment.find(params[:id])
     @appointment.destroy

@@ -8,12 +8,22 @@ button.addEventListener('click', (e) => {
   audio.play();
 });
 
+// const salsaElement = () => {
+//   // TODO 2: select the Salsa list item and return it!
+//   const salsa = document.getElementById('salsa');
+//   return salsa;
+// };
 
+// module.exports = salsaElement; // Do not remove.
 
-const salsaElement = () => {
-  // TODO 2: select the France list item and return it!
-  const salsa = document.getElementById('salsa');
-  return salsa;
-};
+// const monthString = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+// const months = monthString.split(",");
+// // => [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec' ]
+// months.length;
+// // => 12
 
-module.exports = salsaElement; // Do not remove.
+const element = document.querySelector(CSS_SELECTOR);
+const button = document.querySelector('#click-me');
+button.addEventListener('click', (event) => {
+  console.log(event);
+});
