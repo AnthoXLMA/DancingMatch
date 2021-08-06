@@ -59,7 +59,7 @@ const initMapbox = () => {
 
     const element = document.createElement('div');
       element.className = 'marker';
-      element.style.backgroundImage = `url('${eventt.image_url}')`;
+      element.style.backgroundImage = `url('${event.image_url}')`;
       element.style.backgroundSize = 'no-repeat';
       element.style.width = '25px';
       element.style.height = '60px';

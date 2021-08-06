@@ -52,6 +52,9 @@ class ProfilesController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
+    @dancer = @users.each do |dancer|
+      dancer.first_name
+    end
   end
 
   def new

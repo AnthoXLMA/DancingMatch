@@ -35,7 +35,7 @@ Rails.application.routes.draw do
     resources :users
   end
 
-  resources :dances do
+  resources :dances, only: [:show] do
     resources :appointments
   end
 
