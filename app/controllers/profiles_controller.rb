@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
     @user = current_user
     @dance = Dance.new
     @user.save
-      redirect_to profile_path
+    redirect_to profile_path
   end
 
   def show
@@ -26,9 +26,14 @@ class ProfilesController < ApplicationController
     @profile_avatar = @profile.photo
     @my_dances = []
     @profile.dances.each do |profile_dance|
-      @dance = profile_dance.title
-      @my_dances << @dance if !@my_dances.include?(@dance)
-      end
+    @dance = profile_dance.title
+    @my_dances << @dance if !@my_dances.include?(@dance)
+    end
+
+    @dances = Dance.all
+    @my_select_dances = @dances.select(params[:id])
+
+    @user_dances = @dances.select(params[:id])
     @appointments = Appointment.all
     @markers = @appointments.geocoded.map do |appointment|
       {
@@ -37,7 +42,7 @@ class ProfilesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
-      end
+    end
     @users = User.all
     @dancers = @users.geocoded.map do |user|
       {
@@ -46,12 +51,6 @@ class ProfilesController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
-      end
-      # @user = @users.each do |user|
-      #   user = user.photo
-      # end
-      if params[:dance]
-      @dances = @dances.select { |dance| dance.find(params[:dance_id]) }
     end
   end
 
@@ -80,8 +79,13 @@ class ProfilesController < ApplicationController
     @profile = current_user
     # @user_dances = Dance.select(params[:dance_id])
     # @dance = Dance.find_by(id: params[:dance_id])
+    # Updating the dance record
+    # Updating the dance record
+    # @dance = Dance.find(params[:id])
+    # @dance.user = 'Soca Dance'
+    # dance.save
     @profile.update(profile_params)
-      redirect_to profile_path
+    redirect_to profile_path
   end
 
   def destroy

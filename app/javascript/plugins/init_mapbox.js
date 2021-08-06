@@ -8,8 +8,8 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/anthoxlma/ckda6nvtt0wzd1io6jwb62iau',
-      center: [1.8883335, 46.603354],
-      zoom: 4.5,
+      center: [2.3522219, 48.856614],
+      zoom: 12.5,
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);
@@ -47,6 +47,25 @@ const initMapbox = () => {
 
   new mapboxgl.Marker(element)
     .setLngLat([dancer.lng, dancer.lat])
+    .setPopup(popup)
+    .addTo(map);
+    });
+      // events_dance_id_location
+    const events = JSON.parse(mapElement.dataset.events);
+
+      events.forEach((event) => {
+
+    const popup = new mapboxgl.Popup().setHTML(event.infoWindow);
+
+    const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${eventt.image_url}')`;
+      element.style.backgroundSize = 'no-repeat';
+      element.style.width = '25px';
+      element.style.height = '60px';
+
+  new mapboxgl.Marker(element)
+    .setLngLat([event.lng, event.lat])
     .setPopup(popup)
     .addTo(map);
     });

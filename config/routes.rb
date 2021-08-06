@@ -16,6 +16,17 @@ Rails.application.routes.draw do
     resources :users
   end
 
+  resources :users, only: [:index, :show, :new, :create] do
+    resources :dances
+  end
+
+  resources :dances, only: [:index] do
+      member do
+        patch :accept
+        patch :refuse
+      end
+    end
+
   resource :profile, only: [:index, :edit, :update, :show, :create] do
     resources :appointments, only: [:create, :show, :new]
   end
