@@ -39,17 +39,15 @@ def show
   @dances = Dance.all
   @style = @dance.title
   @my_selected_dances = @dances.select(params[:id])
-  # afficher sur la map tous les éléments de cette danse
   # afficher sous une liste index/card, tous les évènements de cette danse
-  # @appointments = Appointment.where(id: params[:id])
   @appointments = Appointment.all
   @appointments_on_map = @appointments.where(dance_id: params[:id])
-  @events = @appointments_on_map.geocoded.map do |appointment|
+  @markers = @appointments_on_map.geocoded.map do |appointment_on_map|
       {
-        lat: appointment.latitude,
-        lng: appointment.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
-        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
+        lat: appointment_on_map.latitude,
+        lng: appointment_on_map.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { appointment_on_map: appointment_on_map }),
+        image_url: helpers.asset_url('mapbox-marker-icon-red.svg')
       }
     end
 end

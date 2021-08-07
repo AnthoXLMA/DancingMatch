@@ -69,7 +69,7 @@
             <%= dance %><br>
             <% end %>
           </div>
-          <div class="titres-cadre" style="background-color: grey;">
+          <div class="titres-cadre" style="background-color: #FFD447;">
             <p> Partenaires </p>
             <% @users.each do |user| %>
             <%= image_tag user.photo if user.photo.attached? %>
@@ -88,13 +88,13 @@
               </div>
               <% end %>
             </div>
-            <% @my_select_dances.each do |my_select_dance| %>
+<!--             <% @my_select_dances.each do |my_select_dance| %>
               <%= my_select_dance.title %>
             <% end %>
             <% @user_dances.each do |i| %>
             <%= i.id %>
             <%= i.title %>
-            <% end %>
+            <% end %> -->
           </div>
       <!-- <div class="dances_menu">
         <select name="select-ur-dance" onchange="action('clickonMe')">
