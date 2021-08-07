@@ -4,7 +4,6 @@ class AppointmentsController < ApplicationController
   def index
     @user = current_user
     @appointments = Appointment.all
-    # @appointments  = @appointments.near(appointment.address, 10) if appointment.address.present?
     @markers = @appointments.geocoded.map do |appointment|
       {
         lat: appointment.latitude,

@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   # before_action :set_user, only: [:show, :destroy]
   def index
     @users = User.all
-    @dancers = @users.geocoded.map do |user|
+    @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,

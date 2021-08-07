@@ -11,10 +11,12 @@
 <div class="container3">
   <div class="container-appointments-dances">
     <div class="appointment-card2">
-      <h2>Meet the <%= link_to @style, dance_path(@dance) %> worldwide community</h2>
+      <p>Carte de la communauté</p>
+      <h1><%= link_to @style, dance_path(@dance) %></h1>
+        <p><%= @appointments_on_map.count %> événement(s)</p>
       <div class="add-dance">
-        <div class="button"><a><%= link_to "Select this dance", profile_path(@my_selected_dances) %></a></div>
-        <div class="button"><a><%= link_to "Create an Event", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %></a></div>
+        <div class="button"><a><%= link_to "Sélectionner", profile_path(@my_selected_dances) %></a></div>
+        <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %></a></div>
       </div>
       <div id="map"
      data-markers="<%= @markers.to_json %>"
@@ -22,10 +24,15 @@
      data-events="<%= @events.to_json %>"
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+  <div class="events-list">
+    <p><%= @appointments_on_map.count %> événement(s)</p>
     <% @appointments_on_map.each do |an_event| %>
-    <%= an_event.name %>
-    <%= an_event.address %>
+    <div class="appointment-card">
+      <%= an_event.name %>
+      <%= an_event.address %><br>
+    </div>
     <% end %>
+  </div>
     </div>
   </div>
 </div>
