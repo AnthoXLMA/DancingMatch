@@ -37,8 +37,12 @@ class UserController < ApplicationController
     @profile = current_user
     @my_dances = []
     @profile.dances.each do |profile_dance|
-      @dance = profile_dance.title
-      @my_dances << @dance if !@my_dances.include?(@dance)
+    @dance = profile_dance.title
+    @my_dances << @dance if !@my_dances.include?(@dance)
+    end
+    @users_of_this_dance = @users.where(dance_id: params[:id])
+    @partners = @users_of_this_dance.each do |partner|
+      partner.first_name
     end
   end
 
