@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :messages, through: :chatrooms
   has_many :appointments
   has_many :dances, through: :appointments
+  has_many :dance_id
   has_many :partners, through: :dances
 
   has_one_attached :photo
