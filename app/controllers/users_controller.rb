@@ -1,5 +1,5 @@
-class UserController < ApplicationController
-  before_action :set_user, only: [:show]
+class UsersController < ApplicationController
+  before_action :set_user, only: [:show, :sign_out]
 
   def index
     @users = User.all

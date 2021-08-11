@@ -6,10 +6,14 @@ class User < ApplicationRecord
 
   # belongs_to :dance
 
+  GENDER_TYPES = ['Gentleman', 'Lady']
+
+  DANCES = ['']
+
   has_one :profile
 
   has_many :messages, through: :chatrooms
-  has_many :appointments
+  has_many :appointments, dependent: :delete_all
   has_many :dances, through: :appointments
   has_many :dance_id
   has_many :partners, through: :dances

@@ -3,7 +3,8 @@ before_action :set_dance, only: [:show]
 
 def index
   if params[:query].present?
-    @dances = Dance.where(title: params[:query])
+    # @dances = Dance.where(title: params[:query])
+    @dances = Dance.where("title LIKE ?", "%" + params[:query] + "%")
   else
     @dances = Dance.all
   end
@@ -23,7 +24,7 @@ def index
 end
 
 def new
-  @dance = Dance.find(params[:dance_id])
+  # @dance = Dance.find(params[:dance_id])
   @dance = Dance.new
   @dance.save
 end

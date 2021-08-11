@@ -12,7 +12,6 @@ body {
   color:#791E94;
   height: 100vh;
   border-radius:0px;
-
     .title {
         height:250px;
       h1 {
@@ -22,7 +21,6 @@ body {
         font-size: 120px;
         color:#791E94;
       }
-
       p{
         margin-top:50px;
       }
@@ -43,8 +41,9 @@ body {
       a {
         justify-content:space-around;
         color:#791E94;
-        font-size:25px;
+        font-size:15px;
         transition-duration: 0.4s;
+        font-family:'Roboto'
       }
       a:hover{
         color:#f91be3;

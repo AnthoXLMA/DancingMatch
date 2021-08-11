@@ -3,14 +3,14 @@
     <div class="logo-text">
       <h1>Dancing Partners</h1>
     </div>
-    <%= link_to "Back", :back %>
+      <%= link_to "Back", :back %>
+    </div>
+     <div class="menu-navbar">
+      <%= link_to "Back", :back %>
+      <%= link_to "Home", root_path %>
+      <%= link_to "My profile", profile_path %>
+    </div>
   </div>
-   <div class="menu-navbar">
-    <%= link_to "Back", :back %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "My profile", profile_path %>
-  </div>
-</div>
 
 <%= simple_form_for(@profile, url: profile_path(@profile)) do |f| %>
 <%= f.error_notification %>
@@ -25,6 +25,8 @@
     <%= f.input :experience,
                 required: true,
                 input_html: { autocomplete: "Années d'expérience'" } %>
+    <%= f.label :genre %>
+    <%= f.select :gender, User::GENDER_TYPES.each.map { |gender| [gender] } %>
     <%= f.label :photo %><br>
     <%= f.file_field :photo, as: :file %>
   </div>
@@ -32,5 +34,4 @@
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
-
 </div>

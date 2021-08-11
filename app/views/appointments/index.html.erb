@@ -10,26 +10,28 @@
     <%= link_to "My profile", profile_path %>
   </div>
 </div>
-  <div class="title_text">
-    <p>Evenements</p>
-  </div>
-  <div class="title_text">
-    <p><%= link_to "Crée ton évenement", new_appointment_path %></p>
-  </div>
   <div class="map-n-card">
-    <div class ="container-appointments">
-          <% @appointments.each do |appointment| %>
-        <div class="appointment-card3">
-            <div class ="image-card-appointments"></div>
-            <div class ="information-event">
-            <p><%= link_to appointment.name, appointments_path(appointment) %></p>
-            <p> <%= appointment.address %></p>
-            <p> Début: <%= appointment.start_on %></p>
-            <p> Fin: <%= appointment.end_on %></p>
-            <p> Organisateur: <%= link_to appointment.user.first_name %></p>
-            </div>
-        </div>
-      <% end %>
+    <div class ="bouton-n-card">
+      <div class="title_text">
+        <p><%= link_to "Crée ton évenement", new_appointment_path, class:"btn btn-primary", id: "dance" %></p>
+      </div>
+      <div class ="container-appointments">
+            <% @appointments.each do |appointment| %>
+          <div class="appointment-card3">
+              <div class ="image-card-appointments">
+                <%= image_tag appointment.pic if appointment.pic.attached? %>
+              </div>
+              <div class ="information-event">
+              <p><%= link_to appointment.name, appointments_path(appointment) %></p>
+              <p> <%= appointment.address %></p>
+              <p> Début: <%= appointment.start_on %></p>
+              <p> Fin: <%= appointment.end_on %></p>
+              <p> Organisateur: <%= link_to appointment.user.first_name %></p>
+              </div>
+              <a class="btn btn-primary" href="profile" role="button" action: post>Je participe</a>
+          </div>
+        <% end %>
+      </div>
     </div>
     <div id="map" style="width:1000px"
        data-markers="<%= @markers.to_json %>"

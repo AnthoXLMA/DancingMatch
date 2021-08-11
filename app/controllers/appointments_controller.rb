@@ -12,6 +12,9 @@ class AppointmentsController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
+    @appointment_picture = @appointments.each do |appointment|
+      appointment.pic
+    end
   end
 
   def new
@@ -30,7 +33,8 @@ class AppointmentsController < ApplicationController
 
   def show
     @user = current_user
-    # @appointments = Appointment.all
+    @appointments = Appointment.all
+    @appointment_picture = appointment.pic
     @appointment = Appointment.find(params[:id])
     # Select et s'ajoute dans la show du profil
     @user_events = Appointment.where(id: params[:id])
