@@ -17,7 +17,7 @@
       <a class="link"><%= link_to "Edit", edit_profile_path, class:  "btn-ghost" %></a>
     </div>
     <div class="column">
-      <a class="link"><%= link_to "Déconnexion", user_registration_path, method: :get, class:  "btn-ghost" %></a>
+      <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "btn-ghost" %></a>
     </div>
   </div>
 </div>
@@ -28,11 +28,12 @@
       </div>
        <div class="my-informations">
         <a><%= @profile.first_name %></a>
-        <a><%= @profile.experience %> years experience</a>
-        <a><%= current_user.location %></a>
+        <a><%= @current_user.gender %></a>
         <a><%= current_user.age %> years old</a>
+        <a><%= current_user.location %></a>
+        <a><%= @profile.experience %> years experience</a>
       <% @my_dances.each do |dance| %>
-            <%= dance %>
+            <%= dance %>,
             <% end %>
       </div>
       <div class="dance-query">
@@ -58,33 +59,35 @@
   </div>
     <div class="my_profile">
        <div class="menu">
-          <%= link_to "Ajoute ta danse", new_dance_path %>
-          <%= link_to "Crée ton évenement", new_appointment_path %>
+          <button class="btn btn-primary"><%= link_to "Choisir une danse", new_dance_path %></button>
+          <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
         </div>
       <div class="container-appointments-profile">
         <div class="button-block">
           <div class="titres-cadre">
-            <p> Mes danses </p>
+            <div class="titres"><p>Mes danses</p></div>
+            <div class="infos-card">
             <a><% @my_dances.each_with_index do |dance| %>
             <%= dance %><br>
             <% end %></a>
+            </div>
           </div>
-          <div class="titres-cadre" style="background-color: #FFD447;">
-            <p> Partenaires </p>
-            <% @users.each do |user| %>
-            <%= image_tag user.photo if user.photo.attached? %>
-            <%= user.first_name  %><br>
-          <% end %>
+          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+            <div class="titres"><p>Membres</p></div>
+              <div class="infos-card">
+                <% @users.each do |user| %>
+                <%= image_tag user.photo if user.photo.attached? %>
+                <%= user.first_name  %><br>
+              <% end %>
+            </div>
           </div>
         </div>
-          <p> Mes événements </p>
             <div class="accroche">
               <% @profile.appointments.each do |user_events| %>
               <div class="event-cards">
                 <h2><%= user_events.name %></h2>
                 <p><%= user_events.start_on %></p>
                 <p><%= user_events.address %></p>
-                <img src="user_events.pic">
               </div>
               <% end %>
             </div>

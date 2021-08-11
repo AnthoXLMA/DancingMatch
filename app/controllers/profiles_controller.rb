@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  # before_action :set_user, only: [:show, :destroy]
+  # before_action :set_users, only: [:show, :destroy]
   def index
     @users = User.all
     @markers = @users.geocoded.map do |user|
@@ -29,7 +29,12 @@ class ProfilesController < ApplicationController
     @dance = profile_dance.title
     @my_dances << @dance if !@my_dances.include?(@dance)
     end
-
+    if params[:query].present?
+    # @dances = Dance.where(title: params[:query])
+    @dance_search = Dance.where("title LIKE ?", "%" + params[:query] + "%")
+    else
+    @dances = Dance.all
+    end
     @dances = Dance.all
     @my_select_dances = @dances.select(params[:id])
 
@@ -92,7 +97,8 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    session.destroy
+    @profile = current_user
+    @profile.destroy
   end
 
   private

@@ -26,6 +26,7 @@
       <% @dances.each do |dance| %>
       <div class="dance_card">
         <h3><%= link_to dance.title, dance_path(dance) %></h3>
+        <%= dance.users.count %> danseurs
       </div>
       <% end %>
   </div>

@@ -15,8 +15,8 @@
       <h1><%= link_to @style, dance_path(@dance) %></h1>
         <p><%= @appointments_on_map.count %> événement(s)</p>
       <div class="add-dance">
-        <div class="button"><a><%= link_to "Sélectionner", profile_path(@my_selected_dances) %></a></div>
-        <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id),method: :patch, class:"btn-ghost", id: "dance" %></a></div>
+        <div class="button"><a><%= link_to "Sélectionner", profile_path(@my_selected_dances), class:"btn btn-primary", id: "dance" %></a></div>
+        <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id),method: :get, class:"btn btn-primary", id: "dance" %></a></div>
       </div>
       <div id="map"
      data-markers="<%= @markers.to_json %>"

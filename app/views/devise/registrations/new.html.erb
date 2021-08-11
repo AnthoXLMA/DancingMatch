@@ -34,11 +34,13 @@
     <%= f.input :experience,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "Ton xperience" }%>
+                input_html: { autocomplete: "Ton experience" }%>
     <%= f.input :location,
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "Ta ville" }%>
+    <%= f.label :genre %><br>
+    <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
     <%= f.label :photo %><br>
     <%= f.file_field :photo, as: :file %>
   </div>
