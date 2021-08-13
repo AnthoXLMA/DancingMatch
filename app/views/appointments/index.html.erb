@@ -15,6 +15,14 @@
       <div class="title_text">
         <p><%= link_to "Crée ton évenement", new_appointment_path, class:"btn btn-primary", id: "dance" %></p>
       </div>
+      <%= form_tag appointments_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:appointment],
+          class: "form-control",
+          placeholder: "Où veux tu danser?"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
       <div class ="container-appointments">
             <% @appointments.each do |appointment| %>
           <div class="appointment-card3">
@@ -22,19 +30,22 @@
                 <%= image_tag appointment.pic if appointment.pic.attached? %>
               </div>
               <div class ="information-event">
-              <p><%= link_to appointment.name, appointments_path(appointment) %></p>
+              <h3><%= appointment.name  %></h3>
               <p> <%= appointment.address %></p>
               <p> Début: <%= appointment.start_on %></p>
               <p> Fin: <%= appointment.end_on %></p>
-              <p> Organisateur: <%= link_to appointment.user.first_name %></p>
+              <p> Organisateur: <%= appointment.user.first_name %></p>
+              <p> Style: <%= appointment.dance.title %></p>
               </div>
               <a class="btn btn-primary" href="profile" role="button" action: post>Je participe</a>
           </div>
         <% end %>
       </div>
     </div>
-    <div id="map" style="width:1000px"
-       data-markers="<%= @markers.to_json %>"
-       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    <div class="container-map">
+      <div id="map" style="width:1000px" position="fixed"
+         data-markers="<%= @markers.to_json %>"
+         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
     </div>
   </div>

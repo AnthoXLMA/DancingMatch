@@ -15,6 +15,12 @@ class AppointmentsController < ApplicationController
     @appointment_picture = @appointments.each do |appointment|
       appointment.pic
     end
+    if params[:query].present?
+      @appointments = Appointment.where("address ILIKE ?", "%#{params[:query]}%")
+
+    else
+      @appointments = Appointment.all
+    end
   end
 
   def new

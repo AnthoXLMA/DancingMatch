@@ -40,7 +40,7 @@
         <div class="query">
           <%= form_tag dances_path, method: :get do %>
           <%= text_field_tag :query,
-            params[:dance],
+            params[:query],
             class: "form-control",
             placeholder: "Quelle danse cherches-tu?"
           %>
@@ -59,7 +59,7 @@
   </div>
     <div class="my_profile">
        <div class="menu">
-          <button class="btn btn-primary"><%= link_to "Choisir une danse", new_dance_path %></button>
+          <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
           <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
         </div>
       <div class="container-appointments-profile">
