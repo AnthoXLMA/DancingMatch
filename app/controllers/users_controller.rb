@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :sign_out]
+  # layout false
 
   def index
     @users = User.all
@@ -85,7 +86,7 @@ class UsersController < ApplicationController
 
     def edit
     @profile = current_user
-    # @dances = Dance.select('dances.*')
+    @dances = Dance.select('dances.*')
     #Select et s'ajoute dans la show du profil
     @my_dances = @dances.select(params[:id])
     @user_dances = @dances.select(params[:id])

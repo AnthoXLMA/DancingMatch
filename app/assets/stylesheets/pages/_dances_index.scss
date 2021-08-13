@@ -2,15 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .container-dances {
-  // background-color: #f1f2f5;
-  // margin-top:40px;
+  background-color: white;
+  // height:auto;
   .search {
     width:300px;
-    // margin-left:auto;
-    // margin-right:auto;
+    margin-left:auto;
+    margin-right:auto;
   }
   h1 {
-    font-size:40px;
+    font-size:60px;
   }
   h2 {
     font-size: 20px;
@@ -23,7 +23,7 @@
 
   }
   .search1 {
-    width:300px;
+    width:500px;
     margin-right:auto;
     margin-left:auto;
     .b-prima {
@@ -33,7 +33,7 @@
     font-weight:bold;
     text-align:center;
     padding: 7px 15px;
-    width:140px;
+    width:160px;
     text-decoration: none;
     border-radius:30px;
     margin-top:30px;

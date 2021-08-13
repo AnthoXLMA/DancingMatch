@@ -23,6 +23,7 @@ class User < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  validates :first_name, presence: true
+  validates :first_name, presence: true, length: { minimum: 8 }
+  validates :last_name, length: { minimum: 5 }
   validates_confirmation_of :password
 end
