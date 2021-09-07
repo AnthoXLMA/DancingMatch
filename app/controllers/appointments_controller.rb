@@ -34,7 +34,7 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     @appointment.user = @user
     @appointment.save
-    redirect_to appointments_path(@appointments)
+      redirect_to appointments_path(@appointments)
   end
 
   def show

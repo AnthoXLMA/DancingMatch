@@ -8,7 +8,25 @@ class User < ApplicationRecord
 
   GENDER_TYPES = ['Gentleman', 'Lady']
 
-  DANCES = ['']
+  DANCES = ['Salsa', 'BreakDance', 'Hip-Hop', 'Reggaeton', 'Kizomba']
+
+  DANCER_SKILLS = %w[
+  interpersonal_skills
+  rigor
+  independence
+  communication
+  teamwork
+  creativity
+  initiative
+  stress_management
+  perseverance
+  decision_making
+  curiosity
+  adaptability
+  enthusiam
+  flexibility
+  empathy
+]
 
   has_one :profile
 
