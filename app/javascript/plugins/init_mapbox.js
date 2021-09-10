@@ -8,8 +8,8 @@ const initMapbox = () => {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/anthoxlma/ckda6nvtt0wzd1io6jwb62iau',
-      center: [2.3522219, 48.856614],
-      zoom: 3,
+      center: [2.351523670379514, 48.85222877948316],
+      zoom: 10,
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);

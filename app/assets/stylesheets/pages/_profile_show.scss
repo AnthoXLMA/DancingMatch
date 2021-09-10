@@ -1,5 +1,11 @@
 .title-profile {
-  h1 {
+  background-color:white;
+  width:100%;
+  position:fixed;
+  box-shadow: 1px 1px 8px 1px grey;
+  z-index:1;
+  top:0px;
+    h1 {
     margin-right: 40px;
     font-family:'Marck Script';
     font-weight:bold;
@@ -7,102 +13,103 @@
     color:#791E94;
     text-align:center;
     text-decoration: none;
-
+    }
+    p {
+      margin-top:10px;
+      text-align:center;
+    }
+    a {
+      color:#791E94;
+    }
+    a:hover {
+    color: gold;
+    text-decoration: none;
+    }
+    .section {
+      height:50px;
+    }
   }
-  p {
-    margin-top:10px;
-    text-align:center;
-  }
-  a {
-    color:#791E94;
-  }
-  a:hover {
-  color: gold;
-  text-decoration: none;
-  }
-}
-
 .container-card-profile {
-    // display:flex;
-    // height:auto;
-  }
+  margin-top:196px;
+  position:sticky;
   a {
     color:red;
   }
-  .banner-profile {
-    display:flex;
-    background-color:#791E94;
-    box-shadow: 1px 1px 8px 1px grey;
-    height:200px;
-    // margin-top:20px;
-    z-index:9;
-    .image-profile{
-      padding:5px;
-      margin-left:70px;
-      margin-top:auto;
-      margin-bottom:auto;
-      img {
-        height:120px;
-        width: 120px;
-        // background-image: url(your_image_path.jpg);
-        border: solid 4px  white;
-        border-radius:50%;
-        // background-size:     cover;
-        // background-repeat:   no-repeat;
-        // background-position: center;
-      }
-    }
-    .my-informations {
-      height:100px;
-      padding:20px;
-      color:white;
-      a {
-        display:flex;
-        color:white;
-        font-weight:bold;
-        font-size:15px;
-        width:200px;
-      }
-    }
-    .dance-query {
-      display:flex;
-      width:600px;
-      height: 100px;
-      margin-left:200px;
-      margin-top:20px;
-      // justify-content:center;
-      .query {
-        width:60%;
-        height:40px;
-      }
-      .button-OK {
-        width:40%;
-        margin-left:10px;
-        height:30px;
-      }
-    }
-  }
-
 .container1 {
   display:flex;
   margin-right:10px;
-  // margin-top:8px;
-  z-index:-1;
   width:100%;
-  // height:600px;
-  #map {
-    height:auto;
-    // z-index:-1;
-  }
-  .my_profile {
-    font-family: 'Roboto';
-    color:black;
-    width:40%;
-    .menu {
-      margin-top: 10px;
-      margin-left: 30px;
-      margin-bottom:30px;
-      .btn {
+  z-index:1;
+    .map {
+      margin-left: 850px;
+      margin-right:0px;
+      width:50%;
+      position:fixed;
+    }
+    .my_profile {
+      font-family: 'Roboto';
+      color:black;
+      width:50%;
+      padding:21px;
+      margin-top:0px;
+      .banner-profile {
+        display: flex;
+        background-color: white;
+        color:grey;
+        border-radius: 20px;
+        box-shadow: 1px 1px 8px 1px grey;
+        height: 245px;
+        width: 100%;
+        // margin-top:-36px;
+        // position:fixed;
+        z-index:1;
+        .image-profile{
+          padding:60px;
+          margin-left:20px;
+          margin-top:10px;
+          // margin-bottom:auto;
+          img {
+              height:110px;
+              width: 110px;
+              border: solid 4px  white;
+              border-radius:50%;
+            }
+          }
+          .my-informations {
+            height:100px;
+            padding:20px;
+            color:grey;
+            a {
+              display:flex;
+              color:black;
+              font-weight:bold;
+              font-size:15px;
+              width:200px;
+            }
+          }
+        }
+        .dance-query {
+            display:flex;
+            width:100%;
+            height: 100px;
+            margin-left:10px;
+            margin-top:20px;
+            // justify-content:center;
+            .query {
+              width:60%;
+              height:40px;
+            }
+            .button-OK {
+              width:40%;
+              margin-left:10px;
+              height:40px;
+            }
+          }
+      .menu {
+        margin-left: 30px;
+        margin-top:10px;
+        margin-bottom:10px;
+        .btn {
         width: 200px;
         margin-right:25px;
         justify-content:center;
@@ -130,7 +137,6 @@
       }
     }
   }
-
 .container-appointments-profile {
     width: 150px;
     margin-top: 15px;
@@ -269,4 +275,4 @@
 .my_dances {
   display:flex;
 }
-
+}
