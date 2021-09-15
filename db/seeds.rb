@@ -75,7 +75,7 @@ dance20.save!
 #   location: 'Paris',
 #   experience: '3',
 #   contact: '06023002233',
-#   dance: dance4
+#   # dance: dance4
 # )
 # anthony.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/antho.jpeg')), filename: 'antho.jpeg')
 # anthony.save!
@@ -89,7 +89,7 @@ dance20.save!
 #   location: "Marseille",
 #   experience: "1",
 #   contact: "06025002233",
-#   dance: dance2,
+#   # dance: dance2,
 # )
 # jimmy.save!
 
@@ -101,7 +101,7 @@ dance20.save!
 #   experience: "16",
 #   location: "La Havane",
 #   contact: "0600000033",
-#   dance: dance5,
+#   # dance: dance5,
 # )
 # stephanie.save!
 
@@ -116,6 +116,9 @@ dance20.save!
 #   # dance: dance3,
 # )
 # peter.save
+
+puts 'Finished!'
+
 # Appointment.destroy_all
 # Message.destroy_all
 # Chatroom.destroy_all

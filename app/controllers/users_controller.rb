@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :sign_out]
+  before_action :set_user, only: [:show, :new, :sign_out]
   # layout false
 
   def index
@@ -15,23 +15,13 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new(user_params)
+    @user = User.new
     @user.save
   end
 
   def create
-    # @user = current_user
     @user = User.new(user_params)
     @user.save
-    #   redirect_to users_path(@users)
-    # else
-    #   render 'home'
-    # end
-    # @dance = Dance.new
-    # session[:user_id] = user.id
-    #   redirect_to registration_path
-    # @user.save
-    #   redirect_to profile_path
   end
 
   def show
@@ -47,44 +37,7 @@ class UsersController < ApplicationController
     end
   end
 
-  # def new
-  #   @dance = Dance.new
-  #   @user = current_user
-  #   @dances = Dance.all
-  #   @dances.user = @user
-  #   if dance.save
-  #   redirect_to profile_path
-  #   else
-  #     render 'dances/show'
-  #   end
-  # end
-
-  # def edit
-  #   @user = current_user
-  #   @dances = Dance.select('dances.*')
-  #   #Select et s'ajoute dans la show du profil
-  #   @my_dances = @dances.select(params[:id])
-  #   # @user_dances = @dances.select(params[:id])
-  # end
-
-  # def edit
-  #   @user = current_user
-  #   @dances = Dance.select('dances.*')
-  #   #Select et s'ajoute dans la show du profil
-  #   @my_dances = @dances.select(params[:id])
-  #   # @user_dances = @dances.select(params[:id])
-  #   @user.save
-  #     # redirect_to edit_profile_path(@dances)
-  # end
-
-  # def update
-  #   @user = current_user
-  #   @user_dances = Dance.select(params[:dance_id])
-  #   @dance = Dance.find_by(id: params[:dance_id])
-  #   @user.save
-  # end
-
-    def edit
+  def edit
     @profile = current_user
     @dances = Dance.select('dances.*')
     #Select et s'ajoute dans la show du profil
@@ -95,8 +48,8 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    # @user_dances = Dance.select(params[:dance_id])
-    # @dance = Dance.find_by(id: params[:dance_id])
+    @user_dances = Dance.select(params[:dance_id])
+    @dance = Dance.find_by(id: params[:dance_id])
     @user.update(user_params)
       redirect_to profile_path
   end

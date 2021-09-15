@@ -15,15 +15,15 @@
       <h1><%= link_to @style, dance_path(@dance) %></h1>
         <p><%= @appointments_on_map.count %> événement(s)</p>
       <div class="add-dance">
-        <div class="button"><a><%= link_to "Sélectionner", profile_path(@my_selected_dances), class:"btn btn-primary", id: "dance" %></a></div>
-        <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id),method: :get, class:"btn btn-primary", id: "dance" %></a></div>
+        <div class="button"><a><%= link_to "Sélectionner", profile_path(current_user), method: :put, class:"btn btn-primary", id: 'dance' %></a></div>
+        <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
       </div>
       <div id="map"
-     data-markers="<%= @markers.to_json %>"
-     data-dancers="<%= @dancers.to_json %>"
-     data-events="<%= @events.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+       data-markers="<%= @markers.to_json %>"
+       data-dancers="<%= @dancers.to_json %>"
+       data-events="<%= @events.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
   <div class="events-list">
     <p><%= @appointments_on_map.count %> événement(s)</p>
     <% @appointments_on_map.each do |an_event| %>
