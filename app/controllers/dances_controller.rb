@@ -57,7 +57,7 @@ def show
   @partners = @dance.users
   @users_of_this_dance = @partners.where(id: params[:id])
   @profile_dances = []
-  # @profile_dances << Dance.find(params[:id])
+  @profile_dances << Dance.find(params[:id])
 end
 
 def update

@@ -15,7 +15,7 @@
       <h1><%= link_to @style, dance_path(@dance) %></h1>
         <p><%= @appointments_on_map.count %> événement(s)</p>
       <div class="add-dance">
-        <div class="button"><a><%= link_to "Sélectionner", profile_path(current_user), method: :put, class:"btn btn-primary", id: 'dance' %></a></div>
+        <div class="button"><a><%= link_to "Sélectionner", profile_path(@dance), method: :put, class:"btn btn-primary", id: 'profile' %></a></div>
         <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
       </div>
       <div id="map"

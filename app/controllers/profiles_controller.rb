@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_profile, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
   def new
     @profile = current_user.build_profile
     @dance = Dance.new
-    # @user = current_user
+    @user = current_user
     @dances = Dance.all
     @dances.user = @user
     if dance.save
@@ -26,29 +26,26 @@ class ProfilesController < ApplicationController
       render 'dances/show'
     end
     @profile = Profile.new
-    redirect_to profile_path(@profile)
+    @profile.save
+      redirect_to profile_path(@profile)
   end
 
   def create
-    # @user = current_user
-    # @dance = Dance.new
-    # @user.save
-    @profile = Profile.new(profile_params)
+    @user = current_user
+    @profile = Profile.new
     @profile.user_id = current_user.id
     @profile.save
-    # respond_with(@profile)
-    redirect_to profile_path(@profile)
+      redirect_to profile_path(@profile)
   end
 
   def show
     # @profile = Profile.find_by(user_id: params[:id])
     #   redirect_to profile_path(@profile)
-    @profile = current_user
+    @user = current_user
     # @profile_avatar = @profile.avatar
-    #ajout de danse dans le profil
     @dances = Dance.all
     @my_dances = []
-    @profile.dances.each do |profile_dance|
+    @user.dances.each do |profile_dance|
       @dance = profile_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
       end
@@ -115,7 +112,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_profile
-    @profile = Profile.find_by(user_id: params[:id])
+    @profile =  current_user
   end
 
   def profile_params
