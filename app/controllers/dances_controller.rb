@@ -8,23 +8,20 @@ def index
   else
     @dances = Dance.all
   end
+
   @dance = @dances.each do |dance|
     puts dance
   end
+
   @style = @dance.find(params[:id])
   @dancer = @style.each do |yd|
     puts yd
   end
   @my_select_dances = []
   @users = User.all
-  # @users_of_this_dance = @users.where(dance_id: params[:id])
-  # @partners = @users_of_this_dance.each do |partner|
-  #   partner.first_name
-  # end
 end
 
 def new
-  # @dance = Dance.find(params[:dance_id])
   @dance = Dance.new
   @dance.save
 end
@@ -44,7 +41,7 @@ def show
   @user = current_user
   @dances = Dance.all
   @style = @dance.title
-  @my_selected_dances = @dances.select(params[:id])
+  # @my_selected_dances = @dances.select(params[:id])
   # afficher sous une liste index/card, tous les evenements de cette danse
   @appointments = Appointment.all
   @appointments_on_map = @appointments.where(dance_id: params[:id])
@@ -59,15 +56,9 @@ def show
   @users = User.all
   @partners = @dance.users
   @users_of_this_dance = @partners.where(id: params[:id])
-  # @partners = @users_of_this_dance.each do |dance_user|
-  #   @dance_users << dance_user.partners if !dance_user.include?
-  # end
-  # @dance_users = []
-  # @users_of_this_dance.each do |participant|
-  #   participant
-  # @dance_users << @users_of_this_dance if !@dance_users.include?(@users_of_this_dance)
-  #   end
-  end
+  @profile_dances = []
+  # @profile_dances << Dance.find(params[:id])
+end
 
 def update
   @profile = current_user

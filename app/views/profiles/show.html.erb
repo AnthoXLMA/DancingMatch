@@ -31,10 +31,10 @@
   <div class="my_profile">
     <div class="banner-profile">
       <div class="image-profile">
-        <%= image_tag (@profile_avatar) if @profile_avatar.attached? %>
+        <%= image_tag @profile.photo if @profile.photo.attached? %>
       </div>
        <div class="my-informations">
-        <a><%= @profile.first_name %></a>
+        <a><%= @current_user.first_name %></a>
         <a><%= @current_user.gender %></a>
         <a><%= current_user.age %> years old</a>
         <a><%= current_user.location %></a>
@@ -43,21 +43,24 @@
             <%= dance %>,
             <% end %>
       </div>
-    <div class="dance-query">
-        <div class="query">
-          <%= form_tag dances_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Quelle danse cherches-tu?"
-          %>
-        </div>
+        <div class="dance-query">
+          <div class="query">
+            <%= form_tag dances_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Quelle danse cherches-tu?"
+            %>
+          </div>
         <div class="button-OK">
           <%= submit_tag "Search" %>
           <% end %>
         </div>
       </div>
-    </div>
+      <div name="dances" id="dance-select">
+
+      </div>
+      </div>
     <div class="menu">
       <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
       <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
@@ -71,6 +74,9 @@
             <%= dance %><br>
             <% end %></a>
             </div>
+            <% @my_profile_dances.each do |my_profile_dance| %>
+            <%= my_profile_dance.title %>
+            <% end %>
           </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres"><p>Membres</p></div>
@@ -91,14 +97,7 @@
               </div>
               <% end %>
             </div>
-<!--             <% @my_select_dances.each do |my_select_dance| %>
-              <%= my_select_dance.title %>
-            <% end %>
-            <% @user_dances.each do |i| %>
-            <%= i.id %>
-            <%= i.title %>
-            <% end %> -->
-          </div>
+            </div>
       <!-- <div class="dances_menu">
         <select name="select-ur-dance" onchange="action('clickonMe')">
           <option value="Salsa" selected>Salsa</option>
