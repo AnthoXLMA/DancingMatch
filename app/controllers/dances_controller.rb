@@ -40,6 +40,11 @@ def show
   @dance = Dance.find(params[:id])
   @style = @dance.title
   @profile = current_user
+  @profiles = Profile.all
+  @partners_of_this_dance = []
+  @profiles.where(dance_id: params[:id]).each do |partner|
+    @partners_of_this_dance << partner if !@partners_of_this_dance.include? partner
+  end
   @my_new_dances = []
     @dances.select do |my_moving|
       @my_new_dances << my_moving if my_moving
@@ -56,7 +61,7 @@ def show
       }
     end
   @users = User.all
-  @partners = @dance.users
+  @event_managers = @dance.users
   # @users_of_this_dance = Profile.where(dance_id: params[:id])
 end
 
