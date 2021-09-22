@@ -13,12 +13,14 @@
     <div class="appointment-card2">
       <p>Carte de la communauté</p>
       <h1><%= link_to @style, dance_path(@dance) %></h1>
+      Cette communauté contient <%= @partners_of_this_dance.count %> partenaires <br>
+      <% @partners_of_this_dance.each do |member| %>
+      <li><%= member.user.first_name %></li>
+      <% end %><br>
+      Dancing Partners Total Number <a><%= @profiles.count %> </a>
         <p><%= @appointments_on_map.count %> événement(s)</p>
-        <% @my_new_dances.each do |my_profile_dance| %>
-          <%= my_profile_dance.title %>
-        <% end %>
       <div class="add-dance">
-        <div class="button"><a><%= link_to "Ajout à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
+        <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
         <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :patch %></a></div>
         <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
       </div>
@@ -37,8 +39,9 @@
     </div>
     <% end %>
   </div>
-    <% @partners.each do |partner| %>
-      <%= partner.first_name %>
+      <% @event_managers.each do |manager| %>
+      <%= manager.first_name %>
+      <%= manager.location %>
     <% end %>
     </div>
   </div>
