@@ -20,6 +20,7 @@
   </head>
 
   <body>
+    <%= yield %>
   <!-- <h3 align="center"> This JavaScript shows how to hide divisions </h3>
 
   <div id="div1" style="display:none">
@@ -29,13 +30,26 @@
       </tr>
     </table>
   </div> -->
+    <script>
+    function myFunction()
+    {
+    divInfo = document.getElementById('MyId');
+    if (divInfo.style.display == 'none')
+    divInfo.style.display = 'block';
+    else
+    divInfo.style.display = 'none';
+    }
+    function fctCocherCase(ObjNumber)
+{
+  recupValeurElement("Checkbox" + ObjNumber).checked = true;
+}
+  </script>
 </body>
 
   <!-- <body id="monBody">
     <h1 id="monH1"></h1>
   </body> -->
 
-    <%= yield %>
  <!--  <script type="text/javascript">
     var monH1=document.createElement("h1");
     monH1.innerHTML="Ready To Dance?";
@@ -43,20 +57,6 @@
     // document.getElementById("monH1").innerHTML="Dancing Partners";
     // alert("Bienvenue!");
   </script> -->
-  <script>
-    // function myFunction()
-    // {
-    // divInfo = document.getElementById('MyId');
-    // if (divInfo.style.display == 'none')
-    // divInfo.style.display = 'block';
-    // else
-    // divInfo.style.display = 'none';
-    // }
-    function fctCocherCase(ObjNumber)
-{
-  recupValeurElement("Checkbox" + ObjNumber).checked = true;
-}
-  </script>
 </html>
 <div class="footer-container">
   <a>Performed By</a>

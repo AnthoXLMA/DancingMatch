@@ -12,7 +12,7 @@
     </div>
   </div>
 
-<%= simple_form_for(@profile, url: profile_path(@profile)) do |f| %>
+<%= simple_form_for @profile, method: :patch do |f| %>
 <%= f.error_notification %>
 
 <div class="form-inputs">
@@ -25,7 +25,7 @@
     <%= f.input :experience,
                 required: true,
                 input_html: { autocomplete: "Années d'expérience'" } %>
-    <%= f.label :genre %>
+    <%= f.label :genre %><br>
     <%= f.select :gender, User::GENDER_TYPES.each.map { |gender| [gender] } %>
     <%= f.label :photo %><br>
     <%= f.file_field :photo, as: :file %>
