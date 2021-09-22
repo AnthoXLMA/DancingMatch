@@ -33,13 +33,14 @@ class ProfilesController < ApplicationController
   def create
     @user = current_user
     @profiles = Profile.all
-    @profile = Profile.new(profile_params) if !@profiles.include? profile_params
+    @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
-    @profile.save
-      if !@user.profile.include? @profile.dance.title
-    redirect_to profile_path(@profile)
-      else
-    redirect_to dances_path
+    if !@profiles.include? @profile
+      @profile.save
+      # if !@user.profile.include? @profile.dance.title
+      redirect_to profile_path(@profile)
+    else
+      redirect_to dances_path
   end
     # @user = User.find(params[:user_id])
     # @profile = @user.profile.build(params[:profile])
