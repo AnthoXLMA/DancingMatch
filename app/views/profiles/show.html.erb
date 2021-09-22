@@ -39,10 +39,13 @@
         <a><%= current_user.age %> years old</a>
         <a><%=current_user.location %></a>
         <a><%= current_user.experience %> years experience</a>
-        mes types d'évenements<br>
+        My events<br>
         <% @my_dances.each do |dance| %>
-          <%= dance %>
+          <li><%= dance %></li>
         <% end %>
+      My favorite dance:
+<!--  choix d'une seule danse après updating (select dans danses show)
+ -->  <%= @user[:dance_id] %>
         </div>
         <div class="dance-query">
           <div class="query">
@@ -59,9 +62,6 @@
         </div>
       </div>
       </div>
-      My favourite dance <br>
-<!--  choix d'une seule danse après updating (select dans danses show)
- -->  <%= @user.dance_id %>
       <!-- <div name="dances" id="dance-select">
           <% @my_selected_dances.each do |selected_dance| %>
           <%= selected_dance.title %>
@@ -74,15 +74,14 @@
       <div class="container-appointments-profile">
         <div class="button-block">
           <div class="titres-cadre">
-            <div class="titres"><p>Mes danses</p></div>
+            <div class="titres">
+              <p>Mes danses</p>
+            </div>
             <div class="infos-card">
-            <% @user.profiles.each do |profile| %>
-            <%= profile.dance.title %><br>
+              <% @user.profile.each do |profile| %>
+              <%= profile.dance.title if !@user.profile.include? profile.dance.title %><br>
             <% end %></a>
             </div>
-            <% @my_profile_dances.each do |my_profile_dance| %>
-            <%= my_profile_dance.title %>
-            <% end %>
           </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres"><p>Membres</p></div>

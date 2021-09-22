@@ -29,7 +29,7 @@ class User < ApplicationRecord
   empathy
 ]
 
-  has_many :profiles
+  has_many :profile
   has_one_attached :photo
 
   has_many :appointments, dependent: :delete_all

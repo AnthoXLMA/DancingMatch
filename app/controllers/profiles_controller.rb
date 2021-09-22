@@ -23,13 +23,24 @@ class ProfilesController < ApplicationController
       redirect_to profile_path(@profile)
   end
 
+  def dance_selection
+    @dances = Dance.all
+    if params[:dance]
+      @dances = @dances.select { |dance| dance.title?(params[:dance] ) }
+    end
+  end
+
   def create
     @user = current_user
+    @profiles = Profile.all
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
-    @user.save
     @profile.save
-      redirect_to profile_path(@profile)
+      if !@user.profile.include? @profile.dance.title
+    redirect_to profile_path(@profile)
+      else
+    redirect_to dances_path
+  end
     # @user = User.find(params[:user_id])
     # @profile = @user.profile.build(params[:profile])
     # if @profile.save
@@ -43,8 +54,6 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find_by(user_id: params[:id])
-    # @profile = Profile.find(params[:id])
-    #   redirect_to profile_path(@profile)
     @user = current_user
     @profile_avatar = @user.photo
     @dances = Dance.all
@@ -59,13 +68,13 @@ class ProfilesController < ApplicationController
         dance.title
       end
     end
-    # BARRE DES RECHERCHES DES DANSES
+    # BARRE DE RECHERCHES DES DANSES
     if params[:query].present?
     @dance_search = Dance.where("title LIKE ?", "%" + params[:query] + "%")
     else
     @dances = Dance.all
     end
-    # LISTER LES DANSES // inutile
+    # LISTER LES DANSES
     @my_selected_dances = @dances.select(params[:id])
     # SELECTIONNER UNE DANSE ET L'AJOUTER AU PROFIL
     @my_profile_dances = []
