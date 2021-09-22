@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :new, :sign_out]
+  before_action :set_user, only: [:show, :edit, :update, :sign_out]
   # layout false
 
   def index
@@ -20,36 +20,50 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    # @user = User.new(params[:user])
+    # if @user.save
+    #   session[:user_id] = @user.id
+    #   flash[:notice] = "Thank you for signing up! You are now logged in."
+    #   redirect_to new_profile_path
+    # else
+    #   render :action => 'new'
+    # end
+    @user = User.find(params[:user_id])
+    @profile = @user.profile.build(params[:profile])
+    if @profile.save
+    flash[:notice] = 'Profile was successfully created.'
+    redirect_to(@profile)
+    # redirect_to new_user_profile_path(:user_id => @user)
+    else
+    flash[:notice] = 'Error.  Something went wrong.'
+    render :action => "new"
+    end
+    @dance = Dance.new()
+    @dance.user = @user
     @user.save
   end
 
   def show
-    @profile = current_user
-    @my_dances = []
-    @profile.dances.each do |profile_dance|
-    @dance = profile_dance.title
-    @my_dances << @dance if !@my_dances.include?(@dance)
-    end
-    @users_of_this_dance = @users.where(dance_id: params[:id])
-    @partners = @users_of_this_dance.each do |partner|
-      partner.first_name
-    end
+    @user = User.find(params[:id])
+    # @profile = current_user
+    # @my_dances = []
+    # @profile.dances.each do |profile_dance|
+    # @dance = profile_dance.title
+    # @my_dances << @dance if !@my_dances.include?(@dance)
+    # end
+    # @users_of_this_dance = @users.where(dance_id: params[:id])
+    # @partners = @users_of_this_dance.each do |partner|
+    #   partner.first_name
+    # end
   end
 
   def edit
-    @profile = current_user
-    @dances = Dance.select('dances.*')
-    #Select et s'ajoute dans la show du profil
-    @my_dances = @dances.select(params[:id])
-    @user_dances = @dances.select(params[:id])
-    # redirect_to edit_profile_path(@dances)
+
   end
 
   def update
-    @user = current_user
-    @user_dances = Dance.select(params[:dance_id])
-    @dance = Dance.find_by(id: params[:dance_id])
+    @user = User.find(params[:id])
+    @dances = Dance.all
     @user.update(user_params)
       redirect_to profile_path
   end
@@ -63,10 +77,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-    # @users = User.all
   end
 
   def user_params
-    params.require(:user).permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
+    params.require(:user).permit(:gender, :dances, :first_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo)
   end
 end

@@ -14,8 +14,12 @@
       <p>Carte de la communauté</p>
       <h1><%= link_to @style, dance_path(@dance) %></h1>
         <p><%= @appointments_on_map.count %> événement(s)</p>
+        <% @my_new_dances.each do |my_profile_dance| %>
+          <%= my_profile_dance.title %>
+        <% end %>
       <div class="add-dance">
-        <div class="button"><a><%= link_to "Sélectionner", profile_path(@dance), method: :put, class:"btn btn-primary", id: 'profile' %></a></div>
+        <div class="button"><a><%= link_to "Ajout à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
+        <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :patch %></a></div>
         <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
       </div>
       <div id="map"
