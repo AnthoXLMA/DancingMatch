@@ -16,6 +16,9 @@
 <%= f.error_notification %>
 
 <div class="form-inputs">
+  <% @profile_user.each do |my_dance| %>
+  <%= link_to my_dance.dance.title, method: :delete %>
+  <% end %>
     <%= f.input :email, required: false, autofocus: true %>
     <%= f.input :first_name, required: false, autofocus: true %>
     <%= f.input :age, required: false, autofocus: true %>
