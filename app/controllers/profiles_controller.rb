@@ -132,10 +132,13 @@ class ProfilesController < ApplicationController
   def destroy
     @user = current_user
     @profiles = Profile.all
-    @profile_user = @user.profile.each do |profile|
-      puts profile.dance.title
+    @profile = @profiles.each do |profile|
+      profile
     end
-    @profile_user.delete(profile_params)
+    # @profile_user = @user.profile.each do |profile|
+    #   puts profile.dance.title
+    # end
+    @user.profile.destroy(@user.profile)
       redirect_to profile_path
   end
 
