@@ -10,7 +10,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resource :profile, only: [:show, :edit]
+  resource :profile, only: [:show, :edit, :destroy] do
+    resources :profiles
+  end
 
   resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
     resources :dances, only: [:index, :create, :show, :new]
@@ -54,7 +56,7 @@ Rails.application.routes.draw do
   resources :users, :has_one => :profile do
   resources :profiles
 end
-  # resource :users, only: [:create, :new, :destroy] do
-  #   resources :profile, only: [:show, :edit]
-  # end
+  resource :users, only: [:create, :new, :destroy, :edit] do
+    resources :profile, only: [:show, :edit]
+  end
 end

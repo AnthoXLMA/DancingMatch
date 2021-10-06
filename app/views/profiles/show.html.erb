@@ -75,11 +75,12 @@
         <div class="button-block">
           <div class="titres-cadre">
             <div class="titres">
-              <p>Mes danses</p>
+              <p>Mes profils danses</p>
             </div>
             <div class="infos-card">
               <% @user.profile.each do |profile| %>
-              <%= profile.dance.title if !@user.profile.include? profile.dance.title %><br>
+              <%= link_to profile.dance.title, edit_profile_path(profile) %>
+              <%= link_to "Delete this profile", profile_path(profile), method: :delete, id: @profile %><br>
             <% end %></a>
             </div>
           </div>

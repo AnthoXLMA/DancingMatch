@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   def index
     @users = User.all
     @profiles = Profile.all
-    @dances << dance.push
+    # @dances << dance.push
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -106,6 +106,10 @@ class ProfilesController < ApplicationController
 
   def edit
     @profile = current_user
+    @profiles = Profile.all
+    @profile_user = @profile.profile.each do |profile|
+      puts profile.dance.title
+    end
     # @profile = User.find(params[:id])
     @dances = Dance.all
     # Select et s'ajoute dans la show du profil
@@ -122,13 +126,17 @@ class ProfilesController < ApplicationController
         redirect_to profile_path
       else
         render :action => "edit"
-      end
+    end
   end
 
   def destroy
-    @profile = Profile.find_by(user_id: params[:id])
-    @profile.destroy
-      redirect_to(profiles_url)
+    @user = current_user
+    @profiles = Profile.all
+    @profile_user = @user.profile.each do |profile|
+      puts profile.dance.title
+    end
+    @profile_user.delete(profile_params)
+      redirect_to profile_path
   end
 
   private
