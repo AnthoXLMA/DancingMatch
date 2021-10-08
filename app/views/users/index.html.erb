@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Hello World 4</title>
+</head>
+<body>
+
+  <% @users.each do |user| %>
+    <%= user.id %>
+    <%= link_to user.first_name, user_path(@user) %>
+    <%= user.last_name %>
+    <%= user.age %>
+    <%= user.location %>
+    <%= user.experience %>
+    <%= user.profile.ids %>
+    <%= user.dance_id %>
+  <% end %>
+
+</body>
+
+<script type="text/javascript">
+
+</script>
+
+
+</html>
+
