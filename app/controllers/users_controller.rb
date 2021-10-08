@@ -4,6 +4,9 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = @users.each do |user|
+      user
+    end
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -45,16 +48,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    # @profile = current_user
-    # @my_dances = []
-    # @profile.dances.each do |profile_dance|
-    # @dance = profile_dance.title
-    # @my_dances << @dance if !@my_dances.include?(@dance)
-    # end
-    # @users_of_this_dance = @users.where(dance_id: params[:id])
-    # @partners = @users_of_this_dance.each do |partner|
-    #   partner.first_name
-    # end
+    @users = User.all
+    @profile = current_user
+    @my_dances = []
+    @profile.dances.each do |profile_dance|
+    @dance = profile_dance.title
+    @my_dances << @dance if !@my_dances.include?(@dance)
+    end
   end
 
   def edit

@@ -1,3 +1,4 @@
 <% @profiles.each do |profile| %>
-<%= link_to profile.dance.title, edit_profile_path(:profile), method: :destroy %>
+<%= link_to profile.dance.title, users_profile_path(profile) %>
 <% end %>
+

@@ -4,7 +4,7 @@
   <div class="section">
     <div class="row">
       <div class="column">
-        <a class="link"><%= link_to "Partenaires", profile_path, class: "btn-ghost" %></a>
+        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
         <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
@@ -62,11 +62,6 @@
         </div>
       </div>
       </div>
-      <!-- <div name="dances" id="dance-select">
-          <% @my_selected_dances.each do |selected_dance| %>
-          <%= selected_dance.title %>
-          <% end %>
-      </div> -->
     <div class="menu">
       <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
       <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
@@ -79,7 +74,7 @@
             </div>
             <div class="infos-card">
               <% @user.profile.each do |profile| %>
-              <%= link_to profile.dance.title, edit_profile_path(profile) %>
+              <%= link_to profile.dance.title, user_profiles_path(@user) %>
               <%= link_to "Delete this profile", profile_path(profile), method: :delete, id: @profile %><br>
             <% end %></a>
             </div>
