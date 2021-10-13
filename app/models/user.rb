@@ -11,25 +11,25 @@ class User < ApplicationRecord
     dance.title
   end
 
-  SKILLS = %w[
-  interpersonal_skills
-  rigor
-  independence
-  communication
-  teamwork
-  creativity
-  initiative
-  stress_management
-  perseverance
-  decision_making
-  curiosity
-  adaptability
-  enthusiam
-  flexibility
-  empathy
-]
+#   SKILLS = %w[
+#   interpersonal_skills
+#   rigor
+#   independence
+#   communication
+#   teamwork
+#   creativity
+#   initiative
+#   stress_management
+#   perseverance
+#   decision_making
+#   curiosity
+#   adaptability
+#   enthusiam
+#   flexibility
+#   empathy
+# ]
 
-  has_many :profile
+  has_many :profiles
   has_one_attached :photo
 
   has_many :appointments, dependent: :delete_all

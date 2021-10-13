@@ -73,9 +73,9 @@
               <p>Mes profils danses</p>
             </div>
             <div class="infos-card">
-              <% @user.profile.each do |profile| %>
-              <%= link_to profile.dance.title, user_profiles_path(@profile) %>
-              <%= link_to "Delete this profile", profiles_path(@profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
+              <% @user.profiles.each do |profile| %>
+              <%= link_to profile.dance.title, profile_path(profile) %>
+              <%= link_to "Delete this profile", profile_path(profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
             <% end %></a>
             </div>
           </div>
@@ -84,7 +84,7 @@
               <div class="infos-card">
                 <% @users.each do |user| %>
                 <%= image_tag user.photo if user.photo.attached? %>
-                <%= user.first_name  %><br>
+                <%= link_to user.first_name, user_path(user)  %><br>
               <% end %>
             </div>
           </div>

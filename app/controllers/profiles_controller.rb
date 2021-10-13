@@ -54,7 +54,7 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find_by(user_id: params[:id])
+    @profile = Profile.find_by(id: params[:id])
     @user = current_user
     @profile_avatar = @user.photo
     @dances = Dance.all
@@ -107,7 +107,7 @@ class ProfilesController < ApplicationController
   def edit
     @profile = current_user
     @profiles = Profile.all
-    @profile_user = @profile.profile.each do |profile|
+    @profile_user = @profiles.each do |profile|
       puts profile.dance.title
     end
     # @profile = User.find(params[:id])
@@ -135,18 +135,18 @@ class ProfilesController < ApplicationController
     # @profile = @profiles.each do |profile|
     #   profile
     # end
-    @user.profile.destroy(@user.profile)
+    @user.profiles.destroy(@profile)
     # @profile_user = @user.profile.each do |profile|
     #   puts profile.dance.title
     # end
     # @user.profile.destroy(@user.profile)
-      redirect_to profile_path
+      redirect_to user_path(@current_user)
   end
 
   private
 
   def set_profile
-    @profile = Profile.find_by(user_id: params[:id])
+    @profile = Profile.find_by(id: params[:id])
   end
 
   def profile_params

@@ -10,15 +10,15 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users, :has_many => :profiles do
+  resources :users do
     resources :profiles
   end
   resource :users, only: [:create, :new, :destroy, :edit] do
     resources :profiles, only: [:show, :edit]
   end
 
-  resource :profile, only: [:show, :edit, :destroy] do
-    resource :profile, only: [:show]
+  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :users, only: [:index, :create, :show, :new, :edit]
   end
 
   resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
