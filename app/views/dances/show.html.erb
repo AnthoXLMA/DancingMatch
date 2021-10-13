@@ -16,12 +16,16 @@
       <h1><%= link_to @style, dance_path(@dance) %></h1>
       Cette communauté contient <%= @partners_of_this_dance.count %> partenaires <br>
       <% @partners_of_this_dance.each do |member| %>
-      <li><%= member.user.first_name %></li>
+      <li>
+        <%= member.user.first_name %>
+      </li>
       <% end %><br>
         <p><%= @appointments_on_map.count %> events</p>
         <% @event_managers.each do |manager| %>
-          <li><%= manager.first_name %>
-          <%= manager.location %></li>
+          <li>
+            <%= manager.first_name %>
+            <%= manager.location %>
+          </li>
         <% end %>
       <div class="add-dance">
         <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>

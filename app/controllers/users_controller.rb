@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @profiles = Profile.all
     @user = @users.each do |user|
       user
     end
@@ -71,6 +72,20 @@ class UsersController < ApplicationController
   def destroy
     log_out
     redirect_to '/login'
+  end
+
+  def destroy_profile
+    @user = current_user
+    # @profiles = Profile.all
+    # @profile = @profiles.each do |profile|
+    #   profile
+    # end
+    @user.profiles.destroy(@profile)
+    # @profile_user = @user.profile.each do |profile|
+    #   puts profile.dance.title
+    # end
+    # @user.profile.destroy(@user.profile)
+      redirect_to user_path
   end
 
   private

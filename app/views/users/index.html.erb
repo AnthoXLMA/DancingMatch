@@ -5,14 +5,23 @@
 <body>
 
   <% @users.each do |user| %>
+  <ul>
     <%= user.id %>
-    <%= link_to user.first_name, user_path(@user) %>
-    <%= user.last_name %>
-    <%= user.age %>
-    <%= user.location %>
-    <%= user.experience %>
-    <%= user.profile.ids %>
-    <%= user.dance_id %>
+    <li>
+    <%= link_to user.first_name, user_path(@user) %></li>
+    <li>AGE: <%= user.age %></li>
+    <li>LOCATION: <%= user.location %></li>
+    <li>XP: <%= user.experience %></li>
+    <li>danses:
+      <% user.profiles.each do |user_profile| %>
+        <ul>
+          <li><%= user_profile.dance.title %></li>
+          <ul><li><%= user_profile.id %></li></ul>
+        </ul><br>
+        <% end %>
+    </li>
+    <li><%= user.dance_id %></li>
+  </ul>
   <% end %>
 
 </body>

@@ -19,91 +19,13 @@
         <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "btn-ghost" %></a>
       </div>
     </div>
+<%= @profile.dance.title %>
   </div>
 </div>
-<div class="container-card-profile">
-<div class="container1">
-  <div id="map"
-     data-markers="<%= @markers.to_json %>"
-     data-dancers="<%= @dancers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
-  <div class="my_profile">
-    <div class="banner-profile">
-      <div class="image-profile">
-        <%= image_tag @profile_avatar if @profile_avatar.attached? %>
-      </div>
-       <div class="my-informations">
-        <a><%= current_user.first_name %></a>
-        <a><%= current_user.gender %></a>
-        <a><%= current_user.age %> years old</a>
-        <a><%=current_user.location %></a>
-        <a><%= current_user.experience %> years experience</a>
-        My events<br>
-        <% @my_dances.each do |dance| %>
-          <li><%= dance %></li>
-        <% end %>
-      My favorite dance:
-<!--  choix d'une seule danse après updating (select dans danses show)
- -->  <%= @user[:dance_id] %>
-        </div>
-        <div class="dance-query">
-          <div class="query">
-            <%= form_tag dances_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Quelle danse cherches-tu?"
-            %>
-          </div>
-        <div class="button-OK">
-          <%= submit_tag "Search" %>
-          <% end %>
-        </div>
-      </div>
-      </div>
-    <div class="menu">
-      <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
-      <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
-    </div>
-      <div class="container-appointments-profile">
-        <div class="button-block">
-          <div class="titres-cadre">
-            <div class="titres">
-              <p>Mes profils danses</p>
-            </div>
-            <div class="infos-card">
-              <% @user.profile.each do |profile| %>
-              <%= link_to profile.dance.title, user_profiles_path(@user) %>
-              <%= link_to "Delete this profile", profile_path(profile), method: :delete, id: @profile %><br>
-            <% end %></a>
-            </div>
-          </div>
-          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Membres</p></div>
-              <div class="infos-card">
-                <% @users.each do |user| %>
-                <%= image_tag user.photo if user.photo.attached? %>
-                <%= user.first_name  %><br>
-              <% end %>
-            </div>
-          </div>
-        </div>
-            <div class="accroche">
-              <% current_user.appointments.each do |user_events| %>
-              <div class="event-cards">
-                <h2><%= user_events.name %></h2>
-                <p><%= user_events.start_on %></p>
-                <p><%= user_events.address %></p>
-              </div>
-              <% end %>
-            </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="container-dances" style="margin-top: 400px;">
+  Hello voici la danse de ton profil. Vérifie si l'URL est bonne.
 
+  Doit on editer le profil?
 
-
+  Experience
+</div>
