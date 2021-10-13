@@ -3,27 +3,32 @@
   <title>Hello World 4</title>
 </head>
 <body>
-
-  <% @users.each do |user| %>
+  <%= @user.first.dance_id %>
+  <% @users.each do |i| %>
   <ul>
-    <%= user.id %>
+    <%= i.id %>
     <li>
-    <%= link_to user.first_name, user_path(@user) %></li>
-    <li>AGE: <%= user.age %></li>
-    <li>LOCATION: <%= user.location %></li>
-    <li>XP: <%= user.experience %></li>
+    <%= link_to i.first_name, user_path(@user) %></li>
+    <li>AGE: <%= i.age %></li>
+    <li>LOCATION: <%= i.location %></li>
+    <li>XP: <%= i.experience %></li>
     <li>danses:
-      <% user.profiles.each do |user_profile| %>
+      <% i.profiles.each do |user_profile| %>
         <ul>
           <li><%= user_profile.dance.title %></li>
           <ul><li><%= user_profile.id %></li></ul>
         </ul><br>
         <% end %>
     </li>
-    <li><%= user.dance_id %></li>
+    <li>Danse favorite: <%= i.dance_id %> <%= Dance.find_by(id: i.dance_id) %>
+    </li>
+
   </ul>
   <% end %>
-
+  <% @dances.each do | dance | %>
+  <%= dance.title %>
+  <% end %><br>
+  <%= Dance.find_by(id: 3).title %>
 </body>
 
 <script type="text/javascript">
