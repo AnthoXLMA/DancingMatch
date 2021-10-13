@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = @users.each do |user|
       user
     end
+    # @user = current_user
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -16,6 +17,9 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
+    @dances = Dance.all
+    # @dance = Dance.find_by(id: @user.dance_id.first)
+    # @favorite_dance_title = Dance.select('title').where(id: @user.dance_id).first.title
   end
 
   def new
@@ -95,6 +99,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:gender, :dances, :first_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo)
+    params.require(:user).permit(:gender, :dance_id, :first_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo)
   end
 end
