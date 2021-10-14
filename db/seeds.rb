@@ -6,9 +6,11 @@ Dance.destroy_all
 # SEEDS 1 avec dance
 puts "Creating dances..."
 dance1 = Dance.new(title: "Salsa Cubana")
+dance1.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/antho.jpeg')), filename: 'antho.jpeg')
 dance1.save!
 
 dance2 = Dance.new(title: "Merengue")
+dance2.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/antho.jpeg')), filename: 'antho.jpeg')
 dance2.save!
 
 dance3 = Dance.new(title: "Bachata")
@@ -64,6 +66,24 @@ dance19.save!
 
 dance20 = Dance.new(title: "Forro")
 dance20.save!
+
+dance21 = Dance.new(title: "Madison")
+dance21.save!
+
+dance22 = Dance.new(title: "Son Cubano")
+dance22.save!
+
+dance23 = Dance.new(title: "Boogie Woogie")
+dance23.save!
+
+dance24 = Dance.new(title: "Rock and Roll")
+dance24.save!
+
+dance25 = Dance.new(title: "Tap Dance")
+dance25.save!
+
+dance26 = Dance.new(title: "Rubbish Looping")
+dance26.save!
 
 # puts 'Creating Users...'
 # anthony = User.new(

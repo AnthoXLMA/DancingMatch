@@ -34,7 +34,7 @@
         <%= image_tag @user.photo if @user.photo.attached? %>
       </div>
        <div class="my-informations">
-        <a><%= current_user.first_name %></a>
+        <a><%= current_user.first_name %> <%= current_user.last_name %></a>
         <a><%= current_user.gender %></a>
         <a><%= current_user.age %> years old</a>
         <a><%=current_user.location %></a>
@@ -70,17 +70,22 @@
         <div class="button-block">
           <div class="titres-cadre">
             <div class="titres">
-              <p>Mes profils danses</p>
+              <p>Mes profils danses <%= link_to "+", dances_path %></p>
+
             </div>
             <div class="infos-card">
+              <% if @user.profiles.blank? %>
+                <h4>No pending profiles.<br>Check out the dances.<br></h4>
+              <% else %>
               <% @user.profiles.each do |profile| %>
-              <%= link_to profile.dance.title, profile_path(profile) %>
+              <a><%= link_to profile.dance.title, profile_path(profile) %>
               <%= link_to "Delete this profile", profile_path(profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
-            <% end %></a>
+              <% end %></a>
+            <% end %>
             </div>
           </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Membres</p></div>
+            <div class="titres"><p>Partenaires</p></div>
               <div class="infos-card">
                 <% @users.each do |user| %>
                 <%= image_tag user.photo if user.photo.attached? %>

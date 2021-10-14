@@ -4,7 +4,7 @@ class Dance < ApplicationRecord
   # has_many :profiles
   # belongs_to :users
   validates :title, presence: true, uniqueness: true
-
+  has_one_attached :photo
   # def partners
   #   @users = User.all
   #   @dances = Dance.all
