@@ -8,4 +8,22 @@ class Profile < ApplicationRecord
   has_many :appointments
 
   DANCES = []
+
+  #   SKILLS = %w[
+#   interpersonal_skills
+#   rigor
+#   independence
+#   communication
+#   teamwork
+#   creativity
+#   initiative
+#   stress_management
+#   perseverance
+#   decision_making
+#   curiosity
+#   adaptability
+#   enthusiam
+#   flexibility
+#   empathy
+# ]
 end

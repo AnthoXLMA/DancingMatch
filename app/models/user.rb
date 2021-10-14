@@ -11,33 +11,14 @@ class User < ApplicationRecord
     dance.title
   end
 
-#   SKILLS = %w[
-#   interpersonal_skills
-#   rigor
-#   independence
-#   communication
-#   teamwork
-#   creativity
-#   initiative
-#   stress_management
-#   perseverance
-#   decision_making
-#   curiosity
-#   adaptability
-#   enthusiam
-#   flexibility
-#   empathy
-# ]
-
   has_many :profiles
   has_one_attached :photo
 
   has_many :appointments, dependent: :delete_all
-  has_many :dances
+  has_one :dance
   has_many :dances, through: :appointments
   has_many :partners, through: :dances
   has_many :messages, through: :chatrooms
-
 
   geocoded_by :location
     after_validation :geocode, if: :will_save_change_to_location?
