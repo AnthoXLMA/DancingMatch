@@ -85,6 +85,6 @@ end
   end
 
   def dance_params
-    params.require(:dance).permit(:title, :user_id, :id)
+    params.require(:dance).permit(:title, :user_id, :photo, :id)
   end
 end

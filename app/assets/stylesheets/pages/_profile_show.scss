@@ -67,12 +67,14 @@
           padding:10px;
           margin-left:10px;
           margin-top:10px;
+          // background-size: cover;
           // margin-bottom:auto;
           img {
               height:110px;
               width: 110px;
               border: solid 4px  white;
               border-radius:50%;
+              object-fit: cover;
             }
           }
           .my-informations {
