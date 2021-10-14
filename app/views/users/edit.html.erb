@@ -30,37 +30,39 @@
   </div>
   <div class="my_profile">
     <div class="banner-profile">
+        <%= simple_form_for(@user, method: :put) do |f| %>
+          <%= f.error_notification %>
       <div class="image-profile">
         <%= image_tag @user.photo if @user.photo.attached? %>
       </div>
        <div class="my-informations">
-        <a><%= current_user.first_name %></a>
-        <a><%= current_user.gender %></a>
-        <a><%= current_user.age %> years old</a>
-        <a><%=current_user.location %></a>
-        <a><%= current_user.experience %> years experience</a>
-        My events<br>
-        <% @my_dances.each do |dance| %>
-          <li><%= dance %></li>
-        <% end %>
-      My favorite dance:
-<!--  choix d'une seule danse après updating (select dans danses show)
- -->  <%= @user[:dance_id] %>
+        <a><%= f.label :photo %><br>
+        <%= f.file_field :photo, as: :file %><a>
+        <a><%= f.input :first_name,
+                required: true,
+                autofocus: true,
+                input_html: { value: current_user.first_name } %></a>
+        <a><%= f.input :last_name,
+                required: true,
+                autofocus: true,
+                input_html: { value: current_user.last_name } %></a>
+        <a><%= f.input :age,
+                required: true,
+                autofocus: true,
+                input_html: { placeholder: current_user.age }%></a>
+                <a><%= f.input :location,
+                required: true,
+                autofocus: true,
+                input_html: { placeholder: current_user.location }%></a>
+                <a><%= f.input :gender,
+                required: true,
+                autofocus: true,
+                input_html: { placeholder: current_user.gender }%></a>
+                <div class="mb-6">
+      <%= f.submit "Update", class: "btn btn-default block w-full text-center", method: :put %>
+      <% end %>
+    </div>
         </div>
-        <div class="dance-query">
-          <div class="query">
-            <%= form_tag dances_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Quelle danse cherches-tu?"
-            %>
-          </div>
-        <div class="button-OK">
-          <%= submit_tag "Search" %>
-          <% end %>
-        </div>
-      </div>
       </div>
     <div class="menu">
       <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
@@ -82,10 +84,7 @@
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres"><p>Membres</p></div>
               <div class="infos-card">
-                <% @users.each do |user| %>
-                <%= image_tag user.photo if user.photo.attached? %>
-                <%= link_to user.first_name, user_path(user)  %><br>
-              <% end %>
+
             </div>
           </div>
         </div>

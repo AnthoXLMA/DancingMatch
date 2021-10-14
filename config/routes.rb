@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
   end
-  resource :users, only: [:create, :new, :destroy, :edit] do
-    resources :profiles, only: [:show, :edit]
+  resource :users, only: [:create, :new, :destroy, :show, :edit, :update] do
+    resources :profiles, only: [:show, :edit, :update]
   end
 
   resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do

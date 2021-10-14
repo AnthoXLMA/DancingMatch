@@ -63,14 +63,21 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
     @user = User.find(params[:id])
-    @dances = Dance.all
+    # @dances = Dance.all
     @user.update(user_params)
-      redirect_to profile_path
+    # @user = current_user
+    @dances = Dance.all
+    # @user.update(user_params)
+      if @user.update_attributes(user_params)
+        flash[:notice] = 'User was successfully updated.'
+        redirect_to user_path
+      else
+        render :action => "edit"
+    end
   end
 
   def destroy
@@ -96,10 +103,9 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
-    @dance = Dance.find(params[:dance_id])
   end
 
   def user_params
-    params.require(:user).permit(:gender, :dance_id, :first_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo)
+    params.require(:user).permit(:gender, :first_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo)
   end
 end
