@@ -96,6 +96,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+    @dance = Dance.find(params[:dance_id])
   end
 
   def user_params
