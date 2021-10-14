@@ -3,7 +3,7 @@ before_action :set_dance, only: [:show]
 
 def index
   if params[:query].present?
-    @dances = Dance.where("title LIKE ?", "%" + params[:query] + "%")
+    @dances = Dance.where("lower(title) LIKE ?", "%#{params[:query].downcase}%")
   else
     @dances = Dance.all
   end
