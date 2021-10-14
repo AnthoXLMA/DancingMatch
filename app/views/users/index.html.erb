@@ -4,15 +4,15 @@
 </head>
 <body>
   <%= @user.first.dance_id %>
+
   <% @users.each do |i| %>
   <ul>
     <%= i.id %>
-    <li>
-    <%= link_to i.first_name, user_path(@user) %></li>
+    <li><%= link_to i.first_name, user_path(@user) %></li>
     <li>AGE: <%= i.age %></li>
     <li>LOCATION: <%= i.location %></li>
     <li>XP: <%= i.experience %></li>
-    <li>danses:
+    <li>Danses:
       <% i.profiles.each do |user_profile| %>
         <ul>
           <li><%= user_profile.dance.title %></li>
@@ -20,7 +20,7 @@
         </ul><br>
         <% end %>
     </li>
-    <li>Danse favorite: <%= i.dance_id %> <%= Dance.find_by(id: i.dance_id) %>
+    <li>Danse favorite: <%= i.dance_id %> <%= User.find_by(dance_id: i.dance_id).first_name%>
     </li>
 
   </ul>
