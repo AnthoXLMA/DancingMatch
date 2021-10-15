@@ -6,84 +6,146 @@ Dance.destroy_all
 # SEEDS 1 avec dance
 puts "Creating dances..."
 dance1 = Dance.new(title: "Salsa Cubana")
-dance1.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/antho.jpeg')), filename: 'antho.jpeg')
+dance1.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/salsa-cubana.jpeg')), filename: 'salsa-cubana.jpeg')
 dance1.save!
 
 dance2 = Dance.new(title: "Merengue")
-dance2.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/antho.jpeg')), filename: 'antho.jpeg')
+dance2.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/merengue.jpeg')), filename: 'merengue.jpeg')
 dance2.save!
 
 dance3 = Dance.new(title: "Bachata")
+dance3.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/bachata.jpeg')), filename: 'bachata.jpeg')
 dance3.save!
 
 dance4 = Dance.new(title: "Kizomba")
+dance4.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/merengue.jpeg')), filename: 'merengue.jpeg')
 dance4.save!
 
 dance5 = Dance.new(title: "Reggaeton")
+dance5.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/reggaeton.jpeg')), filename: 'reggaeton.jpeg')
 dance5.save!
 
 dance6 = Dance.new(title: "Samba")
+dance6.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/samba.jpeg')), filename: 'samba.jpeg')
 dance6.save!
 
 dance7 = Dance.new(title: "Tango")
+dance7.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/tango.jpeg')), filename: 'tango.jpeg')
 dance7.save!
 
 dance8 = Dance.new(title: "Flamenco")
+dance8.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/tango.jpeg')), filename: 'tango.jpeg')
 dance8.save!
 
 dance9 = Dance.new(title: "Modern Jazz")
+dance9.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/modernjazz.jpeg')), filename: 'modernjazz.jpeg')
 dance9.save!
 
 dance10 = Dance.new(title: "Rumba")
+dance10.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/rumba.jpeg')), filename: 'rumba.jpeg')
 dance10.save!
 
 dance11 = Dance.new(title: "West Coast Swing")
+dance11.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/west-coast-swing.jpeg')), filename: 'west-coast-swing.jpeg')
 dance11.save!
 
 dance12 = Dance.new(title: "Break Dance")
+dance12.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
 dance12.save!
 
 dance13 = Dance.new(title: "Salsa Portoricana")
+dance13.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/salsa-portoricana.jpeg')), filename: 'salsa-portoricana.jpeg')
 dance13.save!
 
 dance14 = Dance.new(title: "Salsa Colombiana")
+dance14.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance14.save!
 
 dance15 = Dance.new(title: "FoxTrot")
+dance15.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance15.save!
 
 dance16 = Dance.new(title: "Lindy Hop")
+dance16.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance16.save!
 
 dance17 = Dance.new(title: "Paso Doble")
+dance17.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance17.save!
 
 dance18 = Dance.new(title: "Milonga")
+dance18.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance18.save!
 
 dance19 = Dance.new(title: "Lambada")
+dance19.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance19.save!
 
 dance20 = Dance.new(title: "Forro")
+dance20.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance20.save!
 
 dance21 = Dance.new(title: "Madison")
+dance21.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance21.save!
 
 dance22 = Dance.new(title: "Son Cubano")
+dance2.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance22.save!
 
 dance23 = Dance.new(title: "Boogie Woogie")
+dance23.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance23.save!
 
-dance24 = Dance.new(title: "Rock and Roll")
+dance24 = Dance.new(title: "Rock 'n' Roll")
+dance24.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance24.save!
 
 dance25 = Dance.new(title: "Tap Dance")
+dance25.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance25.save!
 
 dance26 = Dance.new(title: "Rubbish Looping")
+dance26.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
 dance26.save!
+
+dance27 = Dance.new(title: "Hip Hop")
+dance27.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
+dance27.save!
+
+dance28 = Dance.new(title: "Cha Cha Cha")
+dance28.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
+dance28.save!
+
+dance29 = Dance.new(title: "Valse")
+dance29.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
+dance29.save!
+
+dance30 = Dance.new(title: "Capoeira")
+dance30.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
+dance30.save!
+
+dance31 = Dance.new(title: "Zumba")
+dance31.photo.attach(io: File.open(Rails.root.join('db/fixtures/images/profiles/break-dance.jpeg')), filename: 'break-dance.jpeg')
+
+dance31.save!
 
 # puts 'Creating Users...'
 # anthony = User.new(

@@ -19,13 +19,11 @@
         <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "btn-ghost" %></a>
       </div>
     </div>
-<%= @profile.dance.title %>
+
   </div>
 </div>
-<div class="container-dances" style="margin-top: 400px;">
-  Hello voici la danse de ton profil. Vérifie si l'URL est bonne.
-
-  Doit on editer le profil?
-
-  Experience
+<div class="container-dances" style="margin-top: 200px; height: 700px;">
+  <h2><%= @profile.dance.title %><h2>
+  <p><%= @profile.investissement %></p>
+  <p><%= @profile.niveau %></p>
 </div>

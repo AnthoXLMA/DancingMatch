@@ -29,7 +29,7 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="my_profile">
-    <div class="banner-profile">
+    <div class="banner-profile" style="height:300px">
       <div class="image-profile">
         <%= image_tag @user.photo if @user.photo.attached? %>
       </div>
@@ -43,17 +43,14 @@
         <% @my_dances.each do |dance| %>
           <li><%= dance %></li>
         <% end %>
-      My favorite dance:
-<!--  choix d'une seule danse après updating (select dans danses show)
- -->  <%= @user[:dance_id] %>
         </div>
-        <div class="dance-query">
+        <div class="dance-query" style="width:90%;">
           <div class="query">
             <%= form_tag dances_path, method: :get do %>
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
-              placeholder: "Quelle danse cherches-tu?"
+              placeholder: "Trouve ta communauté"
             %>
           </div>
         <div class="button-OK">
@@ -75,11 +72,15 @@
             </div>
             <div class="infos-card">
               <% if @user.profiles.blank? %>
-                <h4>No pending profiles.<br>Check out the dances.<br></h4>
+                <a>Vous n'avez encore aucun profil de danseur.<br>Sélectionnez vos danses.<br></a>
               <% else %>
-              <% @user.profiles.each do |profile| %>
-              <a><%= link_to profile.dance.title, profile_path(profile) %>
-              <%= link_to "Delete this profile", profile_path(profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
+              <% @user.profiles.each do |i_profile| %>
+              <a><%= link_to i_profile.dance.title, profile_path(i_profile) %>
+                <ul>
+                  <li><%= i_profile.investissement %></li>
+                  <li><%= i_profile.niveau %></li>
+                </ul>
+              <%= link_to "Delete this profile", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
               <% end %></a>
             <% end %>
             </div>
@@ -109,6 +110,16 @@
         </div>
       </div>
     </div>
-
+<script>
+  map.flyTo({
+center: [
+-74.5 + (Math.random() - 0.5) * 10,
+40 + (Math.random() - 0.5) * 10
+],
+essential: true // this animation is considered essential with respect to prefers-reduced-motion
+});
+  //map.setCenter([12, -27]);//[<% current_user.location %>]);
+  //map.setZoom(10);
+</script>
 
 
