@@ -12,35 +12,16 @@
     </div>
   </div>
 
-<%= simple_form_for @profile, method: :patch do |f| %>
+<%= simple_form_for (@profile), method: :put do |f| %>
 <%= f.error_notification %>
-
 <div class="form-inputs">
-
-  <%= @profiles.ids %>
-
-  <% @profile_user.each do |my_dance| %>
-  <%= link_to my_dance.id, profile_path(@profile) %>
-  <%= link_to my_dance.dance.title, method: :delete %>
-  <% end %>
-
-
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :first_name, required: false, autofocus: true %>
-    <%= f.input :age, required: false, autofocus: true %>
-    <%= f.input :location,
-                required: true,
-                input_html: { autocomplete: "location" } %>
-    <%= f.input :experience,
-                required: true,
-                input_html: { autocomplete: "Années d'expérience'" } %>
-    <%= f.label :genre %><br>
-    <%= f.select :gender, User::GENDER_TYPES.each.map { |gender| [gender] } %>
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo, as: :file %>
+  <h2><%= @profile.dance.title %></h2>
+    <br>
+    <%= f.select :investissement, Profile::INVESTISSEMENT.map { |i| [i] } %><br>
+    <%= f.select :niveau, Profile::NIVEAU.map { |n| [n] } %><br>
   </div>
     <div class="form-actions">
-      <%= f.button :submit, "Update" %>
+      <%= f.submit "Update", method: :put %>
     </div>
   <% end %>
 </div>

@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [:show, :create, :edit, :update, :destroy]
+  before_action :set_profile, only: [ :new, :show, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -19,26 +19,29 @@ class ProfilesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @profile = @user.profile.build
+    # @profile = Profile.new
     @profile.save
-      redirect_to profile_path(@profile)
+      redirect_to profile_path(@profile.id)
   end
 
-  def dance_selection
-    @dances = Dance.all
-    if params[:dance]
-      @dances = @dances.select { |dance| dance.title?(params[:dance] ) }
-    end
-  end
+  # def dance_selection
+  #   @dances = Dance.all
+  #   if params[:dance]
+  #     @dances = @dances.select { |dance| dance.title?(params[:dance] ) }
+  #   end
+  # end
 
   def create
     @user = current_user
     @profiles = Profile.all
-    @profile = Profile.new(profile_params)
+    # @profile2 = Profile.new(profile:{ user_id: current_user.id, avatar: '', dance_id: id, niveau: '', investissement: ''})
+    @profile = Profile.new(new_profile_params)
+    # @profile = @user.profile.build
     @profile.user_id = current_user.id
     if !@profiles.include? @profile
       @profile.save
       # if !@user.profile.include? @profile.dance.title
-      redirect_to profile_path(@profile)
+      redirect_to edit_profile_path(@profile)
     else
       redirect_to dances_path
   end
@@ -105,7 +108,7 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = current_user
+    @profile = Profile.find(params[:id])
     @profiles = Profile.all
     @profile_user = @profiles.each do |profile|
       puts profile.dance.title
@@ -118,12 +121,12 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = current_user
+    @profile = Profile.find(params[:id])
     @dances = Dance.all
     @profile.update(profile_params)
       if @profile.update_attributes(profile_params)
         flash[:notice] = 'Profile was successfully updated.'
-        redirect_to profile_path
+        redirect_to user_path(@profile.user_id)
       else
         render :action => "edit"
     end
@@ -149,8 +152,12 @@ class ProfilesController < ApplicationController
     @profile = Profile.find_by(id: params[:id])
   end
 
+  def new_profile_params
+    params.permit(:user_id, :avatar, :dance_id, :niveau, :investissement)
+  end
+
   def profile_params
     # params.permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
-    params.permit(:user_id, :avatar, :dance_id)
+    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement)
   end
 end

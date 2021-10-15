@@ -7,7 +7,19 @@ class Profile < ApplicationRecord
   has_many :dances
   has_many :appointments
 
-  DANCES = []
+ INVESTISSEMENT = [
+  'artiste',
+  'coach',
+  'hobbie',
+  'apprenant'
+  ]
+
+  NIVEAU = [
+    'debutant',
+    'intermédiaire',
+    'avancé',
+    'expert'
+  ]
 
   #   SKILLS = %w[
 #   interpersonal_skills

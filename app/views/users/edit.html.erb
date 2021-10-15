@@ -35,9 +35,9 @@
       <div class="image-profile">
         <%= image_tag @user.photo if @user.photo.attached? %>
       </div>
-       <div class="my-informations">
-        <a><%= f.label :photo %><br>
-        <%= f.file_field :photo, as: :file %><a>
+       <div class="my-informations" style="width:600px;">
+        <a><%= f.label :photo %><br></a>
+        <a><%= f.file_field :photo, as: :file %></a>
         <a><%= f.input :first_name,
                 required: true,
                 autofocus: true,
@@ -59,9 +59,9 @@
                 autofocus: true,
                 input_html: { placeholder: current_user.gender }%></a>
                 <div class="mb-6">
-      <%= f.submit "Update", class: "btn btn-default block w-full text-center", method: :put %>
-      <% end %>
-    </div>
+                  <%= f.button :submit, "Update", class: "btn btn-default block w-full text-center", method: :put %>
+                  <% end %>
+                </div>
         </div>
       </div>
     <div class="menu">
