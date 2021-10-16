@@ -7,11 +7,12 @@ class User < ApplicationRecord
   GENDER_TYPES = ['Gentleman', 'Lady']
 
   DANCES = Dance.all
-  USER_DANCES = DANCES.select do |dance|
-    dance.title
-  end
 
-  has_many :profiles
+  # USER_DANCES = DANCES.select do |dance|
+  #   dance.title
+  # end
+
+  has_many :profiles, dependent: :destroy
   has_one_attached :photo
 
   has_many :appointments, dependent: :delete_all

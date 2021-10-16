@@ -16,7 +16,7 @@
         <a class="link"><%= link_to "Edit", edit_user_path, class:  "btn-ghost" %></a>
       </div>
       <div class="column">
-        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "btn-ghost" %></a>
+        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
       </div>
     </div>
   </div>
@@ -76,11 +76,12 @@
               <% else %>
               <% @user.profiles.each do |i_profile| %>
               <a><%= link_to i_profile.dance.title, profile_path(i_profile) %>
+              <%= link_to "X", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %>
+              <%= link_to "Edit", edit_profile_path(i_profile), class:  "btn-ghost" %></a>
                 <ul>
                   <li><%= i_profile.investissement %></li>
                   <li><%= i_profile.niveau %></li>
                 </ul>
-              <%= link_to "Delete this profile", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
               <% end %></a>
             <% end %>
             </div>
@@ -90,7 +91,7 @@
               <div class="infos-card">
                 <% @users.each do |user| %>
                 <%= image_tag user.photo if user.photo.attached? %>
-                <%= link_to user.first_name, user_path(user)  %><br>
+                <%= link_to user.first_name, user_profiles_path(user)  %><br>
               <% end %>
             </div>
           </div>
