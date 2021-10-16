@@ -3,10 +3,16 @@ Rails.application.routes.draw do
   devise_for :users
 
   devise_scope :user do
-    delete '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  # delete '/logout', to: 'sessions#destroy'
+  # devise_scope :user do
+  #   delete '/logout' => 'sessions#destroy'
+  # end
+
+  # delete '/logout' => 'sessions#destroy'
+  # get '/logout' => 'sessions#destroy'
+  # resources :sessions
 
   root to: 'pages#home'
 

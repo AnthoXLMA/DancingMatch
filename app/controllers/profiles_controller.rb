@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.find(params[:user_id])
     @profiles = Profile.all
     # @dances << dance.push
     @markers = @users.geocoded.map do |user|
@@ -150,6 +151,7 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find_by(id: params[:id])
+    # @user = User.find(params[:id])
   end
 
   def new_profile_params

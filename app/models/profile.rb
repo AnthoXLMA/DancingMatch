@@ -1,5 +1,5 @@
 class Profile < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :delete
 
   validates_associated :user
   has_one_attached :avatar
@@ -8,20 +8,22 @@ class Profile < ApplicationRecord
   has_many :appointments
 
  INVESTISSEMENT = [
-  'artiste',
-  'coach',
-  'hobbie',
-  'apprenant'
+  'Artiste',
+  'Coach',
+  'Hobbie',
+  'Elève'
   ]
 
   NIVEAU = [
-    'debutant',
-    'intermédiaire',
-    'avancé',
-    'expert'
+    'Débutant',
+    'Intermédiaire',
+    'Avancé',
+    'Expert'
   ]
 
-  #   SKILLS = %w[
+
+
+#   SKILLS = %w[
 #   interpersonal_skills
 #   rigor
 #   independence

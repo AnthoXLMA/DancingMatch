@@ -19,6 +19,7 @@
     <br>
     <%= f.select :investissement, Profile::INVESTISSEMENT.map { |i| [i] } %><br>
     <%= f.select :niveau, Profile::NIVEAU.map { |n| [n] } %><br>
+    <%= f.label :type_de_recherche_à_déterminer %><br>
   </div>
     <div class="form-actions">
       <%= f.submit "Update", method: :put %>

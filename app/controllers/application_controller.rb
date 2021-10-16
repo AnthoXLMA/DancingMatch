@@ -17,26 +17,34 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo)
   end
 
+  def configure_sign_out_params
+    devise_parameter_sanitizer.permit(:authenticity_token)
+  end
+
   def destroy
-    @user = current_user
-    @user_update = User.find(params[:id])
-    if @user_update.present?
-      @user_update.destroy
-    end
-      redirect_to root_url
+    # @user = current_user
+    # # @user_update = User.find(params[:id])
+    # # User.find_by([:user_id]).destroy
+    # if @user_update.present?
+    #   @user_update.destroy
+    # end
+    #   redirect_to root_path
   end
 
   def sign_out
     @user = current_user
-    @appointments = @user.appointments.destroy
     @user.destroy
-    # devise_parameter_sanitizer.destroy(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact)
+    # @appointments = @user.appointments.destroy
+    # @profiles = @user.profiles.destroy
+    # @user = User.find(params[:id])
+      # redirect_to root_path
   end
 
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo])
+    devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:username, :password, :remember_me) }
   end
 
   def default_url_options

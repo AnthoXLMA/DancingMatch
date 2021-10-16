@@ -1,4 +1,43 @@
-<% @profiles.each do |profile| %>
-<%= link_to profile.dance.title, user_profiles_path(profile) %>
-<% end %>
+<div class="title-profile">
+  <h1><%= link_to "Dancing Partners", root_path %></h1>
+  <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
+  <div class="section">
+    <div class="row">
+      <div class="column">
+        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
 
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-card-profile">
+
+  HELLO WORLD
+<ul>
+  <li><%= @user.first_name %></li>
+  <li><%= @user.last_name %></li>
+  <li><%= @user.contact %></li>
+  <li><%= @user.email %></li>
+  <li><%= @user.location %></li>
+</ul>
+
+<% @user.profiles.each do |profil| %>
+    <div style="display:flex; border:solid; width:200px; height:100px; margin-bottom:10px; padding:10px; margin-left:10px;">
+      <ul>
+        <li><%= link_to profil.dance.title, user_profiles_path(profil) %></li>
+      <ul>
+    </div>
+  <% end %>
+<div>

@@ -82,6 +82,7 @@ class UsersController < ApplicationController
 
   def destroy
     log_out
+    # @user.destroy
     redirect_to '/login'
   end
 
