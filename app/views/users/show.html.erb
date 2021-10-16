@@ -31,7 +31,7 @@
   <div class="my_profile">
     <div class="banner-profile" style="height:300px">
       <div class="image-profile">
-        <%= image_tag @user.photo if @user.photo.attached? %>
+        <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
        <div class="my-informations">
         <a><%= current_user.first_name %> <%= current_user.last_name %></a>

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SCOPE::SessionsController < Devise::SessionsController
-  before_action :configure_sign_in_params, only: [:create]
+  before_action :configure_sign_in_params, only: [:create, :destroy]
 
   def create
     super do |resource|

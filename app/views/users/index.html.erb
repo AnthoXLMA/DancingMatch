@@ -16,14 +16,6 @@
         </ul><br>
         <% end %>
     </li>
-    <li>Danse favorite: <%= i.dance_id %> <%= User.find_by(id: i.dance_id) %>
     </li>
-
   </ul>
   <% end %>
-  <h2>TOUTES LES DANSES</h2>
-  <% @dances.each do | dance | %>
-  <%= dance.title %>
-  <% end %><br>
-  <h2>ESSAI: </h2>
-  <%= Dance.find_by(id: 3).title %>
