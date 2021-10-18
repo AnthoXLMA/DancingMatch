@@ -37,9 +37,9 @@
         <a><%= current_user.first_name %> <%= current_user.last_name %></a>
         <a><%= current_user.gender %></a>
         <a><%= current_user.age %> years old</a>
-        <a><%=current_user.location %></a>
+        <a><%= current_user.location %></a>
         <a><%= current_user.experience %> years experience</a>
-        My events<br>
+        <a>My events</a><br>
         <% @my_dances.each do |dance| %>
           <li><%= dance %></li>
         <% end %>

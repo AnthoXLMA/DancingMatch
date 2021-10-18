@@ -8,15 +8,6 @@ class UsersController < ApplicationController
     @user = @users.each do |user|
       user
     end
-    # @user = current_user
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
-      }
-    end
     @dances = Dance.all
     # @dance = Dance.find_by(id: @user.dance_id.first)
     # @favorite_dance_title = Dance.select('title').where(id: @user.dance_id).first.title
@@ -59,6 +50,14 @@ class UsersController < ApplicationController
     @profile.dances.each do |profile_dance|
     @dance = profile_dance.title
     @my_dances << @dance if !@my_dances.include?(@dance)
+    end
+    @markers = @users.geocoded.map do |u|
+      {
+        lat: u.latitude,
+        lng: u.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { u: u }),
+        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
+      }
     end
   end
 
