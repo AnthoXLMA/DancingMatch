@@ -30,10 +30,10 @@
   </div>
   <div class="my_profile">
     <div class="banner-profile">
-        <%= simple_form_for(@user, method: :put) do |f| %>
+        <%= simple_form_for(current_user, method: :put) do |f| %>
           <%= f.error_notification %>
       <div class="image-profile">
-        <%= image_tag @user.photo if @user.photo.attached? %>
+        <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
        <div class="my-informations" style="width:600px;">
         <a><%= f.label :photo %><br></a>
@@ -54,13 +54,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { placeholder: current_user.location }%></a>
-                <a><%= f.input :gender,
-                required: true,
-                autofocus: true,
-                input_html: { placeholder: current_user.gender }%></a>
+                <a><%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %></a><br>
                 <div class="mb-6">
                   <%= f.button :submit, "Update", method: :put %>
-                  <% end %>
+                <% end %>
                 </div>
         </div>
       </div>
