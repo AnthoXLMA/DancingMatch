@@ -16,10 +16,12 @@
 <%= f.error_notification %>
 <div class="form-inputs">
   <h2><%= @profile.dance.title %></h2>
-    <br>
+    <%= f.label :Category %>
     <%= f.select :investissement, Profile::INVESTISSEMENT.map { |i| [i] } %><br>
+    <%= f.label :Experience_Level %>
     <%= f.select :niveau, Profile::NIVEAU.map { |n| [n] } %><br>
-    <%= f.label :type_de_recherche_à_déterminer %><br>
+    <%= f.label :Training_hours_per_week %>
+    <%= f.select :training_per_week, Profile::TRAINING_per_Week.map { |t| [t] } %><br>
   </div>
     <div class="form-actions">
       <%= f.submit "Update", method: :put %>

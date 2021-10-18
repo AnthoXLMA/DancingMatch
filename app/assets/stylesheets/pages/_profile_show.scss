@@ -198,9 +198,13 @@
         background-image: url(user.photo);
         object-fit: cover;
         }
+        .bi .bi-pen{
+          width:10px;
+          height:10px;
+        }
       }
     }
-    }
+  }
     .accroche {
       text-align:center;
       display: grid;

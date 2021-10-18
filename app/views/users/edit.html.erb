@@ -23,11 +23,7 @@
 </div>
 <div class="container-card-profile">
 <div class="container1">
-  <div id="map"
-     data-markers="<%= @markers.to_json %>"
-     data-dancers="<%= @dancers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+
   <div class="my_profile">
     <div class="banner-profile">
         <%= simple_form_for(current_user, method: :put) do |f| %>
