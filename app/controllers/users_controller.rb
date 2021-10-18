@@ -5,9 +5,10 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @profiles = Profile.all
-    @user = @users.each do |user|
-      user
-    end
+    # @user = @users.each do |user|
+    #   user
+    # end
+    # @user = User.find(params[:id])
     @dances = Dance.all
     # @dance = Dance.find_by(id: @user.dance_id.first)
     # @favorite_dance_title = Dance.select('title').where(id: @user.dance_id).first.title
@@ -59,6 +60,11 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
+    if params[:query].present?
+    @dances = Dance.where("lower(title) LIKE ?", "%#{params[:query].downcase}%")
+  else
+    @dances = Dance.all
+  end
   end
 
   def edit

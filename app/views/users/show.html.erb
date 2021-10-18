@@ -4,6 +4,9 @@
   <div class="section">
     <div class="row">
       <div class="column">
+        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
         <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
@@ -68,22 +71,23 @@
           <div class="titres-cadre">
             <div class="titres">
               <p>Mes profils danses <%= link_to "+", dances_path %></p>
-
             </div>
             <div class="infos-card">
               <% if @user.profiles.blank? %>
                 <a>Vous n'avez encore aucun profil de danseur.<br>Sélectionnez vos danses.<br></a>
-              <% else %>
-              <% @user.profiles.each do |i_profile| %>
-              <a><%= link_to i_profile.dance.title, profile_path(i_profile) %>
-              <%= link_to "X", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %>
-              <%= link_to "Edit", edit_profile_path(i_profile), class:  "btn-ghost" %></a>
+                <% else %>
+                <% @user.profiles.each do |i_profile| %>
+<!--            <a><% @user.profiles.index_by {|r| r[:i_profile]}.values %></a>
+ -->             <a><%= link_to i_profile.dance.title, profile_path(i_profile) %></a>
+                <a><%= link_to "X", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %></a>
+                <a><%= link_to "Edit", edit_profile_path(i_profile), class:  "btn-ghost" %></a>
+                <i class="bi bi-pen"></i>
                 <ul>
                   <li><%= i_profile.investissement %></li>
                   <li><%= i_profile.niveau %></li>
                 </ul>
-              <% end %></a>
-            <% end %>
+                <% end %>
+              <% end %>
             </div>
           </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">

@@ -4,16 +4,19 @@
   <div class="section">
     <div class="row">
       <div class="column">
-        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
       </div>
       <div class="column">
-        <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+        <a class="link"><%= link_to "Community", users_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Dances", dances_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
         <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
-        <a class="link"><%= link_to "Edit", edit_profile_path, class:  "btn-ghost" %></a>
+        <a class="link"><%= link_to "Edit your profile", edit_user_path(@user), class:  "btn-ghost" %></a>
       </div>
       <div class="column">
         <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "btn-ghost" %></a>
@@ -26,4 +29,6 @@
   <h2><%= @profile.dance.title %><h2>
   <p><%= @profile.investissement %></p>
   <p><%= @profile.niveau %></p>
+  <p><%= @profile.training_per_week %></p>
+  <div class="button"><%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
 </div>

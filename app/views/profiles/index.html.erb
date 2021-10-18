@@ -4,6 +4,9 @@
   <div class="section">
     <div class="row">
       <div class="column">
+        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
         <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
@@ -13,7 +16,7 @@
         <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
-
+        <a class="link"><%= link_to "Edit your profile", edit_user_path(@user), class: "btn-ghost" %></a>
       </div>
       <div class="column">
         <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
@@ -21,21 +24,36 @@
     </div>
   </div>
 </div>
-
 <div class="container-card-profile">
-<ul>
-  <li><%= @user.first_name %></li>
-  <li><%= @user.last_name %></li>
-  <li><%= @user.contact %></li>
-  <li><%= @user.email %></li>
-  <li><%= @user.location %></li>
-</ul>
-
+  <div style="position:fixed; display:flex;">
+    <%= image_tag @user.photo if @user.photo.attached? %>
+    <div>
+      <ul>
+        <li><%= @user.first_name %></li>
+        <li><%= @user.last_name %></li>
+        <li><%= @user.contact %></li>
+        <li><%= @user.email %></li>
+        <li><%= @user.location %></li>
+        <br>
+        <br>
+      </ul>
+    </div>
+  </div>
+</div>
+<div style="margin-left:600px; margin-top:5px; padding:10px;">
 <% @user.profiles.each do |profil| %>
-    <div style="display:flex; border:solid; width:200px; height:100px; margin-bottom:10px; padding:10px; margin-left:10px;">
+    <div style="margin-top:20px; border:solid; width:300px; height:200px; margin-bottom:10px; padding:10px; margin-left:10px;">
       <ul>
-        <li><%= link_to profil.dance.title, user_profiles_path(profil) %></li>
-      <ul>
+        <li><%= link_to profil.dance.title, dance_path(profil.dance) %></li>
+        <li><%= profil.niveau %></li>
+        <li><%= profil.investissement %></li>
+        <li><%= profil.training_per_week %> hours/week</li>
+      </ul>
+        <div style="display:flex; height:50px; width:250px; margin-right:10px; justify-content:space-evenly;">
+          <button type="button" class="btn btn-primary">Request</button>
+          <button type="button" class="btn btn-danger">Reviews</button>
+        </div>
     </div>
   <% end %>
-<div>
+</div>
+

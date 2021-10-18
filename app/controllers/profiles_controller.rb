@@ -6,15 +6,6 @@ class ProfilesController < ApplicationController
     @users = User.all
     @user = User.find(params[:user_id])
     @profiles = Profile.all
-    # @dances << dance.push
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
-      }
-    end
   end
 
   def new
@@ -38,10 +29,9 @@ class ProfilesController < ApplicationController
     # @profile2 = Profile.new(profile:{ user_id: current_user.id, avatar: '', dance_id: id, niveau: '', investissement: ''})
     @profile = Profile.new(new_profile_params)
     # @profile = @user.profile.build
-    @profile.user_id = current_user.id
     if !@profiles.include? @profile
+    @profile.user_id = current_user.id
       @profile.save
-      # if !@user.profile.include? @profile.dance.title
       redirect_to edit_profile_path(@profile)
     else
       redirect_to dances_path
@@ -155,11 +145,11 @@ class ProfilesController < ApplicationController
   end
 
   def new_profile_params
-    params.permit(:user_id, :avatar, :dance_id, :niveau, :investissement)
+    params.permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week)
   end
 
   def profile_params
     # params.permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
-    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement)
+    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :_method, :authenticity_token)
   end
 end
