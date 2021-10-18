@@ -17,7 +17,7 @@
       La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= @partners_of_this_dance.count %> partenaires <br>
       <% @partners_of_this_dance.each do |member| %>
       <li>
-        <%= member.user.first_name %>
+        <%= link_to member.user.first_name, user_profiles_path(@user) %>
       </li>
       <% end %><br>
         <p><%= @appointments_on_map.count %> events</p>
