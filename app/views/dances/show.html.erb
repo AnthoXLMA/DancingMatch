@@ -11,10 +11,10 @@
 <div class="container3">
   <div class="container-appointments-dances">
     <div class="appointment-card2">
-      Dancing Partners Total Number <a><%= @profiles.count %> </a>
-      <p>Carte de la communauté</p>
-      <h1><%= link_to @style, dance_path(@dance) %></h1>
-      Cette communauté contient <%= @partners_of_this_dance.count %> partenaires <br>
+      <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
+      Dancers number: <a><%= @profiles.count %> </a><br>
+      Members number: <a><%= @users.count %> </a><br>
+      La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= @partners_of_this_dance.count %> partenaires <br>
       <% @partners_of_this_dance.each do |member| %>
       <li>
         <%= member.user.first_name %>

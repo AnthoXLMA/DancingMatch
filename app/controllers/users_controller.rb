@@ -71,7 +71,6 @@ class UsersController < ApplicationController
     @user.update(user_params)
     # @user = current_user
     @dances = Dance.all
-    # @user.update(user_params)
       if @user.update_attributes(user_params)
         flash[:notice] = 'User was successfully updated.'
         redirect_to user_path
