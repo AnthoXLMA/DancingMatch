@@ -14,12 +14,13 @@ class User < ApplicationRecord
 
   has_many :profiles, dependent: :destroy
   has_one_attached :photo
-
+  has_many :meetings, through: :profiles
   has_many :appointments, dependent: :delete_all
   has_one :dance
   has_many :dances, through: :appointments
   has_many :partners, through: :dances
   has_many :messages, through: :chatrooms
+  has_many :reviews, dependent: :destroy
 
   geocoded_by :location
     after_validation :geocode, if: :will_save_change_to_location?

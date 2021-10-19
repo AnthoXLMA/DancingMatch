@@ -23,6 +23,14 @@ Rails.application.routes.draw do
     resources :profiles, only: [:show, :edit, :update]
   end
 
+  resources :users, only: [ :index, :show ] do
+    resources :reviews, only: [:index, :create, :new, :destroy]
+  end
+
+  resources :reviews, only: [ :index, :show ] do
+    resources :profiles, only: [:index, :update, :destroy]
+  end
+
   resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
     resources :users, only: [:index, :create, :show, :new, :edit]
   end
@@ -39,7 +47,7 @@ Rails.application.routes.draw do
     resources :dances
   end
 
-  resources :dances, only: [:index] do
+  resources :requests, only: [:index] do
       member do
         patch :accept
         patch :refuse

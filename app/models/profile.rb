@@ -4,8 +4,10 @@ class Profile < ApplicationRecord
   validates_associated :user
   has_one_attached :avatar
   belongs_to :dance
+  has_one :feed
   has_many :dances
   has_many :appointments
+  has_many :meetings
 
  INVESTISSEMENT = [
   'Social Dancer',

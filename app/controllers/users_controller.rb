@@ -62,9 +62,11 @@ class UsersController < ApplicationController
     end
     if params[:query].present?
     @dances = Dance.where("lower(title) LIKE ?", "%#{params[:query].downcase}%")
-  else
-    @dances = Dance.all
-  end
+    else
+      @dances = Dance.all
+    end
+    @user =User.find(params[:id])
+    @review = Review.new
   end
 
   def edit

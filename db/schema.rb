@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_18_105527) do
+ActiveRecord::Schema.define(version: 2021_10_19_081704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,9 +61,24 @@ ActiveRecord::Schema.define(version: 2021_10_18_105527) do
     t.index ["user_id"], name: "index_dances_on_user_id"
   end
 
+  create_table "feeds", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id", null: false
+    t.index ["profile_id"], name: "index_feeds_on_profile_id"
+  end
+
   create_table "meetings", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.bigint "profile_id", null: false
+    t.bigint "dance_id", null: false
+    t.datetime "date"
+    t.string "location"
+    t.index ["dance_id"], name: "index_meetings_on_dance_id"
+    t.index ["profile_id"], name: "index_meetings_on_profile_id"
+    t.index ["user_id"], name: "index_meetings_on_user_id"
   end
 
   create_table "partners", force: :cascade do |t|
@@ -82,6 +97,23 @@ ActiveRecord::Schema.define(version: 2021_10_18_105527) do
     t.integer "training_per_week"
     t.index ["dance_id"], name: "index_profiles_on_dance_id"
     t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "profile_id", null: false
+    t.bigint "dance_id", null: false
+    t.index ["dance_id"], name: "index_requests_on_dance_id"
+    t.index ["profile_id"], name: "index_requests_on_profile_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -114,7 +146,14 @@ ActiveRecord::Schema.define(version: 2021_10_18_105527) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "appointments", "dances"
   add_foreign_key "dances", "users"
+  add_foreign_key "feeds", "profiles"
+  add_foreign_key "meetings", "dances"
+  add_foreign_key "meetings", "profiles"
+  add_foreign_key "meetings", "users"
   add_foreign_key "profiles", "dances"
   add_foreign_key "profiles", "users"
+  add_foreign_key "requests", "dances"
+  add_foreign_key "requests", "profiles"
+  add_foreign_key "reviews", "users"
   add_foreign_key "users", "dances"
 end

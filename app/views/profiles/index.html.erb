@@ -25,7 +25,7 @@
   </div>
 </div>
 <div class="container-card-profile">
-  <div style="position:fixed; display:flex;">
+  <div style="display:flex; width:600px;">
     <%= image_tag @user.photo if @user.photo.attached? %>
     <div>
       <ul>
@@ -38,10 +38,8 @@
         <br>
       </ul>
     </div>
-  </div>
-</div>
-<div style="margin-left:600px; margin-top:5px; padding:10px;">
-<% @user.profiles.each do |profil| %>
+    <div style="margin-left:100px; margin-top:5px; padding:10px;">
+    <% @user.profiles.each do |profil| %>
     <div style="margin-top:20px; border:solid; width:300px; height:200px; margin-bottom:10px; padding:10px; margin-left:10px;">
       <ul>
         <li><%= link_to profil.dance.title, dance_path(profil.dance) %></li>
@@ -50,10 +48,31 @@
         <li><%= profil.training_per_week %> hours/week</li>
       </ul>
         <div style="display:flex; height:50px; width:250px; margin-right:10px; justify-content:space-evenly;">
-          <button type="button" class="btn btn-primary">Request</button>
-          <button type="button" class="btn btn-danger">Reviews</button>
+          <button type="button" class="btn btn-primary"><%= link_to 'Request', method: :patch %></button>
+          <button type="button" class="btn btn-danger"><%= link_to 'Review', user_reviews_path(@user), method: :post %></button>
         </div>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+  </div>
+  <div class ="reviews-block">
+      <h2>
+        <%= pluralize @user.reviews.size, "review" %>
+      </h2>
+    <div style="width:500px;">
+      <%= simple_form_for([ @user, @review ], remote: true) do |f| %>
+          <%= f.input :content, as: :text %>
+          <%= f.button :submit %>
+      <% end %>
+    </div>
+    <div id="reviews">
+      <% if @user.reviews.blank? %>
+        Be the first to leave a review for <%= @user.first_name %>
+      <% else %>
+        <% @user.reviews.each do |review| %>
+          <p><%= review.content %></p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 

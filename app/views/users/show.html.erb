@@ -32,7 +32,7 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="my_profile">
-    <div class="banner-profile" style="height:300px">
+    <div class="banner-profile" style="height:500px">
       <div class="image-profile">
         <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
@@ -46,6 +46,24 @@
         <% @my_dances.each do |dance| %>
           <li><%= dance %></li>
         <% end %>
+        <div class ="reviews-block">
+          <h2>
+            <%= pluralize @user.reviews.size, "review" %>
+          </h2>
+            <div id="reviews">
+              <% if @user.reviews.blank? %>
+                Be the first to leave a review for <%= @user.first_name %>
+              <% else %>
+                <% @user.reviews.each do |review| %>
+                  <p><%= review.content %></p>
+                <% end %>
+              <% end %>
+            </div>
+            <%= simple_form_for([ @user, @review ], remote: true) do |f| %>
+              <%= f.input :content, as: :text %>
+              <%= f.button :submit %>
+            <% end %>
+          </div>
         </div>
         <div class="dance-query" style="width:90%;">
           <div class="query">
@@ -85,11 +103,12 @@
                 <ul>
                   <li><%= i_profile.investissement %></li>
                   <li><%= i_profile.niveau %></li>
+                  <li><%= i_profile.training_per_week %> hours/week</li>
                 </ul>
                 <% end %>
+              </div>
               <% end %>
             </div>
-          </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres"><p>Partenaires</p></div>
               <div class="infos-card">
@@ -109,22 +128,12 @@
               </div>
               <% end %>
             </div>
+          </div>
             </div>
           </div>
           </div>
         </div>
       </div>
     </div>
-<script>
-  map.flyTo({
-center: [
--74.5 + (Math.random() - 0.5) * 10,
-40 + (Math.random() - 0.5) * 10
-],
-essential: true // this animation is considered essential with respect to prefers-reduced-motion
-});
-  //map.setCenter([12, -27]);//[<% current_user.location %>]);
-  //map.setZoom(10);
-</script>
 
 
