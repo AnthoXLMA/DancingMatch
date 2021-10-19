@@ -6,6 +6,7 @@ class ProfilesController < ApplicationController
     @users = User.all
     @user = User.find(params[:user_id])
     @profiles = Profile.all
+    @review = Review.new
   end
 
   def new

@@ -32,7 +32,7 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="my_profile">
-    <div class="banner-profile" style="height:300px">
+    <div class="banner-profile" style="height:500px">
       <div class="image-profile">
         <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
@@ -47,9 +47,9 @@
           <li><%= dance %></li>
         <% end %>
         <div class ="reviews-block">
-              <h2>
-                <%= pluralize @user.reviews.size, "review" %>
-              </h2>
+          <h2>
+            <%= pluralize @user.reviews.size, "review" %>
+          </h2>
             <div id="reviews">
               <% if @user.reviews.blank? %>
                 Be the first to leave a review for <%= @user.first_name %>
@@ -59,7 +59,7 @@
                 <% end %>
               <% end %>
             </div>
-            <%= simple_form_for([ @user, @review ]) do |f| %>
+            <%= simple_form_for([ @user, @review ], remote: true) do |f| %>
               <%= f.input :content, as: :text %>
               <%= f.button :submit %>
             <% end %>

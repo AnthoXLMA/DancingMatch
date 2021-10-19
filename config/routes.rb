@@ -24,7 +24,11 @@ Rails.application.routes.draw do
   end
 
   resources :users, only: [ :index, :show ] do
-    resources :reviews, only: :create
+    resources :reviews, only: [:index, :create, :new, :destroy]
+  end
+
+  resources :reviews, only: [ :index, :show ] do
+    resources :profiles, only: [:index, :update, :destroy]
   end
 
   resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
