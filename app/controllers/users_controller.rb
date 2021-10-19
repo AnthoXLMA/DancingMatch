@@ -65,6 +65,8 @@ class UsersController < ApplicationController
     else
       @dances = Dance.all
     end
+    @user =User.find(params[:id])
+    @review = Review.new
   end
 
   def edit

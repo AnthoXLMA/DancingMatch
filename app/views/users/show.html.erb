@@ -59,6 +59,10 @@
                 <% end %>
               <% end %>
             </div>
+            <%= simple_form_for([ @user, @review ]) do |f| %>
+              <%= f.input :content, as: :text %>
+              <%= f.button :submit %>
+            <% end %>
           </div>
         </div>
         <div class="dance-query" style="width:90%;">
