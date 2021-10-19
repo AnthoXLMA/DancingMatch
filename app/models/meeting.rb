@@ -1,4 +1,4 @@
 class Meeting < ApplicationRecord
   belongs_to :user
-  belongs_to :partner
+  belongs_to :profile
 end

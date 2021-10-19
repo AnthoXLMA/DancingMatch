@@ -150,6 +150,6 @@ class ProfilesController < ApplicationController
 
   def profile_params
     # params.permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
-    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :_method, :authenticity_token)
+    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_weeks)
   end
 end

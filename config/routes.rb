@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     resources :dances
   end
 
-  resources :dances, only: [:index] do
+  resources :requests, only: [:index] do
       member do
         patch :accept
         patch :refuse
