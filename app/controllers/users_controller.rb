@@ -5,13 +5,7 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @profiles = Profile.all
-    # @user = @users.each do |user|
-    #   user
-    # end
-    # @user = User.find(params[:id])
     @dances = Dance.all
-    # @dance = Dance.find_by(id: @user.dance_id.first)
-    # @favorite_dance_title = Dance.select('title').where(id: @user.dance_id).first.title
   end
 
   def new
@@ -20,20 +14,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    # @user = User.new(params[:user])
-    # if @user.save
-    #   session[:user_id] = @user.id
-    #   flash[:notice] = "Thank you for signing up! You are now logged in."
-    #   redirect_to new_profile_path
-    # else
-    #   render :action => 'new'
-    # end
     @user = User.find(params[:user_id])
     @profile = @user.profile.build(params[:profile])
     if @profile.save
     flash[:notice] = 'Profile was successfully created.'
     redirect_to(@profile)
-    # redirect_to new_user_profile_path(:user_id => @user)
     else
     flash[:notice] = 'Error.  Something went wrong.'
     render :action => "new"
@@ -44,8 +29,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @users = User.all
+    @user = User.find(params[:id])
+    @dances = Dance.all
     @profile = current_user
     @my_dances = []
     @profile.dances.each do |profile_dance|
@@ -65,20 +51,15 @@ class UsersController < ApplicationController
     else
       @dances = Dance.all
     end
-    @user =User.find(params[:id])
     @review = Review.new
-  end
-
-  def edit
+    # @reviews = @user.reviews
   end
 
   def update
     @user = User.find(params[:id])
-    # @dances = Dance.all
     @user.update(user_params)
-    # @user = current_user
     @dances = Dance.all
-      if @user.update_attributes(user_params)
+      if @user.update(user_params)
         flash[:notice] = 'User was successfully updated.'
         redirect_to user_path
       else
@@ -88,21 +69,12 @@ class UsersController < ApplicationController
 
   def destroy
     log_out
-    # @user.destroy
     redirect_to '/login'
   end
 
   def destroy_profile
     @user = current_user
-    # @profiles = Profile.all
-    # @profile = @profiles.each do |profile|
-    #   profile
-    # end
     @user.profiles.destroy(@profile)
-    # @profile_user = @user.profile.each do |profile|
-    #   puts profile.dance.title
-    # end
-    # @user.profile.destroy(@user.profile)
       redirect_to user_path
   end
 
