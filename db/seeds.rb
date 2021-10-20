@@ -14,7 +14,7 @@ User.create!({
 User.create!({
   first_name: "Paul",
   last_name: "Belmondo",
-  location: "Van Arteveldestraat 1, 1000 Brussels, Belgium",
+  location: "15 Rue Monge, 75005 Paris, France",
   email: "belmond@example.com",
   password: "secreta"
 })
@@ -115,6 +115,7 @@ dance30.save!
 dance31 = Dance.new(title: "Zumba")
 dance31.save!
 
+puts 'Finished!'
 # puts 'Creating Users...'
 # anthony = User.new(
 #   first_name: 'Anthony',
@@ -166,8 +167,6 @@ dance31.save!
 #   # dance: dance3,
 # )
 # peter.save
-
-puts 'Finished!'
 
 # Appointment.destroy_all
 # Message.destroy_all

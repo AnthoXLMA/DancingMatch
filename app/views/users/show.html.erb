@@ -16,7 +16,7 @@
         <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
       </div>
       <div class="column">
-        <a class="link"><%= link_to "Edit", edit_user_path, class:  "btn-ghost" %></a>
+        <a class="link"><%= link_to "Edit", edit_user_path(@user), class:  "btn-ghost" %></a>
       </div>
       <div class="column">
         <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
@@ -32,7 +32,7 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="my_profile">
-    <div class="banner-profile" style="height:500px">
+    <div class="banner-profile" style="height:300px">
       <div class="image-profile">
         <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
@@ -43,26 +43,11 @@
         <a><%= current_user.location %></a>
         <a><%= current_user.experience %> years experience</a>
         <a>My events</a><br>
-        <% @my_dances.each do |dance| %>
-          <li><%= dance %></li>
-        <% end %>
         <div class ="reviews-block">
           <h2>
-            <%= pluralize @user.reviews.size, "review" %>
+            <%= pluralize current_user.reviews.size, "review" %>
+            <%= link_to "See all reviews", user_reviews_path(current_user) %>
           </h2>
-            <div id="reviews">
-              <% if @user.reviews.blank? %>
-                Be the first to leave a review for <%= @user.first_name %>
-              <% else %>
-                <% @user.reviews.each do |review| %>
-                  <p><%= review.content %></p>
-                <% end %>
-              <% end %>
-            </div>
-            <%= simple_form_for([ @user, @review ], remote: true) do |f| %>
-              <%= f.input :content, as: :text %>
-              <%= f.button :submit %>
-            <% end %>
           </div>
         </div>
         <div class="dance-query" style="width:90%;">

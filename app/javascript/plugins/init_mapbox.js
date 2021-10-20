@@ -9,7 +9,7 @@ const initMapbox = () => {
       container: 'map',
       style: 'mapbox://styles/anthoxlma/ckda6nvtt0wzd1io6jwb62iau',
       center: [2.351523670379514, 48.85222877948316],
-      zoom: 5,
+      zoom: 2,
     });
 
     const markers = JSON.parse(mapElement.dataset.markers);

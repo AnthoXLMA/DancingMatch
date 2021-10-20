@@ -3,7 +3,7 @@
         <%= pluralize @user.reviews.size, "review" %>
       </h2>
     <div style="width:500px;">
-      <%= simple_form_for([ @user, @review ], remote: true) do |f| %>
+      <%= simple_form_for([ @user, @review ]) do |f| %>
           <%= f.input :content, as: :text %>
           <%= f.button :submit %>
       <% end %>

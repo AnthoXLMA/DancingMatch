@@ -6,34 +6,29 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @user =User.find(params[:id])
-    @review = Review.new(review_params)
-    @review.save
+    @review = Review.new
   end
 
   def create
+    @users = User.all
     @user = User.find(params[:user_id])
-    @review = Review.new(new_review_params)
+    @review = Review.new(review_params)
     @review.user = @user
     if @review.save
-      redirect_to user_profiles_path(@user)
+      redirect_to user_path(current_user)
     else
-      render 'users/show'
+      render :new
     end
-  end
-
-  def destroy
-    @review.destroy
   end
 
   private
 
   def set_review
-    @review = User.reviews.find(params[:user_id])
+    @review = Review.find(params[:user_id])
   end
 
   def new_review_params
-    params.permit(:content, :user_id)
+    params.permit(:content, :user_id, :review)
   end
 
   def review_params

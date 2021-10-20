@@ -12,7 +12,6 @@ class ProfilesController < ApplicationController
   def new
     @user = User.find(params[:user_id])
     @profile = @user.profile.build
-    # @profile = Profile.new
     @profile.save
       redirect_to profile_path(@profile.id)
   end
