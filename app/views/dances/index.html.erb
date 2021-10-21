@@ -11,7 +11,7 @@
     <%= link_to "Back", :back %>
   </div>
 <div class="container-dances">
-      <p> Dancing Partners has found <%=  @style.count %> dance(s) </p>
+      <p>Dancing Partners has found <%=  pluralize @style.count, "dance" %></p>
     <div class="search1">
       <%= form_tag dances_path, method: :get do %>
       <%= text_field_tag :query,
@@ -29,7 +29,7 @@
         <div class="image-dance">
         <%= image_tag dance.photo if dance.photo.attached? %>
       </div>
-        <%= dance.profiles.count %>
+        <%= pluralize dance.profiles.count, "dancer" %>
       </div>
       <% end %>
   </div>

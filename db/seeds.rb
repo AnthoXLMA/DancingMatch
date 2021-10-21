@@ -3,22 +3,22 @@ puts "cleaning DB..."
 User.destroy_all
 Dance.destroy_all
 
-puts 'Creating Users...'
-User.create!({
-  first_name: "Richard",
-  last_name: "Dindon",
-  location: "18 Rue Beautreillis, 75004 Paris, France",
-  email: "dindon@example.com",
-  password: "secreti"
-})
-User.create!({
-  first_name: "Paul",
-  last_name: "Belmondo",
-  location: "15 Rue Monge, 75005 Paris, France",
-  email: "belmond@example.com",
-  password: "secreta"
-})
-puts 'Finished!'
+# puts 'Creating Users...'
+# User.create!({
+#   first_name: "Richard",
+#   last_name: "Dindon",
+#   location: "18 Rue Beautreillis, 75004 Paris, France",
+#   email: "dindon@example.com",
+#   password: "secreti"
+# })
+# User.create!({
+#   first_name: "Paul",
+#   last_name: "Belmondo",
+#   location: "15 Rue Monge, 75005 Paris, France",
+#   email: "belmond@example.com",
+#   password: "secreta"
+# })
+# puts 'Finished!'
 # SEEDS 1 avec dance
 puts "Creating dances..."
 dance1 = Dance.new(title: "Salsa Cubana")
