@@ -1,25 +1,28 @@
 <div class="background">
   <div class="container">
     <div class="title">
-      <h1><%= link_to "Dancing Partners", root_path %></h1>
+      <h1><%= "Dancing Partners" %></h1>
       <p>The First WorldWide Dancers Agenda Community</p>
     </div>
     <div class="section">
       <div class="row">
         <div class="column">
-          <a class="link"><%= link_to "Profil", users_path, class:  "btn-ghost" %></a>
+          <a class="link"><%= link_to "Profil", user_path(current_user), class: "btn-ghost" %></a>
         </div>
         <div class="column">
-          <a class="link"><%= link_to "Danses", dances_path, class:  "btn-ghost" %></a>
+          <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
         </div>
         <div class="column">
-          <a class="link"><%= link_to "Agenda", appointments_path, class:  "btn-ghost" %></a>
+          <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
         </div>
         <div class="column">
-          <a class="link"><%= link_to "Communauté", profiles_path, class:  "btn-ghost" %></a>
+          <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
         </div>
         <div class="column">
-          <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:  "btn-ghost" %></a>
+          <a class="link"><%= link_to "Edit", edit_user_path(current_user), class: "btn-ghost" %></a>
+        </div>
+        <div class="column">
+          <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
         </div>
       </div>
     </div>

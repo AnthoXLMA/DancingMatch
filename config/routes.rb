@@ -43,6 +43,10 @@ Rails.application.routes.draw do
     resources :dances
   end
 
+  resources :profiles, only: [:index, :new, :create, :show] do
+    resources :requests, only: [:new, :create]
+  end
+
   resources :requests, only: [:index] do
       member do
         patch :accept

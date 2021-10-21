@@ -5,7 +5,8 @@ class ProfilesController < ApplicationController
   def index
     @users = User.all
     @user = User.find(params[:user_id])
-    @profiles = Profile.all
+    # @profiles = Profile.all
+    @profiles = current_user.profiles
     @review = Review.new
   end
 
