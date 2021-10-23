@@ -8,12 +8,15 @@ class Profile < ApplicationRecord
   has_many :dances
   has_many :appointments
   has_many :meetings
+  has_many :requests, dependent: :destroy
 
  INVESTISSEMENT = [
   'Social Dancer',
   'Student Dancer',
   'Training Dancer',
-  'Show Dancer'
+  'Coach',
+  'Show Dancer',
+  'Choreographer'
   ]
 
   NIVEAU = [

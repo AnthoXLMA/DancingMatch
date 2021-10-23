@@ -32,7 +32,7 @@
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <div class="my_profile">
-    <div class="banner-profile" style="height:300px">
+    <div class="banner-profile" style="height:400px">
       <div class="image-profile">
         <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
@@ -42,7 +42,14 @@
         <a><%= current_user.age %> years old</a>
         <a><%= current_user.location %></a>
         <a><%= current_user.experience %> years experience</a>
-        <a>My events</a><br>
+        <a>My requests to users</a>
+        <% current_user.requests.each do |r| %>
+        <%= r.profile.dance.title %> with <%= r.profile.user.first_name %> by <%= r.user.first_name %><br>
+        <% end %>
+        <h4 style="font-weight:bold">Requests from other users</h4>
+        <% @dancing_partners.each do |dancing_partner| %>
+        <%= dancing_partner.user.first_name %>
+        <% end %>
         <div class ="reviews-block">
           <h2>
             <%= pluralize current_user.reviews.size, "review" %>
