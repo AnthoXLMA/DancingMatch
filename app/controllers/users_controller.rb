@@ -33,7 +33,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @profiles = Profile.all
     @requests = Request.where(user_id: :id)
-    @dancing_partners = Request.all
+    @requests = Request.all
+    # @dancing_partners = Request.all
+    # @partenaire = Profile.find(Ø).user.first_name
+    @dancing_partners = Request.where(user: @user)
     @dances = Dance.all
     @profile = @user.profiles.each do |profile|
       profile.dance.title

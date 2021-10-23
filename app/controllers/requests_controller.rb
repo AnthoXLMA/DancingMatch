@@ -2,8 +2,6 @@ class RequestsController < ApplicationController
 
   def index
     @requests = Request.all
-    # @profile = Profile.find(params[:profile_id])
-    # @user = User.find(params[:id])
   end
 
   def new
@@ -27,14 +25,14 @@ class RequestsController < ApplicationController
     @request = Request.find(params[:id])
     @request.status = 'accepted'
     @request.save
-    redirect_to profile_requests_path
+      redirect_to profile_requests_path
   end
 
   def refuse
     @request = Request.find(params[:id])
     @request.status = 'refused'
     @request.save
-    redirect_to profile_requests_path
+      redirect_to profile_requests_path
   end
 
   private

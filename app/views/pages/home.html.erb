@@ -6,22 +6,39 @@
     </div>
     <div class="section">
       <div class="row">
-        <div class="column">
-        </div>
-        <div class="column">
-          <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
-        </div>
-        <div class="column">
-          <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
-        </div>
-        <div class="column">
-          <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
-        </div>
-        <div class="column">
-        </div>
-        <div class="column">
-          <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
-        </div>
+          <% if current_user == nil %>
+            <div class="column">
+              <a class="link"><%= link_to "Connexion", new_user_session_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+            </div>
+          <% else %>
+            <div class="column">
+              <a class="link"><%= link_to "Profil", user_path(current_user), class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Edit", edit_user_path(current_user), class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
+            </div>
+          <% end %>
       </div>
     </div>
     <div class="search2">
@@ -31,9 +48,4 @@
       <% end %>
     </div>
   </div>
-  <script type="text/javascript">
-    document.getElementById("Bonjour").innerHTML="DancingPartners";
-    alert("Bienvenue");
-    document.forms.formulaire.select.blur();
-  </script>
 </div>
