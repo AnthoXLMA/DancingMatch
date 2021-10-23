@@ -12,9 +12,9 @@
   <div class="container-appointments-dances">
     <div class="appointment-card2">
       <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
-      Dancers number: <a><%= @profiles.count %> </a><br>
-      Members number: <a><%= @users.count %> </a><br>
-      La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= @partners_of_this_dance.count %> partenaires <br>
+      All App Users: <a><%= @users.count %> </a><br>
+      Total Dances Profiles: <a><%= @profiles.count %> </a><br>
+      La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= pluralize @partners_of_this_dance.count, "partenaire" %><br>
       <% @partners_of_this_dance.each do |member| %>
       <li>
         <%= link_to member.user.first_name, user_profiles_path(member.user) %>

@@ -1,2 +1,0 @@
-      invoke  active_record
-      create    db/migrate/20211021101125_add_status_to_requests.rb

@@ -31,13 +31,19 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     @user = User.find(params[:id])
+    @profiles = Profile.all
+    @requests = Request.where(user_id: :id)
+    @dancing_partners = Request.all
     @dances = Dance.all
-    @profile = current_user
-    @my_dances = []
-    @profile.dances.each do |profile_dance|
-    @dance = profile_dance.title
-    @my_dances << @dance if !@my_dances.include?(@dance)
+    @profile = @user.profiles.each do |profile|
+      profile.dance.title
     end
+    # @profile = current_user
+    # @my_dances = []
+    # @profile.dances.each do |profile_dance|
+    # @dance = profile_dance.title
+    # @my_dances << @dance if !@my_dances.include?(@dance)
+    # end
     @markers = @users.geocoded.map do |u|
       {
         lat: u.latitude,

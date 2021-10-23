@@ -43,8 +43,12 @@ Rails.application.routes.draw do
     resources :dances
   end
 
+  resources :users, only: [:index, :new, :create, :show] do
+    resources :requests, only: [:index, :new, :create, :show]
+  end
+
   resources :profiles, only: [:index, :new, :create, :show] do
-    resources :requests, only: [:new, :create]
+    resources :requests, only: [:index, :new, :create, :show]
   end
 
   resources :requests, only: [:index] do
