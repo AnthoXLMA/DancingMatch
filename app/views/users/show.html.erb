@@ -26,69 +26,55 @@
 </div>
 <div class="container-card-profile">
 <div class="container1">
-  <div id="map"
-     data-markers="<%= @markers.to_json %>"
-     data-dancers="<%= @dancers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+<!--   CODE DE LA MAP DANS UN FICHIER PAGE
+ -->
   <div class="my_profile">
     <div class="banner-profile" style="height:400px">
       <div class="image-profile">
         <%= image_tag current_user.photo if current_user.photo.attached? %>
       </div>
-       <div class="my-informations">
-        <a><%= current_user.first_name %> <%= current_user.last_name %></a>
+      <div class="my-informations">
+        <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
         <a><%= current_user.gender %></a>
         <a><%= current_user.age %> years old</a>
         <a><%= current_user.location %></a>
         <a><%= current_user.experience %> years experience</a>
-        <a>My requests to users</a>
-        <% current_user.requests.each do |r| %>
-        <%= r.profile.dance.title %> with <%= r.profile.user.first_name %> by <%= r.user.first_name %><br>
-        <% end %>
-        <h4 style="font-weight:bold">Requests from other users</h4>
-        <% @dancing_partners.each do |dancing_partner| %>
-        <a><%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %></a>
-        <% end %>
         <div class ="reviews-block">
-          <h2>
+          <h4>
             <%= pluralize current_user.reviews.size, "review" %>
             <%= link_to "See all reviews", user_reviews_path(current_user) %>
-          </h2>
-          </div>
+          </h4>
+          <%= link_to "See all requests", user_requests_path(current_user) %>
         </div>
-        <div class="dance-query" style="width:90%;">
-          <div class="query">
-            <%= form_tag dances_path, method: :get do %>
-            <%= text_field_tag :query,
-              params[:query],
-              class: "form-control",
-              placeholder: "Trouve ta communauté"
-            %>
-          </div>
+      </div>
+      <div class="dance-query" style="width:100%;">
+        <div class="query">
+          <%= form_tag dances_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Trouve ta communauté"
+          %>
+        </div>
         <div class="button-OK">
           <%= submit_tag "Search" %>
           <% end %>
         </div>
       </div>
-      </div>
-    <div class="menu">
-      <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
-      <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
     </div>
-      <div class="container-appointments-profile">
-        <div class="button-block">
+    <div class="container-appointments-profile">
+      <div class="button-block">
           <div class="titres-cadre">
             <div class="titres">
               <p>Mes profils danses <%= link_to "+", dances_path %></p>
             </div>
             <div class="infos-card">
               <% if @user.profiles.blank? %>
-                <a>Vous n'avez encore aucun profil de danseur.<br>Sélectionnez vos danses.<br></a>
+                <a>Vous n'avez encore aucun profil de danseur.<br>
+                  <%= link_to "Sélectionnez vos danses", dances_path %><br></a>
                 <% else %>
                 <% @user.profiles.each do |i_profile| %>
-<!--            <a><% @user.profiles.index_by {|r| r[:i_profile]}.values %></a>
- -->             <a><%= link_to i_profile.dance.title, profile_path(i_profile) %></a>
+                  <a><%= link_to i_profile.dance.title, profile_path(i_profile) %></a>
                 <a><%= link_to "X", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %></a>
                 <a><%= link_to "Edit", edit_profile_path(i_profile), class:  "btn-ghost" %></a>
                 <i class="bi bi-pen"></i>
@@ -98,9 +84,9 @@
                   <li><%= i_profile.training_per_week %> hours/week</li>
                 </ul>
                 <% end %>
-              </div>
-              <% end %>
             </div>
+            <% end %>
+          </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres"><p>Partenaires</p></div>
               <div class="infos-card">
@@ -108,19 +94,38 @@
                 <%= image_tag user.photo if user.photo.attached? %>
                 <%= link_to user.first_name, user_profiles_path(user)  %><br>
               <% end %>
-            </div>
-          </div>
-        </div>
-            <div class="accroche">
-              <% current_user.appointments.each do |user_events| %>
-              <div class="event-cards">
-                <h2><%= user_events.name %></h2>
-                <p><%= user_events.start_on %></p>
-                <p><%= user_events.address %></p>
               </div>
-              <% end %>
+            </div>
+          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+            <div class="titres"><p>Requests & Feed</p></div>
+              <div class="infos-card">
+                  <% current_user.requests.each do |r| %>
+                  <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
+                  <% end %>
+              </div>
             </div>
           </div>
+          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+            <div class="titres"><p>Requests from others</p></div>
+              <div class="infos-card">
+                  <% @dancing_partners.each do |dancing_partner| %>
+                  <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
+                  <%= link_to "Voir la demande", user_request_path(current_user) %><br>
+                <% end %>
+              </div>
+            </div>
+          </div>
+      </div>
+    <div class="accroche">
+      <% current_user.appointments.each do |user_events| %>
+      <div class="event-cards">
+        <h2><%= user_events.name %></h2>
+        <p><%= user_events.start_on %></p>
+        <p><%= user_events.address %></p>
+      </div>
+      <% end %>
+      </div>
+    </div>
             </div>
           </div>
           </div>
