@@ -8,10 +8,6 @@ class User < ApplicationRecord
 
   DANCES = Dance.all
 
-  # USER_DANCES = DANCES.select do |dance|
-  #   dance.title
-  # end
-
   has_many :profiles, dependent: :destroy
   has_one_attached :photo
   has_many :meetings, through: :profiles

@@ -33,10 +33,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @profiles = Profile.all
     @requests = Request.where(user_id: :id)
-    @requests = Request.all
-    # @dancing_partners = Request.all
-    # @partenaire = Profile.find(Ø).user.first_name
-    @dancing_partners = Request.where(user: @user)
+    @dancing_partners = Request.where(profile: @user.profiles)
     @dances = Dance.all
     @profile = @user.profiles.each do |profile|
       profile.dance.title
@@ -60,6 +57,7 @@ class UsersController < ApplicationController
     else
       @dances = Dance.all
     end
+    # @reviews = Review.all
     @review = Review.new
     # @reviews = @user.reviews
   end
@@ -94,6 +92,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:gender, :first_name, :last_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo)
+    params.require(:user).permit(:gender, :first_name, :last_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo, :review)
   end
 end

@@ -2,6 +2,7 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   validates_associated :user
+
   has_one_attached :avatar
   belongs_to :dance
   has_one :feed
@@ -9,13 +10,14 @@ class Profile < ApplicationRecord
   has_many :appointments
   has_many :meetings
   has_many :requests, dependent: :destroy
+  # has_many :reviews, dependent: :destroy
 
  INVESTISSEMENT = [
   'Social Dancer',
   'Student Dancer',
   'Training Dancer',
   'Coach',
-  'Show Dancer',
+  'Artist',
   'Choreographer'
   ]
 
@@ -26,13 +28,13 @@ class Profile < ApplicationRecord
     'Expert - 6 years min.'
   ]
 
-  TRAINING_per_Week = (1..64)
-
-# '1 to 5 hours per week',
-#     '5 to 10 hours per week',
-#     '10 to 15 hours per week',
-#     '15 to 30 hours per week',
-#     '30 hours min. per week',
+  TRAINING_per_Week = [
+    '1 to 5 hours per week',
+    '5 to 10 hours per week',
+    '10 to 15 hours per week',
+    '15 to 30 hours per week',
+    '30 hours min. per week'
+  ]
 
 #   SKILLS = %w[
 #   interpersonal_skills

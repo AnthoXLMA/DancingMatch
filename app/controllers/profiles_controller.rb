@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
   def index
     @users = User.all
     @user = User.find(params[:user_id])
-    # @profiles = Profile.all
+    @profiles = Profile.all
     @profiles = current_user.profiles
     @review = Review.new
   end
@@ -16,13 +16,6 @@ class ProfilesController < ApplicationController
     @profile.save
       redirect_to profile_path(@profile.id)
   end
-
-  # def dance_selection
-  #   @dances = Dance.all
-  #   if params[:dance]
-  #     @dances = @dances.select { |dance| dance.title?(params[:dance] ) }
-  #   end
-  # end
 
   def create
     @user = current_user
@@ -97,6 +90,8 @@ class ProfilesController < ApplicationController
     @dancer = @users.each do |dancer|
       dancer.first_name
     end
+    @requests = Request.where(profile_id: @profile)
+    @reviews = Review.all
   end
 
   def edit

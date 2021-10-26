@@ -29,6 +29,7 @@
   <h2><%= @profile.dance.title %><h2>
   <p><%= @profile.investissement %></p>
   <p><%= @profile.niveau %></p>
-  <p><%= @profile.training_per_week %></p>
+  <p><%= @profile.training_per_week %> h/week</p>
   <div class="button"><%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
+    <p><%= @requests.count %> requêtes de ce profil</p>
 </div>
