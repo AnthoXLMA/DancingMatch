@@ -5,7 +5,6 @@
     display:grid;
     grid-template-columns: 1fr 1fr 5fr;
     grid-gap: 10px;
-
     .listing-partners {
     display: grid;
     min-width:250px;
@@ -32,103 +31,39 @@
       color:white;
       margin-left:20px;
       font-size: 20px;
-      }
-    }
-}
-
-.container3 {
-  display:flex;
-  .news {
-  // display: grid;
-    width:320px;
-    min-height:200px;
-    padding: 5px;
-    // flex-grow: 1;
-    margin-left:800px;
-    margin-top: 10px;
-    border: black;
-    border-style:solid grey;
-    border-width: 1px;
-    box-shadow: 1px 0px 10px grey;
-    background-color:white;
-
-      .card-news {
-      width:300px;
-      background-color:#791E94;
-      border-radius:50px;
-      height:200px;
-      margin-right: auto;
-      margin-left: auto;
-      h2 {
-      color:white;
-      margin-left:20px;
-      font-size: 20px;
-      }
-      h3 {
-      color:white;
-      margin-left:20px;
-      font-size: 20px;
-      }
     }
   }
-
-  .bouton {
-    width: 300px;
-
-  .card-partner {
-  // display: grid;
-    // align-item:center;
-    min-width:200px;
-    width:250px;
-    height:200px;
-    padding: 5px;
-    // flex-grow: 1;
-    margin-left:30px;
-    margin-top: 10px;
-    // border: black;
-    // border-style:solid;
-    border-radius:10px;
-    border-width: 1px;
-    box-shadow: 1px 1px 10px 1px;
-    background-color:white;
-    h2 {
-      color:white;
-      margin-left:20px;
-      font-size: 40px;
+}
+.container-card-profile {
+  padding:10px;
+  .container-3 {
+    display:flex;
+    width:100%;
+    .container-appointments-dances {
+      display:flex;
+      width:50%;
+      .appointment-card2 {
+        border:thin solid grey;
+        border-radius: 10px;
+      }
     }
-    h3 {
-      color:white;
-      margin-left:20px;
-      font-size: 30px;
+    .events-list {
+      border:solid;
+      width:50%;
+      padding:20px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 10px;
+      .card-event-of-dance {
+        padding:20px;
+        width:320px;
+        height:140px;
+        border:thin solid grey;
+        border-radius: 10px;
+        display:grid;
+        grid-template-columns: 1fr 3fr;
+        grid-gap: 10px;
       }
     }
   }
 }
-
-// .logo {
-//   width:300px;
-//   height:400px;
-
-// }
-
-// /* TODO: design your flexbox layout with a sticky map */
-// .main-container {
-//   display: flex;
-// }
-// /* We just give you a Gmaps with random width/height */
-// @media(min-width: 500px){
-// .cards {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr;
-//   grid-gap: 16px;
-//   padding: 10px;
-//   flex-grow: 1;
-// }
-
-// }
-// #map {
-//   height: 100vh;
-//   position: sticky;
-//   top: 0;
-//   right: 0px;
-// }

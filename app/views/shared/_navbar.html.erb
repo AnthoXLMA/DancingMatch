@@ -1,61 +1,42 @@
-<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div> -->
 <div class="title-profile">
   <h1><%= link_to "Dancing Partners", root_path %></h1>
   <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
   <div class="section">
     <div class="row">
-      <div class="column">
-        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+          <% if current_user == nil %>
+            <div class="column">
+              <a class="link"><%= link_to "Connexion", new_user_session_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+            </div>
+          <% else %>
+            <div class="column">
+              <a class="link"><%= link_to "Profil", user_path(current_user), class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Edit", edit_user_path(current_user), class: "btn-ghost" %></a>
+            </div>
+            <div class="column">
+              <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
+            </div>
+          <% end %>
       </div>
-      <div class="column">
-        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Edit", edit_user_path(current_user), class:  "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
-      </div>
-    </div>
   </div>
 </div>
 

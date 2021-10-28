@@ -4,43 +4,6 @@
       <h1><%= "Dancing Partners" %></h1>
       <p>The First WorldWide Dancers Agenda Community</p>
     </div>
-    <div class="section">
-      <div class="row">
-          <% if current_user == nil %>
-            <div class="column">
-              <a class="link"><%= link_to "Connexion", new_user_session_path, class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
-            </div>
-          <% else %>
-            <div class="column">
-              <a class="link"><%= link_to "Profil", user_path(current_user), class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Edit", edit_user_path(current_user), class: "btn-ghost" %></a>
-            </div>
-            <div class="column">
-              <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
-            </div>
-          <% end %>
-      </div>
-    </div>
     <div class="search2">
       <%= form_tag dances_path, method: :get do %>
       <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Enter your dance and find your community" %>

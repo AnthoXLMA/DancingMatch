@@ -1,51 +1,54 @@
-<h2>Crée ton profil d'utilisateur</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Ton prénom" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Ton nom" }%>
-    <%= f.input :contact,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Ton numéro de téléphone" }%>
-    <%= f.input :age,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Ton âge" }%>
-    <%= f.input :experience,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Ton experience" }%>
-    <%= f.input :location,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "Ta ville" }%>
-    <%= f.label :genre %><br>
-    <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
-    <%= f.label :photo %><br>
-    <%= f.file_field :photo, as: :file %>
-  </div>
-
-    <div class="mb-6">
-      <%= f.submit "Sign up", class: "btn btn-default block w-full text-center", method: :post %>
+<div class="container-card-profile">
+  <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :email,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "email" }%>
+      <%= f.input :password,
+                  required: true,
+                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+                  required: true,
+                  input_html: { autocomplete: "new-password" } %>
+      <%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ton prénom" }%>
+      <%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ton nom" }%>
+      <%= f.input :contact,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ton numéro de téléphone" }%>
+      <%= f.input :age,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ton âge" }%>
+      <%= f.input :experience,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ton experience" }%>
+      <%= f.input :location,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ton adresse" }%>
+      <%= f.input :city,
+                  required: true,
+                  autofocus: true,
+                  input_html: { autocomplete: "Ta ville" }%>
+      <%= f.label :genre %><br>
+      <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
+      <%= f.label :photo %><br>
+      <%= f.file_field :photo, as: :file %>
     </div>
-<% end %>
+
+      <div class="mb-6">
+        <%= f.submit "Sign up", class: "btn btn-default block w-full text-center", method: :post %>
+      </div>
+  <% end %>
+</div>
