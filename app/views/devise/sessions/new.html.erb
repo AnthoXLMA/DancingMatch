@@ -1,32 +1,20 @@
-<div class="background">
-  <div class="container">
-    <div class="title">
-      <h1>Dancing Partners</h1>
-        <p>The First WorldWide Dancers Community</p>
-    </div>
-    <div class="section">
-      <div class="row">
-
-      </div>
-    </div>
-    <div class="cont-input">
-      <h1>Connexion</h1>
-      <%= simple_form_for(resource, as: resource_name, url: user_session_path) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" } %>
-        <%= f.input :password,
-                    required: false,
-                    input_html: { autocomplete: "current-password" } %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
-    <div class="form-actions">
-      <%= f.button :submit, "Already a member?" %>
-    </div>
-        <% end %>
-      <%= render "devise/shared/links" %>
-    </div>
+<div class="cont-input">
+  <h3>Connexion</h3>
+    <%= simple_form_for(resource, as: resource_name, url: user_session_path) do |f| %>
+  <div class="form-inputs">
+    <%= f.input :email,
+                required: false,
+                autofocus: true,
+                input_html: { autocomplete: "email" } %>
+    <%= f.input :password,
+                required: false,
+                input_html: { autocomplete: "current-password" } %>
+    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
+  <div class="form-actions">
+    <%= f.button :submit, "Already a member?" %>
+  </div>
+    <% end %>
+  <%= render "devise/shared/links" %>
 </div>
+

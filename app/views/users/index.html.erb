@@ -2,19 +2,16 @@
   <div class="contain-2">
     <% @users.each do |i| %>
     <div class="card-community">
-      <ul>
-        <li><%= link_to i.first_name, user_profiles_path(i) %> <%= i.age %></li>
-        <li><%= i.location %></li>
-        <li><%= i.experience %> XP</li>
-        <li>
-          <% i.profiles.each do |user_profile| %>
-            <ul>
-              <li><%= user_profile.dance.title %></li>
-            </ul><br>
-            <% end %>
-        </li>
-        <li><%= link_to "See More Details", user_profiles_path(i) %></li>
-      </ul>
+        <div class="image-user-card">
+          <%= image_tag i.photo %>
+        </div>
+        <div class="user-details">
+          <ul>
+            <li><%= link_to i.first_name, user_profiles_path(i) %> <%= i.age %></li>
+            <li><%= i.location %></li>
+            <li><%= link_to "See More Details", user_profiles_path(i) %></li>
+          </ul>
+        </div>
     </div>
     <% end %>
   </div>

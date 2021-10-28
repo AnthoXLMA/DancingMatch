@@ -1,37 +1,41 @@
-<div class="container3">
-  <div class="container-appointments-dances">
-    <div class="appointment-card2">
-      <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
-      All App Users: <a><%= @users.count %> </a><br>
-      Total Dances Profiles: <a><%= @profiles.count %> </a><br>
-      La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= pluralize @partners_of_this_dance.count, "partenaire" %><br>
-      <% @partners_of_this_dance.each do |member| %>
-      <li>
-        <%= link_to member.user.first_name, user_profiles_path(member.user) %>
-      </li>
-      <% end %><br>
-        <p><%= pluralize @appointments_on_map.count, "événement" %></p>
-        <% @event_managers.each do |manager| %>
-          <li>
-            <%= manager.first_name %>
-            <%= manager.location %>
-          </li>
-        <% end %>
-      <div class="add-dance">
-        <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
-        <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :patch %></a></div>
-        <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
+<div class="container-card-profile">
+  <div class="container-3">
+    <div class="container-appointments-dances">
+      <div class="appointment-card2">
+        <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
+        All App Users: <a><%= @users.count %> </a><br>
+        Total Dances Profiles: <a><%= @profiles.count %> </a><br>
+        La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= pluralize @partners_of_this_dance.count, "partenaire" %><br>
+        <% @partners_of_this_dance.each do |member| %>
+        <li>
+          <%= link_to member.user.first_name, user_profiles_path(member.user) %>
+        </li>
+        <% end %><br>
+          <p><%= pluralize @appointments_on_map.count, "événement" %></p>
+          <% @event_managers.each do |manager| %>
+            <li>
+              <%= manager.first_name %>
+              <%= manager.location %>
+            </li>
+          <% end %>
+        <div class="add-dance">
+          <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
+          <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :patch %></a></div>
+          <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
+        </div>
+          <p><%= pluralize @appointments_on_map.count, "événement" %></p>
       </div>
-  <div class="events-list">
-    <p><%= pluralize @appointments_on_map.count, "événement" %></p>
-    <% @appointments_on_map.each do |an_event| %>
-    <div class="appointment-card">
-      <%= an_event.name %>
-      <%= an_event.address %><br>
     </div>
-    <% end %>
-  </div>
-    </div>
+      <div class="events-list">
+        <% @appointments_on_map.each do |an_event| %>
+        <div class="card-event-of-dance">
+          <div>image</div>
+          <div>
+          <%= an_event.name %>
+          <%= an_event.address %><br>
+        </div>
+        </div>
+        <% end %>
+      </div>
   </div>
 </div>
-

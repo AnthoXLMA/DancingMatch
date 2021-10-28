@@ -1,24 +1,32 @@
-body {
-  color:black;
-}
-
-.cont-input{
-  margin-top: 50px;
-  margin-right:auto;
-  margin-left:auto;
-  h2 {
-    font-size:20px;
-    color:black;
-    margin-right:auto;
-    margin-left:auto;
-  }
+.cont-input {
+  margin-top:187px;
+  padding:20px;
+  width:fit-content;
+    h3 {
+    font-family: 'Raleway';
+    font-weight:bold;
+    justify-content:center;
+    }
+    a {
+      font-family: 'Raleway';
+    }
 .form-inputs {
+  font-family: 'Raleway';
+  padding:20px;
+  width:440px;
+  background-color: #f1f2f5;
   margin-right:auto;
   margin-left:auto;
-  width:400px;
+  border:medium solid grey;
+  border-radius: 5px;
+  .form-control {
+    width:400px;
+    font-family: 'Arial';
   }
- .form-actions {
-  margin-right:auto;
-  margin-left:auto;
- }
+}
+.form-actions {
+  padding:20px;
+  width:420px;
+  font-family: 'Raleway';
+  }
 }

@@ -1,64 +1,37 @@
-.navbar-yourjob {
-  display:flex;
-  position:sticky;
-  justify-content:space-between;
-  top:0;
-  height:70px;
+.title-profile {
   background-color:white;
-  z-index: 9;
-  opacity:10;
-
-    .logo {
-      padding-top: 4px;
-      padding-left: 6px;
-      position:sticky;
-        img {
-          height:50px;
-          width:50px;
-          margin-top: 0px;
-          margin-right: 0px;
-        }
-        h1 {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
+  width:100%;
+  position:fixed;
+  box-shadow: 1px 1px 8px 1px grey;
+  z-index:1;
+  top:0px;
+  h1 {
+    margin-right: 40px;
+    font-family:'Marck Script';
+    font-weight:bold;
+    font-size: 80px;
+    color:#791E94;
+    text-align:center;
+    text-decoration: none;
+  }
+  p {
+    margin-top:10px;
+    text-align:center;
+  }
+  .section {
+    height:50px;
+    .row {
+      .column {
+        a {
           color:#791E94;
-        }
-
-        .logo-text {
-          margin-right: 40px;
-          font-family:'Marck Script';
+          font-family:'Raleway';
           font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
+        }
+        a:hover {
+          color: gold;
+          text-decoration: none;
         }
       }
-
-      .avatar {
-      margin-top: 2px;
-      margin-right: 5px;
-      position:sticky;
-      height: 50px;
-      width: 50px;
-      }
+    }
+  }
 }
-
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-// .logo {
-//   width:300px;
-//   height:400px;
-
-// }
