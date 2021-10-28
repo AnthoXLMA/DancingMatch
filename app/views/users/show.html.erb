@@ -26,8 +26,7 @@
 </div>
 <div class="container-card-profile">
 <div class="container1">
-<!--   CODE DE LA MAP DANS UN FICHIER PAGE
- -->
+<!--   CODE DE LA MAP DANS UN FICHIER PAGE -->
   <div class="my_profile">
     <div class="banner-profile" style="height:400px">
       <div class="image-profile">
@@ -118,10 +117,12 @@
       </div>
     <div class="accroche">
       <% current_user.appointments.each do |user_events| %>
-      <div class="event-cards">
-        <h2><%= user_events.name %></h2>
+      <div class="event-cards" style="box-shadow: 1px 1px 8px 1px grey; background-color: #FFFF; color:black; margin-top:25px; padding:10px; border-radius: 5px 5px 5px 5px;">
+        <p><%= image_tag user_events.pic if user_events.pic.attached? %></p>
+        <p><%= user_events.name %></p>
         <p><%= user_events.start_on %></p>
         <p><%= user_events.address %></p>
+        <p><%= link_to "Voir sur la carte", appointments_path %></p>
       </div>
       <% end %>
       </div>

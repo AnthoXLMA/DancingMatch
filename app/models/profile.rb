@@ -10,7 +10,6 @@ class Profile < ApplicationRecord
   has_many :appointments
   has_many :meetings
   has_many :requests, dependent: :destroy
-  # has_many :reviews, dependent: :destroy
 
  INVESTISSEMENT = [
   'Social Dancer',

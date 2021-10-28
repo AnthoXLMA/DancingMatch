@@ -1,15 +1,30 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
+<div class="title-profile">
+  <h1><%= link_to "Dancing Partners", root_path %></h1>
+  <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
+  <div class="section">
+    <div class="row">
+      <div class="column">
+        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Edit your profile", edit_user_path(current_user), class: "btn-ghost" %></a>
+      </div>
+      <div class="column">
+        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
+      </div>
     </div>
   </div>
-<%= link_to "Back", :back %>
-<%= link_to "Home", root_path %>
-<%= link_to "My profile", profile_path %>
 </div>
-
-<div class="container">
+<div class="container-card-profile">
   <%= simple_form_for (@appointment) do |f| %>
     <div class="container_one">
       <%= f.input :start_on %>

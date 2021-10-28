@@ -21,6 +21,11 @@ class RequestsController < ApplicationController
     end
   end
 
+  def show
+    @request = Request.find(params[:id])
+    @user = User.find(params[:user_id])
+  end
+
   def accept
     @request = Request.find(params[:id])
     @request.status = 'accepted'

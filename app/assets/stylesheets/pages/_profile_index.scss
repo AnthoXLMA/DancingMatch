@@ -1,7 +1,48 @@
 .container-card-profile {
-  img {
-    width:100px;
-    height:100px;
-    object-fit:cover;
+  .card-profile-index {
+    position:fixed;
+    background-color:white;
+    width:40%;
+    height:400px;
+    display:flex;
+    padding:20px;
+    border:solid;
+    border-radius: 20px 20px 20px 20px;
+    margin-top:10px;
+    margin-left:10px;
+    img {
+      width:200px;
+      height:200px;
+      border-radius:50%;
+      object-fit:cover;
+    }
+    .user_profile-informations {
+      color:grey;
+    }
+  }
+  .index-profiles {
+      margin-left:600px;
+      margin-right:20px;
+      margin-top:10px;
+      width:60%;
+      // border:solid;
+      position:sticky;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 1px;
+      grid-auto-rows: minmax(2px, auto);
+    .index-profiles-cards {
+      margin-bottom:10px;
+      border:solid;
+      height:200px;
+      padding:10px;
+      margin-right:10px;
+    }
   }
 }
+  .reviews-block {
+    margin-top:20px;
+    margin-left:10px;
+    width:30%;
+  }
+

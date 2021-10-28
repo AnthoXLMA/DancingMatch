@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     @users = User.all
     @profiles = Profile.all
     @dances = Dance.all
+    if params[:query].present?
+      @users = User.where("location ILIKE ?", "%#{params[:query]}%")
+    else
+      @users =  User.all
+    end
   end
 
   def new
