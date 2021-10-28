@@ -1,15 +1,4 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
-    </div>
-  </div>
-  <div class="menu-navbar">
-    <%= link_to "Back", :back %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "My profile", users_path %>
-  </div>
-</div>
+<div class="container-card-profile">
   <div class="map-n-card">
     <div class ="bouton-n-card">
       <div class="title_text">
@@ -26,24 +15,24 @@
       <div class ="container-appointments">
             <% @appointments.each do |appointment| %>
           <div class="appointment-card3">
-              <div class ="image-card-appointments">
-                <%= image_tag appointment.pic if appointment.pic.attached? %>
+            <div class ="image-card-appointments">
+              <%= image_tag appointment.pic if appointment.pic.attached? %>
+            </div>
+            <div class ="information-event">
+              <div class="event-uptitle">
+                <h3><%= appointment.name  %></h3>
+                <a> <%= appointment.address %></a>
               </div>
-              <div class ="information-event">
-                <div class="event-uptitle">
-                  <h3><%= appointment.name  %></h3>
-                  <a> <%= appointment.address %></a>
-                </div>
-                <div class="event-subinformations">
-                  <p> <%= appointment.dance.title %> - </p>
-                  <p> <%= appointment.user.first_name %> - </p><br>
-                  <p> Début: <%= appointment.start_on %> - </p>
-                  <p> Fin: <%= appointment.end_on %></p>
-                </div>
+              <div class="event-subinformations">
+                <p> <%= appointment.dance.title %> - </p>
+                <p> <%= appointment.user.first_name %> - </p><br>
+                <p> Début: <%= appointment.start_on %> - </p>
+                <p> Fin: <%= appointment.end_on %></p>
               </div>
-              <div class="click-participate">
-                <a class="btn btn-primary" href="profile" role="button" action: post>Je participe</a>
-              </div>
+            </div>
+            <div class="click-participate">
+              <a class="btn btn-primary" href="profile" role="button" action: post>Je participe</a>
+            </div>
           </div>
         <% end %>
       </div>
@@ -55,3 +44,4 @@
       </div>
     </div>
   </div>
+</div>

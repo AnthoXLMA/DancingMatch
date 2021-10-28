@@ -1,26 +1,15 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
-    </div>
-  </div>
-<%= link_to "Back", :back %>
-<%= link_to "Home", root_path %>
-<%= link_to "My profile", profile_path %>
-</div>
-
 <h1><%= link_to @style, appointment_path(@appointment) %></h1>
 
-<div class="add-dance">
-  <%= link_to "Select this dance", profile_path(@my_appointment) %>
-  <%= link_to "Choose", profile_path(@appointment.id),method: :post, class:"btn-ghost", id: "appointment" %>
-</div>
+  <div class="add-dance">
+    <%= link_to "Select this dance", profile_path(@my_appointment) %>
+    <%= link_to "Choose", profile_path(@appointment.id),method: :post, class:"btn-ghost", id: "appointment" %>
+  </div>
 
-<div class="bouton-home">
-  <%= link_to "Home", root_path %>
-</div>
+  <div class="bouton-home">
+    <%= link_to "Home", root_path %>
+  </div>
 
-<div class="container3">
+  <div class="container3">
   <div class="bouton">
   <div class="card-partner">
 

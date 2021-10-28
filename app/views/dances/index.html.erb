@@ -1,36 +1,27 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
-    </div>
-  </div>
-    <%= link_to "Retour", :back %>
-    <%= link_to "Accueil", root_path %>
-    <%= link_to "Profil", profiles_path %>
-    <%= link_to "Agenda", profiles_path %>
-    <%= link_to "Back", :back %>
-  </div>
-<div class="container-dances">
-      <p>Dancing Partners has found <%=  pluralize @style.count, "dance" %></p>
-    <div class="search1">
-      <%= form_tag dances_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:dance],
-        class: "form-control",
-        placeholder: "Find a dance"
-      %>
-      <%= submit_tag "Search", class: "b-prima" %>
-      <% end %>
-    </div>
-        <div class="container-card_dances">
-      <% @dances.each do |dance| %>
-      <div class="dance_card">
-        <h3><%= link_to dance.title, dance_path(dance) %></h3>
-        <div class="image-dance">
-        <%= image_tag dance.photo if dance.photo.attached? %>
+
+<div class="container-card-profile">
+  <div class="container-dances">
+        <p>Dancing Partners has found <%=  pluralize @style.count, "dance" %></p>
+      <div class="search1">
+        <%= form_tag dances_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:dance],
+          class: "form-control",
+          placeholder: "Find a dance"
+        %>
+        <%= submit_tag "Search", class: "b-prima" %>
+        <% end %>
       </div>
-        <%= pluralize dance.profiles.count, "dancer" %>
-      </div>
-      <% end %>
+          <div class="container-card_dances">
+        <% @dances.each do |dance| %>
+        <div class="dance_card">
+          <h3><%= link_to dance.title, dance_path(dance) %></h3>
+          <div class="image-dance">
+          <%= image_tag dance.photo if dance.photo.attached? %>
+        </div>
+          <%= pluralize dance.profiles.count, "dancer" %>
+        </div>
+        <% end %>
+    </div>
   </div>
 </div>

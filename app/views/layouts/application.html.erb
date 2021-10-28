@@ -13,40 +13,10 @@
   </head>
 
   <body>
+    <%= render 'shared/navbar' %>
     <%= yield %>
-    <script>
-    function myFunction()
-    {
-    divInfo = document.getElementById('MyId');
-    if (divInfo.style.display == 'none')
-    divInfo.style.display = 'block';
-    else
-    divInfo.style.display = 'none';
-    }
-    function fctCocherCase(ObjNumber)
-      {
-        recupValeurElement("Checkbox" + ObjNumber).checked = true;
-      }
-  </script>
-</body>
-
-  <!-- <body id="monBody">
-    <h1 id="monH1"></h1>
-  </body> -->
-
- <!--  <script type="text/javascript">
-    var monH1=document.createElement("h1");
-    monH1.innerHTML="Ready To Dance?";
-    document.getElementById("monBody").appendChild(monH1);
-    // document.getElementById("monH1").innerHTML="Dancing Partners";
-    // alert("Bienvenue!");
-  </script> -->
+    <%= render 'shared/footer' %>
+  </body>
 </html>
-<div class="footer-container">
-  <a>Performed By</a>
-  <a>Lite Services</a>
-  <a>Anthony Mania Inspiration</a>
-</div>
-
 
 
