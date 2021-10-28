@@ -1,16 +1,12 @@
 .map-n-card {
   display:flex;
-  width:1200px;
-
   .bouton-n-card {
-    width:700px;
     margin-left:30px;
     .title_text {
       font-family:"Roboto";
       color:black;
       margin-top: 20px;
       margin-left: 60px;
-
       }
     .container-appointments {
       // display:grid;
@@ -25,38 +21,38 @@
         font-weight:10px;
         font-size:15px;
       }
-    .appointment-card{
-      width:250px;
-      height:150px;
-      box-shadow: 3px 3px 20px 1px grey ;
-      border-radius:10px;
-      background-color: white;
-      padding:20px;
-      font-family: 'Roboto';
-      color:black;
-    }
-    .appointment-card2{
-      width:1200px;
-      height:800px;
-      box-shadow: 3px 3px 20px 1px grey ;
-      border-radius:10px;
-      background-color: white;
-      margin-top:30px;
-      padding:40px;
-      font-family: 'Roboto';
-      color:black;
-      margin-bottom:20px;
-      margin-left:50px;
-    }
-    .appointment-card3 {
-      display:flex;
-      width:770px;
-      height:230px;
-      background-color: white;
-      margin-top:50px;
-      font-family: 'Roboto';
-      color:black;
-      align-items:flex-end;
+      .appointment-card{
+        width:250px;
+        height:150px;
+        box-shadow: 3px 3px 20px 1px grey ;
+        border-radius:10px;
+        background-color: white;
+        padding:20px;
+        font-family: 'Roboto';
+        color:black;
+      }
+      .appointment-card2{
+        width:1200px;
+        height:800px;
+        box-shadow: 3px 3px 20px 1px grey ;
+        border-radius:10px;
+        background-color: white;
+        margin-top:30px;
+        padding:40px;
+        font-family: 'Roboto';
+        color:black;
+        margin-bottom:20px;
+        margin-left:50px;
+      }
+      .appointment-card3 {
+        display:flex;
+        width:770px;
+        height:230px;
+        background-color: white;
+        margin-top:50px;
+        font-family: 'Roboto';
+        color:black;
+        align-items:flex-end;
         .image-card-appointments {
           img {
             width: 330px;
@@ -97,12 +93,11 @@
       }
     }
     .container-map{
-    position:fixed;
-    margin-right:0px;
-    width:1200px;
-    margin-left: 850px;
+      width:50%;
+      margin-left:20px;
     .map{
-    height:auto;
+      // height:auto;
+      // width:1200px;
     }
   }
-  }
+}

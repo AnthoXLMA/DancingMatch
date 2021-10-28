@@ -1,50 +1,15 @@
-<div class="title-profile">
-  <h1><%= link_to "Dancing Partners", root_path %></h1>
-  <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
-  <div class="section">
-    <div class="row">
-      <div class="column">
-        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Edit", edit_user_path(current_user), class:  "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container-card-profile" style="display:flex">
+<div class="container-card-profile" style="display:flex;">
   <div class="contain-2">
     <% @users.each do |i| %>
     <div class="card-community">
       <ul>
-        <%= i.id %>
-        <li><%= link_to i.first_name, user_profiles_path(i) %></li>
-        <li>AGE: <%= i.age %></li>
-        <li>LOCATION: <%= i.location %></li>
-        <li>XP: <%= i.experience %></li>
-        <li>Danses:
+        <li><%= link_to i.first_name, user_profiles_path(i) %> <%= i.age %></li>
+        <li><%= i.location %></li>
+        <li><%= i.experience %> XP</li>
+        <li>
           <% i.profiles.each do |user_profile| %>
             <ul>
               <li><%= user_profile.dance.title %></li>
-              <ul><li><%= user_profile.id %></li></ul>
-              <ul><li><%= user_profile.investissement %></li></ul>
-              <ul><li><%= user_profile.niveau %></li></ul>
-              <ul><li><%= user_profile.user.first_name %></li></ul>
-              <ul><li><%= user_profile.user.age %></li></ul>
-              <ul><li><%= user_profile.user.location %></li></ul>
             </ul><br>
             <% end %>
         </li>

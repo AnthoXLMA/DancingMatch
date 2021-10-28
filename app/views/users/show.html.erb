@@ -1,137 +1,111 @@
-<div class="title-profile">
-  <h1><%= link_to "Dancing Partners", root_path %></h1>
-  <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
-  <div class="section">
-    <div class="row">
-      <div class="column">
-        <a class="link"><%= link_to "Mon Profil", user_path(current_user), class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Edit", edit_user_path(@user), class:  "btn-ghost" %></a>
-      </div>
-      <div class="column">
-        <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="container-card-profile">
-<div class="container1">
+  <div class="container1">
 <!--   CODE DE LA MAP DANS UN FICHIER PAGE -->
-  <div class="my_profile">
-    <div class="banner-profile" style="height:400px">
-      <div class="image-profile">
-        <%= image_tag current_user.photo if current_user.photo.attached? %>
-      </div>
-      <div class="my-informations">
-        <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
-        <a><%= current_user.gender %></a>
-        <a><%= current_user.age %> years old</a>
-        <a><%= current_user.location %></a>
-        <a><%= current_user.experience %> years experience</a>
-        <div class ="reviews-block">
-          <h4>
-            <%= pluralize current_user.reviews.size, "review" %>
-            <%= link_to "See all reviews", user_reviews_path(current_user) %>
-          </h4>
-          <%= link_to "See all requests", user_requests_path(current_user) %>
+    <div class="my_profile">
+      <div class="banner-profile" style="height:400px">
+        <div class="image-profile">
+          <%= image_tag current_user.photo if current_user.photo.attached? %>
         </div>
-      </div>
-      <div class="dance-query" style="width:100%;">
-        <div class="query">
-          <%= form_tag dances_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Trouve ta communauté"
-          %>
+        <div class="my-informations">
+          <h1><%= current_user.first_name %> <%= current_user.last_name %></h1>
+          <a><%= current_user.gender %></a>
+          <a><%= current_user.age %> years old</a>
+          <a><%= current_user.location %></a>
+          <a><%= current_user.experience %> years experience</a>
+          <div class ="reviews-block">
+            <h4>
+              <%= pluralize current_user.reviews.size, "review" %>
+              <%= link_to "See all reviews", user_reviews_path(current_user) %>
+              <%= link_to "See all requests", user_requests_path(current_user) %>
+            </h4>
+          </div>
         </div>
-        <div class="button-OK">
-          <%= submit_tag "Search" %>
-          <% end %>
+        <div class="dance-query" style="width:100%;">
+          <div class="query">
+            <%= form_tag dances_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Cherche ta danse"
+            %>
+          </div>
+          <div class="button-OK">
+            <%= submit_tag "Search" %>
+            <% end %>
+          </div>
         </div>
-      </div>
     </div>
     <div class="container-appointments-profile">
       <div class="button-block">
-          <div class="titres-cadre">
-            <div class="titres">
-              <p>Mes profils danses <%= link_to "+", dances_path %></p>
-            </div>
-            <div class="infos-card">
-              <% if @user.profiles.blank? %>
-                <a>Vous n'avez encore aucun profil de danseur.<br>
-                  <%= link_to "Sélectionnez vos danses", dances_path %><br></a>
+        <div class="titres-cadre">
+          <div class="titres">
+            <p>Mes profils danses <%= link_to "+", dances_path %></p>
+          </div>
+          <div class="infos-card">
+            <% if @user.profiles.blank? %>
+              <a>Vous n'avez encore aucun profil de danseur.<br>
+                <%= link_to "Sélectionnez vos danses", dances_path %><br></a>
                 <% else %>
                 <% @user.profiles.each do |i_profile| %>
-                  <a><%= link_to i_profile.dance.title, profile_path(i_profile) %></a>
+                <a><%= link_to i_profile.dance.title, profile_path(i_profile) %></a>
                 <a><%= link_to "X", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %></a>
                 <a><%= link_to "Edit", edit_profile_path(i_profile), class:  "btn-ghost" %></a>
                 <i class="bi bi-pen"></i>
-                <ul>
-                  <li><%= i_profile.investissement %></li>
-                  <li><%= i_profile.niveau %></li>
-                  <li><%= i_profile.training_per_week %> hours/week</li>
-                </ul>
-                <% end %>
-            </div>
+              <ul>
+                <li><%= i_profile.investissement %></li>
+                <li><%= i_profile.niveau %></li>
+                <li><%= i_profile.training_per_week %> hours/week</li>
+              </ul>
             <% end %>
           </div>
-          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Partenaires</p></div>
-              <div class="infos-card">
-                <% @users.each do |user| %>
-                <%= image_tag user.photo if user.photo.attached? %>
-                <%= link_to user.first_name, user_profiles_path(user)  %><br>
-              <% end %>
-              </div>
+            <% end %>
+        </div>
+        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+          <div class="titres"><p>Partenaires</p></div>
+            <div class="infos-card">
+              <% @users.each do |user| %>
+              <%= image_tag user.photo if user.photo.attached? %>
+              <%= link_to user.first_name, user_profiles_path(user)  %><br>
+            <% end %>
             </div>
-          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Requests & Feed</p></div>
-              <div class="infos-card">
-                  <% current_user.requests.each do |r| %>
-                  <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
-                  <% end %>
-              </div>
-            </div>
-          </div>
-          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Requests from others</p></div>
-              <div class="infos-card">
-                  <% @dancing_partners.each do |dancing_partner| %>
-                  <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
-                  <%= link_to "Voir la demande", user_request_path(current_user) %><br>
+        </div>
+        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+          <div class="titres"><p>Requests & Feed</p></div>
+            <div class="infos-card">
+                <% current_user.requests.each do |r| %>
+                <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
                 <% end %>
-              </div>
             </div>
           </div>
-      </div>
-    <div class="accroche">
-      <% current_user.appointments.each do |user_events| %>
-      <div class="event-cards" style="box-shadow: 1px 1px 8px 1px grey; background-color: #FFFF; color:black; margin-top:25px; padding:10px; border-radius: 5px 5px 5px 5px;">
-        <p><%= image_tag user_events.pic if user_events.pic.attached? %></p>
-        <p><%= user_events.name %></p>
-        <p><%= user_events.start_on %></p>
-        <p><%= user_events.address %></p>
-        <p><%= link_to "Voir sur la carte", appointments_path %></p>
-      </div>
-      <% end %>
-      </div>
-    </div>
+        </div>
+        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+          <div class="titres"><p>Requests from others</p></div>
+            <div class="infos-card">
+                <% @dancing_partners.each do |dancing_partner| %>
+                <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
+                <%= link_to "Voir la demande", user_request_path(current_user) %><br>
+              <% end %>
             </div>
-          </div>
           </div>
         </div>
       </div>
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-dancers="<%= @dancers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
+  </div>
+</div>
+<div class="accroche">
+  <% current_user.appointments.each do |user_events| %>
+  <div class="event-cards" style="background-color: #FFFF; color:black;">
+    <p><%= image_tag user_events.pic if user_events.pic.attached? %></p>
+    <p><%= user_events.name %></p>
+    <p><%= user_events.start_on %></p>
+    <p><%= user_events.address %></p>
+    <p><%= link_to "Voir sur la carte", appointments_path %></p>
+  </div>
+<% end %>
+</div>
 
 

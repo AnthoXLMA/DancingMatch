@@ -23,8 +23,8 @@
       }
     }
   .colonne-droite {
-    position:fixed;
-    margin-left:1002px;
+    position:sticky;
+    // margin-left:1002px;
     border:solid;
     width:28%;
     margin-top:10px;
