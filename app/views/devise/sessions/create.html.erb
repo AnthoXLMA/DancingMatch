@@ -1,15 +1,13 @@
-<h1>Create your Profile</h1>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
-<%= f.error_notification %>
-
-  <div class="form-inputs">
+<div class="container-card-profile">
+  <h1>Check your account</h1>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :post }) do |f| %>
+    <%= f.error_notification %>
+  <div class="form-inputs" style="width:500px; margin-right:auto; margin-left:auto;">
     <%= f.input :email, required: false, autofocus: true %>
           <p>
             <%= f.label :name %><br>
             <%= f.text_field :first_name %>
           </p>
-
           <p>
             <%= f.label :age %><br>
             <%= f.text_field :age %>
@@ -32,7 +30,8 @@
             <%= f.file_field :photo, as: :file %>
           </p>
     <h3>
-      <%= link_to "Valide ton compte", user_path(@user) %>
+      <%= link_to "Valide tes infos", user_path(@user) %>
     </h3>
     <% end %>
   </div>
+</div>
