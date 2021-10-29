@@ -4,6 +4,184 @@
     width:50%;
     margin-left:800px;
   }
+  .my_profile {
+      font-family: 'Roboto';
+      color:black;
+      padding:21px;
+      margin-top:0px;
+      width:50%;
+      border:thin solid #f1f2f5;
+    .dance-query {
+      display:flex;
+      margin-top:20px;
+      width: 700px;
+      margin-right: auto;
+      margin-left: auto;
+      margin-bottom:5px;
+      .query {
+        width:80%;
+        height:40px;
+      }
+      .button-OK {
+        margin-left:10px;
+        .btn-primary {
+          width:100px;
+          border-radius:5px;
+        }
+      }
+    }
+    .banner-profile {
+      display: flex;
+      background-color: #f1f2f5;
+      color:black;
+      border-radius: 5px;
+      border:solid 1px #f1f2f5;
+      height: 160px;
+      width: 100%;
+      margin-top:20px;
+      .image-profile{
+        padding:10px;
+        margin-left:10px;
+        margin-top:10px;
+        img {
+          padding:3px;
+          height:110px;
+          width: 110px;
+          border: solid 4px  white;
+          border-radius:10%;
+          object-fit: cover;
+          }
+        }
+      .my-informations {
+        height:100px;
+        padding:20px;
+        color:grey;
+        h5 {
+          color:black;
+          font-size:15px;
+          font-weight:bold;
+        }
+        a {
+          color:black;
+          font-size:12px;
+          width:200px;
+        }
+      }
+      .reviews-block {
+        h5 {
+          color:black;
+          font-size:15px;
+          font-weight:bold;
+        }
+        a {
+          color:black;
+          font-size:12px;
+          width:200px;
+        }
+      }
+    }
+    .container-appointments-profile {
+      width: 400px;
+      margin-top: 15px;
+      display: grid;
+      grid-template-columns: repeat(1, 2fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(10px, auto);
+      .button-block {
+      // display:flex;
+      margin-bottom:40px;
+        .titres-cadre {
+          color: black;
+          box-shadow: 0px 0px 8px 0px grey;
+          border-radius: 5px;
+          text-align:center;
+          width:667px;
+          margin-right:30px;
+          margin-bottom:10px;
+          min-height: 176px;
+          .titres {
+            background-color: #A675A1;
+            border-radius: 5px 5px 0px 0px;
+            height:40px;
+            p {
+              color:white;
+              font-weight:bold;
+              padding:8px;
+            }
+          }
+          .infos-card {
+            text-align:initial;
+            margin-bottom:5px;
+            margin-top: 5px;
+            margin-left:5px;
+            padding:5px;
+            flex-wrap:wrap;
+            justify-content:space-around;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 20px;
+            grid-auto-rows: minmax(5px, auto);
+            .ecritures {
+              padding:10px;
+              text-align:center;
+              margin-right:auto;
+              margin-left:auto;
+            }
+            .carte-profil {
+              border:solid 1px #f1f2f5;
+              color: black;
+              box-shadow: 0px 0px 2px 0px grey;
+              border-radius: 5px;
+              text-align:center;
+              width:200px;
+              margin-right:0px;
+            }
+          }
+          .infos-card-2 {
+            text-align:initial;
+            margin-bottom:5px;
+            margin-top: 5px;
+            margin-left:5px;
+            padding:10px;
+            flex-wrap:wrap;
+            justify-content:center;
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-gap: 0px;
+            grid-auto-rows: minmax(5px, auto);
+            p {
+            margin-top:30px;
+            display: block;
+            font-size: 1rem;
+            color: white;
+            font-weight:bold;
+            }
+            a {
+              color:black;
+              text-decoration:none;
+              text-align:center;
+              padding:3px;
+            }
+            img {
+              width:70px;
+              height:70px;
+              margin-bottom:10px;
+              border-radius:50%;
+              border:solid;
+              background-repeat:   no-repeat;
+              background-position: center;
+              // background-image: url(user.photo);
+              object-fit: cover;
+              }
+              .bi .bi-pen{
+                width:10px;
+                height:10px;
+              }
+          }
+        }
+      }
+    }
+  }
 }
 
 .accroche {
