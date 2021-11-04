@@ -1,22 +1,42 @@
 <div class="container-card-profile" style="display:flex;">
   <div class="card-profile-index">
-    <%= image_tag @user.photo if @user.photo.attached? %>
-    <div class="user_profile-informations">
-      <ul>
-        <li><%= @user.first_name %></li>
-        <li><%= @user.last_name %></li>
-        <li><%= @user.contact %></li>
-        <li><%= @user.email %></li>
-        <li><%= @user.location %></li>
-        <p><%= pluralize @user.reviews.size, "partner review" %></p>
-        <p><%= pluralize @user.requests.size, "partner request" %></p>
-        <p><%= pluralize @user.profiles.size, "dancer profile" %></p>
-        <p><%= pluralize @user.appointments.size, "organized event" %></p>
-        <p><%= pluralize @user.appointments.size, "pending event" %></p>
-        <p><%= pluralize @user.appointments.size, "gone event" %></p>
-        <br>
-        <br>
-      </ul>
+    <div class="photo-n-details">
+      <%= image_tag @user.photo if @user.photo.attached? %>
+      <div class="user_profile-informations">
+        <ul>
+          <li><%= @user.first_name %></li>
+          <li><%= @user.last_name %></li>
+          <li><%= @user.contact %></li>
+          <li><%= @user.email %></li>
+          <li><%= @user.location %></li>
+          <p><%= pluralize @user.reviews.size, "partner review" %></p>
+          <p><%= pluralize @user.requests.size, "partner request" %></p>
+          <p><%= pluralize @user.profiles.size, "dancer profile" %></p>
+          <p><%= pluralize @user.appointments.size, "organized event" %></p>
+          <p><%= pluralize @user.appointments.size, "pending event" %></p>
+          <p><%= pluralize @user.appointments.size, "gone event" %></p>
+          <br>
+          <br>
+        </ul>
+      </div>
+    </div>
+    <div class ="reviews-block" style="padding:10px;">
+      <h2><%= pluralize @user.reviews.size, "review" %></h2>
+      <div>
+        <%= simple_form_for([ @user, @review ]) do |f| %>
+            <%= f.input :content, as: :text %>
+            <%= f.button :submit %>
+        <% end %>
+      </div>
+      <div id="reviews">
+        <% if @user.reviews.blank? %>
+          Be the first to leave a review for <%= @user.first_name %>
+        <% else %>
+          <% @user.reviews.each do |review| %>
+            <p><%= review.id %>.<%= review.content %> by <%= review.user.first_name %></p>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="index-profiles" >
@@ -37,23 +57,5 @@
     <% end %>
   </div>
 </div>
-  <div class ="reviews-block" style="border:solid;">
-    <h2><%= pluralize @user.reviews.size, "review" %></h2>
-    <div style="width:500px;">
-      <%= simple_form_for([ @user, @review ]) do |f| %>
-          <%= f.input :content, as: :text %>
-          <%= f.button :submit %>
-      <% end %>
-    </div>
-    <div id="reviews">
-      <% if @user.reviews.blank? %>
-        Be the first to leave a review for <%= @user.first_name %>
-      <% else %>
-        <% @user.reviews.each do |review| %>
-          <p><%= review.id %>.<%= review.content %> by <%= review.user.first_name %></p>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
 
 

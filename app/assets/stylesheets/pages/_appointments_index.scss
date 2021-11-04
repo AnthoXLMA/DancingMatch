@@ -1,13 +1,24 @@
 .map-n-card {
   display:flex;
+  height:800px;
   .bouton-n-card {
     margin-left:30px;
-    .title_text {
-      font-family:"Roboto";
-      color:black;
-      margin-top: 20px;
-      margin-left: 60px;
+    .display {
+        display:flex;
+      .title_text {
+        font-family:"Roboto";
+        color:black;
+        margin-top: 20px;
+        margin-left: 60px;
+        }
+      .form {
+        width:500px;
+        display:flex;
+        .btn-primary {
+          width:100px;
+        }
       }
+    }
     .container-appointments {
       // display:grid;
       width:750px;
@@ -46,13 +57,15 @@
       }
       .appointment-card3 {
         display:flex;
-        width:770px;
-        height:230px;
+        width:750px;
+        height:260px;
         background-color: white;
         margin-top:50px;
+        margin-bottom: 20px;
+        border-bottom: darkgrey solid 1px;
         font-family: 'Roboto';
         color:black;
-        align-items:flex-end;
+        // align-items:flex-end;
         .image-card-appointments {
           img {
             width: 330px;
@@ -96,8 +109,6 @@
       width:50%;
       margin-left:20px;
     .map{
-      // height:auto;
-      // width:1200px;
     }
   }
 }

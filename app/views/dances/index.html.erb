@@ -1,27 +1,28 @@
 
 <div class="container-card-profile">
   <div class="container-dances">
-        <p>Dancing Partners has found <%=  pluralize @style.count, "dance" %></p>
-      <div class="search1">
-        <%= form_tag dances_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:dance],
-          class: "form-control",
-          placeholder: "Find a dance"
-        %>
-        <%= submit_tag "Search", class: "b-prima" %>
-        <% end %>
+    <div class="search1">
+      <%= form_tag dances_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:dance],
+        class: "form-control",
+        placeholder: "Nom de la danse"
+      %>
+      <%= submit_tag "Search", class: "b-prima" %>
+      <% end %>
+    </div>
+      <p>Dancing Partners has found <%=  pluralize @style.count, "dance" %></p>
+        <div class="container-card_dances">
+      <% @dances.each do |dance| %>
+      <div class="dance_card">
+        <h3><%= link_to dance.title, dance_path(dance) %></h3>
+        <div class="image-dance">
+        <%= image_tag dance.photo if dance.photo.attached? %>
       </div>
-          <div class="container-card_dances">
-        <% @dances.each do |dance| %>
-        <div class="dance_card">
-          <h3><%= link_to dance.title, dance_path(dance) %></h3>
-          <div class="image-dance">
-          <%= image_tag dance.photo if dance.photo.attached? %>
-        </div>
-          <%= pluralize dance.profiles.count, "dancer" %>
-        </div>
-        <% end %>
+        <%= pluralize dance.profiles.count, "dancer" %><br>
+        <%= pluralize dance.appointments.count, "événement" %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>

@@ -61,7 +61,6 @@ dance13 = Dance.new(title: "Salsa Portoricana")
 dance13.save!
 
 dance14 = Dance.new(title: "Salsa Colombiana")
-
 dance14.save!
 
 dance15 = Dance.new(title: "FoxTrot")
@@ -114,6 +113,18 @@ dance30.save!
 
 dance31 = Dance.new(title: "Zumba")
 dance31.save!
+
+dance32 = Dance.new(title: "Pole Dance")
+dance32.save!
+
+dance33 = Dance.new(title: "Cha Cha Son")
+dance33.save!
+
+dance34 = Dance.new(title: "Kompa")
+dance34.save!
+
+dance35 = Dance.new(title: "Zouk")
+dance35.save!
 
 puts 'Finished!'
 # puts 'Creating Users...'
