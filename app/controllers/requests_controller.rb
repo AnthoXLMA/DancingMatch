@@ -22,7 +22,7 @@ class RequestsController < ApplicationController
   end
 
   def show
-    @request = Request.find(params[:id])
+    @request = Request.find(params[:profile_id])
     @user = User.find(params[:user_id])
   end
 

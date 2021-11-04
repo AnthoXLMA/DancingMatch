@@ -5,7 +5,7 @@
   background-color: white;
   // height:auto;
   .search {
-    width:300px;
+    width:400px;
     margin-left:auto;
     margin-right:auto;
   }
@@ -37,7 +37,7 @@
     text-decoration: none;
     border-radius:30px;
     margin-top:30px;
-    margin-left: 90px;
+    // margin-left: 90px;
     margin-bottom:30px;
     transition-duration: 0.4s;
     }
@@ -50,7 +50,6 @@
      .container-card_dances{
       display:grid;
       text-align:center;
-      width:1000px;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 10px;
       justify-content:space-between;
@@ -59,26 +58,35 @@
      }
      .dance_card {
       background-color:#fff;
-      box-shadow: 3px 3px 20px 1px grey ;
-      width:200px;
-      height:120px;
-      border-radius:10px 10px 10px 10px;
+      border:solid 1px grey;
+      height:160px;
+      padding:30px;
+      border-radius:10px;
       margin-bottom:30px;
+      font-family:'Raleway';
       .image-dance {
-        img{
+        img {
         width:33px;
         height:33px;
         // border-radius:50%;
+          }
+        }
+        h3 {
+        color:white;
+        a {
+          font-size:35px;
+          text-decoration: none;
+          font-family: 'Marck Script';
+          color:#f91be3;
+          }
+        a:hover {
+          color:gold;
+          font-size:35px;
+          font-weight:bold;
         }
       }
-     }
-     h3 {
-      color:white;
-      font-size:20px;
-      text-decoration: none;
-     }
     }
-
+  }
   .title {
     text-align:center;
 
@@ -96,7 +104,7 @@
     justify-content:space-between;
     margin-left: auto;
     margin-right: auto;
-    width: 6em
+    width: 6em;
 
     h3 {
       font-size: 20px;
@@ -109,6 +117,7 @@
     width:200px;
     height:120px;
     padding: 5px;
+    font-family:'Raleway';
     // flex-grow: 1;
     margin-left:30px;
     margin-top: 10px;
@@ -135,11 +144,6 @@
   }
 
 .container-appointments-dances {
-  // width:100%;
-  // display:grid;
-  // grid-template-columns: repeat(4, 1fr);
-  // grid-gap: 10px;
-  // grid-auto-rows: minmax(100px, auto);
   .appointment-card{
     width:250px;
     height:150px;
@@ -170,7 +174,7 @@
       margin-top:10px;
     }
   }
-  .appointment-card3{
+  .appointment-card3 {
     width:300px;
     height:500px;
     box-shadow: 3px 3px 20px 1px grey ;
@@ -178,7 +182,7 @@
     background-color: white;
     margin-top:25px;
     padding:40px;
-    font-family: helvetica;
+    font-family: 'Raleway';
     color:black;
     margin-bottom:20px;
     margin-left:50px;

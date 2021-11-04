@@ -92,7 +92,8 @@ class ProfilesController < ApplicationController
     end
     @requests = Request.where(profile_id: @profile)
     @reviews = Review.all
-  end
+    @profiles = Profile.all
+ end
 
   def edit
     @profile = Profile.find(params[:id])

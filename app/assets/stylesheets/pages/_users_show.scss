@@ -1,13 +1,22 @@
-.container1 {
+.container-card-profile {
+  margin-top:196px;
+  position:sticky;
+}
+  .container1 {
   display:flex;
-  #map {
-    width:50%;
-    margin-left:800px;
+    .map-display {
+      width:50%;
+      // margin-left:700px;
+    #map {
+      margin-left:10px;
+      width:100%;
+      position:relative;
+    }
   }
   .my_profile {
       font-family: 'Roboto';
       color:black;
-      padding:21px;
+      padding:15px;
       margin-top:0px;
       width:50%;
       border:thin solid #f1f2f5;
@@ -54,6 +63,7 @@
         }
       .my-informations {
         height:100px;
+        width:290px;
         padding:20px;
         color:grey;
         h5 {
@@ -67,7 +77,8 @@
           width:200px;
         }
       }
-      .reviews-block {
+      .menu-block {
+        padding:20px;
         h5 {
           color:black;
           font-size:15px;
@@ -111,7 +122,7 @@
           }
           .infos-card {
             text-align:initial;
-            margin-bottom:5px;
+            margin-bottom:3px;
             margin-top: 5px;
             margin-left:5px;
             padding:5px;
@@ -135,6 +146,7 @@
               text-align:center;
               width:200px;
               margin-right:0px;
+              margin-bottom:3px;
             }
           }
           .infos-card-2 {

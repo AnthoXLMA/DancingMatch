@@ -1,11 +1,5 @@
 <div class="container-card-profile">
   <div class="container1">
-<!--   CODE DE LA MAP DANS UN FICHIER PAGE -->
-  <div id="map"
-      data-markers="<%= @markers.to_json %>"
-      data-dancers="<%= @dancers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
     <div class="my_profile">
       <div class="dance-query">
         <div class="query">
@@ -28,7 +22,7 @@
           <a><%= current_user.location %></a><br>
           <a><%= current_user.experience %> years experience</a><br>
         </div>
-          <div class ="reviews-block">
+          <div class ="menu-block">
             <h5>
               <%= pluralize current_user.reviews.size, "review" %><br>
               <%= link_to "See all reviews", user_reviews_path(current_user) %><br>
@@ -38,18 +32,18 @@
           </div>
       </div>
       <div class="container-appointments-profile">
-      <div class="button-block">
-        <div class="titres-cadre">
-          <div class="titres">
-            <p>Mes profils danses <%= link_to "+", dances_path %></p>
-          </div>
-            <% if @user.profiles.blank? %>
-          <div class="infos-card" >
-            <div class="ecriture">
-              <%= link_to "Sélectionnez vos danses en cliquant ici", dances_path %><br></a>
+        <div class="button-block">
+          <div class="titres-cadre">
+            <div class="titres">
+              <p>Mes profils danses <%= link_to "+", dances_path %></p>
             </div>
-          </div>
-            <% else %>
+              <% if @user.profiles.blank? %>
+            <div class="infos-card" >
+              <div class="ecriture">
+                <%= link_to "Sélectionnez vos danses en cliquant ici", dances_path %><br></a>
+              </div>
+            </div>
+              <% else %>
             <div class="infos-card" >
               <% @user.profiles.each do |i_profile| %>
             <div class="carte-profil" >
@@ -79,7 +73,7 @@
             </div>
         </div>
         <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres"><p>Requests & Feed</p></div>
+          <div class="titres"><p>Planning</p></div>
             <div class="infos-card">
                 <% current_user.requests.each do |r| %>
                 <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
@@ -87,17 +81,23 @@
             </div>
           </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Requests from others</p></div>
+            <div class="titres">
+              <p>Demandes</p>
+            </div>
               <div class="infos-card">
                   <% @dancing_partners.each do |dancing_partner| %>
                   <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
-                  <%= link_to "Voir la demande", user_request_path(current_user) %><br>
+                  <%= link_to "Voir la demande", user_requests_path(dancing_partner) %><br>
+                  <%= link_to "Voir la demande 2", requests_path(dancing_partner.user) %><br>
                 <% end %>
               </div>
-            </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class ="map-display" style="position:unset;">
+
+    </div>
   </div>
 </div>
 <div class="accroche">
@@ -109,7 +109,7 @@
     <p><%= user_events.address %></p>
     <p><%= link_to "Voir sur la carte", appointments_path %></p>
   </div>
-<% end %>
+  <% end %>
 </div>
 
 

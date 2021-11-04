@@ -1,78 +1,42 @@
 <div class="container-card-profile">
-<div class="container1">
-
-  <div class="my_profile">
-    <div class="banner-profile">
+  <div class="container1">
+    <div class="my_profile">
+      <div class="banner-profile">
         <%= simple_form_for(current_user, method: :put) do |f| %>
           <%= f.error_notification %>
-      <div class="image-profile">
-        <%= image_tag current_user.photo if current_user.photo.attached? %>
-      </div>
-       <div class="my-informations" style="width:600px;">
-        <a><%= f.label :photo %><br></a>
-        <a><%= f.file_field :photo, as: :file %></a>
-        <a><%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { value: current_user.first_name } %></a>
-        <a><%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { value: current_user.last_name } %></a>
-        <a><%= f.input :age,
-                required: true,
-                autofocus: true,
-                input_html: { placeholder: current_user.age }%></a>
-                <a><%= f.input :location,
-                required: true,
-                autofocus: true,
-                input_html: { placeholder: current_user.location }%></a>
-                <a><%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %></a><br>
-                <div class="mb-6">
-                  <%= f.button :submit, "Update", method: :put %>
-                <% end %>
-                </div>
+        <div class="image-profile">
+          <%= image_tag current_user.photo if current_user.photo.attached? %>
         </div>
-      </div>
-    <div class="menu">
-      <button class="btn btn-primary"><%= link_to "Ajouter une danse", new_dance_path %></button>
-      <button class="btn btn-primary"><%= link_to "Créer un évenement", new_appointment_path %></button>
-    </div>
-      <div class="container-appointments-profile">
-        <div class="button-block">
-          <div class="titres-cadre">
-            <div class="titres">
-              <p>Mes profils danses</p>
-            </div>
-            <div class="infos-card">
-              <% @user.profiles.each do |profile| %>
-              <%= link_to profile.dance.title, profile_path(profile) %>
-              <%= link_to "Delete this profile", profile_path(profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %><br>
-            <% end %></a>
-            </div>
-          </div>
-          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres"><p>Membres</p></div>
-              <div class="infos-card">
-
-            </div>
-          </div>
-        </div>
-            <div class="accroche">
-              <% current_user.appointments.each do |user_events| %>
-              <div class="event-cards">
-                <h2><%= user_events.name %></h2>
-                <p><%= user_events.start_on %></p>
-                <p><%= user_events.address %></p>
-              </div>
-              <% end %>
-            </div>
-            </div>
-          </div>
+        <div class="my-informations" style="width:600px;">
+          <a><%= f.label :photo %><br></a>
+          <a><%= f.file_field :photo, as: :file %></a>
+          <a><%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { value: current_user.first_name } %></a>
+          <a><%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { value: current_user.last_name } %></a>
+          <a><%= f.input :age,
+                  required: true,
+                  autofocus: true,
+                  input_html: { placeholder: current_user.age }%></a>
+          <a><%= f.input :location,
+                  required: true,
+                  autofocus: true,
+                  input_html: { placeholder: current_user.location }%></a>
+          <a><%= f.input :city,
+                  required: true,
+                  autofocus: true,
+                  input_html: { placeholder: current_user.city }%></a>
+          <a><%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %></a><br>
+          <div class="mb-6">
+            <%= f.button :submit, "Update", method: :put %>
+          <% end %>
           </div>
         </div>
       </div>
     </div>
-
-
-
+  </div>
+</div>

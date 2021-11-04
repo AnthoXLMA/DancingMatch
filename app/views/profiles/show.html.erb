@@ -1,8 +1,42 @@
-<div class="container-dances" style="margin-top: 200px; height: 700px;">
-  <h2><%= @profile.dance.title %><h2>
-  <p><%= @profile.investissement %></p>
-  <p><%= @profile.niveau %></p>
-  <p><%= @profile.training_per_week %> h/week</p>
-  <div class="button"><%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
-    <p><%= @requests.count %> requêtes de ce profil</p>
+<div class="container-card-profile" style="display:flex;">
+  <div class="container-profile-infos">
+    <h2><%= @profile.dance.title %></h2>
+    <p><%= @profile.investissement %></p>
+    <p><%= @profile.niveau %></p>
+    <p><%= @profile.training_per_week %> h/week</p>
+    <div class="button">
+      <%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
+    </div>
+    TOUS MES PROFILS<br>
+    <% @user.profiles.each do |perfil| %>
+    <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
+    <% end %>
+  </div>
+  <div class="container-profile-middle-column">
+    <p><%= pluralize @requests.count, "demande" %></p>
+    <% @requests.each do |my_request| %>
+    <div class="my-requests">
+      Vous avez une nouvelle demande:<br>
+      <%= my_request.user.first_name %>
+      <%= my_request.user.last_name %>
+      <%= my_request.user.created_at %>
+      <%= image_tag my_request.user.photo %>
+    </div>
+    <% end %>
+  </div>
+  <div class="container-profile-right-column">
+    <div class="profile-feed">
+      <div class="profile-feed-card-1">
+        <%= pluralize @profiles.count, "profil" %>
+      </div>
+      <div class="profile-feed-card-1">
+        <%= pluralize @users.count, "membre" %>
+      </div>
+      <div class="profile-feed-card-2" style="padding:10px;">
+        <% @users.each do |user| %>
+        <%= image_tag user.photo %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>

@@ -62,9 +62,9 @@ class UsersController < ApplicationController
     else
       @dances = Dance.all
     end
-    # @reviews = Review.all
     @review = Review.new
-    # @reviews = @user.reviews
+    @request = Request.where(user_id: :id)
+    # @user = User.find(params[:user_id])
   end
 
   def update

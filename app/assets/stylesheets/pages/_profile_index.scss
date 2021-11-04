@@ -1,13 +1,12 @@
 .container-card-profile {
+  // border:solid;
+  // padding:10px;
   .card-profile-index {
-    position:fixed;
     background-color:white;
-    width:40%;
-    height:400px;
-    display:flex;
-    padding:20px;
-    border:solid;
-    border-radius: 20px 20px 20px 20px;
+    width:54%;
+    height:auto;
+    // padding:20px;
+    // border:solid 1px grey;
     margin-top:10px;
     margin-left:10px;
     img {
@@ -16,33 +15,37 @@
       border-radius:50%;
       object-fit:cover;
     }
+    .photo-n-details {
+      display:flex;
+      border:solid 1px grey;
+      padding:10px;
+    }
+    .reviews-block {
+      margin-top:20px;
+      padding:10px;
+      border:solid 1px grey;
+    }
     .user_profile-informations {
       color:grey;
     }
   }
   .index-profiles {
-      margin-left:600px;
+      margin-left:10px;
       margin-right:20px;
       margin-top:10px;
-      width:60%;
-      // border:solid;
+      width:50%;
       position:sticky;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 1px;
-      grid-auto-rows: minmax(2px, auto);
+      // display:grid;
+      // grid-template-columns: 1fr 1fr;
+      // grid-gap: 1px;
+      // grid-auto-rows: minmax(2px, auto);
     .index-profiles-cards {
       margin-bottom:10px;
-      border:solid;
-      height:200px;
+      border:solid 1px grey;
+      height:194px;
       padding:10px;
       margin-right:10px;
     }
   }
 }
-  .reviews-block {
-    margin-top:20px;
-    margin-left:10px;
-    width:30%;
-  }
 

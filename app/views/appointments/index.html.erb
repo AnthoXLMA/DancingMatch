@@ -1,47 +1,43 @@
 <div class="container-card-profile">
   <div class="map-n-card">
-    <div class ="bouton-n-card">
-      <div class="title_text">
-        <p><%= link_to "Crée ton évenement", new_appointment_path, class:"btn btn-primary", id: "dance" %></p>
-      </div>
-      <%= form_tag appointments_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:appointment],
-          class: "form-control",
-          placeholder: "Où veux tu danser?"
-        %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-      <div class ="container-appointments">
-            <% @appointments.each do |appointment| %>
+    <div class="bouton-n-card">
+      <h3>Rechercher un événement</h3>
+        <div class="form" style="display:flex;">
+          <%= form_tag appointments_path, method: :get do %>
+            <%= text_field_tag :query, params[:appointment], class: "form-control", placeholder: "Lieu, ville ou événement" %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        <div class="title_text">
+          <p><%= link_to "Crée ton évenement", new_appointment_path, class:"btn btn-primary", id: "dance" %></p>
+        </div>
+        <div class ="container-appointments">
+          <% @appointments.each do |appointment| %>
           <div class="appointment-card3">
-            <div class ="image-card-appointments">
-              <%= image_tag appointment.pic if appointment.pic.attached? %>
+          <div class ="image-card-appointments">
+            <%= image_tag appointment.pic if appointment.pic.attached? %>
+          </div>
+          <div class ="information-event">
+            <div class="event-uptitle">
+              <h3><%= appointment.name  %></h3>
+              <a> <%= appointment.address %></a>
             </div>
-            <div class ="information-event">
-              <div class="event-uptitle">
-                <h3><%= appointment.name  %></h3>
-                <a> <%= appointment.address %></a>
-              </div>
-              <div class="event-subinformations">
-                <p> <%= appointment.dance.title %> - </p>
-                <p> <%= appointment.user.first_name %> - </p><br>
-                <p> Début: <%= appointment.start_on %> - </p>
-                <p> Fin: <%= appointment.end_on %></p>
-              </div>
+            <div class="event-subinformations">
+              <p> <%= appointment.dance.title %></p><br>
+              <p> <%= appointment.user.first_name %></p><br>
+              <p> Début: <%= appointment.start_on %></p><br>
+              <p> Fin: <%= appointment.end_on %></p>
             </div>
-            <div class="click-participate">
-              <a class="btn btn-primary" href="profile" role="button" action: post>Je participe</a>
-            </div>
+          </div>
+          <div class="click-participate">
+            <a class="btn btn-primary" href="profile" role="button" action: post>Je participe</a>
+          </div>
           </div>
         <% end %>
       </div>
     </div>
     <div class="container-map">
-      <div id="map"
-         data-markers="<%= @markers.to_json %>"
-         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+
     </div>
   </div>
 </div>

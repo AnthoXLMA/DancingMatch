@@ -1,6 +1,7 @@
-<%= simple_form_for (@profile), method: :put do |f| %>
-<%= f.error_notification %>
-<div class="form-inputs">
+<div class="container-card-profile" style="height:600px;">
+  <%= simple_form_for (@profile), method: :put do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
   <h2><%= @profile.dance.title %></h2>
     <%= f.label :Category %>
     <%= f.select :investissement, Profile::INVESTISSEMENT.map { |i| [i] } %><br>
@@ -9,8 +10,8 @@
     <%= f.label :Training_hours_per_week %>
     <%= f.select :training_per_week, Profile::TRAINING_per_Week.map { |t| [t] } %><br>
   </div>
-    <div class="form-actions">
-      <%= f.submit "Update", method: :put %>
-    </div>
+  <div class="form-actions">
+    <%= f.submit "Update", method: :put %>
+  </div>
   <% end %>
 </div>
