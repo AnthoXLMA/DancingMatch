@@ -33,7 +33,7 @@
           Be the first to leave a review for <%= @user.first_name %>
         <% else %>
           <% @user.reviews.each do |review| %>
-            <p><%= review.id %>.<%= review.content %> by <%= review.user.first_name %></p>
+            <p><%= review.content %></p>
           <% end %>
         <% end %>
       </div>
@@ -48,10 +48,9 @@
         <li><%= profil.investissement %></li>
         <li><%= profil.training_per_week %> hours/week</li>
       </ul>
-      <div style="display:flex; height:50px; margin-right:10px; justify-content:space-evenly;">
+      <div class="buttons" style="display:flex; height:50px; margin-right:10px; justify-content:space-evenly; color:white; font-family:'Raleway">
         <button type="button" class="btn btn-primary"><%= link_to 'Request', user_requests_path(profil), method: :post %></button>
-        <button type="button" class="btn btn-danger"><%= link_to 'Review', user_reviews_path(@user), method: :post %></button>
-        <button type="button" class="btn btn-warning"><%= link_to 'Compare', user_reviews_path(@user), method: :post %></button>
+        <button type="button" class="btn btn-warning"><%= link_to 'Compare', profile_meetings_path(profil), method: :post %></button>
       </div>
     </div>
     <% end %>

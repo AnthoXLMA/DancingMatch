@@ -21,10 +21,17 @@ require("channels")
 
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
+// import { initProgressBar } from '../plugins/init_progressbar';
+// import { initChart } from '../plugins/init_chart';
+// import { initSiema } from '../plugins/init_siema';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  // initProgressBar();
+  // initChart();
+  // initSiema();
+  // initNavTabs();
 })
 
 // External imports

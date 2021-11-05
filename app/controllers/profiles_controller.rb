@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
       redirect_to edit_profile_path(@profile)
     else
       redirect_to dances_path
-  end
+    end
     # @user = User.find(params[:user_id])
     # @profile = @user.profile.build(params[:profile])
     # if @profile.save
@@ -57,17 +57,17 @@ class ProfilesController < ApplicationController
         dance.title
       end
     end
-    # BARRE DE RECHERCHES DES DANSES
+      # BARRE DE RECHERCHES DES DANSES
     if params[:query].present?
     @dance_search = Dance.where("title LIKE ?", "%" + params[:query] + "%")
     else
     @dances = Dance.all
     end
-    # LISTER LES DANSES
+      # LISTER LES DANSES
     @my_selected_dances = @dances.select(params[:id])
-    # SELECTIONNER UNE DANSE ET L'AJOUTER AU PROFIL
+      # SELECTIONNER UNE DANSE ET L'AJOUTER AU PROFIL
     @my_profile_dances = []
-    # GEOLOCALISATION DES EVENTS
+      # GEOLOCALISATION DES EVENTS
     @appointments = Appointment.all
     @markers = @appointments.geocoded.map do |appointment|
       {
@@ -77,7 +77,7 @@ class ProfilesController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
       }
     end
-    # GEOLOCALISATION DES USERS
+      # GEOLOCALISATION DES USERS
     @users = User.all
     @dancers = @users.geocoded.map do |user|
       {
@@ -93,6 +93,12 @@ class ProfilesController < ApplicationController
     @requests = Request.where(profile_id: @profile)
     @reviews = Review.all
     @profiles = Profile.all
+      # CREATION DU MATCHING TEST COMPARE
+    # @user_profile_skills = Profile::SKILLS.map { |skill| @user[skill] }
+    # @profile_skills = Profile::SKILLS.map { |skill| @profile[skill] }
+    # @already_compared = current_user.meetings.where(profile_id: @profile).exists?
+    # @profile = Profile.select('profile.*', "#{@profile.matching_percentage_calc} AS matching_percentage")
+    #               .where(id: params[:id])
  end
 
   def edit
@@ -101,9 +107,9 @@ class ProfilesController < ApplicationController
     @profile_user = @profiles.each do |profile|
       puts profile.dance.title
     end
-    # @profile = User.find(params[:id])
+      # @profile = User.find(params[:id])
     @dances = Dance.all
-    # Select et s'ajoute dans la show du profil
+      # Select et s'ajoute dans la show du profil
     @my_dances = @dances.select(params[:id])
     @user_dances = @dances.select(params[:id])
   end
@@ -122,15 +128,7 @@ class ProfilesController < ApplicationController
 
   def destroy
     @user = current_user
-    # @profiles = Profile.all
-    # @profile = @profiles.each do |profile|
-    #   profile
-    # end
     @user.profiles.destroy(@profile)
-    # @profile_user = @user.profile.each do |profile|
-    #   puts profile.dance.title
-    # end
-    # @user.profile.destroy(@user.profile)
       redirect_to user_path(@current_user)
   end
 
@@ -138,7 +136,6 @@ class ProfilesController < ApplicationController
 
   def set_profile
     @profile = Profile.find_by(id: params[:id])
-    # @user = User.find(params[:id])
   end
 
   def new_profile_params

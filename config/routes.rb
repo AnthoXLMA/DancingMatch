@@ -35,6 +35,10 @@ Rails.application.routes.draw do
     resources :dances, only: [:index, :create, :show, :new, :edit]
   end
 
+  resources :profiles, only: [:index, :show] do
+    resources :meetings, only: [:create]
+  end
+
   resources :dances, only: [:index, :show, :new, :create] do
     resources :users, only: [:show]
   end

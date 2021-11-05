@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   DANCES = Dance.all
 
-  LOCATION = ['Berlin','Paris','Madrid']
+  LOCATION = ['Berlin', 'Paris', 'Madrid']
 
   has_many :profiles, dependent: :destroy
   has_one_attached :photo

@@ -13,6 +13,7 @@
     <% end %>
   </div>
   <div class="container-profile-middle-column">
+    FIL D'ACTUALITE
     <p><%= pluralize @requests.count, "demande" %></p>
     <% @requests.each do |my_request| %>
     <div class="my-requests">
@@ -25,12 +26,17 @@
     <% end %>
   </div>
   <div class="container-profile-right-column">
+    STATISTIQUES DE L'APPLICATION
     <div class="profile-feed">
       <div class="profile-feed-card-1">
         <%= pluralize @profiles.count, "profil" %>
       </div>
       <div class="profile-feed-card-1">
         <%= pluralize @users.count, "membre" %>
+      </div>
+      <div class="profile-feed-card-1">
+        EVENEMENTS PREVUS
+        <%= pluralize @appointments.count, "événement" %>
       </div>
       <div class="profile-feed-card-2" style="padding:10px;">
         <% @users.each do |user| %>

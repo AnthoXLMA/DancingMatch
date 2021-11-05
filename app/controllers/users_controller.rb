@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :sign_out]
   # layout false
-
   def index
     @users = User.all
     @profiles = Profile.all
@@ -43,12 +42,6 @@ class UsersController < ApplicationController
     @profile = @user.profiles.each do |profile|
       profile.dance.title
     end
-    # @profile = current_user
-    # @my_dances = []
-    # @profile.dances.each do |profile_dance|
-    # @dance = profile_dance.title
-    # @my_dances << @dance if !@my_dances.include?(@dance)
-    # end
     @markers = @users.geocoded.map do |u|
       {
         lat: u.latitude,
@@ -64,7 +57,6 @@ class UsersController < ApplicationController
     end
     @review = Review.new
     @request = Request.where(user_id: :id)
-    # @user = User.find(params[:user_id])
   end
 
   def update

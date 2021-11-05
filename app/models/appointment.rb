@@ -1,7 +1,6 @@
 class Appointment < ApplicationRecord
   belongs_to :user
   belongs_to :dance
-
   has_one_attached :pic
 
   geocoded_by :address

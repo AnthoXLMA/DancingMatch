@@ -1,0 +1,8 @@
+<div class="container-card-profile">
+  <div class="container1">
+    <h2>INDEX DES MEETINGS</h2><br>
+    <%= current_user.meetings.each do |my_meetings| %>
+    <%= my_meetings %>
+    <% end %>
+  </div>
+</div>
