@@ -5,26 +5,28 @@
         <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
         All App Users: <a><%= @users.count %> </a><br>
         Total Dances Profiles: <a><%= @profiles.count %> </a><br>
-        La communauté <a style="font-weight:bold;"><%= @style %></a> contient <%= pluralize @partners_of_this_dance.count, "partenaire" %><br>
+        Total Community <a style="font-weight:bold;"><%= @style %> Dancers</a>: <%= @partners_of_this_dance.count %><br>
+        <div class="list-community-dancers">
         <% @partners_of_this_dance.each do |member| %>
-        <li>
-          <%= image_tag member.user.photo %>
-          <%= link_to member.user.first_name, user_profiles_path(member.user) %>
-        </li>
+          <div class="image-dancers">
+            <%= image_tag member.user.photo %><br>
+          </div>
         <% end %><br>
-          <p><%= pluralize @appointments_on_map.count, "événement" %></p>
+        </div>
+          <p><%= pluralize @appointments_on_map.count, "organisateur" %></p>
+          <div class="list-community-dancers">
           <% @event_managers.each do |manager| %>
-            <li>
+            <div class="image-dancers">
               <%= manager.first_name %>
-              <%= manager.location %>
-            </li>
+              <%= image_tag manager.photo %>
+            </div>
           <% end %>
+        </div>
         <div class="add-dance">
           <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
           <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :patch %></a></div>
           <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
         </div>
-          <p><%= pluralize @appointments_on_map.count, "événement" %></p>
       </div>
     </div>
     <div class="events-list">
@@ -34,6 +36,7 @@
           <div class="carte-details">
             <a><%= an_event.name %></a><br>
             <a><%= an_event.address %></a>
+            <%= image_tag an_event.user.photo %>
           </div>
         </div>
       <% end %>

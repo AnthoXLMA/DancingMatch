@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = @user
     if @review.save
-      redirect_to user_path(@user)
+      redirect_to user_profiles_path(@user)
     else
       render :new
     end
@@ -33,6 +33,6 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:content, :user_id, :content)
+    params.require(:review).permit(:content, :user_id)
   end
 end

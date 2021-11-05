@@ -1,6 +1,5 @@
 class Profile < ApplicationRecord
   belongs_to :user
-
   validates_associated :user
 
   has_one_attached :avatar
@@ -35,21 +34,46 @@ class Profile < ApplicationRecord
     '30 hours min. per week'
   ]
 
-#   SKILLS = %w[
-#   interpersonal_skills
-#   rigor
-#   independence
-#   communication
-#   teamwork
-#   creativity
-#   initiative
-#   stress_management
-#   perseverance
-#   decision_making
-#   curiosity
-#   adaptability
-#   enthusiam
-#   flexibility
-#   empathy
-# ]
+  # SKILLS = %w[
+  #   interpersonal_skills
+  #   rigor
+  #   independence
+  #   communication
+  #   teamwork
+  #   creativity
+  #   initiative
+  #   stress_management
+  #   perseverance
+  #   decision_making
+  #   curiosity
+  #   adaptability
+  #   enthusiam
+  #   flexibility
+  #   empathy
+  # ]
+
+  # def matching_percentage_calc
+  #   skills_cases = SKILLS.map do |skill|
+  #     <<~STRING
+  #       (
+  #         CASE
+  #           WHEN profiles.#{skill}       <= #{self[skill]} THEN 100
+  #           WHEN (profiles.#{skill} - 1) <= #{self[skill]} THEN 75
+  #           WHEN (profiles.#{skill} - 2) <= #{self[skill]} THEN 50
+  #           WHEN (profiles.#{skill} - 3) <= #{self[skill]} THEN 25
+  #           ELSE
+  #             0
+  #         END
+  #       )
+  #     STRING
+  #   end
+  #   skills_query = skills_cases.join(" +\n")
+  #   <<~SQL
+  #     ( ({skills_query}) / 15::decimal )
+  #   SQL
+  # end
+
+  # def all_skills_rated?
+  #   SKILLS.all? { |skill| self[skill].present? }
+  # end
 end
