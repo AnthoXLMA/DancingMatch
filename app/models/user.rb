@@ -5,9 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   GENDER_TYPES = ['Gentleman', 'Lady']
-
   DANCES = Dance.all
-
   LOCATION = ['Berlin', 'Paris', 'Madrid']
 
   has_many :profiles, dependent: :destroy
@@ -28,6 +26,7 @@ class User < ApplicationRecord
   validates_confirmation_of :password
 
   after_create :build_profile
+
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
   end
