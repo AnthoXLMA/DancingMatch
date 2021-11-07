@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: [:index, :show] do
-    resources :meetings, only: [:create]
+    resources :meetings, only: [:create, :show]
   end
 
   resources :dances, only: [:index, :show, :new, :create] do

@@ -21,10 +21,14 @@ class MeetingsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @meeting.profile = @profile
     if @meeting.save
-      redirect_to profile_path(@profile, met: true)
+      redirect_to profile_path(@profile)
     else
       render 'users/show'
     end
+  end
+
+  def show
+    @meeting = Meeting.find(params[:id])
   end
 
 private
