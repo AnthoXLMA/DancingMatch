@@ -34,23 +34,31 @@ class Profile < ApplicationRecord
     '30 hours min. per week'
   ]
 
-  # SKILLS = %w[
-  #   interpersonal_skills
-  #   rigor
-  #   independence
-  #   communication
-  #   teamwork
-  #   creativity
-  #   initiative
-  #   stress_management
-  #   perseverance
-  #   decision_making
-  #   curiosity
-  #   adaptability
-  #   enthusiam
-  #   flexibility
-  #   empathy
-  # ]
+  SKILLS = %w[
+    interpersonal_skills
+    rigor
+    independence
+    communication
+    teamwork
+    creativity
+    initiative
+    stress_management
+    perseverance
+    decision_making
+    curiosity
+    adaptability
+    enthusiam
+    flexibility
+    empathy
+    level
+    xp
+    coaching_status
+    practice_a_week
+    technique
+    ambition
+    empathie
+    social
+  ]
 
   # def matching_percentage_calc
   #   skills_cases = SKILLS.map do |skill|

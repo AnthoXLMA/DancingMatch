@@ -7,15 +7,15 @@
     <div class="button">
       <%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
     </div>
-    TOUS MES PROFILS<br>
+      TOUS MES PROFILS<br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
     <% end %>
   </div>
   <div class="container-profile-middle-column">
-    FIL D'ACTUALITE
+      FIL D'ACTUALITE
     <p><%= pluralize @requests.count, "demande" %></p>
-    <% @requests.each do |my_request| %>
+      <% @requests.each do |my_request| %>
     <div class="my-requests">
       Vous avez une nouvelle demande:<br>
       <%= my_request.user.first_name %>
@@ -24,9 +24,27 @@
       <%= image_tag my_request.user.photo %>
     </div>
     <% end %>
+    <% if @already_compared %>
+      <h3 style="color: #222222;"><strong>Compare your personality with the offer</strong></h3>
+      <canvas id="graph1"
+              data-user-fullname="<%= "#{@user.last_name} #{@user.first_name}" %>"
+              data-profile-title="<%= @profile.dance.title %>"
+              data-user-skills="<%= @user_skills.to_json %>"
+              data-profile-skills="<%= @profile_skills.to_json %>"
+              data-skill-names="<%= User::SKILLS.to_json %>">
+      </canvas>
+        <% else %>
+      <div class="link">
+        <h3>You will discover your detailed matching of soft skills</h3>
+        <h3>related to what the recruiter is looking for after <strong>your application</strong>.</h3>
+        <div class="btn-apply d-flex mt-5">
+          <%= link_to "Compare", profile_meetings_path(@profile.id), method: :post, class:"btn-ghost", id: "meeting" %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <div class="container-profile-right-column">
-    STATISTIQUES DE L'APPLICATION
+      STATISTIQUES DE L'APPLICATION
     <div class="profile-feed">
       <div class="profile-feed-card-1">
         <%= pluralize @profiles.count, "profil" %>

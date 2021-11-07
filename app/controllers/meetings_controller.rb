@@ -1,5 +1,5 @@
 class MeetingsController < ApplicationController
-  before_action :set_meeting, only: [:show, :edit, :update, :sign_out]
+  # before_action :set_meeting, only: [:index, :create, :show, :edit, :update, :sign_out]
 
 
   def index
@@ -21,9 +21,14 @@ class MeetingsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @meeting.profile = @profile
     if @meeting.save
-      redirect_to profile_path(@profile, met: true)
+      redirect_to profile_path(@profile)
+    else
+      render 'users/show'
     end
-    render :new
+  end
+
+  def show
+    @meeting = Meeting.find(params[:id])
   end
 
 private
@@ -32,6 +37,6 @@ private
   end
 
   def meeting_params
-    params.require(:meeting).permit(:datetime, :user_id, :profile_id, :dance_id)
+    params.require(:meeting).permit(:datetime, :user_id, :profile_id)
   end
 end

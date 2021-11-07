@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_05_142029) do
+ActiveRecord::Schema.define(version: 2021_11_05_165440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,10 +73,8 @@ ActiveRecord::Schema.define(version: 2021_11_05_142029) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
     t.bigint "profile_id", null: false
-    t.bigint "dance_id", null: false
     t.datetime "date"
     t.string "location"
-    t.index ["dance_id"], name: "index_meetings_on_dance_id"
     t.index ["profile_id"], name: "index_meetings_on_profile_id"
     t.index ["user_id"], name: "index_meetings_on_user_id"
   end
@@ -167,7 +165,6 @@ ActiveRecord::Schema.define(version: 2021_11_05_142029) do
   add_foreign_key "appointments", "dances"
   add_foreign_key "dances", "users"
   add_foreign_key "feeds", "profiles"
-  add_foreign_key "meetings", "dances"
   add_foreign_key "meetings", "profiles"
   add_foreign_key "meetings", "users"
   add_foreign_key "profiles", "dances"
