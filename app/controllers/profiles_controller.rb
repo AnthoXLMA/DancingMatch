@@ -8,11 +8,11 @@ class ProfilesController < ApplicationController
     @profiles = Profile.all
     @profiles = current_user.profiles
     @review = Review.new
-    @profiles = Profile.select('profiles.*', "#{@user.matching_percentage_calc} AS matching_percentage")
-                   .order('matching_percentage DESC')
-    @profiles  = @profiles.near(current_user.location, 10) if current_user.location.present?
-    @profiles  = @profiles.where(profile_id: current_user.profile.dance.title) if current_user.profile.present?
-    @profiles  = @profiles.where(dance: current_user.profile.dance.title) if current_user.profile.dance.title.present?
+    # @profiles = Profile.select('profiles.*', "#{@user.matching_percentage_calc} AS matching_percentage")
+    #                .order('matching_percentage DESC')
+    # @profiles  = @profiles.near(current_user.location, 10) if current_user.location.present?
+    # @profiles  = @profiles.where(profile_id: current_user.profile.dance.title) if current_user.profile.present?
+    # @profiles  = @profiles.where(dance: current_user.profile.dance.title) if current_user.profile.dance.title.present?
   end
 
   def new
@@ -102,8 +102,8 @@ class ProfilesController < ApplicationController
     @user_profile_skills = Profile::SKILLS.map { |skill| @user[skill] }
     @profile_skills = Profile::SKILLS.map { |skill| @profile[skill] }
     @already_compared = current_user.meetings.where(profile_id: @profile).exists?
-    @profile = Profile.select('profile.*', "#{@user.matching_percentage_calc} AS matching_percentage")
-                  .where(id: params[:id])
+    # @profile = Profile.select('profile.*', "#{@user.matching_percentage_calc} AS matching_percentage")
+    #               .where(id: params[:id])
  end
 
   def edit

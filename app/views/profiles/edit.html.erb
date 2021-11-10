@@ -15,3 +15,163 @@
   </div>
   <% end %>
 </div>
+
+<%= simple_form_for current_user, url: profile_path do |f| %>
+    <div class="siema">
+      <div class="skill-card" data-skill-completed="<%= current_user.level.present? %>">
+          <h3>Level</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.level %>
+                <input disabled checked class="rating__input rating__input--none" name="user[level]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="level-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[level]", n, current_user.level == n, id: "level-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "interpersonal_skills.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.xp.present? %>">
+          <h3>xp</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.xp %>
+                <input disabled checked class="rating__input rating__input--none" name="user[xp]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="xp-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[xp]", n, current_user.xp == n, id: "xp-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "rigor.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.coaching_status.present? %>">
+          <h3>Coaching Status</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.coaching_status %>
+                <input disabled checked class="rating__input rating__input--none" name="user[coaching_status]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="coaching_status-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[coaching_status]", n, current_user.coaching_status == n, id: "coaching_status-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "independence.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.practice_a_week.present? %>">
+          <h3>Practice-a-Week</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.practice_a_week %>
+                <input disabled checked class="rating__input rating__input--none" name="user[practice_a_week]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="practice_a_week-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[practice_a_week]", n, current_user.practice_a_week == n, id: "practice_a_week-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "communication.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.technique.present? %>">
+          <h3>Technique</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.technique %>
+                <input disabled checked class="rating__input rating__input--none" name="user[technique]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="technique-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[technique]", n, current_user.technique == n, id: "technique-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "teamwork.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.ambition.present? %>">
+          <h3>ambition</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.ambition %>
+                <input disabled checked class="rating__input rating__input--none" name="user[ambition]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="ambition-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[ambition]", n, current_user.ambition == n, id: "ambition-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "creativity.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.empathie.present? %>">
+          <h3>empathie</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.empathie %>
+                <input disabled checked class="rating__input rating__input--none" name="user[empathie]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="empathie-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[empathie]", n, current_user.empathie == n, id: "empathie-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "initiative.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= current_user.social.present? %>">
+          <h3>Social</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless current_user.social %>
+                <input disabled checked class="rating__input rating__input--none" name="user[social]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="social-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("user[social]", n, current_user.social == n, id: "social-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "stress_management.svg", class: "skill-image" %>
+      </div>
+      </div> <%# div du siema %>
+    <%# boutton pour passer au skill suivant puis si last skill : end questions%>
+    <div class="btns-next-prev">
+      <div class="choices">
+        <button class="prev btn-pn"><i class="fas fa-chevron-left" style="margin-right: 2px;"></i> Previous skill</button>
+        <button class="next btn-pn" style="text-align: center;">Next skill <i class="fas fa-chevron-right" style="margin-left: 2px;"></i></button>
+      </div>
+      <div class="btn-update btn_pn">
+        <%= f.submit "Update my profile", class: "profile-update-btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
