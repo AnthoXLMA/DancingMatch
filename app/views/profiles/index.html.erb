@@ -24,8 +24,8 @@
       <h2><%= pluralize @user.reviews.size, "review" %></h2>
       <div>
         <%= simple_form_for([ @user, @review ]) do |f| %>
-            <%= f.input :content, as: :text %>
-            <%= f.button :submit %>
+          <%= f.input :content, as: :text %>
+          <%= f.button :submit %>
         <% end %>
       </div>
       <div id="reviews">
@@ -39,9 +39,9 @@
       </div>
     </div>
   </div>
-  <div class="index-profiles" >
+  <div class="index-profiles">
     <% @user.profiles.each do |profil| %>
-    <div class="index-profiles-cards">
+    <div class="index-profiles-cards" style="display:flex;">
       <ul>
         <li><%= link_to profil.dance.title, dance_path(profil.dance) %></li>
         <li><%= profil.niveau %></li>
@@ -51,6 +51,10 @@
       <div class="buttons" style="display:flex; height:50px; margin-right:10px; justify-content:space-evenly; color:white; font-family:'Raleway">
         <button type="button" class="btn btn-primary"><%= link_to 'Request', user_requests_path(profil), method: :post %></button>
         <button type="button" class="btn btn-warning"><%= link_to 'Compare', profile_meetings_path(profil), method: :post %></button>
+      </div>
+      <div class="graph-percentage">
+          GRAPHIQUE COMPARAISON STATISTIQUES
+         <span class="matching-percentage-js matching-percentage-css" data-percentage="<%= @user.matching_percentage_calc %>"><%#= '%.2f' % offer.matching_percentage %></span>
       </div>
     </div>
     <% end %>

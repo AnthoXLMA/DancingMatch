@@ -22,7 +22,6 @@ button.addEventListener('click', (e) => {
 // months.length;
 // // => 12
 
-const element = document.querySelector(CSS_SELECTOR);
 const button = document.querySelector('#click-me');
 button.addEventListener('click', (event) => {
   console.log(event);

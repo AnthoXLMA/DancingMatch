@@ -19,16 +19,22 @@
     <div class="contain-3">
       <div class="card-search-types">
       <%= simple_form_for users_path, method: :get do |f| %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "qui? quoi?" %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Où?" %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
       </div>
     </div>
     <div class="contain-3">
       <div class="card-search-types">
+        <input type="checkbox" name="gender" value="lady" /> Lady
+        <input type="checkbox" name="gender" value="gentleman" /> Gentleman
+      </div>
+    </div>
+    <div class="contain-3">
+      <div class="card-search-types">
       critères de recherche n°2: où? comment?
         <%= simple_form_for users_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "qui? quoi?" %>
+        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Qui? quoi?" %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
       </div>

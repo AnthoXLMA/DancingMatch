@@ -21,18 +21,32 @@ require("channels")
 
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { initProgressBar } from '../plugins/init_progressbar';
-import { initChart } from '../plugins/init_chart';
-import { initSiema } from '../plugins/init_siema';
+// import { initProgressBar } from '../plugins/init_progressbar';
+// import { initChart } from '../plugins/init_chart';
+// import { initSiema } from '../plugins/init_siema';
+
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+import { initClickMe } from '../plugins/init_click_me';
+import { searchAlgoliaPlaces } from '../plugins/init_autocomplete';
+import { input } from '../plugins/form';
+import { createInterestPoints } from '../plugins/geojson-data';
+import { cats } from '../plugins/geojson-data';
+import { formControl } from '../plugins/form';
+import { initCompare } from '../plugins/init_compare';
+import { initProgressBar } from '../plugins/init_progressbar';
+import { ProgressBar } from '../plugins/init_progressbar';
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  // initProgressBar();
+  // initClickMe();
+  // createInterestPoints();
+  // searchAlgoliaPlaces();
+  initProgressBar();
   // initChart();
   // initSiema();
   // initNavTabs();
-})
+});
 
 // External imports
 import "bootstrap";
