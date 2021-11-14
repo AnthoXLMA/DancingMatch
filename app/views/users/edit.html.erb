@@ -30,7 +30,17 @@
                   required: true,
                   autofocus: true,
                   input_html: { placeholder: current_user.city }%></a>
+          <%= f.label :gender %>
           <a><%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %></a><br>
+          <%= f.label :level %>
+          <a><%= f.select :level, User::LEVELS.map { |level| [level] } %></a><br>
+          <%= f.label :xp %>
+          <a><%= f.select :xp, User::XPS.map { |xp| [xp] } %></a><br>
+          <%= f.label :status %>
+          <a><%= f.select :coaching_status, User::COACHING_STATUS.map { |coaching_status| [coaching_status] } %></a><br>
+          <%= f.label :hours_a_week %>
+          <a><%= f.select :practice_a_week, User::PRACTICE_A_WEEK.map { |practice_a_week| [practice_a_week] } %></a><br>
+
           <div class="mb-6">
             <%= f.button :submit, "Update", method: :put %>
           <% end %>
@@ -40,3 +50,5 @@
     </div>
   </div>
 </div>
+
+

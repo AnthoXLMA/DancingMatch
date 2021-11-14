@@ -144,11 +144,11 @@ class ProfilesController < ApplicationController
   end
 
   def new_profile_params
-    params.permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week)
+    params.permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 
   def profile_params
     # params.permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
-    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week)
+    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 end

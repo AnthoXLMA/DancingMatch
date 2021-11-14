@@ -6300,7 +6300,7 @@
 
 "progressbar.js@^1.1.0":
   "integrity" "sha512-K68/xcyXKo2I6T3PfIkXrRaycxROmWeU4bugb49iulWR25cU94PM0cfZ47S0jDhG5K3vPhZwCOy1fgb5Pgh6UQ=="
-  "resolved" "https://registry.yarnpkg.com/progressbar.js/-/progressbar.js-1.1.0.tgz"
+  "resolved" "https://registry.npmjs.org/progressbar.js/-/progressbar.js-1.1.0.tgz"
   "version" "1.1.0"
   dependencies:
     "shifty" "^2.1.2"
@@ -7031,6 +7031,11 @@
   "integrity" "sha1-2kL0l0DAtC2yypcoVxyxkMmO/qM="
   "resolved" "https://registry.npmjs.org/shebang-regex/-/shebang-regex-1.0.0.tgz"
   "version" "1.0.0"
+
+"shifty@^2.1.2":
+  "integrity" "sha512-hmaxYxbunTNYGcoMS9OGvgjymPP29HWaWc0k+Dv16zo9PhjRGdTbPCT/uH75DDuRbwP4RW9D9e/HhxkyoTQm8Q=="
+  "resolved" "https://registry.npmjs.org/shifty/-/shifty-2.16.0.tgz"
+  "version" "2.16.0"
 
 "siema@^1.5.1":
   "integrity" "sha1-7/MSt36DQPpNgdXQU+u+uRE/+Ig="

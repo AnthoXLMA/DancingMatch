@@ -7,7 +7,7 @@ class Profile < ApplicationRecord
   has_one :feed
   has_many :dances
   has_many :appointments
-  has_many :meetings
+  has_many :meetings, dependent: :destroy
   has_many :requests, dependent: :destroy
 
  INVESTISSEMENT = [
@@ -35,21 +35,6 @@ class Profile < ApplicationRecord
   ]
 
   SKILLS = %w[
-    interpersonal_skills
-    rigor
-    independence
-    communication
-    teamwork
-    creativity
-    initiative
-    stress_management
-    perseverance
-    decision_making
-    curiosity
-    adaptability
-    enthusiam
-    flexibility
-    empathy
     level
     xp
     coaching_status
@@ -59,6 +44,27 @@ class Profile < ApplicationRecord
     empathie
     social
   ]
+
+
+
+  # def matching_percentage_calc
+  #  <<~PLOP
+  #    ( round(
+  #        100.0 * (
+  #          (CASE WHEN profiles.level <= '#{level}' THEN 1  ELSE 0 END) +
+  #          (CASE WHEN profiles.xp <= '#{xp}' THEN 1 ELSE 0 END) +
+  #          (CASE WHEN profiles.coaching_status <= '#{coaching_status}' THEN 1 ELSE 0 END) +
+  #          (CASE WHEN profiles.practice_a_week <= '#{practice_a_week}' THEN 1 ELSE 0 END) +
+  #          (CASE WHEN profiles.technique <= '#{technique}' THEN 1 ELSE 0 END) +
+  #          (CASE WHEN profiles.ambition <= '#{ambition}' THEN 1 ELSE 0 END) +
+  #          (CASE WHEN profiles.empathie <= '#{empathie}' THEN 1 ELSE 0 END) +
+  #          (CASE WHEN profiles.social <= '#{social}' THEN 1 ELSE 0 END) +
+  #        )
+  #        / 15
+  #      , 2)
+  #    )
+  #  PLOP
+  # end
 
   # def matching_percentage_calc
   #   skills_cases = SKILLS.map do |skill|

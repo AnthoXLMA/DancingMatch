@@ -5,7 +5,6 @@
 //     messagesContainer.insertAdjacentHTML('beforeend', data);
 //   },
 
-
 //   disconnected() {
 //     // Called when the subscription has been terminated by the server
 //   },
@@ -14,7 +13,6 @@
 //     // Called when there's incoming data on the websocket for this channel
 //   }
 // });
-
 
 // import consumer from "./consumer";
 
@@ -32,7 +30,6 @@
 // }
 
 // export { initChatroomCable };
-
 
 // consumer.subscriptions.create({ channel: "ChatroomChannel", id: id }, {
 //   received(data) {

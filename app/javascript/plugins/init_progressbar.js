@@ -1,5 +1,6 @@
-//import progressbar from 'progressbar';
-const ProgressBar = require('progressbar.js')
+// import progressbar from 'progressbar';
+const ProgressBar = require('../components/progressbar.js');
+// const line = new ProgressBar.Line('.matching-percentage-js');
 
 const initProgressBar = () => {
   const matchingPercentages = document.querySelectorAll('.matching-percentage-js');
@@ -30,7 +31,6 @@ const initProgressBar = () => {
         } else {
           circle.setText(value + '%');
         }
-
       }
     });
     circle.value = matchingPercentage.dataset.percentage;
@@ -41,4 +41,6 @@ const initProgressBar = () => {
   });
 };
 
+export { ProgressBar };
+// export { line };
 export { initProgressBar };

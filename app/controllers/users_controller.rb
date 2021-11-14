@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     @user = User.find(params[:id])
+    @appointments = Appointment.all
     @profiles = Profile.all
     @requests = Request.where(user_id: :id)
     @dancing_partners = Request.where(profile: @user.profiles)
@@ -42,12 +43,12 @@ class UsersController < ApplicationController
     @profile = @user.profiles.each do |profile|
       profile.dance.title
     end
-    @markers = @users.geocoded.map do |u|
+    @markers = @users.geocoded.map do |user|
       {
-        lat: u.latitude,
-        lng: u.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { u: u }),
-        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+        image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
     if params[:query].present?
@@ -89,6 +90,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:gender, :first_name, :last_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo, :review, :city)
+    params.require(:user).permit(:gender, :first_name, :last_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo, :review, :city, :user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 end
