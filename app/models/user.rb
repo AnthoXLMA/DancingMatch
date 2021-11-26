@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   GENDER_TYPES = ['Gentleman', 'Lady', 'Couple']
   DANCES = Dance.all
-  LOCATION = ['Berlin', 'Paris', 'Madrid']
+  LOCATION = ['Berlin', 'Paris', 'Madrid', 'Rio de Janeiro', 'Geneve']
   SKILLS = %w[
     level
     xp
@@ -43,25 +43,26 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length: { minimum: 4 }
   validates :last_name, length: { minimum: 3 }
+  validates :city, presence: true
   validates_confirmation_of :password
 
   after_create :build_profile
 
   def matching_percentage_calc
-      skills_cases = SKILLS.map do |skill|
-        <<~STRING
-          (
-            CASE
-              WHEN profiles.#{skill}       <= #{self[skill]} THEN 100
-              WHEN (profiles.#{skill} - 1) <= #{self[skill]} THEN 75
-              WHEN (profiles.#{skill} - 2) <= #{self[skill]} THEN 50
-              WHEN (profiles.#{skill} - 3) <= #{self[skill]} THEN 25
-              ELSE
-                0
-            END
-          )
-        STRING
-      end
+    skills_cases = SKILLS.map do |skill|
+      <<~STRING
+        (
+          CASE
+            WHEN users.#{skill}       <= #{self[skill]} THEN 100
+            WHEN (users.#{skill} - 1) <= #{self[skill]} THEN 75
+            WHEN (users.#{skill} - 2) <= #{self[skill]} THEN 50
+            WHEN (users.#{skill} - 3) <= #{self[skill]} THEN 25
+            ELSE
+              0
+          END
+        )
+      STRING
+    end
     skills_query = skills_cases.join(" +\n")
     <<~SQL
       ( ({skills_query}) / 15::decimal )
@@ -72,9 +73,9 @@ class User < ApplicationRecord
     SKILLS.all? { |skill| self[skill].present? }
   end
 
-  # def last_skill?
-  #   SOFT_SKILLS.last
-  # end
+  def last_skill?
+    SKILLS.last
+  end
 
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.

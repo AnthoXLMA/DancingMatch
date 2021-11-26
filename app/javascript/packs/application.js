@@ -7,7 +7,7 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-
+require("components")
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -21,9 +21,8 @@ require("channels")
 
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
-// import { initProgressBar } from '../plugins/init_progressbar';
-// import { initChart } from '../plugins/init_chart';
-// import { initSiema } from '../plugins/init_siema';
+import { initChart } from '../plugins/init_chart';
+import { initSiema } from '../plugins/init_siema';
 
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
@@ -35,14 +34,18 @@ import { cats } from '../plugins/geojson-data';
 import { formControl } from '../plugins/form';
 import { initCompare } from '../plugins/init_compare';
 import { initProgressBar } from '../plugins/init_progressbar';
-import { ProgressBar } from '../plugins/init_progressbar';
+import { ChangeSlide } from '../plugins/slider';
+import { slide } from '../plugins/slider';
+import { numero }from '../plugins/slider';
+import { initCalendar } from '../components/calendrier';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  ChangeSlide();
+  initCalendar();
   // initClickMe();
   // createInterestPoints();
   // searchAlgoliaPlaces();
-  initProgressBar();
   // initChart();
   // initSiema();
   // initNavTabs();

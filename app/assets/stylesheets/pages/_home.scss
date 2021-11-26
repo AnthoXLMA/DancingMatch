@@ -1,3 +1,7 @@
+.body {
+  height:auto;
+}
+
 .container-background {
   height:470px;
   .background {
@@ -25,6 +29,13 @@
         margin-right:auto;
         margin-left:auto;
         margin-top:80px;
+      }
+      #slider {
+      position: relative;
+      width: 1200px;
+      margin: auto;
+      display: flex;
+      align-items: center;
       }
     }
     .b-primary {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title>Dancing Partners</title>
     <%= csrf_meta_tags %>
@@ -7,14 +7,24 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" media="screen, print, handheld" type="text/scss" href="../assets/components/calendrier.scss" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
   <body style="height:auto;">
     <%= render 'shared/navbar' %>
     <%= yield %>
+    <div class= "cal_calendrier">
+    </div>
+    <div onclick="console.log('Click sur le Div')">
+      Cliquez-moi
+    </div>
+    <div onclick="compteur++; console.log(compteur);">Compter</div>
     <%= render 'shared/footer' %>
-    <script src="application.js"></script>
+    <script src="../packs/application.js"></script>
+    <script src="../components/calendrier.js">
+      calendrier();
+    </script>
   </body>
 </html>
-
 

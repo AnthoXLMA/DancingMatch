@@ -1,6 +1,4 @@
-// import progressbar from 'progressbar';
-const ProgressBar = require('../components/progressbar.js');
-// const line = new ProgressBar.Line('.matching-percentage-js');
+// const ProgressBar = require('../assets/components/progressbar.js');
 
 const initProgressBar = () => {
   const matchingPercentages = document.querySelectorAll('.matching-percentage-js');
@@ -24,7 +22,6 @@ const initProgressBar = () => {
         circle.path.setAttribute('stroke', state.color);
         circle.path.setAttribute('stroke-width', state.width);
 
-
         const value = Math.round(circle.value);
         if (value === 0) {
           circle.setText('');
@@ -41,6 +38,4 @@ const initProgressBar = () => {
   });
 };
 
-export { ProgressBar };
-// export { line };
 export { initProgressBar };
