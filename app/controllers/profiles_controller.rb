@@ -84,14 +84,6 @@ class ProfilesController < ApplicationController
     end
       # GEOLOCALISATION DES USERS
     @users = User.all
-    @dancers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
-      }
-    end
     @dancer = @users.each do |dancer|
       dancer.first_name
     end

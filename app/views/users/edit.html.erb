@@ -40,6 +40,12 @@
           <a><%= f.select :coaching_status, User::COACHING_STATUS.map { |coaching_status| [coaching_status] } %></a><br>
           <%= f.label :hours_a_week %>
           <a><%= f.select :practice_a_week, User::PRACTICE_A_WEEK.map { |practice_a_week| [practice_a_week] } %></a><br>
+          <%= f.label :technique %>
+          <a><%= f.select :technique, User::TECHNIQUE.map { |technique| [technique] } %></a><br>
+          <%= f.label :ambition %>
+          <a><%= f.select :ambition, User::AMBITION.map { |ambition| [ambition] } %></a><br>
+          <%= f.label :social %>
+          <a><%= f.select :social, User::SOCIAL.map { |social| [social] } %></a><br>
 
           <div class="mb-6">
             <%= f.button :submit, "Update", method: :put %>

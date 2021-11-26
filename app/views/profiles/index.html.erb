@@ -17,6 +17,7 @@
           <p><%= pluralize @user.appointments.size, "gone event" %></p>
           <br>
           <br>
+          <span class="matching-percentage-js matching-percentage-css" data-percentage="<%= @user.matching_percentage_calc %>">
         </ul>
       </div>
     </div>
@@ -54,7 +55,7 @@
       </div>
       <div class="graph-percentage">
           GRAPHIQUE COMPARAISON STATISTIQUES
-         <span class="matching-percentage-js matching-percentage-css" data-percentage="<%= @user.matching_percentage_calc %>"><%#= '%.2f' % offer.matching_percentage %></span>
+         <span class="matching-percentage-js matching-percentage-css" data-percentage="<%= profil.matching_percentage_calc %>"><%#= '%.2f' % offer.matching_percentage %></span>
       </div>
     </div>
     <% end %>
