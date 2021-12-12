@@ -40,9 +40,9 @@
       </div>
     </div>
   </div>
-  <div class="index-profiles">
+  <div id="index-profiles">
     <% @user.profiles.each do |profil| %>
-    <div class="index-profiles-cards" style="display:flex;">
+    <div id="index-profiles-cards">
       <ul>
         <li><%= link_to profil.dance.title, dance_path(profil.dance) %></li>
         <li><%= profil.niveau %></li>
@@ -51,15 +51,76 @@
       </ul>
       <div class="buttons" style="display:flex; height:50px; margin-right:10px; justify-content:space-evenly; color:white; font-family:'Raleway">
         <button type="button" class="btn btn-primary"><%= link_to 'Request', user_requests_path(profil), method: :post %></button>
-        <button type="button" class="btn btn-warning"><%= link_to 'Compare', profile_meetings_path(profil), method: :post %></button>
+        <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil)%></div>
       </div>
       <div class="graph-percentage">
-          GRAPHIQUE COMPARAISON STATISTIQUES
          <span class="matching-percentage-js matching-percentage-css" data-percentage="<%= profil.matching_percentage_calc %>"><%#= '%.2f' % offer.matching_percentage %></span>
+        <canvas id="graph1"
+          data-user-fullname  ="<%= "#{@user.last_name} #{@user.first_name}" %>"
+          data-user-skills    ="<%= @user_skills.to_json %>"
+          data-profile-skills ="<%= @profile_skills.to_json %>"
+          data-skill-names    ="<%= User::SKILLS.to_json %>">
+        </canvas>
       </div>
     </div>
-    <% end %>
+      <% end %>
   </div>
 </div>
-
+<script>
+  //je selectionne le bouton
+  const compareButton = document.getElementById('b-primary');
+  // j'ajoute l'evenement 'click' sur le bouton
+  const initComparation = compareButton.addEventListener('click', (event) => {
+    // je définis la cible
+    // const initChart = () => {
+    // event.preventDefault();s
+      const calculate = document.getElementById('graph1');
+    if (calculate) {
+      const userName      = calculate.dataset.userFullname;
+      const profileTitle  = calculate.dataset.profileTitle;
+      const userSkills    = JSON.parse(calculate.dataset.userSkills);
+      const profileSkills = JSON.parse(calculate.dataset.profileSkills);
+      const skillNames    = JSON.parse(calculate.dataset.skillNames);
+      const ctx           = calculate.getContext('2d');
+      const data          = {
+        // The data for our dataset
+            labels: skillNames,
+            datasets: [
+            {
+              label: userName,
+              //backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: '#2f97c1',
+              //borderWidth:
+              data: userSkills
+            },
+            {
+              label: profileTitle,
+              //backgroundColor: 'rgb(25, 99, 132)',
+              borderColor: '#222222',
+              data: profileSkills
+            }
+          ]
+        };
+        // Configuration options go here
+      const options = {
+        responsive: true,
+        scale: {
+          ticks: {
+              beginAtZero: true,
+              max: 5,
+              min: 0,
+              stepSize: 1
+          }
+        }
+      }
+      const config = {
+        type: 'radar',
+        data: data,
+        options: options
+      }
+      const chart = new Chart(ctx, config)
+    };
+  // };
+});
+</script>
 

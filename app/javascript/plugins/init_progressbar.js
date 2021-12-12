@@ -1,5 +1,3 @@
-// const ProgressBar = require('../assets/components/progressbar.js');
-
 const initProgressBar = () => {
   const matchingPercentages = document.querySelectorAll('.matching-percentage-js');
 

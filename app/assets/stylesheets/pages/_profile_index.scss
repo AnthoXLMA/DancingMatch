@@ -29,7 +29,7 @@
       color:grey;
     }
   }
-  .index-profiles {
+  #index-profiles {
       margin-left:10px;
       margin-right:20px;
       margin-top:10px;
@@ -39,7 +39,9 @@
       // grid-template-columns: 1fr 1fr;
       // grid-gap: 1px;
       // grid-auto-rows: minmax(2px, auto);
-    .index-profiles-cards {
+    #index-profiles-cards {
+      display:flex;
+      border-radius:0px;
       margin-bottom:10px;
       border:solid 1px grey;
       height:194px;

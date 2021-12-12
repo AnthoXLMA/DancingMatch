@@ -1,10 +1,12 @@
+.img-border
+  {
+  border:solid 1px red;
+}
 .map-n-card {
   display:flex;
   height:1200px;
-  // border:solid;
   .bouton-n-card {
     margin-left:30px;
-    // border:solid;
     padding:5px;
     height:100px;
       .title_text {
@@ -58,7 +60,7 @@
         margin-bottom:20px;
         margin-left:50px;
       }
-      .appointment-card3 {
+      #appointment-card3 {
         display:flex;
         width:760px;
         height:260px;
@@ -67,7 +69,7 @@
         font-family: 'Raleway';
         color:black;
         // align-items:flex-end;
-        .image-card-appointments {
+        #image-card-appointments {
           img {
             width: 330px;
             height:225px;
@@ -91,7 +93,7 @@
                 font-family: 'arial';
               }
             }
-            .event-subinformations {
+            #event-subinformations {
               p {
               color:grey;
               display:unset;

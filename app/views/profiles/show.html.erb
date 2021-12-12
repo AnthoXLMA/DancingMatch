@@ -4,6 +4,7 @@
     <p><%= @profile.investissement %></p>
     <p><%= @profile.niveau %></p>
     <p><%= @profile.training_per_week %> h/week</p>
+    <h2><%= 'SKILLS' %></h2>
     <p><%= @profile.level %></p>
     <p><%= @profile.xp %></p>
     <p><%= @profile.coaching_status %></p>
@@ -15,10 +16,11 @@
       <div class="button">
         <%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
       </div>
-      TOUS MES PROFILS<br>
+      TOUS MES PROFILS
+      <br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
-    <% end %>
+      <% end %>
     </div>
     <div class="container-profile-middle-column" style="height:1200px;">
       FIL D'ACTUALITE

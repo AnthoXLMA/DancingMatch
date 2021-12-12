@@ -8,23 +8,14 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link rel="stylesheet" media="screen, print, handheld" type="text/scss" href="../assets/components/calendrier.scss" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
   </head>
   <body style="height:auto;">
     <%= render 'shared/navbar' %>
+    <script type="text/javascript" src="application.js"></script>
     <%= yield %>
-    <div class= "cal_calendrier">
-    </div>
-    <div onclick="console.log('Click sur le Div')">
-      Cliquez-moi
-    </div>
-    <div onclick="compteur++; console.log(compteur);">Compter</div>
     <%= render 'shared/footer' %>
-    <script src="../packs/application.js"></script>
-    <script src="../components/calendrier.js">
-      calendrier();
-    </script>
   </body>
 </html>
-
