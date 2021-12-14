@@ -46,7 +46,6 @@
           <a><%= f.select :ambition, User::AMBITION.map { |ambition| [ambition] } %></a><br>
           <%= f.label :social %>
           <a><%= f.select :social, User::SOCIAL.map { |social| [social] } %></a><br>
-
           <div class="mb-6">
             <%= f.button :submit, "Update", method: :put %>
           <% end %>

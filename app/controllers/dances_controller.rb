@@ -7,9 +7,8 @@ def index
   else
     @dances = Dance.all
   end
-
   @dance = @dances.each do |dance|
-    puts dance
+    puts dance.title
   end
   @style = @dance.find(params[:id])
   @dancer = @style.each do |yd|
@@ -39,7 +38,7 @@ def show
   @dances = Dance.all
   @dance = Dance.find(params[:id])
   @style = @dance.title
-  @profile = current_user
+  # @profile = current_user
   @profiles = Profile.all
   @partners_of_this_dance = []
   @profiles.where(dance_id: params[:id]).each do |partner|

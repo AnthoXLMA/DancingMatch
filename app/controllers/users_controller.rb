@@ -41,7 +41,7 @@ class UsersController < ApplicationController
     @dancing_partners = Request.where(profile: @user.profiles)
     @dances = Dance.all
     @profile = @user.profiles.each do |profile|
-      profile.dance.title
+      profile
     end
     @markers = @users.geocoded.map do |user|
       {
@@ -90,6 +90,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:gender, :first_name, :last_name, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :photo, :review, :city, :user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.require(:user).permit(:gender, :first_name, :last_name, :age,
+      :location, :experience, :contact, :email, :encrypted_password, :password,
+      :photo, :city, :dance_id)
   end
 end

@@ -31,31 +31,14 @@
                   <input type="submit" id="btn btn-primary" value="Je participe"></div>
                 </div>
               </div>
-          </div></li>
+          </div>
+        </li>
         <% end %>
       </div>
       <div class="container-map">
         <div id="map">
-          <script type="javascript" src="./javascript/packs/application.js"></script>
         </div>
       </div>
     </div>
   </div>
 </div>
-<script>
-  const list = document.querySelector('#image-card-appointments');
-    list.addEventListener('click', (event) => {
-      // Do something (callback)
-      console.log(event.currentTarget.classList.toggle("img-border"));
-    });
-    const partIcipation = document.querySelector('#click-participate');
-    partIcipation.addEventListener('click', (event) => {
-      // Do something (callback)
-      console.log(event.currentTarget.classList.toggle("img-border"));
-    });
-    const link = document.querySelector('#event-subinformations');
-    link.addEventListener('click', (event) => {
-      // Do something (callback)
-      console.log(event.currentTarget.classList.add("img-border"));
-    });
-  </script>

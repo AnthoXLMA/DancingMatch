@@ -5,9 +5,9 @@ class Profile < ApplicationRecord
   has_one_attached :avatar
   belongs_to :dance
   has_one :feed
-  has_many :dances
+  # has_many :dances
   has_many :appointments
-  has_many :meetings, dependent: :destroy
+  # has_many :meetings, dependent: :destroy
   has_many :requests, dependent: :destroy
 
  INVESTISSEMENT = [
@@ -82,26 +82,26 @@ class Profile < ApplicationRecord
 #   PLOP
 # end
 
-  def matching_percentage_calc
-    skills_cases = SKILLS.map do |skill|
-      <<~STRING
-        (
-          CASE
-            WHEN profiles.#{skill}       <= #{self[skill]} THEN 100
-            WHEN (profiles.#{skill} - 1) <= #{self[skill]} THEN 75
-            WHEN (profiles.#{skill} - 2) <= #{self[skill]} THEN 50
-            WHEN (profiles.#{skill} - 3) <= #{self[skill]} THEN 25
-            ELSE
-              0
-          END
-        )
-      STRING
-    end
-    skills_query = skills_cases.join(" +\n")
-    <<~SQL
-      ( ({skills_query}) / 15::decimal )
-    SQL
-  end
+  # def matching_percentage_calc
+  #   skills_cases = SKILLS.map do |skill|
+  #     <<~STRING
+  #       (
+  #         CASE
+  #           WHEN profiles.#{skill}       <= #{self[skill]} THEN 100
+  #           WHEN (profiles.#{skill} - 1) <= #{self[skill]} THEN 75
+  #           WHEN (profiles.#{skill} - 2) <= #{self[skill]} THEN 50
+  #           WHEN (profiles.#{skill} - 3) <= #{self[skill]} THEN 25
+  #           ELSE
+  #             0
+  #         END
+  #       )
+  #     STRING
+  #   end
+  #   skills_query = skills_cases.join(" +\n")
+  #   <<~SQL
+  #     ( ({skills_query}) / 15::decimal )
+  #   SQL
+  # end
 
   # def all_skills_rated?
   #   SKILLS.all? { |skill| self[skill].present? }
