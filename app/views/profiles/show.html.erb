@@ -1,18 +1,11 @@
 <div class="container-card-profile" style="display:flex;">
   <div class="container-profile-infos" style="height:1200px;">
-    <h2><%= @profile %></h2>
+    <h2><%= @profile.dance.title %></h2>
     <p><%= @profile.investissement %></p>
     <p><%= @profile.niveau %></p>
     <p><%= @profile.training_per_week %> h/week</p>
     <h2><%= 'SKILLS' %></h2>
-    <p><%= @profile.level %></p>
-    <p><%= @profile.xp %></p>
-    <p><%= @profile.coaching_status %></p>
-    <p><%= @profile.practice_a_week %></p>
-    <p><%= @profile.technique %></p>
-    <p><%= @profile.ambition %></p>
-    <p><%= @profile.social %></p>
-    <p><%= @profile.empathie %></p>
+
     <div class="button">
       <%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
     </div>

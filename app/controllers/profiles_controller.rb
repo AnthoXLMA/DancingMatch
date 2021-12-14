@@ -6,14 +6,14 @@ class ProfilesController < ApplicationController
     @users    = User.all
     @user     = User.find(params[:user_id])
     @profiles = Profile.all
-    @profiles = current_user.profiles
+    # @profiles = current_user.profiles
     @review   = Review.new
   end
 
   def new
     @user     = User.find(params[:user_id])
+    # @profile  = @user.profile.build
     @profile = Profile.new
-    @profile  = @user.profile.build
     @profile.save
       redirect_to profile_path(@profile.id)
   end
@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
     @user     = current_user
     @profiles = Profile.all
     @profile  = Profile.new(new_profile_params)
-    @profile  = current_user.build_profile(profile_params)
+    # @profile  = current_user.build_profile
     if !@profiles.include? @profile
     @profile.user_id = current_user.id
       @profile.save
@@ -33,12 +33,12 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile  = Profile.find_by(id: params[:id])
     @profiles = Profile.all
+    @profile  = Profile.find_by(id: params[:id])
     @user     = current_user
     @profile_avatar = @user.photo
     @dances    = Dance.all
-    @my_dances = []
+    @my_dances = [ ]
     @user.dances.each do |profile_dance|
       @dance  = profile_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
@@ -51,7 +51,7 @@ class ProfilesController < ApplicationController
       # BARRE DE RECHERCHES DES DANSES
     if params[:query].present?
     @dance_search = Dance.where("title LIKE ?", "%" + params[:query] + "%")
-    else
+      else
     @dances = Dance.all
     end
       # LISTER LES DANSES
@@ -116,15 +116,15 @@ class ProfilesController < ApplicationController
   end
 
   def new_profile_params
-    params.permit(:user_id, :dance_id, :niveau, :investissement,
-      :training_per_week, :level, :xp, :coaching_status, :practice_a_week,
-      :technique, :ambition, :empathie, :social)
+    params.permit(:user_id, :dance_id, :niveau, :avatar, :investissement,
+      :training_per_week)
   end
 
   def profile_params
     # params.permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
-    params.require(:profile).permit(:user_id, :dance_id, :niveau, :investissement,
-      :training_per_week, :level, :xp, :coaching_status, :practice_a_week,
-      :technique, :ambition, :empathie, :social)
+    params.require(:profile).permit(:user_id, :dance_id, :niveau, :avatar, :investissement,
+      :training_per_week)
+      # :level, :xp, :coaching_status, :practice_a_week,
+      # :technique, :ambition, :empathie, :social
   end
 end
