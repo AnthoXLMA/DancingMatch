@@ -1,13 +1,14 @@
 class Profile < ApplicationRecord
   belongs_to :user
+
   validates_associated :user
 
   has_one_attached :avatar
   belongs_to :dance
   has_one :feed
-  # has_many :dances
+  has_many :dances
   has_many :appointments
-  # has_many :meetings, dependent: :destroy
+  has_many :meetings
   has_many :requests, dependent: :destroy
 
  INVESTISSEMENT = [

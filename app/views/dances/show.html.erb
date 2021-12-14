@@ -11,7 +11,8 @@
           <div class="image-dancers">
             <%= image_tag member.user.photo %><br>
           </div>
-        <% end %><br>
+        <% end %>
+        <br>
         </div>
           <p><%= pluralize @appointments_on_map.count, "organisateur" %></p>
           <div class="list-community-dancers">
@@ -24,7 +25,7 @@
         </div>
         <div class="add-dance">
           <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
-          <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :patch %></a></div>
+          <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :put %></a></div>
           <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
         </div>
       </div>

@@ -4,28 +4,28 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  GENDER_TYPES = ['Gentleman', 'Lady', 'Couple']
-  # DANCES = Dance.all
-  # LOCATION = ['Berlin', 'Paris', 'Madrid', 'Rio de Janeiro', 'Geneve']
-  # SKILLS = %w[
-  #   level
-  #   xp
-  #   coaching_status
-  #   practice_a_week
-  #   technique
-  #   ambition
-  #   empathie
-  #   social
-  # ]
+  GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple']
+  DANCES          = Dance.all
+  LOCATION        = ['Berlin', 'Paris', 'Madrid', 'Rio de Janeiro', 'Geneve']
+  SKILLS          = %w[
+    level
+    xp
+    coaching_status
+    practice_a_week
+    technique
+    ambition
+    empathie
+    social
+  ]
 
-  LEVELS = ['1', '2', '3', '4', '5']
-  XPS = (1..90)
+  LEVELS          = ['1', '2', '3', '4', '5']
+  XPS             = (1..90)
   COACHING_STATUS = ['novice', 'intermediaire', 'etudiant', 'teacher', 'jury']
   PRACTICE_A_WEEK = (1..60)
-  TECHNIQUE = ['1', '2', '3', '4', '5']
-  AMBITION = ['teaching', 'social', 'professionnal', 'artistic']
-  EMPATHIE = ['none', 'social', 'professionnal', 'only_dancing']
-  SOCIAL = ['1', '2', '3', '4', '5']
+  TECHNIQUE       = ['1', '2', '3', '4', '5']
+  AMBITION        = ['teaching', 'social', 'professionnal', 'artistic']
+  EMPATHIE        = ['none', 'social', 'professionnal', 'only_dancing']
+  SOCIAL          = ['1', '2', '3', '4', '5']
 
 
   has_many :profiles
@@ -45,5 +45,8 @@ class User < ApplicationRecord
   validates :last_name, length: { minimum: 3 }
   validates_confirmation_of :password
 
-  # after_create :build_profile
+  after_create :build_profile
+  def build_profile
+    Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
+  end
 end
