@@ -3,28 +3,26 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [ :new, :show, :create, :edit, :update, :destroy]
 
   def index
-    @users = User.all
-    @user = User.find(params[:user_id])
+    @users    = User.all
+    @user     = User.find(params[:user_id])
     @profiles = Profile.all
     @profiles = current_user.profiles
-    @review = Review.new
-    # @profiles = Profile.select('profiles.*', "#{@user.matching_percentage_calc} AS matching_percentage")
-    #                .order('matching_percentage DESC')
+    @review   = Review.new
   end
 
   def new
-    @user = User.find(params[:user_id])
-    @profile = @user.profile.build
+    @user     = User.find(params[:user_id])
+    @profile = Profile.new
+    @profile  = @user.profile.build
     @profile.save
       redirect_to profile_path(@profile.id)
   end
 
   def create
-    @user = current_user
+    @user     = current_user
     @profiles = Profile.all
-    # @profile2 = Profile.new(profile:{ user_id: current_user.id, avatar: '', dance_id: id, niveau: '', investissement: ''})
-    @profile = Profile.new(new_profile_params)
-    # @profile = @user.profile.build
+    @profile  = Profile.new(new_profile_params)
+    @profile  = current_user.build_profile(profile_params)
     if !@profiles.include? @profile
     @profile.user_id = current_user.id
       @profile.save
@@ -32,26 +30,17 @@ class ProfilesController < ApplicationController
     else
       redirect_to dances_path
     end
-    # @user = User.find(params[:user_id])
-    # @profile = @user.profile.build(params[:profile])
-    # if @profile.save
-    # flash[:notice] = 'Profile was successfully created.'
-    # redirect_to(@profile)
-    # else
-    # flash[:notice] = 'Error.  Something went wrong.'
-    # render :action => "new"
-    # end
   end
 
   def show
-    @profile = Profile.find_by(id: params[:id])
-    @user = current_user
+    @profile  = Profile.find_by(id: params[:id])
+    @profiles = Profile.all
+    @user     = current_user
     @profile_avatar = @user.photo
-    @dances = Dance.all
-    # TABLEAU des danses de l'utilisateur "has_many :dances, through appointments" //
+    @dances    = Dance.all
     @my_dances = []
     @user.dances.each do |profile_dance|
-      @dance = profile_dance.title
+      @dance  = profile_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
       end
     if params[:dance]
@@ -86,26 +75,20 @@ class ProfilesController < ApplicationController
     end
     @requests = Request.where(profile_id: @profile)
     @reviews = Review.all
-    @profiles = Profile.all
-      # CREATION DU MATCHING TEST COMPARE
-    @user_profile_skills = Profile::SKILLS.map { |skill| @user[skill] }
-    @profile_skills = Profile::SKILLS.map { |skill| @profile[skill] }
-    @already_compared = current_user.meetings.where(profile_id: @profile).exists?
-    @profile = Profile.select('profile.*', "#{@user.matching_percentage_calc} AS matching_percentage")
-                  .where(id: params[:id])
  end
 
   def edit
-    @profile = Profile.find(params[:id])
-    @profiles = Profile.all
+    @profile      = Profile.find(params[:id])
+    @profiles     = Profile.all
     @profile_user = @profiles.each do |profile|
-      puts profile.dance.title
+      puts
+      profile.dance.title
     end
       # @profile = User.find(params[:id])
-    @dances = Dance.all
+    @dances       = Dance.all
       # Select et s'ajoute dans la show du profil
-    @my_dances = @dances.select(params[:id])
-    @user_dances = @dances.select(params[:id])
+    @my_dances    = @dances.select(params[:id])
+    @user_dances  = @dances.select(params[:id])
   end
 
   def update
@@ -133,11 +116,15 @@ class ProfilesController < ApplicationController
   end
 
   def new_profile_params
-    params.permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.permit(:user_id, :dance_id, :niveau, :investissement,
+      :training_per_week, :level, :xp, :coaching_status, :practice_a_week,
+      :technique, :ambition, :empathie, :social)
   end
 
   def profile_params
     # params.permit(:gender, :dances, :age, :location, :experience, :contact, :email, :encrypted_password, :password, :id, :photo)
-    params.require(:profile).permit(:user_id, :avatar, :dance_id, :niveau, :investissement, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.require(:profile).permit(:user_id, :dance_id, :niveau, :investissement,
+      :training_per_week, :level, :xp, :coaching_status, :practice_a_week,
+      :technique, :ambition, :empathie, :social)
   end
 end

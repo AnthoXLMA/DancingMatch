@@ -68,16 +68,16 @@ ActiveRecord::Schema.define(version: 2021_11_05_165440) do
     t.index ["profile_id"], name: "index_feeds_on_profile_id"
   end
 
-  create_table "meetings", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
-    t.bigint "profile_id", null: false
-    t.datetime "date"
-    t.string "location"
-    t.index ["profile_id"], name: "index_meetings_on_profile_id"
-    t.index ["user_id"], name: "index_meetings_on_user_id"
-  end
+  # create_table "meetings", force: :cascade do |t|
+  #   t.datetime "created_at", precision: 6, null: false
+  #   t.datetime "updated_at", precision: 6, null: false
+  #   t.bigint "user_id", null: false
+  #   t.bigint "profile_id", null: false
+  #   t.datetime "date"
+  #   t.string "location"
+  #   t.index ["profile_id"], name: "index_meetings_on_profile_id"
+  #   t.index ["user_id"], name: "index_meetings_on_user_id"
+  # end
 
   create_table "partners", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -165,8 +165,8 @@ ActiveRecord::Schema.define(version: 2021_11_05_165440) do
   add_foreign_key "appointments", "dances"
   add_foreign_key "dances", "users"
   add_foreign_key "feeds", "profiles"
-  add_foreign_key "meetings", "profiles"
-  add_foreign_key "meetings", "users"
+  # add_foreign_key "meetings", "profiles"
+  # add_foreign_key "meetings", "users"
   add_foreign_key "profiles", "dances"
   add_foreign_key "profiles", "users"
   add_foreign_key "requests", "profiles"

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :profiles
   end
+
   resource :users, only: [:create, :new, :destroy, :show, :edit, :update] do
     resources :profiles, only: [:show, :edit, :update]
   end

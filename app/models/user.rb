@@ -5,18 +5,18 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   GENDER_TYPES = ['Gentleman', 'Lady', 'Couple']
-  DANCES = Dance.all
-  LOCATION = ['Berlin', 'Paris', 'Madrid', 'Rio de Janeiro', 'Geneve']
-  SKILLS = %w[
-    level
-    xp
-    coaching_status
-    practice_a_week
-    technique
-    ambition
-    empathie
-    social
-  ]
+  # DANCES = Dance.all
+  # LOCATION = ['Berlin', 'Paris', 'Madrid', 'Rio de Janeiro', 'Geneve']
+  # SKILLS = %w[
+  #   level
+  #   xp
+  #   coaching_status
+  #   practice_a_week
+  #   technique
+  #   ambition
+  #   empathie
+  #   social
+  # ]
 
   LEVELS = ['1', '2', '3', '4', '5']
   XPS = (1..90)
@@ -28,7 +28,7 @@ class User < ApplicationRecord
   SOCIAL = ['1', '2', '3', '4', '5']
 
 
-  has_many :profiles, dependent: :destroy
+  has_many :profiles
   has_one_attached :photo
   has_many :meetings, through: :profiles
   has_many :appointments, dependent: :delete_all
@@ -43,41 +43,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, length: { minimum: 4 }
   validates :last_name, length: { minimum: 3 }
-  validates :city, presence: true
   validates_confirmation_of :password
 
-  after_create :build_profile
-
-  def matching_percentage_calc
-    skills_cases = SKILLS.map do |skill|
-      <<~STRING
-        (
-          CASE
-            WHEN users.#{skill}       <= #{self[skill]} THEN 100
-            WHEN (users.#{skill} - 1) <= #{self[skill]} THEN 75
-            WHEN (users.#{skill} - 2) <= #{self[skill]} THEN 50
-            WHEN (users.#{skill} - 3) <= #{self[skill]} THEN 25
-            ELSE
-              0
-          END
-        )
-      STRING
-    end
-    skills_query = skills_cases.join(" +\n")
-    <<~SQL
-      ( ({skills_query}) / 15::decimal )
-    SQL
-  end
-
-  def all_skills_rated?
-    SKILLS.all? { |skill| self[skill].present? }
-  end
-
-  def last_skill?
-    SKILLS.last
-  end
-
-  def build_profile
-    Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
-  end
+  # after_create :build_profile
 end
