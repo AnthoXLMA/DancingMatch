@@ -1,13 +1,14 @@
 <div class="container-card-profile" style="display:flex;">
   <div class="container-profile-infos" style="height:1200px;">
-    <h2><%= @profile.dance.title %></h2>
-    <p><%= @profile.investissement %></p>
-    <p><%= @profile.niveau %></p>
-    <p><%= @profile.training_per_week %> h/week</p>
-    <h2><%= 'SKILLS' %></h2>
+    <h2>
+      <%= @profile.id %>
+    </h2>
+    <h2>
+      <%= 'SKILLS' %>
+    </h2>
 
     <div class="button">
-      <%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
+      <%= link_to "Modifie ce profile", edit_profile_path(@dance), class:  "btn-ghost" %></a>
     </div>
     <br>
     <% @user.profiles.each do |perfil| %>

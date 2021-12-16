@@ -34,11 +34,10 @@ def create
 end
 
 def show
-  @user = current_user
+  # @user = current_user
   @dances = Dance.all
-  @dance = Dance.find(params[:id])
+  # @dance = Dance.find(params[:id])
   @style = @dance.title
-  # @profile = current_user
   @profiles = Profile.all
   @partners_of_this_dance = []
   @profiles.where(dance_id: params[:id]).each do |partner|
@@ -61,7 +60,7 @@ def show
     end
   @users = User.all
   @event_managers = @dance.users
-  # @users_of_this_dance = Profile.where(dance_id: params[:id])
+  @users_of_this_dance = Profile.where(dance_id: params[:id])
 end
 
   def update
@@ -84,6 +83,6 @@ end
   end
 
   def dance_params
-    params.require(:dance).permit(:title, :user_id, :photo, :id)
+    params.require(:dance).permit(:title, :user_id, :photo)
   end
 end
