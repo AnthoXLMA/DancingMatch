@@ -76,7 +76,7 @@ Rails.application.routes.draw do
   end
 
   resources :dances do
-    resource :profiles
+    resource :profiles, only: [:new, :create, :show]
   end
 
   resource :appointments do

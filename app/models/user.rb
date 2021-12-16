@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple']
   DANCES          = Dance.all
-  LOCATION        = ['Berlin', 'Paris', 'Madrid', 'Rio de Janeiro', 'Geneve']
+  LOCATION        = []
   SKILLS          = %w[
     level
     xp
@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   has_many :meetings, through: :profiles
   has_many :appointments, dependent: :delete_all
-  has_one :dance
+  # has_one :dance
   has_many :dances, through: :appointments
   has_many :partners, through: :dances
   has_many :messages, through: :chatrooms

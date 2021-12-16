@@ -24,7 +24,7 @@
           <% end %>
         </div>
         <div class="add-dance">
-          <div class="button"><a><%= link_to "Ajouter à ma sélection", dance_profiles_path(@dance), method: :post %></a></div>
+          <div class="button"><a><%= link_to "Ajouter à ma sélection", new_dance_profiles_path(@dance), method: :post %></a></div>
           <div class="button"><a><%= link_to "Choisir comme danse favorite", dance_profiles_path(@dance), method: :put %></a></div>
           <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
         </div>

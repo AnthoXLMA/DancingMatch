@@ -6,23 +6,25 @@ class ProfilesController < ApplicationController
     @users    = User.all
     @user     = User.find(params[:user_id])
     @profiles = Profile.all
-    # @profiles = current_user.profiles
     @review   = Review.new
   end
 
   def new
-    @user     = User.find(params[:user_id])
-    # @profile  = @user.profile.build
-    @profile = Profile.new
+    @profile = Profile.new(new_profile_params)
+    # @user     = User.find(params[:user_id])
+    @user = current_user
+    @profile  = @user.profiles.build
     @profile.save
-      redirect_to profile_path(@profile.id)
+      # redirect_to dance_profiles_path(@profile.id)
   end
 
   def create
-    @user     = current_user
+    @profile = Profile.new(new_profile_params)
+    @profile  = current_user.build_profile
+    @profile.user     = current_user
+    @dance = Dance.find(params[:dance_id])
+    @profile.dance = @dance
     @profiles = Profile.all
-    @profile  = Profile.new(new_profile_params)
-    # @profile  = current_user.build_profile
     if !@profiles.include? @profile
     @profile.user_id = current_user.id
       @profile.save
@@ -34,11 +36,12 @@ class ProfilesController < ApplicationController
 
   def show
     @profiles = Profile.all
-    @profile  = Profile.find_by(id: params[:id])
+    @profile  = Profile.find_by(dance_id: params[:dance_id])
     @user     = current_user
     @profile_avatar = @user.photo
     @dances    = Dance.all
-    @my_dances = [ ]
+    @dance = Dance.find(params[:dance_id])
+    @my_dances = []
     @user.dances.each do |profile_dance|
       @dance  = profile_dance.title
       @my_dances << @dance if !@my_dances.include?(@dance)
@@ -78,7 +81,7 @@ class ProfilesController < ApplicationController
  end
 
   def edit
-    @profile      = Profile.find(params[:id])
+    @profile      = Profile.find_by(dance_id: params[:dance_id])
     @profiles     = Profile.all
     @profile_user = @profiles.each do |profile|
       puts
@@ -109,15 +112,14 @@ class ProfilesController < ApplicationController
       redirect_to user_path(@current_user)
   end
 
-  private
+private
 
   def set_profile
-    @profile = Profile.find_by(id: params[:id])
+    @profile = Profile.find_by(dance_id: params[:dance_id])
   end
 
   def new_profile_params
-    params.permit(:user_id, :dance_id, :niveau, :avatar, :investissement,
-      :training_per_week)
+    params.permit(:user_id, :dance_id)
   end
 
   def profile_params
