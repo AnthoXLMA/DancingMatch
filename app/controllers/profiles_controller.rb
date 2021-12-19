@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profiles = Profile.all
-    @profile  = Profile.find_by(dance_id: params[:id])
+    @profile  = Profile.find_by(id: params[:id])
     @dance = Dance.find_by(id: params[:id])
     @user     = current_user
     @profile_avatar = @user.photo
@@ -83,7 +83,7 @@ class ProfilesController < ApplicationController
  end
 
   def edit
-    @profile      = Profile.find_by(dance_id: params[:dance_id])
+    @profile      = Profile.find_by(id: params[:id])
     @profiles     = Profile.all
     @profile_user = @profiles.each do |profile|
       puts
@@ -109,15 +109,17 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @user = current_user
-    @user.profiles.destroy(@profile)
-      redirect_to user_path(@current_user)
+    @profile = Profile.find(params[:id])
+    @user = @profile.user
+    @profile.destroy
+    redirect_to user_path(@user)
+    # @user.profiles.destroy
   end
 
 private
 
   def set_profile
-    @profile = Profile.find_by(dance_id: params[:dance_id])
+    @profile = Profile.find_by(id: params[:id])
   end
 
   def new_profile_params
@@ -125,8 +127,7 @@ private
   end
 
   def profile_params
-    params.permit(:user_id, :dance_id)
-      # :level, :xp, :coaching_status, :practice_a_week,
-      # :technique, :ambition, :empathie, :social
+    params.permit(:user_id, :dance_id, :level, :xp, :coaching_status, :practice_a_week,
+    :technique, :ambition, :empathie, :social)
   end
 end
