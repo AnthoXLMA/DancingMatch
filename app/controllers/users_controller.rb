@@ -78,12 +78,6 @@ class UsersController < ApplicationController
     redirect_to '/login'
   end
 
-  def destroy_profile
-    @user = current_user
-    @user.profiles.destroy(@profile)
-      redirect_to user_path
-  end
-
   private
 
   def set_user

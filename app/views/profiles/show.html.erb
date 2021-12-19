@@ -1,18 +1,33 @@
 <div class="container-card-profile" style="display:flex;">
   <div class="container-profile-infos" style="height:1200px;">
     <h2>
-      <%= @profile.dance.title %>
+      <p><%= @profile.dance.title %></p>
+      <p><%= @profile.level %></p>
+      <p><%= @profile.niveau %></p>
+      <p><%= @profile.investissement %></p>
+      <p><%= @profile.training_per_week %></p>
     </h2>
     <h2>
       <%= 'SKILLS' %>
+      <a><%= @profile.level %></a>
+      <a><%= @profile.xp %></a>
+      <a><%= @profile.coaching_status %></a>
+      <a><%= @profile.practice_a_week%></a>
+      <a><%= @profile.ambition %></a>
+      <a><%= @profile.empathie %></a>
+      <a><%= @profile.social %></a>
     </h2>
+    <div class="button">
+      <%= link_to "Modifie ce profile", edit_profile_path, class:  "btn-ghost" %></a>
+    </div>
 
     <div class="button">
-      <%= link_to "Modifie ce profile", edit_profile_path(@dance), class:  "btn-ghost" %></a>
+      <%= link_to "Supprime ce profile", profile_path, method: :delete %>
     </div>
     <br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
+    <%= link_to "Supprime ce profile", profile_path(perfil.id), method: :delete %>
       <% end %>
     </div>
     <div class="container-profile-middle-column" style="height:1200px;">
@@ -20,11 +35,13 @@
     <p><%= pluralize @requests.count, "demande" %></p>
       <% @requests.each do |my_request| %>
     <div class="my-requests">
-      Vous avez une nouvelle demande:<br>
-      <%= my_request.user.first_name %>
-      <%= my_request.user.last_name %>
-      <%= my_request.user.created_at %>
-      <%= image_tag my_request.user.photo %>
+      Vous avez une nouvelle demande:
+      <br>
+        <%= my_request.user.first_name %>
+        <%= my_request.user.last_name %>
+        <%= my_request.user.created_at %>
+        <%= image_tag my_request.user.photo %>
+      <br>
     </div>
     <% end %>
   </div>
