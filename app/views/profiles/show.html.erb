@@ -2,6 +2,10 @@
   <div class="container-profile-infos" style="height:1200px;">
     <h2>
       <%= @profile.dance.title %>
+      <%= @profile.level %>
+      <%= @profile.niveau %>
+      <%= @profile.investissement %>
+      <%= @profile.training_per_week %>
     </h2>
     <h2>
       <%= 'SKILLS' %>
@@ -10,9 +14,14 @@
     <div class="button">
       <%= link_to "Modifie ce profile", edit_profile_path(@dance), class:  "btn-ghost" %></a>
     </div>
+
+    <div class="button">
+      <%= link_to "Supprime ce profile", profile_path(@profile), method: :destroy %>
+    </div>
     <br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
+    <%= link_to "Supprime ce profile", profile_path(perfil), method: :destroy %>
       <% end %>
     </div>
     <div class="container-profile-middle-column" style="height:1200px;">
@@ -20,11 +29,13 @@
     <p><%= pluralize @requests.count, "demande" %></p>
       <% @requests.each do |my_request| %>
     <div class="my-requests">
-      Vous avez une nouvelle demande:<br>
-      <%= my_request.user.first_name %>
-      <%= my_request.user.last_name %>
-      <%= my_request.user.created_at %>
-      <%= image_tag my_request.user.photo %>
+      Vous avez une nouvelle demande:
+      <br>
+        <%= my_request.user.first_name %>
+        <%= my_request.user.last_name %>
+        <%= my_request.user.created_at %>
+        <%= image_tag my_request.user.photo %>
+      <br>
     </div>
     <% end %>
   </div>

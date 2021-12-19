@@ -40,6 +40,11 @@ class RequestsController < ApplicationController
       redirect_to profile_requests_path
   end
 
+  def destroy
+    @request = Request.find(params[:id])
+    @request.destroy
+  end
+
   private
 
   def set_request

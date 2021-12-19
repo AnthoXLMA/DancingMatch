@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @dancing_partners = Request.where(profile: @user.profiles)
     @dances = Dance.all
     @profile = @user.profiles.each do |profile|
-      profile
+      profile.dance.title
     end
     @markers = @users.geocoded.map do |user|
       {

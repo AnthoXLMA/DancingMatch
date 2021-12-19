@@ -28,7 +28,7 @@ class User < ApplicationRecord
   SOCIAL          = ['1', '2', '3', '4', '5']
 
 
-  has_many :profiles
+  has_many :profiles, dependent: :delete_all
   has_one_attached :photo
   has_many :meetings, through: :profiles
   has_many :appointments, dependent: :delete_all
@@ -46,6 +46,7 @@ class User < ApplicationRecord
   validates_confirmation_of :password
 
   after_create :build_profile
+
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
   end

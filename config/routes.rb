@@ -6,30 +6,18 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  # devise_scope :user do
-  #   delete '/logout' => 'sessions#destroy'
-  # end
-
-  # delete '/logout' => 'sessions#destroy'
-  # get '/logout' => 'sessions#destroy'
-  # resources :sessions
-
   root to: 'pages#home'
 
-  resources :users do
-    resources :profiles
-  end
-
-  resource :users, only: [:create, :new, :destroy, :show, :edit, :update] do
-    resources :profiles, only: [:show, :index, :edit, :update, :destroy]
+  resources :users, only: [:create, :new, :show, :edit, :update, :destroy] do
+    resources :profiles, only: [:create, :show, :index, :edit, :update, :destroy]
   end
 
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:create, :index]
   end
 
-  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
-    resources :users, only: [:index, :create, :show, :new, :edit]
+  resources :users, only: [:index, :new, :create, :show] do
+    resources :requests, only: [:index, :new, :create, :show]
   end
 
   resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
@@ -48,20 +36,9 @@ Rails.application.routes.draw do
     resources :dances
   end
 
-  resources :users, only: [:index, :new, :create, :show] do
-    resources :requests, only: [:index, :new, :create, :show]
-  end
-
   resources :profiles, only: [:index, :new, :create, :show] do
-    resources :requests, only: [:index, :new, :create, :show]
+    resources :requests, only: [:index, :new, :create, :show, :destroy]
   end
-
-  resources :requests, only: [:index] do
-      member do
-        patch :accept
-        patch :refuse
-      end
-    end
 
   resources :profiles, only: [:index, :edit, :update, :show, :create] do
     resources :appointments, only: [:create, :show, :new]
@@ -76,10 +53,17 @@ Rails.application.routes.draw do
   end
 
   resources :dances do
-    resource :profiles, only: [:new, :create, :show]
+    resources :profiles, only: [:new, :create, :show]
   end
 
   resource :appointments do
     resources :profile
+  end
+
+  resources :requests, only: [:index] do
+    member do
+      patch :accept
+      patch :refuse
+    end
   end
 end

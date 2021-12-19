@@ -3,7 +3,6 @@ class Profile < ApplicationRecord
 
   has_one_attached :avatar
   belongs_to :dance
-  # has_one :dance
   has_one :feed
   has_many :appointments
   # has_many :meetings

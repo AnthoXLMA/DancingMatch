@@ -14,11 +14,8 @@ class ProfilesController < ApplicationController
     @profiles  = @user.profiles.build
     @profile    = Profile.new(profile_params)
     @profile.user = @user
-      # if !@profiles.include? @profile
-      @profile.save
-      # else
-        redirect_to edit_profile_path(@profile)
-      # end
+    @profile.save
+    redirect_to profile_path(@profile)
   end
 
   def create
@@ -60,9 +57,9 @@ class ProfilesController < ApplicationController
     @dances = Dance.all
     end
       # LISTER LES DANSES
-    @my_selected_dances = @dances.select(params[:id])
+    # @my_selected_dances = @dances.select(params[:id])
       # SELECTIONNER UNE DANSE ET L'AJOUTER AU PROFIL
-    @my_profile_dances = []
+    # @my_profile_dances = []
       # GEOLOCALISATION DES EVENTS
     @appointments = Appointment.all
     @markers = @appointments.geocoded.map do |appointment|
@@ -80,16 +77,14 @@ class ProfilesController < ApplicationController
     end
     @requests = Request.where(profile_id: @profile)
     @reviews = Review.all
- end
+  end
 
   def edit
     @profile      = Profile.find_by(id: params[:id])
     @profiles     = Profile.all
     @profile_user = @profiles.each do |profile|
-      puts
-      profile.dance.title
+      puts profile.dance.title
     end
-      # @profile = User.find(params[:id])
     @dances       = Dance.all
       # Select et s'ajoute dans la show du profil
     @my_dances    = @dances.select(params[:id])
@@ -97,11 +92,9 @@ class ProfilesController < ApplicationController
   end
 
   def update
-    @profile = Profile.find(params[:id])
     @dances = Dance.all
-    @profile.update(profile_params)
-      if @profile.update_attributes(profile_params)
-        flash[:notice] = 'Profile was successfully updated.'
+    @profile = Profile.find(params[:id])
+      if @profile.update(new_profile_params)
         redirect_to user_path(@profile.user_id)
       else
         render :action => "edit"
@@ -109,25 +102,26 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @profile = Profile.find(params[:id])
-    @user = @profile.user
+    @profile = Profile.find(:id)
+    @user.profiles = current_user
     @profile.destroy
-    redirect_to user_path(@user)
-    # @user.profiles.destroy
+      redirect_to user_path(@profile.user_id)
+    # @user = current_user
+    # @user.profiles.destroy(@profile)
+    #   redirect_to user_path
   end
 
 private
 
   def set_profile
-    @profile = Profile.find_by(id: params[:id])
+    @profile = Profile.find_by(dance_id: params[:id])
   end
 
   def new_profile_params
-    params.permit(:user_id, :dance_id)
+    params.require(:profile).permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 
   def profile_params
-    params.permit(:user_id, :dance_id, :level, :xp, :coaching_status, :practice_a_week,
-    :technique, :ambition, :empathie, :social)
+    params.permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 end
