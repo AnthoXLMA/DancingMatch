@@ -1,8 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
 
-  validates_associated :user
-
   has_one_attached :avatar
   belongs_to :dance
   # has_one :dance
