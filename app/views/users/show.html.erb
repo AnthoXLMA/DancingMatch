@@ -48,7 +48,7 @@
               <% @user.profiles.each do |i_profile| %>
             <div class="carte-profil" >
               <a><%= link_to i_profile.dance.title, profile_path(i_profile) %></a>
-              <a><%= link_to "X", profile_path(i_profile), :confirm => "Are you sure?", method: :delete, id: 'profile.id' %></a>
+              <a><%= link_to "Delete", profile_path(i_profile), method: :delete %></a>
               <a><%= link_to "Edit", edit_profile_path(i_profile), class:  "btn-ghost" %></a>
               <i class="bi bi-pen"></i>
               <ul>

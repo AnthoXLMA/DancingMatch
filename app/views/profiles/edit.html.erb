@@ -1,6 +1,6 @@
 <div class="container-card-profile" style="height:1000px; display:flex;">
 <div class="formulaire">
-  <%= simple_form_for (@profile), method: :put do |f| %>
+  <%= simple_form_for @profile do |f| %>
   <%= f.error_notification %>
   <div class="form-inputs">
   <h2><%= @profile.dance.title %></h2>
@@ -15,7 +15,7 @@
     <%= f.submit "Update", method: :put %>
   </div>
   <% end %>
-<%= simple_form_for (@profile), method: :put do |f| %>
+<%= simple_form_for @profile do |f| %>
     <div class="siema">
       <div class="skill-card" data-skill-completed="<%= @profile.level.present? %>">
           <h3>Level</h3>
