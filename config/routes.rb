@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :profiles, only: [:create, :show, :index, :edit, :update, :destroy]
   end
 
+   resources :profiles, only: [:create, :new, :show, :edit, :update, :destroy] do
+    resources :users, only: [:create, :show, :index, :edit, :update, :destroy]
+  end
+
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:create, :index]
   end
@@ -53,7 +57,7 @@ Rails.application.routes.draw do
   end
 
   resources :dances do
-    resources :profiles, only: [:new, :create, :show]
+    resources :profiles, only: [:new, :create, :show, :destroy]
   end
 
   resource :appointments do

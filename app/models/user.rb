@@ -28,10 +28,10 @@ class User < ApplicationRecord
   SOCIAL          = ['1', '2', '3', '4', '5']
 
 
-  has_many :profiles, dependent: :delete_all
+  has_many :profiles, dependent: :destroy
   has_one_attached :photo
   has_many :meetings, through: :profiles
-  has_many :appointments, dependent: :delete_all
+  has_many :appointments, dependent: :destroy
   # has_one :dance
   has_many :dances, through: :appointments
   has_many :partners, through: :dances

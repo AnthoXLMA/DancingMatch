@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @dancing_partners = Request.where(profile: @user.profiles)
     @dances = Dance.all
     @profile = @user.profiles.each do |profile|
-      profile.dance.title
+      profile
     end
     @markers = @users.geocoded.map do |user|
       {
@@ -78,10 +78,10 @@ class UsersController < ApplicationController
     redirect_to '/login'
   end
 
-  def destroy_profile
+  def destroy
     @user = current_user
-    @user.profiles.destroy(@profile)
-      redirect_to user_path
+    @profile = Profile.find_by(id: params[:id])
+    @user.profiles.destroy
   end
 
   private

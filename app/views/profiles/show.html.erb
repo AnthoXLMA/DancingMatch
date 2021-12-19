@@ -1,27 +1,33 @@
 <div class="container-card-profile" style="display:flex;">
   <div class="container-profile-infos" style="height:1200px;">
     <h2>
-      <%= @profile.dance.title %>
-      <%= @profile.level %>
-      <%= @profile.niveau %>
-      <%= @profile.investissement %>
-      <%= @profile.training_per_week %>
+      <p><%= @profile.dance.title %></p>
+      <p><%= @profile.level %></p>
+      <p><%= @profile.niveau %></p>
+      <p><%= @profile.investissement %></p>
+      <p><%= @profile.training_per_week %></p>
     </h2>
     <h2>
       <%= 'SKILLS' %>
+      <a><%= @profile.level %></a>
+      <a><%= @profile.xp %></a>
+      <a><%= @profile.coaching_status %></a>
+      <a><%= @profile.practice_a_week%></a>
+      <a><%= @profile.ambition %></a>
+      <a><%= @profile.empathie %></a>
+      <a><%= @profile.social %></a>
     </h2>
-
     <div class="button">
       <%= link_to "Modifie ce profile", edit_profile_path(@dance), class:  "btn-ghost" %></a>
     </div>
 
     <div class="button">
-      <%= link_to "Supprime ce profile", profile_path(@profile), method: :destroy %>
+      <%= link_to "Supprime ce profile", profile_path(@dance), method: :delete %>
     </div>
     <br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
-    <%= link_to "Supprime ce profile", profile_path(perfil), method: :destroy %>
+    <%= link_to "Supprime ce profile", profile_path(perfil.id), method: :delete %>
       <% end %>
     </div>
     <div class="container-profile-middle-column" style="height:1200px;">
