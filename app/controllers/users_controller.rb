@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   # layout false
   def index
     @users = User.all
+    @user = current_user
     @profiles = Profile.all
     @dances = Dance.all
     if params[:query].present?
