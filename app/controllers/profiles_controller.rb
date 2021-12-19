@@ -36,11 +36,11 @@ class ProfilesController < ApplicationController
 
   def show
     @profiles = Profile.all
-    @profile  = Profile.find_by(dance_id: params[:dance_id])
+    @profile  = Profile.find_by(id: params[:id])
     @user     = current_user
     @profile_avatar = @user.photo
     @dances    = Dance.all
-    @dance = Dance.find(params[:dance_id])
+    @dance = Dance.find(params[:id])
     @my_dances = []
     @user.dances.each do |profile_dance|
       @dance  = profile_dance.title
@@ -115,7 +115,7 @@ class ProfilesController < ApplicationController
 private
 
   def set_profile
-    @profile = Profile.find_by(dance_id: params[:dance_id])
+    @profile = Profile.find_by(id: params[:id])
   end
 
   def new_profile_params
