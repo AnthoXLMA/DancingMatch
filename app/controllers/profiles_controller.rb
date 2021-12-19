@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [ :new, :show, :create, :edit, :update, :delete]
+  before_action :set_profile, only: [ :new, :show, :create, :edit, :update, :delete ]
 
   def index
     @users    = User.all
@@ -10,9 +10,9 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @user       = current_user
-    @profiles  = @user.profiles.build
-    @profile    = Profile.new(profile_params)
+    @user         = current_user
+    @profiles     = @user.profiles.build
+    @profile      = Profile.new(profile_params)
     @profile.user = @user
     @profile.save
     redirect_to profile_path(@profile)
@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
   def show
     @profiles = Profile.all
     @profile  = Profile.find_by(id: params[:id])
-    @dance = Dance.find_by(id: params[:id])
+    @dance    = Dance.find_by(id: params[:dance_id])
     @user     = current_user
     @profile_avatar = @user.photo
     @dances    = Dance.all
@@ -103,24 +103,15 @@ class ProfilesController < ApplicationController
 
   def destroy
     @user = current_user
-    # @profiles = Profile.all
-    # @profile = @profiles.each do |profile|
-    #   profile
-    # end
     @profile = Profile.find(params[:id])
     @user.profiles.destroy(@profile)
-    # @profile_user = @user.profile.each do |profile|
-    #   puts profile.dance.title
-    # end
-    # @user.profile.destroy(@user.profile)
       redirect_to user_path(@current_user)
   end
 
 private
 
   def set_profile
-    @profile = Profile.find_by(dance_id: params[:id])
-    # @profile = Profile.find_by(id: params[:id])
+    @profile = Profile.find_by(id: params[:id])
   end
 
   def new_profile_params

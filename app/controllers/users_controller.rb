@@ -78,12 +78,6 @@ class UsersController < ApplicationController
     redirect_to '/login'
   end
 
-  def destroy
-    @user = current_user
-    @profile = Profile.find_by(id: params[:id])
-    @user.profiles.destroy
-  end
-
   private
 
   def set_user
