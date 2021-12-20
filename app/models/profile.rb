@@ -2,12 +2,12 @@ class Profile < ApplicationRecord
   belongs_to :user
 
   has_one_attached :avatar
-  belongs_to :dance
-  has_one :feed
-  has_many :dances
-  has_many :appointments
-  has_many :meetings
-  has_many :requests, dependent: :destroy
+  belongs_to  :dance
+  has_one     :feed
+  has_many    :dances
+  has_many    :appointments
+  has_many    :meetings
+  has_many    :requests, dependent: :destroy
 
  INVESTISSEMENT = [
   'Social Dancer',

@@ -11,8 +11,8 @@
         </div>
         <div class ="container-appointments">
           <% @appointments.each do |appointment| %>
-              <li><div id="appointment-card3">
-                <div id="image-card-appointments">
+              <li><div class="appointment-card3">
+                <div class="image-card-appointments">
                   <%= image_tag appointment.pic if appointment.pic.attached? %>
                 </div>
                 <div class="information-event">
@@ -20,15 +20,15 @@
                     <h3><%= appointment.name  %></h3>
                     <a><%= appointment.address %></a>
                   </div>
-                  <div id="event-subinformations">
+                  <div class="event-subinformations">
                     <p> <%= appointment.dance.title %></p><br>
                     <p> <%= appointment.user.first_name %></p><br>
                     <p> Début: <%= appointment.start_on %></p><br>
                     <p> Fin: <%= appointment.end_on %></p>
                   </div>
                 </div>
-                <div id="click-participate">
-                  <input type="submit" id="btn btn-primary" value="Je participe"></div>
+                <div class="click-participate">
+                  <input type="submit" class="btn btn-primary" value="Je participe"></div>
                 </div>
               </div>
           </div>

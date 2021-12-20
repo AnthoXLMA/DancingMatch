@@ -19,13 +19,13 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @dance = Dance.find(params[:id])
-    # @user = current_user.id
-    @profile = Profile.new(profile_params)
-    # @profile  = current_user.build_profile
+    @dance    = Dance.find(params[:id])
+    # @user   = current_user.id
+    @profile  = Profile.new(profile_params)
+    # @profile          = current_user.build_profile
     # @profile.user     = @user
     if !@profiles.include? @profile
-    # @profile.user_id = current_user.id
+    # @profile.user_id  = current_user.id
       @profile.save
       redirect_to edit_profile_path(@profile)
     else
@@ -34,16 +34,16 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profiles = Profile.all
-    @profile  = Profile.find_by(id: params[:id])
-    @dance    = Dance.find_by(id: params[:dance_id])
-    @user     = current_user
+    @profiles       = Profile.all
+    @profile        = Profile.find_by(id: params[:id])
+    @dance          = Dance.find_by(id: params[:dance_id])
+    @user           = current_user
     @profile_avatar = @user.photo
-    @dances    = Dance.all
-    @my_dances = []
+    @dances         = Dance.all
+    @my_dances      = []
     @user.dances.each do |profile_dance|
-      @dance  = profile_dance.title
-      @my_dances << @dance if !@my_dances.include?(@dance)
+      @dance        = profile_dance.title
+      @my_dances    << @dance if !@my_dances.include?(@dance)
       end
     if params[:dance]
       @my_dances = @dances.select do |dance|
@@ -102,9 +102,10 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    @user = current_user
-    @profile = Profile.find(params[:id])
-    @user.profiles.destroy(@profile)
+    # @user = current_user
+    @profile = Profile.find_by(id: params[:id])
+    # @user.profile = @user
+    @profile.destroy
       redirect_to user_path(@current_user)
   end
 
@@ -115,10 +116,10 @@ private
   end
 
   def new_profile_params
-    params.require(:profile).permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.require(:profile).permit(:user_id, :dance_id, :avatar, :name, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 
   def profile_params
-    params.permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :name, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 end
