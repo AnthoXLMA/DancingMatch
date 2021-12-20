@@ -22,7 +22,7 @@
     </div>
 
     <div class="button">
-      <%= link_to "Destroy", user_profile_path(@profile), method: :delete %>
+      <%= button_to "Destroy", user_profile_path(@profile), method: :delete %>
     </div>
     <br>
     <% @user.profiles.each do |perfil| %>
