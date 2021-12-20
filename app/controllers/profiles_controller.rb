@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [:index, :create, :new, :edit, :update, :destroy]
+  before_action :set_profile, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
   def index
     @users    = User.all
@@ -94,15 +94,15 @@ class ProfilesController < ApplicationController
   def update
     # @dances = Dance.all
     @profile = Profile.find(params[:id])
-    if @profile.update(new_profile_params)
-      redirect_to profile_path(@profile)
-    else
+      if @profile.update(new_profile_params)
+        redirect_to profile_path(@profile)
+      else
       render :edit
     end
   end
 
   def destroy
-    @profile = Profile.find(params[:id])
+    @profile = Profile.find_by(id: params[:id])
     # @user.profile = @user
     @profile.destroy
       redirect_to user_path(current_user)
@@ -115,10 +115,10 @@ private
   end
 
   def new_profile_params
-    params.require(:profile).permit(:user_id, :dance_id, :avatar, :name, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.require(:profile).permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 
   def profile_params
-    params.permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :name, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+    params.permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 end
