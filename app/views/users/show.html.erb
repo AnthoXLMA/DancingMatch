@@ -45,7 +45,7 @@
             </div>
               <% else %>
             <div class="infos-card" >
-              <% @profiles.each do |pro_file| %>
+              <% @user.profiles.each do |pro_file| %>
             <div class="carte-profil" >
               <%= link_to pro_file.dance.title, profile_path(pro_file) %>
               <%= button_to 'Destroy', profile_path(pro_file), method: :delete %>
