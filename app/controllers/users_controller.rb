@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:index, :create, :new, :show, :edit, :update, :destroy, :sign_out]
+  before_action :set_user, only: [:index, :create, :new, :edit, :update, :destroy, :sign_out]
   # layout false
   def index
     @users = User.all
@@ -81,7 +81,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
   end
 
   def user_params
