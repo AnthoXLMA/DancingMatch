@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :sign_out]
+  before_action :set_user, only: [:index, :create, :new, :show, :edit, :update, :destroy, :sign_out]
   # layout false
   def index
     @users = User.all
@@ -41,9 +41,9 @@ class UsersController < ApplicationController
     @requests = Request.where(user_id: :id)
     @dancing_partners = Request.where(profile: @user.profiles)
     @dances = Dance.all
-    @profile = @user.profiles.each do |profile|
-      profile
-    end
+    # @profile = @user.profiles.each do |profile|
+    #   profile
+    # end
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,

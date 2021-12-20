@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [ :new, :show, :create, :edit, :update, :delete ]
+  before_action :set_profile, only: [:index, :create, :new, :show, :edit, :update, :destroy]
 
   def index
     @users    = User.all
@@ -35,8 +35,8 @@ class ProfilesController < ApplicationController
 
   def show
     @profiles       = Profile.all
-    @profile        = Profile.find_by(id: params[:id])
-    @dance          = Dance.find_by(id: params[:dance_id])
+    @profile        = Profile.find(params[:id])
+    @dance          = Dance.find(params[:id])
     @user           = current_user
     @profile_avatar = @user.photo
     @dances         = Dance.all
@@ -102,11 +102,10 @@ class ProfilesController < ApplicationController
   end
 
   def destroy
-    # @user = current_user
-    @profile = Profile.find_by(id: params[:id])
+    @profile = Profile.find(params[:id])
     # @user.profile = @user
     @profile.destroy
-      redirect_to user_path(@current_user)
+      redirect_to user_path(current_user)
   end
 
 private

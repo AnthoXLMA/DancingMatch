@@ -61,7 +61,7 @@ Rails.application.routes.draw do
   end
 
   resource :appointments do
-    resources :profile
+    resources :profiles
   end
 
   resources :requests, only: [:index] do

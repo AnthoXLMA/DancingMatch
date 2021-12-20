@@ -22,12 +22,12 @@
     </div>
 
     <div class="button">
-      <%= link_to "Destroy", profile_path(@profile), method: :delete %>
+      <%= link_to "Destroy", user_profile_path(@profile), method: :delete %>
     </div>
     <br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
-    <%= link_to "Supprime ce profile",  profile_path(perfil.id), method: :delete %>
+    <%= link_to "Supprime ce profile",  user_profile_path(perfil.id), method: :delete %>
       <% end %>
     </div>
     <div class="container-profile-middle-column" style="height:1200px;">
