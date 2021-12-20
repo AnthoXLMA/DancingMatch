@@ -26,6 +26,6 @@
   }
 }
 
-"scripts": {
-  "build": "webpack --config prod.config.js"
-}
+// "scripts": {
+//   "build": "webpack --config prod.config.js"
+// }

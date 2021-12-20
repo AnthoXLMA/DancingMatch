@@ -13,9 +13,9 @@ Rails.application.routes.draw do
   end
 
 # resources profiles do users
-  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
-    resources :users, only: [:index, :edit, :update, :show, :create, :destroy]
-  end
+  # resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
+  #   resources :users, only: [:index, :edit, :update, :show, :create, :destroy]
+  # end
 
   resources :users, only: [:index, :show] do
     resources :reviews, only: [:create, :index]
