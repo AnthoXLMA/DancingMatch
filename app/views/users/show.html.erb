@@ -48,7 +48,7 @@
               <% @profiles.each do |pro_file| %>
             <div class="carte-profil" >
               <%= link_to pro_file.dance.title, profile_path(pro_file) %>
-              <%= link_to 'Destroy', profile_path(pro_file.id), method: :delete, id: 'profile.id' %>
+              <%= button_to 'Destroy', profile_path(pro_file), method: :delete %>
               <%= link_to "Edit", edit_profile_path(pro_file) %>
               <i class="bi bi-pen"></i>
               <ul>
@@ -84,13 +84,6 @@
             <div class="titres">
               <p>Demandes</p>
             </div>
-              <div class="infos-card">
-                  <% @dancing_partners.each do |dancing_partner| %>
-                  <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
-                  <%= link_to "Voir la demande", user_requests_path(dancing_partner) %><br>
-                  <%= link_to "Voir la demande 2", requests_path(dancing_partner.user) %><br>
-                <% end %>
-              </div>
           </div>
         </div>
       </div>

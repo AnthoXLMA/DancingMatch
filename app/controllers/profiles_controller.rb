@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_profile, only: [:index, :create, :new, :show, :edit, :update, :destroy]
+  before_action :set_profile
 
   def index
     @users    = User.all
@@ -103,9 +103,9 @@ class ProfilesController < ApplicationController
 
   def destroy
     @profile = Profile.find_by(id: params[:id])
-    # @user.profile = @user
+    # @profile.user = current_user.profile
     @profile.destroy
-      redirect_to user_path(current_user)
+    redirect_to user_path(current_user)
   end
 
 private
