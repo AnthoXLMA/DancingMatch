@@ -45,10 +45,10 @@
             </div>
               <% else %>
             <div class="infos-card" >
-              <% @user.profiles.each do |pro_file| %>
+              <% @profiles.each do |pro_file| %>
             <div class="carte-profil" >
               <%= link_to pro_file.dance.title, profile_path(pro_file) %>
-              <%= link_to 'Destroy', profile_path(pro_file), :method => :delete %>
+              <%= link_to 'Destroy', profile_path(pro_file.id), method: :delete, id: 'profile.id' %>
               <%= link_to "Edit", edit_profile_path(pro_file) %>
               <i class="bi bi-pen"></i>
               <ul>

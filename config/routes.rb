@@ -8,12 +8,13 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :users, only: [:index, :create, :new, :show, :edit, :update, :destroy] do
-    resources :profiles, only: [:index, :create, :new, :show, :edit, :update, :destroy]
+  resources :users, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy]
   end
 
-   resources :profiles, only: [:index, :create, :new, :show, :edit, :update, :destroy] do
-    resources :users, only: [:index, :create, :new, :show, :edit, :update, :destroy]
+# resources profiles do users
+  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :users, only: [:index, :edit, :update, :show, :create, :destroy]
   end
 
   resources :users, only: [:index, :show] do
@@ -61,7 +62,7 @@ Rails.application.routes.draw do
   end
 
   resource :appointments do
-    resources :profile
+    resources :profiles
   end
 
   resources :requests, only: [:index] do
