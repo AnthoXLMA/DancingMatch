@@ -16,18 +16,18 @@
                   <%= image_tag appointment.pic if appointment.pic.attached? %>
                 </div>
                 <div class="information-event">
-                  <div class="event-uptitle">
+                  <div id="event-uptitle">
                     <h3><%= appointment.name  %></h3>
                     <a><%= appointment.address %></a>
                   </div>
-                  <div class="event-subinformations">
+                  <div id="event-subinformations">
                     <p> <%= appointment.dance.title %></p><br>
                     <p> <%= appointment.user.first_name %></p><br>
                     <p> Début: <%= appointment.start_on %></p><br>
                     <p> Fin: <%= appointment.end_on %></p>
                   </div>
                 </div>
-                <div class="click-participate">
+                <div id="click-participate">
                   <input type="submit" class="btn btn-primary" value="Je participe"></div>
                 </div>
               </div>

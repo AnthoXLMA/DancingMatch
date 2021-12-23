@@ -27,7 +27,7 @@
     <br>
     <% @user.profiles.each do |perfil| %>
     <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
-    <%= link_to "Supprime ce profile",  user_profile_path(perfil.id), method: :delete %>
+    <%= button_to "Supprime ce profile",  user_profile_path(perfil.id), method: :delete %>
       <% end %>
     </div>
     <div class="container-profile-middle-column" style="height:1200px;">

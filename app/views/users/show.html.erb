@@ -45,7 +45,7 @@
             </div>
               <% else %>
             <div class="infos-card" >
-              <% @profiles.each do |pro_file| %>
+              <% @user.profiles.each do |pro_file| %>
             <div class="carte-profil" >
               <%= link_to pro_file.dance.title, profile_path(pro_file) %>
               <%= button_to 'Destroy', profile_path(pro_file), method: :delete %>
@@ -62,7 +62,7 @@
             <% end %>
         </div>
         <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres"><p>Top Membres</p></div>
+          <div class="titres"><p>Membres</p></div>
             <div class="infos-card-2" style="padding:10px;">
               <% @users.each do |user| %>
               <div style="margin-right:auto; margin-left:auto;">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres"><p>Planning</p></div>
+          <div class="titres"><p>Vous avez effectué ces demandes</p></div>
             <div class="infos-card">
                 <% current_user.requests.each do |r| %>
                 <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
@@ -82,7 +82,29 @@
           </div>
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres">
-              <p>Demandes</p>
+              <p>Vous avez reçu ces demandes</p>
+                <div class="infos-card">
+                  <% @dancing_partners.each do |dancing_partner| %>
+                  <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
+                  <%= link_to "Voir la demande", requests_path(dancing_partner) %><br>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+            <div class="titres">
+              <p>Mes événements</p>
+                <div class="accroche">
+                <% current_user.appointments.each do |user_events| %>
+                  <div class="event-cards-2" style="background-color: #FFFF; color:black;">
+                    <%= image_tag user_events.pic if user_events.pic.attached? %>
+                    <p><%= user_events.name %></p>
+                    <p><%= user_events.start_on %></p>
+                    <p><%= user_events.address %></p>
+                    <p><%= link_to "Voir sur la carte", appointments_path %></p>
+                  </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>
@@ -93,17 +115,6 @@
       </div>
     </div>
   </div>
-</div>
-<div class="accroche">
-  <% current_user.appointments.each do |user_events| %>
-  <div class="event-cards" style="background-color: #FFFF; color:black;">
-    <p><%= image_tag user_events.pic if user_events.pic.attached? %></p>
-    <p><%= user_events.name %></p>
-    <p><%= user_events.start_on %></p>
-    <p><%= user_events.address %></p>
-    <p><%= link_to "Voir sur la carte", appointments_path %></p>
-  </div>
-  <% end %>
 </div>
 
 

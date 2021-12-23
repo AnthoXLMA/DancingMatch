@@ -2,30 +2,30 @@
   "name": "DancingMatch",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
+    "@rails/actioncable": "6.0.0",
+    "@rails/activestorage": "6.0.0",
+    "@rails/ujs": "6.0.0",
     "@rails/webpacker": "4.3.0",
     "bootstrap": "4.5.2",
-    "bootstrap-icons": "^1.6.0",
-    "chart.js": "^2.9.3",
-    "jquery": "^3.5.1",
-    "mapbox-gl": "^2.3.1",
-    "places.js": "^1.19.0",
-    "popper.js": "^1.16.1",
-    "progressbar.js": "^1.1.0",
-    "siema": "^1.5.1",
-    "sweetalert": "^2.1.2",
-    "turbolinks": "^5.2.0",
-    "worker-loader": "^3.0.8"
+    "bootstrap-icons": "1.6.0",
+    "chart.js": "2.9.3",
+    "jquery": "3.5.1",
+    "mapbox-gl": "2.3.1",
+    "places.js": "1.19.0",
+    "popper.js": "1.16.1",
+    "progressbar.js": "1.1.0",
+    "siema": "1.5.1",
+    "sweetalert": "2.1.2",
+    "turbolinks": "5.2.0",
+    "worker-loader": "3.0.8"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "babel-loader": "^8.2.2",
-    "webpack-dev-server": "^3.11.0"
+    "babel-loader": "8.2.2",
+    "webpack-dev-server": "3.11.0"
   }
 }
 
-// "scripts": {
-//   "build": "webpack --config prod.config.js"
-// }
+"scripts": {
+  "build": "webpack --config prod.config.js"
+}

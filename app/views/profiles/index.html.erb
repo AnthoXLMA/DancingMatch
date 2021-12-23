@@ -21,9 +21,9 @@
       </div>
     </div>
     <div class ="reviews-block" style="padding:10px;">
-      <h2><%= pluralize @user.reviews.size, "review" %></h2>
+      <h2><%= pluralize @user.reviews.size, "témoignages" %></h2>
       <div>
-        <%= simple_form_for([ @user, @review ]) do |f| %>
+        <%= simple_form_for([ @user, @review ], remote: true, :authenticity_token => true) do |f| %>
           <%= f.input :content, as: :text %>
           <%= f.button :submit %>
         <% end %>
@@ -33,15 +33,18 @@
           Be the first to leave a review for <%= @user.first_name %>
         <% else %>
           <% @user.reviews.each do |review| %>
-            <p><%= review.content %></p>
+            <a><%= review.id %></a>
+            <a><%= review.content %></a>
+            <a>by <%= review.user.first_name %></a>
+            <br>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
-  <div class="index-profiles">
+  <div id="index-profiles">
     <% @user.profiles.each do |profil| %>
-    <div class="index-profiles-cards">
+    <div id="index-profiles-cards">
       <ul>
         <li><%= link_to profil.dance.title, dance_path(profil.dance) %></li>
         <li><%= profil.niveau %></li>
@@ -49,8 +52,8 @@
         <li><%= profil.training_per_week %> hours/week</li>
       </ul>
       <div class="buttons" style="display:flex; height:50px; margin-right:10px; justify-content:space-evenly; color:white; font-family:'Raleway">
-        <button type="button" class="btn btn-primary"><%= link_to 'Request', user_requests_path(profil), method: :post %></button>
-        <div class="b-primary"><%= link_to 'Compare', profile_meetings_path(profil)%></div>
+        <button type="button" class="btn btn-primary"><%= button_to 'Request', user_requests_path(profil), method: :post %></button>
+        <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil) %></div>
       </div>
       <div class="graph-percentage">
       </div>

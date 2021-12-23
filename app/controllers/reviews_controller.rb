@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = @user
     if @review.save
-      redirect_to user_profiles_path(@user)
+      redirect_to user_profiles_path(@user, anchor: "review-#{@review.id}")
     else
       render :new
     end

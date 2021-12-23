@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
   belongs_to :user
 
-  validates_associated :content, presence: :true
+  validates :content, presence: :true
 end
