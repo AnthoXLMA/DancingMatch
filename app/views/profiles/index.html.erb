@@ -55,7 +55,19 @@
         <button type="button" class="btn btn-primary"><%= button_to 'Request', user_requests_path(profil), method: :post %></button>
         <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil) %></div>
       </div>
-      <div class="graph-percentage">
+      <div id="graph-percentage">
+        <canvas id="graph1"
+                data-user-fullname="<%= "#{@user.last_name} #{@user.first_name}" %>"
+                data-user-skills="<%= @user_skills.to_json %>"
+                data-profile-skills= "
+                <%=
+                  [profil.niveau,
+                  profil.investissement,
+                  profil.training_per_week].to_json
+                  %>"
+
+                data-skill-names="<%= User::SKILLS.to_json %>">
+        </canvas>
       </div>
     </div>
       <% end %>

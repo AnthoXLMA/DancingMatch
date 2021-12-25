@@ -2,9 +2,9 @@ const initChart = () => {
   const chartElement    = document.getElementById('graph1');
   if (chartElement) {
     const userName      = chartElement.dataset.userFullname;
-    const offerTitle = chartElement.dataset.offerTitle;
+    const profileTitle    = chartElement.dataset.offerTitle;
     const userSkills    = JSON.parse(chartElement.dataset.userSkills);
-    const offerSkills   = JSON.parse(chartElement.dataset.offerSkills);
+    const profileSkills   = JSON.parse(chartElement.dataset.profileSkills);
     const skillNames    = JSON.parse(chartElement.dataset.skillNames);
     const ctx           = chartElement.getContext('2d');
     const data = {
@@ -19,10 +19,10 @@ const initChart = () => {
                 data: userSkills
             },
             {
-                label: offerTitle,
+                label: profileTitle,
                 //backgroundColor: 'rgb(25, 99, 132)',
                 borderColor: '#222222',
-                data: offerSkills
+                data: profileSkills
             }
           ]
         };
