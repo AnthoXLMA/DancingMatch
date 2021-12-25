@@ -6,6 +6,11 @@ class ProfilesController < ApplicationController
     @users    = User.all
     @user     = User.find(params[:user_id])
     @profiles = Profile.all
+    # @profile = @user.profiles.each do | profile |
+    #   profile.id
+    # end
+    @profile_skills = User::SKILLS.each { |skill| @user[skill] }
+    # @profile_skills = User::SKILLS.each { |skill| @profile[skill] }
     @review   = Review.new
   end
 
@@ -75,6 +80,9 @@ class ProfilesController < ApplicationController
     @dancer = @users.each do |dancer|
       dancer.first_name
     end
+    @user_skills = User::SKILLS.map { |skill| @user[skill] }
+    @profile_skills = Profile::SKILLS.map { |skill| @profile[skill] }
+    # @already_applied = current_user.applies.where(offer_id: @offer).exists?
     @requests = Request.where(profile_id: @profile)
     @reviews = Review.all
   end

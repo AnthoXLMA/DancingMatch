@@ -14,8 +14,6 @@ const searchAlgoliaPlaces = (event) => {
 const input = document.querySelector(".form-control");
 input.addEventListener("keyup", searchAlgoliaPlaces);
 
-export { searchAlgoliaPlaces } ;
-export { input } ;
 
 const form = document.querySelector(".form-control");
 form.addEventListener('click', (action) => {
@@ -27,3 +25,6 @@ console.log(action)
 //   alert("Vous avez choisi votre genre");
 //   return false ;
 // }
+
+export { searchAlgoliaPlaces } ;
+export { input } ;
