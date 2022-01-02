@@ -6,12 +6,12 @@ class ProfilesController < ApplicationController
     @users    = User.all
     @user     = User.find(params[:user_id])
     @profiles = Profile.all
-    # @profile = @user.profiles.each do | profile |
-    #   profile.id
-    # end
-    @profile_skills = User::SKILLS.each { |skill| @user[skill] }
-    # @profile_skills = User::SKILLS.each { |skill| @profile[skill] }
-    @review   = Review.new
+    @profile = @user.profiles.each do | profile |
+      profile.id
+    end
+    # @profile_skills = User::SKILLS.each { |skill| @user[skill] }
+    # @user_skills    = User::SKILLS.each { |skill| @profile[skill] }
+    @review         = Review.new
   end
 
   def new
