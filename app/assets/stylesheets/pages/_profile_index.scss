@@ -16,9 +16,12 @@
       object-fit:cover;
     }
     .photo-n-details {
-      display:flex;
-      border:solid 1px grey;
-      padding:10px;
+      display: flex;
+      border: solid 1px white;
+      border-radius: 10px;
+      box-shadow: 0px 1px 5px 1px grey;
+      padding: 10px;
+      height:57vh;
     }
     .reviews-block {
       margin-top:20px;
@@ -30,7 +33,7 @@
     }
   }
   #index-profiles {
-      margin-left:10px;
+      margin-left:20px;
       margin-right:20px;
       margin-top:10px;
       width:50%;
@@ -40,13 +43,12 @@
       // grid-gap: 1px;
       // grid-auto-rows: minmax(2px, auto);
     #index-profiles-cards {
-      display:flex;
-      border-radius:0px;
-      margin-bottom:10px;
-      border:solid 1px grey;
-      height:194px;
-      padding:10px;
-      margin-right:10px;
+      display: flex;
+      border: solid 1px white;
+      border-radius: 10px;
+      box-shadow: 0px 1px 5px 1px grey;
+      padding: 10px;
+      margin-bottom:20px;
       #graph-percentage {
         border:solid 1px black;
       }

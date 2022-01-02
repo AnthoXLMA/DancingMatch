@@ -23,7 +23,8 @@
     <div class ="reviews-block" style="padding:10px;">
       <h2><%= pluralize @user.reviews.size, "témoignages" %></h2>
       <div>
-        <%= simple_form_for([ @user, @review ], remote: true, :authenticity_token => true) do |f| %>
+        <%= simple_form_for([ @user, @review ], remote: true,
+        :authenticity_token => true) do |f| %>
           <%= f.input :content, as: :text %>
           <%= f.button :submit %>
         <% end %>
@@ -51,22 +52,33 @@
         <li><%= profil.investissement %></li>
         <li><%= profil.training_per_week %> hours/week</li>
       </ul>
-      <div class="buttons" style="display:flex; height:50px; margin-right:10px; justify-content:space-evenly; color:white; font-family:'Raleway">
-        <button type="button" class="btn btn-primary"><%= button_to 'Request', user_requests_path(profil), method: :post %></button>
-        <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil) %></div>
+      <div class="buttons" style="display:flex; height:50px; margin-right:10px;
+      justify-content:space-evenly; color:white; font-family:'Raleway">
+        <button type="button" class="btn btn-primary"><%= button_to 'Request',
+        user_requests_path(profil), method: :post %></button>
+        <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil)
+         %></div>
       </div>
       <div id="graph-percentage">
         <canvas id="graph1"
-                data-user-fullname="<%= "#{@user.last_name} #{@user.first_name}" %>"
-                data-user-skills="<%= @user_skills.to_json %>"
-                data-profile-skills= "
-                <%=
-                  [profil.niveau,
-                  profil.investissement,
-                  profil.training_per_week].to_json
-                  %>"
-
-                data-skill-names="<%= User::SKILLS.to_json %>">
+          data-user-fullname="<%= "#{@user.last_name} #{@user.first_name}" %>"
+          data-profile-stars="<%=
+          [ profil.level,
+            profil.xp,
+            profil.coaching_status,
+            profil.practice_a_week,
+            profil.technique,
+            profil.ambition,
+            profil.empathie,
+            profil.social].to_json
+          %>"
+          data-profile-skills= "
+          <%=
+            [profil.niveau,
+            profil.investissement,
+            profil.training_per_week].to_json
+          %>"
+          data-skill-names="<%= User::SKILLS.to_json %>">
         </canvas>
       </div>
     </div>
