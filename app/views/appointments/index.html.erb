@@ -34,11 +34,14 @@
           </div>
         </li>
         <% end %>
-      </div>
-      <div class="container-map">
-        <div id="map">
-        </div>
-      </div>
     </div>
+      <div class="container-map">
+        <div id="map"
+          data-markers="<%= @markers.to_json %> »"
+          data-appointments="<%= @appointments.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+         </div>
+      </div>
+      </div>
   </div>
 </div>
