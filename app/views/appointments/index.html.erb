@@ -11,7 +11,7 @@
         </div>
         <div class ="container-appointments">
           <% @appointments.each do |appointment| %>
-          <li><div class="appointment-card3">
+          <div class="appointment-card3">
             <div class="image-card-appointments">
               <%= image_tag appointment.pic if appointment.pic.attached? %>
             </div>
@@ -21,9 +21,9 @@
                 <a><%= appointment.address %></a>
               </div>
               <div id="event-subinformations">
-                <p> <%= appointment.dance.title %></p><br>
-                <p> <%= appointment.user.first_name %></p><br>
-                <p> Début: <%= appointment.start_on %></p><br>
+                <p> <%= appointment.dance.title %></p>
+                <p> <%= appointment.user.first_name %></p>
+                <p> Début: <%= appointment.start_on %></p>
                 <p> Fin: <%= appointment.end_on %></p>
               </div>
             </div>
@@ -31,17 +31,15 @@
               <input type="submit" class="btn btn-primary" value="Je participe"></div>
             </div>
         </div>
-    </div>
-      </li>
+
       <% end %>
+    </div>
+    <div class="container-map">
+      <div id="map"
+        data-markers="<%= @markers.to_json %> »"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
-
-  <div class="container-map">
-    <div id="map"
-      data-markers="<%= @markers.to_json %> »"
-      data-appointments="<%= @appointments.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-     </div>
-  </div>
-
 </div>
+
