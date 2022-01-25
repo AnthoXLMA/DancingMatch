@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
 
   def new
     @user         = current_user
-    @profiles     = @user.profiles.build
+    # @profiles     = @user.profiles.build
     @profile      = Profile.new(profile_params)
     @profile.user = @user
     @profile.save
@@ -24,7 +24,7 @@ class ProfilesController < ApplicationController
   end
 
   def create
-    @dance    = Dance.find(params[:id])
+    @dance    = Dance.find(params[:dance_id])
     # @user   = current_user.id
     @profile  = Profile.new(profile_params)
     # @profile          = current_user.build_profile
