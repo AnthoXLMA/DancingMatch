@@ -26,7 +26,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 // import { initSiema } from '../plugins/init_siema';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
-// import { initClickMe } from '../plugins/init_click_me';
+import { initClickMe } from '../plugins/init_click_me';
 // import { searchAlgoliaPlaces } from '../plugins/init_autocomplete';
 // import { input } from '../plugins/form';
 // import { createInterestPoints } from '../plugins/geojson-data';
@@ -42,6 +42,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initClickMe();
   // ChangeSlide();
   // initCalendar();
   // initCompare();
