@@ -111,9 +111,10 @@
           }
       }
     }
-    .container-map{
+.container-map {
       width:50%;
-      margin-left:20px;
-    .map{
-    }
+      border:solid medium black;
+      #map {
+        height:200px;
+      }
   }

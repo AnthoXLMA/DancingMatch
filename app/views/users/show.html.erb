@@ -1,36 +1,40 @@
 <div class="container-card-profile">
   <div class="container1">
     <div class="my_profile">
-      <div class="dance-query">
-        <div class="query">
-          <%= form_tag dances_path, method: :get do %>
-          <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Cherche ta danse" %>
-        </div>
-        <div class="button-OK">
-          <%= submit_tag "Search", class: "btn-primary" %>
-        </div>
-        <% end %>
-      </div>
-      <div class="banner-profile">
-        <div class="image-profile">
-          <%= image_tag current_user.photo if current_user.photo.attached? %>
-        </div>
-        <div class="my-informations">
-          <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>
-          <a><%= current_user.gender %></a><br>
-          <a><%= current_user.age %> years old</a><br>
-          <a><%= current_user.location %></a><br>
-          <a><%= current_user.experience %> years experience</a><br>
-        </div>
-          <div class ="menu-block">
-            <h5>
-              <%= pluralize current_user.reviews.size, "review" %><br>
-              <%= link_to "See all reviews", user_reviews_path(current_user) %><br>
-              <%= link_to "See all requests", user_requests_path(current_user) %><br>
-              <%= link_to "Edit my profile", edit_user_path(current_user) %><br>
-            </h5>
+
+              <div class="dance-query">
+                <div class="query">
+                  <%= form_tag dances_path, method: :get do %>
+                  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Cherche ta danse" %>
+                </div>
+                <div class="button-OK">
+                  <%= submit_tag "Search", class: "btn-primary" %>
+                </div>
+                <% end %>
+              </div>
+
+          <div class="banner-profile">
+            <div class="image-profile">
+              <%= image_tag current_user.photo if current_user.photo.attached? %>
+            </div>
+            <div class="my-informations">
+              <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>
+              <a><%= current_user.gender %></a><br>
+              <a><%= current_user.age %> years old</a><br>
+              <a><%= current_user.location %></a><br>
+              <a><%= current_user.experience %> years experience</a><br>
+            </div>
+            <div class ="menu-block">
+              <h5>
+                <%= pluralize current_user.reviews.size, "review" %><br>
+                <%= link_to "See all reviews", user_reviews_path(current_user) %><br>
+                <%= link_to "See all requests", user_requests_path(current_user) %><br>
+                <%= link_to "Edit my profile", edit_user_path(current_user) %><br>
+              </h5>
+            </div>
           </div>
-      </div>
+
+
       <div class="container-appointments-profile">
         <div class="button-block">
           <div class="titres-cadre">
@@ -61,6 +65,7 @@
               </div>
             <% end %>
         </div>
+
         <div class="titres-cadre" style="background-color: #FFFF; color:black;">
           <div class="titres"><p>Membres</p></div>
             <div class="infos-card-2" style="padding:10px;">
@@ -72,25 +77,29 @@
             <% end %>
             </div>
         </div>
+
         <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres"><p>Vous avez effectué ces demandes</p></div>
+          <div class="titres"><p>Vous avez effectué ces demandes</p>
             <div class="infos-card">
-                <% current_user.requests.each do |r| %>
-                <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
-                <% end %>
+              <% current_user.requests.each do |r| %>
+              <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
+              <% end %>
             </div>
           </div>
-          <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-            <div class="titres">
-              <p>Vous avez reçu ces demandes</p>
-                <div class="infos-card">
-                  <% @dancing_partners.each do |dancing_partner| %>
-                  <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
-                  <%= link_to "Voir la demande", requests_path(dancing_partner) %><br>
-                <% end %>
+        </div>
+
+        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
+          <div class="titres">
+            <p>Vous avez reçu ces demandes</p>
+              <div class="infos-card">
+                <% @dancing_partners.each do |dancing_partner| %>
+                <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
+                <%= link_to "Voir la demande", requests_path(dancing_partner) %><br>
+              <% end %>
               </div>
-            </div>
           </div>
+        </div>
+
           <div class="titres-cadre" style="background-color: #FFFF; color:black;">
             <div class="titres">
               <p>Mes événements</p>
@@ -109,15 +118,19 @@
           </div>
         </div>
       </div>
+
     </div>
-    <div class ="map-display" style="position:unset;">
+
+  </div>
+
+
+</div>
+
+    <div class ="container-map">
       <div id="map"
         data-markers="<%= @markers.to_json %>"
         data-dancers="<%= @dancers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
-  </div>
-</div>
-
 
