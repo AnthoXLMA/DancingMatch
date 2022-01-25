@@ -1,18 +1,9 @@
 .container-card-profile {
   margin-top:196px;
   position:sticky;
-}
   .container1 {
-  display:flex;
-    .map-display {
-      width:50%;
-      // margin-left:700px;
-    #map {
-      margin-left:10px;
-      width:100%;
-      position:relative;
-    }
-  }
+    display:flex;
+
   .my_profile {
       font-family: 'Roboto';
       color:black;
@@ -48,7 +39,7 @@
       height: 160px;
       width: 100%;
       margin-top:20px;
-      .image-profile{
+      .image-profile {
         padding:10px;
         margin-left:10px;
         margin-top:10px;
@@ -219,14 +210,22 @@
               // background-image: url(user.photo);
               object-fit: cover;
               }
-              .bi .bi-pen{
+              .bi .bi-pen {
                 width:10px;
                 height:10px;
               }
+            }
           }
         }
       }
     }
   }
 }
+    //   .container-map-user {
+    //     width:50%;
+    //     border:solid medium black;
+    //     .map {
+    //       height:40px;
+    //     }
+    // }
 
