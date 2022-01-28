@@ -41,5 +41,23 @@
       </div>
     </div>
   </div>
+  <div class="container text-center">
+    <ul id="results" class="list-inline"></ul>
+  </div>
 </div>
+<script>
+  var initClickMe;
+  document.querySelector("#click-participate").addEventListener('click', function(){
+  initClickMe = document.querySelector("#event-subinformations p")
+  console.log(initClickMe)
+   });
+  var xhr = new XMLHttpRequest();
+
+  xhr.openreadystatechange = function() {
+    console.log(this)
+  }
+
+  xhr.open("GET", "javascript/application.js", true);
+  xhr.send();
+</script>
 

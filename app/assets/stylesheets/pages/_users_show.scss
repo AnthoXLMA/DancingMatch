@@ -216,6 +216,48 @@
                 }
               }
             }
+            .my-event {
+              box-shadow: 0px 0px 8px 0px grey;
+              border-radius: 5px;
+              padding:10px;
+              text-align:center;
+              width:667px;
+              margin-right:30px;
+              margin-bottom:10px;
+              min-height: 400px;
+              .titres {
+                background-color: #A675A1;
+                border-radius: 5px 5px 0px 0px;
+                height:3rem;
+                p {
+                  color:white;
+                  font-weight:bold;
+                  padding:8px;
+                }
+              }
+
+              .card-my-event {
+                  width:320px;
+                  height:220px;
+                  border: solid 1px grey;
+                  border-radius: 5px;
+                  padding:10px;
+                .one-event {
+                  width:300px;
+                  height:150px;
+                  img {
+                    width:300px;
+                    height:150px;
+                    object-fit:cover;
+
+                  }
+                  a {
+                    font-size:10px;
+                    color:black;
+                  }
+                }
+              }
+            }
           }
         }
       }

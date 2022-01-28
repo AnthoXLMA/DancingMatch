@@ -8,7 +8,6 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -22,26 +21,14 @@ require("channels")
 
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
-// import { initChart } from '../plugins/init_chart';
-// import { initSiema } from '../plugins/init_siema';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 // import { initClickMe } from '../plugins/init_click_me';
-// import { searchAlgoliaPlaces } from '../plugins/init_autocomplete';
-// import { input } from '../plugins/form';
-// import { createInterestPoints } from '../plugins/geojson-data';
-// import { cats } from '../plugins/geojson-data';
-// import { formControl } from '../plugins/form';
-// import { initCompare } from '../plugins/init_compare';
-// import { appointmentsId } from '../components/appointment';
-// import { initProgressBar } from '../plugins/init_progressbar';
-// import { ChangeSlide } from '../plugins/slider';
-// import { slide } from '../plugins/slider';
-// import { numero }from '../plugins/slider';
-// import { initCalendar } from '../components/calendrier';
+import { initClickMe } from '../plugins/init_click_me';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initClickMe();
   // ChangeSlide();
   // initCalendar();
   // initCompare();

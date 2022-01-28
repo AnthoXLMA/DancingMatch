@@ -1,10 +1,8 @@
-export { initClickMe } ;
-
 const initClickMe = () => {
-  const subscription = document.querySelector("#click-participate");
-    subscription.addEventListener('click', (event) => {
-  event = document.querySelector(".information-event h3");
-  event.insertAdjacentHTML('beforeend', 'U.Connexion');
-  console.log(event)
+  var initClickMe;
+  document.querySelector("#click-participate").addEventListener('click', function(){
+    initClickMe = document.querySelector("#event-subinformations p");
+    console.log(initClickMe);
   });
-};
+}
+export {initClickMe};
