@@ -23,6 +23,7 @@ require("channels")
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
+// import { initClickMe } from '../plugins/init_click_me';
 import { initClickMe } from '../plugins/init_click_me';
 
 document.addEventListener('turbolinks:load', () => {

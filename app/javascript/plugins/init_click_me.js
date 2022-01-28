@@ -1,9 +1,8 @@
 const initClickMe = () => {
-  const subscription = document.getElementById("#click-participate");
-  //   subscription.addEventListener('click', (event) => {
-  //   event = document.querySelector("#event-uptitle h3");
-  //     event.insertAdjacentHTML('beforeend', 'hello');
-  // });
-    console.log('hello')
+  var initClickMe;
+  document.querySelector("#click-participate").addEventListener('click', function(){
+    initClickMe = document.querySelector("#event-subinformations p");
+    console.log(initClickMe);
+  });
 }
-export { initClickMe };
+export {initClickMe};
