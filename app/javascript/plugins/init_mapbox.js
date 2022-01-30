@@ -30,7 +30,7 @@ const initMapbox = () => {
     });
 
     // dancers_location
-    const dancers = JSON.parse(mapElement.dataset.dancers);
+    const dancers = JSON.parse(mapElement.dataset.markers);
       dancers.forEach((dancer) => {
     const popup = new mapboxgl.Popup().setHTML(dancer.infoWindow);
     const element = document.createElement('div');
@@ -46,7 +46,7 @@ const initMapbox = () => {
     .addTo(map);
     });
       // events_dance_id_location
-    const events = JSON.parse(mapElement.dataset.events);
+    const events = JSON.parse(mapElement.dataset.markers);
       events.forEach((event) => {
     const popup = new mapboxgl.Popup().setHTML(event.infoWindow);
     const element = document.createElement('div');
