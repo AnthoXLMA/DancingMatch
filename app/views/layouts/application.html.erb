@@ -6,8 +6,8 @@
     <title>Dancing Partners</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'%>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -25,12 +25,11 @@
       .table1 article { width:40rem; vertical-align:top; }
     </style>
   </head>
-  <body style="height:auto;" onLoad="c1();">
+  <body>
     <%= render 'shared/navbar' %>
       <%= yield %>
-    <div align="center" style="position:absolute; top:450; left:20" id="a">VOILA CE QUE NOUS POUVONS FAIRE AUJOURD'HUI</div>
+    <script type="application/javascript" src="javascript/application.js"></script>
     <%= render 'shared/footer' %>
-    <script type="application/javascript" src="../application.js"></script>
     <script>
       rd = 10;
       la = screen.availWidth;
@@ -41,7 +40,7 @@
         el = document.getElementById("a");
         el.style.left=rd;
         setTimeout("c1()", 100);
-      }
+      };
     </script>
   </body>
 </html>
