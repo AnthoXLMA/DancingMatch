@@ -6,8 +6,10 @@ class UsersController < ApplicationController
     @user = current_user
     @profiles = Profile.all
     @dances = Dance.all
-    if params[:query].present?
-      @users = User.where("location ILIKE ?", "%#{params[:query]}%")
+    if params[:query].present? || params[:gender_query].present? || params[:name_query].present?
+      @users  = User.where("location ILIKE ?", "%#{params[:query]}%")
+                    .where("gender ILIKE ?", "%#{params[:gender_query]}%")
+                    .where("first_name ILIKE ?", "%#{params[:name_query]}%")
     else
       @users =  User.all
     end

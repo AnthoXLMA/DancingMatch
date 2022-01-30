@@ -26,29 +26,19 @@
     </div>
     <div class="contain-3">
       <div class="card-search-types">
-        <input type="checkbox" name="gender" value="lady" /> Lady
-        <input type="checkbox" name="gender" value="gentleman" /> Gentleman
+        <%= simple_form_for users_path, method: :get do |f| %>
+        <input type="checkbox" name="gender_query" value="lady"        /> Lady
+        <input type="checkbox" name="gender_query" value="gentleman"   /> Gentleman
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
       </div>
     </div>
     <div class="contain-3">
       <div class="card-search-types">
         <%= simple_form_for users_path, method: :get do %>
-        <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Qui? quoi?" %>
+        <%= text_field_tag :name_query, params[:name_query], class: "form-control", placeholder: "Pseudo?" %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
-      </div>
-    </div>
-    <div class="contain-3">
-      <div class="card-search-types">
-      critères de recherche n°3: quand?
-      <%= form_tag users_path, method: :get do %>
-        <%= text_field_tag :query, params[:user], class: "form-control", placeholder: "recherche par pseudo" %>
-        <%= submit_tag "Search", class: "btn btn-primary" %>
-      <% end %>
-      </div>
-    </div>
-    <div class="contain-4">
-      <div class="card-search-types">
       </div>
     </div>
   </div>
