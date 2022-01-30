@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
 
   def new
     @user         = current_user
-    # @profiles     = @user.profiles.build
+    @profiles     = @user.profiles.build
     @profile      = Profile.new(profile_params)
     @profile.user = @user
     @profile.save

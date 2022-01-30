@@ -156,14 +156,12 @@
         "interval": 100,
         "text": ""
     };
-
     const str1 = "Voilà où nous en sommes seulement aujourd'hui, le début de Javascript!" +
         " Bientôt nous pourrons créer des éléments dynamiques et autres fonctionnalités plus puissantes,plus rapides, et... plus techniques!" +
         " Nous avons hâte d'achever ce projet! Ici, vous retrouverez l'ensemble des fonctions script de la page."+
         " Tentez parfois de recharger la page pour voir les changements."+
         " Essayez de faire défiler ce texte avec un compteur entre chaque lettre."+
         "Cela semble OK";
-
     const dvjhEcrit = (options, parent) => {
         let
             opts = Object.assign({}, defaults, options),
@@ -202,7 +200,6 @@
 
         showText(0);
     }
-
     dvjhEcrit({
         "text": str1
     }, document.querySelector('article'));
