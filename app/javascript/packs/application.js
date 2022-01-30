@@ -25,6 +25,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { initMapbox } from '../plugins/init_mapbox';
 // import { initClickMe } from '../plugins/init_click_me';
 import { initClickMe } from '../plugins/init_click_me';
+// import { initChart } from '../plugins/init_chart';
+import { initSiema } from '../plugins/init_siema';
+import { iniCompare } from '../plugins/init_compare';
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();

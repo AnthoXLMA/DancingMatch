@@ -56,13 +56,12 @@
       justify-content:space-evenly; color:white; font-family:'Raleway">
         <button type="button" class="btn btn-primary"><%= button_to 'Request',
         user_requests_path(profil), method: :post %></button>
-        <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil)
-         %></div>
+        <div id="b-primary"><%= link_to 'Compare', profile_meetings_path(profil)%></div>
       </div>
       <div id="graph-percentage">
         <canvas id="graph1"
-          data-user-fullname="<%= "#{@user.last_name} #{@user.first_name}" %>"
-          data-profile-stars="<%=
+          data-user-full-name="<%= "#{@user.last_name} #{@user.first_name}" %>"
+          data-user-skills="<%=
           [ profil.level,
             profil.xp,
             profil.coaching_status,
@@ -78,12 +77,44 @@
             profil.investissement,
             profil.training_per_week].to_json
           %>"
-          data-skill-names="<%= User::SKILLS.to_json %>">
+          data-skills-name="<%= User::SKILLS.to_json %>">
         </canvas>
       </div>
     </div>
       <% end %>
   </div>
 </div>
-
+<script>
+    const graph1    = document.getElementById('graph1');
+    // const uName     = JSON.parse(graph1.dataset.userFullname);
+    const mySkills   = JSON.parse(graph1.dataset.userSkills);
+    // const pSkills   = JSON.parse(graph1.dataset.profileSkills);
+    const skillsnaming    = JSON.parse(graph1.dataset.skillsName);
+    const graph = new Chart(graph1, {
+        type: 'bar',
+        data: {
+        labels: skillsnaming,
+            datasets: [{
+                label: skillsnaming,
+                data: mySkills,
+                backgroundColor: [
+                'red',
+                'red',
+                'red',
+                'red',
+                'red',
+                'red'
+                ]
+            }]
+          },
+              options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+      });
+</script>
+<canvas id="myChart" width="400" height="400"></canvas>
 

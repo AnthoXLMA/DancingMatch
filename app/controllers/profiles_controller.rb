@@ -9,8 +9,9 @@ class ProfilesController < ApplicationController
     @profile = @user.profiles.each do | profile |
       profile.id
     end
-    # @profile_skills = User::SKILLS.each { |skill| @user[skill] }
-    # @user_skills    = User::SKILLS.each { |skill| @profile[skill] }
+    #CANVAS DATAS
+    @profile_skills = User::SKILLS.each { |skill| @user[skill] }
+    @user_skills    = User::SKILLS.each { |skill| @user[skill] }
     @review         = Review.new
   end
 
