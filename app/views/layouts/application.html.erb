@@ -15,12 +15,32 @@
     <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  </head>
+    <style>
+      article { display:table-cell; text-align:justify; }
+      .table1, .table2 { border-collapse:separate; border-spacing:3rem; }
+      .ligne { display:table-row; }
 
-  <body style="height:auto;">
+      .table1 .ligne { min-height:25rem; }
+      .table1 article { width:40rem; vertical-align:top; }
+    </style>
+  </head>
+  <body style="height:auto;" onLoad="c1();">
     <%= render 'shared/navbar' %>
       <%= yield %>
+    <div align="center" style="position:absolute; top:450; left:20" id="a">VOILA CE QUE NOUS POUVONS FAIRE AUJOURD'HUI</div>
     <%= render 'shared/footer' %>
+    <script type="application/javascript" src="../javacript/application.js"></script>
+    <script>
+      rd = 10;
+      la = screen.availWidth;
+      function c1(){
+        rd += 10;
+          if (rd>la-120)
+          rd = 20;
+        el = document.getElementById("a");
+        el.style.left=rd;
+        setTimeout("c1()", 100);
+      }
+    </script>
   </body>
-
 </html>

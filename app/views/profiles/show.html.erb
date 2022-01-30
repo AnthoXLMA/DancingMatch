@@ -1,14 +1,14 @@
 <div class="container-card-profile" style="display:flex;">
   <div class="container-profile-infos" style="height:1200px;">
     <h2>
-      <p><%= @profile.dance.title %></p>
-      <p><%= @profile.level %></p>
-      <p><%= @profile.niveau %></p>
-      <p><%= @profile.investissement %></p>
-      <p><%= @profile.training_per_week %></p>
+      <%= @profile.dance.title %>
+      LEVEL <%= @profile.level %>
+      <%= @profile.niveau %>
+      <%= @profile.investissement %>
+      <%= @profile.training_per_week %>h/week
     </h2>
-    <h2>
       <%= 'SKILLS' %>
+    <h2 id="skill-id">
       <p><%= @profile.level %></p>
       <p><%= @profile.xp %></p>
       <p><%= @profile.coaching_status %></p>
@@ -46,7 +46,6 @@
     <% end %>
   </div>
   <div class="container-profile-right-column" style="height:1200px;">
-      STATISTIQUES DE L'APPLICATION
     <div class="profile-feed">
       <div class="profile-feed-card-1">
         <%= pluralize @profiles.count, "profil" %>
@@ -66,3 +65,154 @@
     </div>
   </div>
 </div>
+  <ul id="results"></ul>
+  <ul id="resultats"></ul>
+  <form action="" id="form">
+    <input type="email" id="email">
+    <input type="password" id="password">
+    <input type="submit">
+  </form>
+  <section class="conteneur">
+    <section class="table1">
+      <section>
+        <article>
+
+        </article>
+        <article>
+
+        </article>
+      </section>
+    </section>
+  </section>
+<script type="text/javascript">
+  const skill = document.querySelector("#skill-id");
+  const parseSkill = skill.querySelectorAll('p');
+  const totalSkill = parseSkill.forEach(function(skillNumber) {
+    function userTotal(skillNumber) {
+      const calculate = skillNumber;
+        let sum = 0;
+          for (let i = 0; i < calculate.length; i++){
+            sum += calculate[i];
+          }
+        };
+      console.log(userTotal(parseSkill));
+    });
+  results.insertAdjacentHTML("beforeend",totalSkill);
+  var somme = 0;
+  for (var n=0; n <= 10; n = n+1) {
+    somme = somme+n;
+  }
+  document.getElementById("results").innerHTML="Voilà où nous en sommes aujourd'hui, le début de Javascript! Bientôt nous pourrons créer des éléments dynamiques et autres fonctionnalités plus puissantes,plus rapides, et... plus techniques! Nous avons hâte d'achever ce projet! Ici, vous retrouverez l'ensemble des fonctions script de la page. Tentez parfois de recharger la page pour voir les changements. Essayez de faire défiler ce texte avec un compteur entre chaque lettre...";
+  rd = 10;
+  la = screen.availWidth;
+  function c1(){
+    rd += 10;
+      if (rd>la-175)
+      rd = 20;
+    el = document.getElementById("a");
+    el.style.left=rd;
+    setTimeout("c1()", 100);
+  }
+</script>
+<script>
+  const signUp = (event) => {
+  event.preventDefault()
+  const emailValue = document.getElementById("email").value
+  const passwordValue = document.getElementById("password").value
+  fetch("https://reqres.in/api/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({"email": emailValue, "password": passwordValue})
+  })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+    })
+  }
+  const form = document.querySelector("#form")
+  form.addEventListener("submit", signUp)
+</script>
+<script>
+  var somme = 0;
+  for (var n=0; n <= 10; n = n+1) {
+    somme = somme+n;
+  }
+  document.getElementById("resultats").innerHTML="Somme = " +somme;
+</script>
+<script>
+  window.addEventListener('load', ev => {
+    const defaults = {
+        "backgroundColor": "#ffffff",
+        "color": "#000000",
+        "fontFamily": "cursive",
+        "fontSize": "1.2em",
+        "fontWeight": "normal",
+        "lineHeight": "1.5em",
+        "letterSpacing": "0.15em",
+        "mozHyphens": "auto",
+        "webkitHyphens": "auto",
+        "msHyphens": "auto",
+        "hyphens": "auto",
+        "interval": 100,
+        "text": ""
+    };
+
+    const str1 = "Voilà où nous en sommes seulement aujourd'hui, le début de Javascript!" +
+        " Bientôt nous pourrons créer des éléments dynamiques et autres fonctionnalités plus puissantes,plus rapides, et... plus techniques!" +
+        " Nous avons hâte d'achever ce projet! Ici, vous retrouverez l'ensemble des fonctions script de la page."+
+        " Tentez parfois de recharger la page pour voir les changements."+
+        " Essayez de faire défiler ce texte avec un compteur entre chaque lettre."+
+        "Cela semble OK";
+
+    const dvjhEcrit = (options, parent) => {
+        let
+            opts = Object.assign({}, defaults, options),
+            interval = parseInt(opts.interval, 10) || 100,
+            tabChaine = opts.text,
+            longueur = tabChaine.length,
+            conteneur = document.createElement('div'),
+            showText = k => {
+                if (k < longueur) {
+
+                    //$(conteneur).append(tabChaine[k++]);
+
+                    conteneur.append(tabChaine[k++]);
+
+                    setTimeout(function () {
+                        showText(k);
+                    }, interval);
+                }
+            };
+
+        conteneur.style = {
+            "backgroundColor": opts.backgroundColor,
+            "color": opts.color,
+            "fontFamily": opts.fontFamily,
+            "fontSize": opts.fontSize,
+            "fontWeight": opts.fontWeight,
+            "lineHeight": opts.lineHeight,
+            "letterSpacing": opts.letterSpacing,
+            "-moz-hyphens": opts.mozHypens,
+            "-webkit-hyphens": opts.webkitHypens,
+            "-ms-hyphens": opts.msHypens,
+            "hyphens": opts.hyphens
+        };
+
+        parent.appendChild(conteneur);
+
+        showText(0);
+    }
+
+    dvjhEcrit({
+        "text": str1
+    }, document.querySelector('article'));
+
+    // fin code du test
+
+}, {
+    capture: false,
+    passive: true,
+    once: false
+});
+document.getElementById("results").innerHTML(str1);
+</script>
