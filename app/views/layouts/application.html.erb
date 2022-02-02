@@ -18,31 +18,11 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <style>
-      article { display:table-cell; text-align:justify; }
-      .table1, .table2 { border-collapse:separate; border-spacing:3rem; }
-      .ligne { display:table-row; }
-
-      .table1 .ligne { min-height:25rem; }
-      .table1 article { width:40rem; vertical-align:top; }
-    </style>
   </head>
   <body>
     <%= render 'shared/navbar' %>
       <%= yield %>
-    <script type="application/javascript" src="javascript/application.js"></script>
     <%= render 'shared/footer' %>
-    <script>
-      rd = 10;
-      la = screen.availWidth;
-      function c1(){
-        rd += 10;
-          if (rd>la-120)
-          rd = 20;
-        el = document.getElementById("a");
-        el.style.left=rd;
-        setTimeout("c1()", 100);
-      };
-    </script>
+    <script type="application/javascript" src="javascript/application.js"></script>
   </body>
 </html>

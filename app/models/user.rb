@@ -27,7 +27,7 @@ class User < ApplicationRecord
   EMPATHIE        = ['none', 'social', 'professionnal', 'only_dancing']
   SOCIAL          = ['1', '2', '3', '4', '5']
 
-
+  has_many :subscriptions
   has_many :profiles, dependent: :destroy
   has_one_attached :photo
   has_many :meetings, through: :profiles

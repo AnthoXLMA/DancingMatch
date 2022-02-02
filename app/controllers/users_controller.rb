@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     else
       @users =  User.all
     end
+    @subscriptions = Subscription.where(user_id: :id)
   end
 
   def new

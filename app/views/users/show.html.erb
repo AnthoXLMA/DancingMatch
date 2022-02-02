@@ -121,18 +121,17 @@
                                         grid-template-columns: 1fr 1fr;
                                         grid-gap: 10px;
                                         grid-auto-rows: minmax(5px, auto);">
-            <% current_user.appointments.each do |user_events| %>
+            <% current_user.subscriptions.each do |subscription| %>
               <div class="card-my-event">
                 <div class="one-event">
-                  <%= image_tag user_events.pic if user_events.pic.attached? %>
-                  <a><%= user_events.name %></a>
-                  <a><%= user_events.start_on %></a>
-                  <a><%= user_events.address %></a>
+                  <%= image_tag subscription.appointment.pic if subscription.appointment.pic.attached? %>
+                  <a><%= subscription.appointment.name %></a>
+                  <a><%= subscription.appointment.start_on %></a>
+                  <a><%= subscription.appointment.address %></a>
                   <a><%= link_to "Voir sur la carte", appointments_path %></a>
                 </div>
               </div>
             <% end %>
-
           </div>
         </div>
       </div>

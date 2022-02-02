@@ -64,6 +64,10 @@ Rails.application.routes.draw do
     resources :profiles
   end
 
+  resources :appointments do
+    resources :subscriptions, only: [:new, :create, :destroy]
+  end
+
   resources :requests, only: [:index] do
     member do
       patch :accept

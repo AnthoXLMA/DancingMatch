@@ -9,7 +9,7 @@
         <div class="title_text">
           <p><%= link_to "Crée ton évenement", new_appointment_path, class:"btn btn-primary", id: "dance" %></p>
         </div>
-        <div class ="container-appointments" style="height:auto;">
+        <div class ="container-appointments">
           <% @appointments.each do |appointment| %>
           <div class="appointment-card3">
             <div class="image-card-appointments">
@@ -29,6 +29,7 @@
             </div>
               <div id="click-participate">
                 <input type="submit" class="btn btn-primary" value="Je participe">
+                <%= link_to "Participer", appointment_subscriptions_path(appointment), method: :post %>
               </div>
               <div class="horo" style="background-color:red; width:100px; height:20px; color:white; font-weight:bold; ">
                 <ul id="cours"></ul>

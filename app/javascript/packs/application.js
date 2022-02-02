@@ -21,7 +21,7 @@ require("channels")
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
-// import { initMapbox } from '../plugins/init_mapbox';
+import { initMapbox } from '../plugins/init_mapbox';
 import { initClickMe } from '../plugins/init_click_me';
 import { selectEvent } from '../plugins/select_event';
 import { addElement } from '../plugins/text';
@@ -37,7 +37,7 @@ import {initFlatpickr} from '../plugins/flatpickr';
 // SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
 
 document.addEventListener('turbolinks:load', () => {
-  // initMapbox();
+  initMapbox();
   // initFlatpickr();
   initClickMe();
   // ChangeSlide();
