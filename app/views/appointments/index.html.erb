@@ -27,10 +27,15 @@
                 <p> Fin: <%= appointment.end_on %></p>
               </div>
             </div>
-            <div id="click-participate">
-              <input type="submit" class="btn btn-primary" value="Je participe"></div>
+              <div id="click-participate">
+                <input type="submit" class="btn btn-primary" value="Je participe">
+                <%= link_to "Participer", appointment_subscriptions_path(appointment), method: :post %>
+              </div>
+              <div class="horo" style="background-color:red; width:100px; height:20px; color:white; font-weight:bold; ">
+                <ul id="cours"></ul>
+              </div>
             </div>
-      <% end %>
+          <% end %>
         </div>
     </div>
     <div class="container-map">
@@ -44,19 +49,36 @@
     <ul id="results" class="list-inline"></ul>
   </div>
 </div>
+
 <script>
-  var initClickMe;
-  document.querySelector("#click-participate").addEventListener('click', function(){
-  initClickMe = document.querySelector("#event-subinformations p")
-  console.log(initClickMe)
-   });
-  var xhr = new XMLHttpRequest();
-
-  xhr.openreadystatechange = function() {
-    console.log(this)
-  }
-
-  xhr.open("GET", "javascript/application.js", true);
-  xhr.send();
+// var buttons = document.querySelectorAll('#click-participate');
+// // const results = document.querySelector("#results")
+// var button  = buttons.forEach(button => {
+//   var callajax = button.addEventListener('click', (event) => {
+//   function reqListener () {
+//     console.log(this.responseText);
+//     var json  = JSON.parse(this.response);
+//     var eur   = parseInt(json.EUR);
+//     var dt    = new Date();
+//     document.getElementById("cours").innerHTML=eur+ "&euro;";
+//     // document.querySelector("#results").innerHTML="Maj "+dt.toLocaleString();
+//   }
+//   var oReq    = new XMLHttpRequest();
+//   oReq.addEventListener("load", reqListener);
+//   oReq.open("GET", "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR");
+//   oReq.send();
+//     })
+// });
 </script>
+<script>
+const button = document.querySelector("#click-me")
+button.addEventListener("click", (event) => {
+  console.log(event);
+  fetch(element)
+  .then(response => response.json())
+  .then((data) => {
+    console.log(data);
+  })
+})
 
+</script>

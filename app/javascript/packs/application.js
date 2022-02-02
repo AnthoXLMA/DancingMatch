@@ -22,18 +22,28 @@ require("channels")
 import 'mapbox-gl/dist/mapbox-gl.css';
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
-// import { initClickMe } from '../plugins/init_click_me';
 import { initClickMe } from '../plugins/init_click_me';
+import { selectEvent } from '../plugins/select_event';
+import { addElement } from '../plugins/text';
 // import { initChart } from '../plugins/init_chart';
 import { initSiema } from '../plugins/init_siema';
 import { iniCompare } from '../plugins/init_compare';
+import {initFlatpickr} from '../plugins/flatpickr';
+// import flatpickr from "flatpickr"
+// import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
+
+// SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
+// import { initFlatpickr } from '../plugins/initFlatpickr';
+// SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  // initFlatpickr();
   initClickMe();
   // ChangeSlide();
   // initCalendar();
   // initCompare();
+  // selectEvent();
 });
 
 // External imports

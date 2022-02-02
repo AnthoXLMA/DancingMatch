@@ -40,10 +40,17 @@ class AppointmentsController < ApplicationController
   def show
     @user = current_user
     @appointments = Appointment.all
-    @appointment_picture = appointment.pic
     @appointment = Appointment.find(params[:id])
+    @appointment_picture = @appointment.pic
+    @appointments_dates = @appointments.map do |appointment|
+      {
+        from: appointment.start_on,
+        to:   appointment.end_on
+      }
+    end
     # Select et s'ajoute dans la show du profil
     @user_events = Appointment.where(id: params[:id])
+    @style = @appointment.dance.title
   end
 
   def accept
