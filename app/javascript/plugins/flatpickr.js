@@ -1,6 +1,5 @@
 import flatpickr from "flatpickr"
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
-
 const initFlatpickr = () => {
   const appointmentForm = document.getElementById('appointment-form-div');
   if (appointmentForm) {

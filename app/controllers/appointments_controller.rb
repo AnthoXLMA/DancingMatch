@@ -21,9 +21,6 @@ class AppointmentsController < ApplicationController
       else
         @appointments = Appointment.all
     end
-    @appointments_selected = @appointments.map do | my_appointment |
-        my_appointment
-    end
   end
 
   def new

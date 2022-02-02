@@ -101,8 +101,25 @@
         </div>
 
           <div class="my-event" style="display:grid;
-                                        grid-template-columns: 1fr 1fr 1fr 1fr;
-                                        grid-gap: 0px;
+                                        grid-template-columns: 1fr 1fr;
+                                        grid-gap: 10px;
+                                        grid-auto-rows: minmax(5px, auto);">
+            <% current_user.appointments.each do |user_events| %>
+              <div class="card-my-event">
+                <div class="one-event">
+                  <%= image_tag user_events.pic if user_events.pic.attached? %>
+                  <a><%= user_events.name %></a>
+                  <a><%= user_events.start_on %></a>
+                  <a><%= user_events.address %></a>
+                  <a><%= link_to "Voir sur la carte", appointments_path %></a>
+                </div>
+              </div>
+            <% end %>
+
+          </div>
+          <div class="my-event" style="display:grid;
+                                        grid-template-columns: 1fr 1fr;
+                                        grid-gap: 10px;
                                         grid-auto-rows: minmax(5px, auto);">
             <% current_user.appointments.each do |user_events| %>
               <div class="card-my-event">
@@ -119,7 +136,7 @@
           </div>
         </div>
       </div>
-      <div id="results"
+      <div id="resultats"
         data-my-appointments="<%= @appointments_selected.to_json %>">
       </div>
     </div>

@@ -59,6 +59,9 @@ class UsersController < ApplicationController
     else
       @dances = Dance.all
     end
+    @appointments_selected = @appointments.map do | my_appointment |
+        my_appointment.name
+    end
     @review = Review.new
     @request = Request.where(user_id: :id)
   end
