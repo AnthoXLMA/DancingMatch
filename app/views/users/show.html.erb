@@ -119,8 +119,10 @@
           </div>
         </div>
       </div>
+      <div id="results"
+        data-my-appointments="<%= @appointments_selected.to_json %>">
+      </div>
     </div>
-
     <div class ="container-map">
       <div id="map"
         data-markers="<%= @markers.to_json %>"

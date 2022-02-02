@@ -28,9 +28,14 @@ import { initClickMe } from '../plugins/init_click_me';
 import { initSiema } from '../plugins/init_siema';
 import { iniCompare } from '../plugins/init_compare';
 
+// SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
+// import { initFlatpickr } from '../plugins/initFlatpickr';
+// SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
+
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
-  initClickMe();
+  // initFlatpickr();
+  // initClickMe();
   // ChangeSlide();
   // initCalendar();
   // initCompare();

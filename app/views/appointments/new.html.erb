@@ -1,13 +1,27 @@
 <div class="container-card-profile">
   <%= simple_form_for (@appointment) do |f| %>
-    <div class="container_one">
-      <%= f.input :start_on %>
-      <%= f.input :end_on %>
-      <%= f.input :name, placeholder: "Donne un nom à ton événement" %>
-      <%= f.input :address %>
-      <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
-      <%= f.file_field :pic, as: :file %>
-      <%= f.button :submit, method: :post %>
-    </div>
+  <div class="container_one">
+    <%= f.input :start_on %>
+    <%= f.input :end_on %>
+    <%= f.input :name, placeholder: "Donne un nom à ton événement" %>
+    <%= f.input :address %>
+    <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
+    <%= f.file_field :pic, as: :file %>
+    <%= f.button :submit, method: :post %>
+  </div>
   <% end %>
 </div>
+<div id="appointment-form-div"
+     data-appointments-date="<%= @appointments_dates.to_json %>">
+</div>
+<script>
+  const calendars = flatpickr(".calendar", {});
+    calendars[0] // flatpickr
+    const fp = document.getElementById("myInput")._flatpickr;
+    flatpickr({
+        "plugins": [new rangePlugin({ input: "#secondRangeInput"})]
+    });
+    {
+    mode: "range"
+    }
+</script>

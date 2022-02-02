@@ -1,8 +1,8 @@
 const initClickMe = () => {
-  var initClickMe;
-  document.querySelector("#click-participate").addEventListener('click', function(){
-    initClickMe = document.querySelector("#event-subinformations p");
-    console.log(initClickMe);
-  });
-}
-export {initClickMe};
+  const button = document.getElementById('click-participate');
+  button.addEventListener('click', (event) => {
+    const appointment_selected = document.getElementById('event-uptitle h3');
+    button.insertAdjacentHTML("beforeend", appointment_selected);
+  })
+};
+export { initClickMe } ;

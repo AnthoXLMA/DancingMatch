@@ -27,10 +27,14 @@
                 <p> Fin: <%= appointment.end_on %></p>
               </div>
             </div>
-            <div id="click-participate">
-              <input type="submit" class="btn btn-primary" value="Je participe"></div>
+              <div id="click-participate">
+                <input type="submit" class="btn btn-primary" value="Je participe">
+              </div>
+              <div class="horo" style="background-color:red; width:100px; height:20px; ">
+                <ul id="cours"></ul>
+              </div>
             </div>
-      <% end %>
+          <% end %>
         </div>
     </div>
     <div class="container-map">
@@ -45,18 +49,101 @@
   </div>
 </div>
 <script>
-  var initClickMe;
-  document.querySelector("#click-participate").addEventListener('click', function(){
-  initClickMe = document.querySelector("#event-subinformations p")
-  console.log(initClickMe)
-   });
-  var xhr = new XMLHttpRequest();
+  // const list = document.querySelector('#results');
 
-  xhr.openreadystatechange = function() {
-    console.log(this)
-  }
+  // const insertEvents = (data) => {
+  //   data.Search.forEach((result) => {
+  //     const eventTag = `<li>
+  //       <img src="${result.appointment.name}" alt="" />
+  //       <p>${result.appointment.pic}</p>
+  //     </li>`;
+  //     list.insertAdjacentHTML('beforeend', eventTag);
+  //   });
+  // };
 
-  xhr.open("GET", "javascript/application.js", true);
-  xhr.send();
+  // const fetchEvents = (query) => {
+  //   fetch(`http://www.omdbapi.com/?s=${query}&apikey=YOUR_API_KEY`)
+  //     .then(response => response.json())
+  //     .then(insertEvents);
+  // };
+
+  // fetchEvents('harry potter');
+
+  // var buttons = document.querySelectorAll('#click-participate');
+  // // const results = document.querySelector("#results")
+  // var button = buttons.forEach(button => {
+  //   button.addEventListener('submit', (event) => {
+  //     event.preventDefault()
+  //     const input = event.currentTarget.querySelector("#results")
+  //     results.innerHTML = ""
+  //     searchMovies(input.value)
+  //   })
+  // });
+</script>
+<script>
+
+//   const fetchMovies = (query) => {
+//     fetch(`http://www.omdbapi.com/?s=${query}&apikey=YOUR_API_KEY`)
+//       .then(response => response.json())
+//       .then(insertMovies);
+//   };
+
+//   const form = document.querySelector('#search-form');
+//   form.addEventListener('submit', (event) => {
+//     event.preventDefault();
+//     list.innerHTML = '';
+//     const input = document.querySelector('#search-input');
+//     fetchMovies(input.value);
+// });
+</script>
+<script>
+// var buttons = document.querySelectorAll('#click-participate');
+//   // const results = document.querySelector("#results")
+//   var button = buttons.forEach(button => {
+//     button.addEventListener('click', (event) => {
+//         function getCours() {
+            /* APPEL VERS AJAX VERS CRYPTOCOMPARE.COM */
+//          // var ajax = new XMLHttpRequest();
+  //         console.log("readyState après new: "+ajax.readyState);
+  //         ajax.onreadystatechange = function() {
+  //           console.log("readyState a changé et vaut :"+ajax.readyState)
+//           }
+              /* DETECTION DE LA FIN DE L'APPEL */
+//           ajax.onload = function() {
+//             if (this.status == 200) { /* Le service a bien répondu */
+//               var json = JSON.parse(this.response);
+//               var eur = formatMontant(json.EUR);
+//               var dt = new Date();
+//               document.getElementById("cours").innerHTML=eur+ "&euro;";
+//               document.querySelector("div#horo").innerHTML="Maj "+dt.toLocaleString();
+//             }
+//           }
+//
+//           var url = "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR"
+//           ajax.open("GET", url, true);
+//           ajax.send();
+//         }
+//     })
+//   });
 </script>
 
+<script>
+var buttons = document.querySelectorAll('#click-participate');
+// const results = document.querySelector("#results")
+var button  = buttons.forEach(button => {
+  var callajax = button.addEventListener('click', (event) => {
+  function reqListener () {
+    console.log(this.responseText);
+    var json  = JSON.parse(this.response);
+    var eur   = parseInt(json.EUR);
+    var dt    = new Date();
+    document.getElementById("cours").innerHTML=eur+ "&euro;";
+    // document.querySelector("#results").innerHTML="Maj "+dt.toLocaleString();
+  }
+  var oReq    = new XMLHttpRequest();
+  oReq.addEventListener("load", reqListener);
+  oReq.open("GET", "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR");
+  oReq.send();
+    })
+});
+</script>
