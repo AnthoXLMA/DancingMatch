@@ -84,37 +84,5 @@
       <% end %>
   </div>
 </div>
-<script>
-    const graph1    = document.getElementById('graph1');
-    // const uName     = JSON.parse(graph1.dataset.userFullname);
-    const mySkills   = JSON.parse(graph1.dataset.userSkills);
-    // const pSkills   = JSON.parse(graph1.dataset.profileSkills);
-    const skillsnaming    = JSON.parse(graph1.dataset.skillsName);
-    const graph = new Chart(graph1, {
-        type: 'bar',
-        data: {
-        labels: skillsnaming,
-            datasets: [{
-                label: skillsnaming,
-                data: mySkills,
-                backgroundColor: [
-                'red',
-                'red',
-                'red',
-                'red',
-                'red',
-                'red'
-                ]
-            }]
-          },
-              options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
-        }
-      });
-</script>
 <canvas id="myChart" width="400" height="400"></canvas>
 

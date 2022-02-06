@@ -25,6 +25,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initClickMe } from '../plugins/init_click_me';
 import { selectEvent } from '../plugins/select_event';
 import { addElement } from '../plugins/text';
+import { initSkills } from '../plugins/profile_skills';
 // import { initChart } from '../plugins/init_chart';
 import { initSiema } from '../plugins/init_siema';
 import { iniCompare } from '../plugins/init_compare';
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   // initFlatpickr();
   initClickMe();
+  initSkills();
   // ChangeSlide();
   // initCalendar();
   // initCompare();
