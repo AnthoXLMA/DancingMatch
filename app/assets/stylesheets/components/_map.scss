@@ -1,10 +1,15 @@
 .mapboxgl-popup {
-  max-width: 2000px;
+  max-width: 200px;
 }
 
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  width: 200px;
+  img {
+    width:100px;
+    height:100px;
+  }
 }
 
 #map {
@@ -15,8 +20,8 @@
 
 .marker {
   background-size: cover;
-  width: 70px;
-  height: 70px;
+  width: 10px;
+  height: 10px;
   // border-radius: 50%;
   cursor: pointer;
 }

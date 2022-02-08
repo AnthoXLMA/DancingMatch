@@ -1,6 +1,8 @@
-<h2><%= user.first_name %></h2>
   <div class= "image-profile">
-    <%= image_tag user.photo %>
+    <%= image_tag user.photo %><br>
     <%= user.first_name %>
   </div>
-<h2><%= @appointments %></h2>
+<h2><% @user.appointments.each do |his_appointment| %>
+  <% his_appointment %>
+  <% end %>
+</h2>
