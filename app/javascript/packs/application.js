@@ -27,22 +27,21 @@ import { selectEvent } from '../plugins/select_event';
 import { addElement } from '../plugins/text';
 // import { initChart } from '../plugins/init_chart';
 import { initSiema } from '../plugins/init_siema';
-import { iniCompare } from '../plugins/init_compare';
-import {initFlatpickr} from '../plugins/flatpickr';
+import { initGraphix } from '../plugins/init_compare';
+// import { initFlatpickr } from '../plugins/flatpickr';
 // import flatpickr from "flatpickr"
 // import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
-
 // SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
 // import { initFlatpickr } from '../plugins/initFlatpickr';
 // SUPPRIME LA MAP QUAND EST ACTIVE : FLATPICKR //
 
 document.addEventListener('turbolinks:load', () => {
   initMapbox();
+  initGraphix();
+  // initClickMe();
   // initFlatpickr();
-  initClickMe();
   // ChangeSlide();
   // initCalendar();
-  // initCompare();
   // selectEvent();
 });
 

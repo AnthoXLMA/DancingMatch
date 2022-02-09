@@ -1,54 +1,36 @@
-const button = document.querySelector(".btn-warning");
-
-const initCompare = () => {
-  const chartElement    = document.getElementById('graph1');
-  if (chartElement) {
-    const userName      = chartElement.dataset.userFullname;
-    const profileTitle = chartElement.dataset.profileTitle;
-    const userSkills    = JSON.parse(chartElement.dataset.userSkills);
-    const profileSkills   = JSON.parse(chartElement.dataset.profileSkills);
-    const skillNames    = JSON.parse(chartElement.dataset.skillNames);
-    const ctx           = chartElement.getContext('2d');
-    const data = {
-        // The data for our dataset
-            labels: skillNames,
-            datasets: [
-            {
-                label: userName,
-                //backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: '#2f97c1',
-                //borderWidth:
-                data: userSkills
-            },
-            {
-                label: profileTitle,
-                //backgroundColor: 'rgb(25, 99, 132)',
-                borderColor: '#222222',
-                data: profileSkills
-            }
+// const button = document.querySelector(".btn-warning");
+const initGraphix = () => {
+  const allgraphs    = document.querySelectorAll('#graph1');
+  const graphics     = allgraphs.forEach(graphique => {
+    // const uName     = JSON.parse(graph1.dataset.userFullname);
+    const mySkills   = JSON.parse(graphique.dataset.userSkills);
+    // const pSkills   = JSON.parse(graph1.dataset.profileSkills);
+    const skillsnaming = JSON.parse(graphique.dataset.skillsName);
+    const graph = new Chart(graphique, {
+    type: 'line',
+    data: {
+    labels: skillsnaming,
+      datasets: [{
+          label: skillsnaming,
+          data: mySkills,
+          backgroundColor: [
+          'red',
+          'red',
+          'red',
+          'red',
+          'red',
+          'red'
           ]
-        };
-
-        // Configuration options go here
-    const options = {
-      responsive: true,
-      scale: {
-        ticks: {
-            beginAtZero: true,
-            max: 5,
-            min: 0,
-            stepSize: 1
+        }]
+      },
+      options: {
+      scales: {
+          y: {
+              beginAtZero: true
+          }
         }
       }
-    }
-
-    const config = {
-      type: 'radar',
-      data: data,
-      options: options
-    }
-    const chart = new Chart(ctx, config)
-  }
+    })
+  })
 };
-
-export { initCompare };
+export { initGraphix };
