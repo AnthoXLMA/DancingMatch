@@ -1,6 +1,5 @@
 const initProgressBar = () => {
   const matchingPercentages = document.querySelectorAll('.matching-percentage-js');
-
   matchingPercentages.forEach((matchingPercentage) => {
     const circle = new ProgressBar.Circle(matchingPercentage, {
       color: '#222222',
