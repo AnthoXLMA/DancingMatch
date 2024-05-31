@@ -26,6 +26,7 @@ gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 # gem 'PriorityQueue', '~> 0.1.2'
 gem "dotenv-rails"
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 
 #GEM Updating Juin 2024 - End
 
