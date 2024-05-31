@@ -25,6 +25,7 @@ gem 'simplecov', '~> 0.12.0'
 gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 # gem 'PriorityQueue', '~> 0.1.2'
 gem "dotenv-rails"
+gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 
 #GEM Updating Juin 2024 - End
 
