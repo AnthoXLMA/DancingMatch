@@ -24,6 +24,7 @@ gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'simplecov', '~> 0.12.0'
 gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 # gem 'PriorityQueue', '~> 0.1.2'
+gem "dotenv-rails"
 
 #GEM Updating Juin 2024 - End
 
