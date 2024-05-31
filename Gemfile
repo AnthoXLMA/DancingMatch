@@ -17,6 +17,16 @@ gem 'bootsnap', require: false
 gem 'listen'
 gem "devise"
 
+#GEM Updating Juin 2024 - Start
+gem 'geocoder', '~> 1.3', '>= 1.3.7'
+gem 'simple_form', '~> 5.3', '>= 5.3.1'
+gem 'cloudinary', '~> 1.2', '>= 1.2.2'
+gem 'simplecov', '~> 0.12.0'
+gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
+# gem 'PriorityQueue', '~> 0.1.2'
+
+#GEM Updating Juin 2024 - End
+
 gem "aws-sdk-s3", require: false
 
 # Use jquery as the JavaScript library
