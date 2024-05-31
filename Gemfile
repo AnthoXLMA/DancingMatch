@@ -27,6 +27,7 @@ gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 gem "dotenv-rails"
 
 #GEM Updating Juin 2024 - End
+
 gem "aws-sdk-s3", require: false
 
 # Use jquery as the JavaScript library
