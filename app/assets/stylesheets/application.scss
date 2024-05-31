@@ -2,11 +2,14 @@
 @import "config/fonts";
 @import "config/colors";
 @import "config/bootstrap_variables";
+
 // External libraries
-@import "bootstrap/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/functions";
+
 // @import "font-awesome-sprockets";
 // @import "font-awesome";
 @import 'mapbox-gl/dist/mapbox-gl';
+
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
