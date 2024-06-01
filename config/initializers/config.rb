@@ -4,15 +4,3 @@ Cloudinary.config_from_url("cloudinary://947717511563492:BYJ-euBcX9Ik2EorjeOUASy
 Cloudinary.config do |config|
   config.secure = true
 end
-
-# development:
-#   cloud_name: "hnnyhemvj"
-#   api_key: "947717511563492"
-#   api_secret: "***************************"
-#   secure: true
-
-# production:
-#   cloud_name: "hnnyhemvj"
-#   api_key: "947717511563492"
-#   api_secret: "***************************"
-#   secure: true
