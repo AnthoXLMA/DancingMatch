@@ -79,12 +79,12 @@ test:
 # production:
 #     url: <%= ENV['DATABASE_URL'] %>
 
-# production:
-#   <<: *default
-#   url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
-
 production:
   <<: *default
-  database: DancingMatch_production
+  url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
+
+# production:
+#   <<: *default
+#   database: DancingMatch_production
   # username: DancingMatch
   # password: <%= ENV['DANCINGMATCH_DATABASE_PASSWORD'] %>
