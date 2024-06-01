@@ -6,7 +6,7 @@ gem 'rails', '~> 7.1.3'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.5.6'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem "sassc-rails"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'
 # Use CoffeeScript for .js.coffee assets and views
@@ -27,12 +27,13 @@ gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 gem "dotenv-rails"
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
+gem "font-awesome-sass", "~> 6.1"
+gem "autoprefixer-rails"
 # gem 'sinatra', '~> 1.4', '>= 1.4.7'
 
 #GEM Updating Juin 2024 - End
 
 gem "aws-sdk-s3", require: false
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
