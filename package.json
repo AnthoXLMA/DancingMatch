@@ -19,7 +19,7 @@
     "sweetalert": "2.1.2",
     "turbolinks": "5.2.0",
     "worker-loader": "3.0.8",
-    "cloudinary": ""
+    "cloudinary": "1.2.2"
   },
   "version": "0.1.0",
   "devDependencies": {
