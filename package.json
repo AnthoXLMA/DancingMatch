@@ -18,7 +18,8 @@
     "siema": "1.5.1",
     "sweetalert": "2.1.2",
     "turbolinks": "5.2.0",
-    "worker-loader": "3.0.8"
+    "worker-loader": "3.0.8",
+    "cloudinary": ""
   },
   "version": "0.1.0",
   "devDependencies": {
