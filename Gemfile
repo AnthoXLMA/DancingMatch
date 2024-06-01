@@ -27,6 +27,7 @@ gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 gem "dotenv-rails"
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
+gem 'sinatra', '1.0'
 
 #GEM Updating Juin 2024 - End
 
