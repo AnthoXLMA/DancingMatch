@@ -1,9 +1,3 @@
-development:
-  cloud_name: "hnnyhemvj"
-  api_key: "947717511563492"
-  api_secret: "BYJ-euBcX9Ik2EorjeOUASyUHBg"
-  secure: true
-
 production:
   cloud_name: "hnnyhemvj"
   api_key: "947717511563492"
