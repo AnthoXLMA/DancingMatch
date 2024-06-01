@@ -24,7 +24,7 @@ gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'simplecov', '~> 0.12.0'
 gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 # gem 'PriorityQueue', '~> 0.1.2'
-gem "dotenv-rails"
+
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 gem "font-awesome-sass", "~> 6.1"
@@ -45,6 +45,8 @@ gem 'sdoc',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
+
+gem "dotenv-rails", groups: [:development, :test]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
