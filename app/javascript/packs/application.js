@@ -47,6 +47,7 @@ document.addEventListener('turbolinks:load', () => {
 
 // External imports
 import "bootstrap";
+import "./src/application.scss";
 // import swal from 'sweetalert';
 
 // Internal imports, e.g:

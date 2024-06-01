@@ -10,10 +10,10 @@
     "bootstrap-icons": "1.6.0",
     "chart.js": "^2.9.3",
     "flatpickr": "^4.6.9",
-    "jquery": "3.5.1",
+    "jquery": "^3.5.1",
     "mapbox-gl": "2.3.1",
     "places.js": "1.19.0",
-    "popper.js": "1.16.1",
+    "popper.js": "^1.16.1",
     "progressbar.js": "^1.1.1",
     "siema": "1.5.1",
     "sweetalert": "2.1.2",
@@ -23,6 +23,6 @@
   "version": "0.1.0",
   "devDependencies": {
     "babel-loader": "8.2.2",
-    "webpack-dev-server": "^3.11.3"
+    "webpack-dev-server": "^5.0.4"
   }
 }
