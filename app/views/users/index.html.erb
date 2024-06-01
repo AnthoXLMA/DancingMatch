@@ -3,7 +3,7 @@
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
-          <%= image_tag i.photo %>
+          <%= cl_image_tag i.photo %>
         </div>
         <div class="user-details">
           <ul>
