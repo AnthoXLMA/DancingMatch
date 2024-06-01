@@ -310,8 +310,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    sinatra (1.0)
-      rack (>= 1.0)
     spring (4.2.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -365,7 +363,6 @@ DEPENDENCIES
   sdoc
   simple_form (~> 5.3, >= 5.3.1)
   simplecov (~> 0.12.0)
-  sinatra (= 1.0)
   spring
   turbolinks
   uglifier

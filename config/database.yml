@@ -85,5 +85,5 @@ test:
 production:
   <<: *default
   database: DancingMatch_production
-  username: DancingMatch
-  password: <%= ENV['DANCINGMATCH_DATABASE_PASSWORD'] %>
+  # username: DancingMatch
+  # password: <%= ENV['DANCINGMATCH_DATABASE_PASSWORD'] %>
