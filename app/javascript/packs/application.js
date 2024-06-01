@@ -20,6 +20,11 @@ require("channels")
 
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
+import "bootstrap";
+import "./src/application.scss";
+import "@popperjs/core";
+import "bootstrap";
+
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 import { initClickMe } from '../plugins/init_click_me';
@@ -46,8 +51,6 @@ document.addEventListener('turbolinks:load', () => {
 });
 
 // External imports
-import "bootstrap";
-import "./src/application.scss";
 // import swal from 'sweetalert';
 
 // Internal imports, e.g:
