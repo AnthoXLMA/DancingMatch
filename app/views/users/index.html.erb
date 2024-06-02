@@ -1,9 +1,10 @@
 <div class="container-card-profile" style="display:flex;">
+  INDEX USER => COMMUNAUTE
   <div class="contain-2">
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
-          <%= cl_image_tag(@i.photo) %>
+          <%= image_tag i.photo %>
         </div>
         <div class="user-details">
           <ul>
