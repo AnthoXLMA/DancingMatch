@@ -22,7 +22,6 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import "bootstrap";
 import "./src/application.scss";
 import "@popperjs/core";
-import "bootstrap";
 
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
