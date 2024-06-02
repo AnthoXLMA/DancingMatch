@@ -17,3 +17,4 @@ Rails.application.config.assets.precompile += %w(application.js)
 # Rails.application.config.assets.precompile += %w(application.js)
 # # verifier si utile!!!
 # Rails.application.config.session_store :active_record_store
+
