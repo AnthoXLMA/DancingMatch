@@ -15,7 +15,7 @@
 
           <div class="banner-profile">
             <div class="image-profile">
-              <%= image_tag @user.photo if current_user.photo.attached? %>
+              <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
             </div>
             <div class="my-informations">
               <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>
