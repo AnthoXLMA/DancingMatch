@@ -20,11 +20,11 @@ gem "devise"
 #GEM Updating Juin 2024 - Start
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 gem 'simple_form', '~> 5.3', '>= 5.3.1'
+gem 'carrierwave'
 gem 'cloudinary', '~> 1.2', '>= 1.2.2'
 gem 'simplecov', '~> 0.12.0'
 gem 'ipinfo-rails', '~> 1.0', '>= 1.0.1'
 # gem 'PriorityQueue', '~> 0.1.2'
-
 gem 'bootstrap', '~> 5.2', '>= 5.2.3'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 gem "font-awesome-sass", "~> 6.1"
