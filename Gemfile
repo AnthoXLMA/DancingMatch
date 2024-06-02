@@ -30,6 +30,7 @@ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
 gem "font-awesome-sass", "~> 6.1"
 gem "autoprefixer-rails"
 # gem 'sinatra', '~> 1.4', '>= 1.4.7'
+gem "image_processing", ">= 1.2"
 
 #GEM Updating Juin 2024 - End
 
