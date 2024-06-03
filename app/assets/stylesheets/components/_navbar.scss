@@ -1,5 +1,6 @@
-
-
+@media screen and (min-width: 320px) {
+.responsive-container {
+  background-color:red;
     .title-profile {
       background-color:white;
       width:100%;
@@ -12,7 +13,7 @@
         margin-left:auto;
         font-family:'Marck Script';
         font-weight:bold;
-        font-size: 200em;
+        font-size: 2em;
         color:#791E94;
         text-align:center;
         text-decoration: none;
@@ -60,4 +61,5 @@
         }
       }
     }
-
+  }
+}
