@@ -1,239 +1,241 @@
-.title-profile {
-  background-color:white;
-  width:100%;
-  position:fixed;
-  box-shadow: 1px 1px 8px 1px grey;
-  z-index:1;
-  top:0px;
-    h1 {
-    margin-right: 40px;
-    font-family:'Marck Script';
-    font-weight:bold;
-    font-size: 80px;
-    color:#791E94;
-    text-align:center;
-    text-decoration: none;
-    }
-    p {
-      margin-top:10px;
-      text-align:center;
-      font-family:'Raleway';
-    }
-    a {
+@media only screen and (max-device-width : 480px) {
+  .title-profile {
+    background-color:white;
+    width:100%;
+    position:fixed;
+    box-shadow: 1px 1px 8px 1px grey;
+    z-index:1;
+    top:0px;
+      h1 {
+      margin-right: 40px;
+      font-family:'Marck Script';
+      font-weight:bold;
+      font-size: 80px;
       color:#791E94;
-    }
-    a:hover {
-    color: gold;
-    text-decoration: none;
-    }
-    .section {
-      height:50px;
-    }
-  }
-.container-card-profile {
-  margin-top:196px;
-  position:sticky;
-  padding:10px;
-  .container-profile-infos {
-    padding:10px;
-    height:900px;
-    width:25%;
-    border:1px solid grey;
-  }
-  .container-profile-middle-column {
-    padding:10px;
-    height:900px;
-    width:60%;
-    border:solid 1px grey;
-    background-color: #ebebebe3;
-    p {
-
-    }
-    .my-requests {
-      background-color: white;
-      border-radius:10px;
-      // border:solid 1px grey;
-      box-shadow: 0px 0px 10px -2px;
-      height:200px;
-      padding:10px;
-      margin-bottom:20px;
-      img {
-        border-radius:50%;
-        width:100px;
-        height:100px;
-        object-fit:cover;
+      text-align:center;
+      text-decoration: none;
       }
-    }
-  }
-  .container-profile-right-column {
-    padding:10px;
-    height:900px;
-    background-color:red;
-    width:30%;
-    border:1px solid grey;
-    .profile-feed {
-      height:900px;
-      .profile-feed-card-1 {
-      background-color:white;
-      height:100px;
-      margin-bottom:5px;
-      // display: grid;
-      // grid-template-columns: 1fr 1fr 1fr 1fr;
-      // grid-gap: 10px;
-      img {
-        border-radius:50%;
-        width:80px;
-        height:80px;
-        }
-      }
-      .profile-feed-card-2 {
-      background-color:white;
-      height:auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-gap: 10px;
-      img {
-        border-radius:50%;
-        width:80px;
-        height:80px;
-        object-fit:cover;
-        margin-right: auto;
-        margin-left: auto;
-        }
-      }
-    }
-  }
-.container1 {
-  // display:flex;
-  // margin-right:10px;
-  // width:100%;
-  // z-index:1;
-    .map {
-      // margin-left: 850px;
-      // margin-right:0px;
-      // width:50%;
-      // position:fixed;
-    }
-    .my_profile {
-
-      .banner-profile {
-
-        .image-profile{
-
-          img {
-
-
-            }
-          }
-          .my-informations {
-
-            a {
-
-            }
-          }
-        }
-      .menu {
-        margin-left: 30px;
+      p {
         margin-top:10px;
-        margin-bottom:10px;
-        .btn {
-        width: 200px;
-        margin-right:25px;
-        justify-content:center;
-        box-shadow: 1px 1px 5px 1px darkgrey;
-        a {
-            color:white;
-            text-decoration:none;
-          }
-        }
-        .btn:hover{
-          color:white;
-          background-color:#791E94;
-          font-weight:bold;
-          }
-        a:hover {
-        color:white;
-        // background-color: #791E94;
-        font-weight:bold;
-          }
-        }
-        h1 {
-        color:black;
-        margin-right:10px;
-        margin-left:10px;
+        text-align:center;
+        font-family:'Raleway';
+      }
+      a {
+        color:#791E94;
+      }
+      a:hover {
+      color: gold;
+      text-decoration: none;
+      }
+      .section {
+        height:50px;
       }
     }
-  }
+  .container-card-profile {
+    margin-top:196px;
+    position:sticky;
+    padding:10px;
+    .container-profile-infos {
+      padding:10px;
+      height:900px;
+      width:25%;
+      border:1px solid grey;
+    }
+    .container-profile-middle-column {
+      padding:10px;
+      height:900px;
+      width:60%;
+      border:solid 1px grey;
+      background-color: #ebebebe3;
+      p {
 
-.container-appointments-profile {
+      }
+      .my-requests {
+        background-color: white;
+        border-radius:10px;
+        // border:solid 1px grey;
+        box-shadow: 0px 0px 10px -2px;
+        height:200px;
+        padding:10px;
+        margin-bottom:20px;
+        img {
+          border-radius:50%;
+          width:100px;
+          height:100px;
+          object-fit:cover;
+        }
+      }
+    }
+    .container-profile-right-column {
+      padding:10px;
+      height:900px;
+      background-color:red;
+      width:30%;
+      border:1px solid grey;
+      .profile-feed {
+        height:900px;
+        .profile-feed-card-1 {
+        background-color:white;
+        height:100px;
+        margin-bottom:5px;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr 1fr;
+        // grid-gap: 10px;
+        img {
+          border-radius:50%;
+          width:80px;
+          height:80px;
+          }
+        }
+        .profile-feed-card-2 {
+        background-color:white;
+        height:auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+        img {
+          border-radius:50%;
+          width:80px;
+          height:80px;
+          object-fit:cover;
+          margin-right: auto;
+          margin-left: auto;
+          }
+        }
+      }
+    }
+  .container1 {
+    // display:flex;
+    // margin-right:10px;
+    // width:100%;
+    // z-index:1;
+      .map {
+        // margin-left: 850px;
+        // margin-right:0px;
+        // width:50%;
+        // position:fixed;
+      }
+      .my_profile {
 
-    .button-block {
+        .banner-profile {
 
-    .titres-cadre {
+          .image-profile{
 
-      .titres {
+            img {
+
+
+              }
+            }
+            .my-informations {
+
+              a {
+
+              }
+            }
+          }
+        .menu {
+          margin-left: 30px;
+          margin-top:10px;
+          margin-bottom:10px;
+          .btn {
+          width: 200px;
+          margin-right:25px;
+          justify-content:center;
+          box-shadow: 1px 1px 5px 1px darkgrey;
+          a {
+              color:white;
+              text-decoration:none;
+            }
+          }
+          .btn:hover{
+            color:white;
+            background-color:#791E94;
+            font-weight:bold;
+            }
+          a:hover {
+          color:white;
+          // background-color: #791E94;
+          font-weight:bold;
+            }
+          }
+          h1 {
+          color:black;
+          margin-right:10px;
+          margin-left:10px;
+        }
+      }
+    }
+
+  .container-appointments-profile {
+
+      .button-block {
+
+      .titres-cadre {
+
+        .titres {
+
+          p {
+
+          }
+        }
+        .infos-card {
 
         p {
 
         }
-      }
-      .infos-card {
-
-      p {
-
-      }
-      a {
-
-      }
-      img {
+        a {
 
         }
-        .bi .bi-pen{
+        img {
 
+          }
+          .bi .bi-pen{
+
+          }
         }
       }
     }
+    .appointment-card{
+      width: 8.5rem;
+      height: 5.5rem;
+      background-color: white;
+      padding:20px;
+      font-family: 'Roboto';
+      color:black;
+      border: 1px solid grey;
+      border-radius: 5px;
+    }
+    .appointment-card2{
+      width:1200px;
+      height:800px;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: yellow;
+      margin-top:30px;
+      padding:40px;
+      font-family: 'Roboto';
+      color:black;
+      margin-bottom:20px;
+      margin-left:50px;
+    }
+    .appointment-card3{
+      width:300px;
+      height:500px;
+      margin-bottom:40px;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: white;
+      margin-top:25px;
+      padding:40px;
+      font-family: 'Roboto';
+      color:black;
+      margin-bottom:20px;
+      margin-left:50px;
+    }
   }
-  .appointment-card{
-    width: 8.5rem;
-    height: 5.5rem;
-    background-color: white;
-    padding:20px;
-    font-family: 'Roboto';
-    color:black;
-    border: 1px solid grey;
-    border-radius: 5px;
-  }
-  .appointment-card2{
-    width:1200px;
-    height:800px;
-    box-shadow: 3px 3px 20px 1px grey ;
-    border-radius:10px;
-    background-color: yellow;
-    margin-top:30px;
-    padding:40px;
-    font-family: 'Roboto';
-    color:black;
-    margin-bottom:20px;
-    margin-left:50px;
-  }
-  .appointment-card3{
-    width:300px;
-    height:500px;
-    margin-bottom:40px;
-    box-shadow: 3px 3px 20px 1px grey ;
-    border-radius:10px;
-    background-color: white;
-    margin-top:25px;
-    padding:40px;
-    font-family: 'Roboto';
-    color:black;
-    margin-bottom:20px;
-    margin-left:50px;
-  }
-}
 
-.my_dances {
-  display:flex;
+  .my_dances {
+    display:flex;
+    }
   }
 }

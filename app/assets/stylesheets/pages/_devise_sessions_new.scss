@@ -1,32 +1,34 @@
-.cont-input {
-  margin-top:187px;
-  padding:20px;
-  width:fit-content;
-    h3 {
-    font-family: 'Raleway';
-    font-weight:bold;
-    justify-content:center;
-    }
-    a {
+@media only screen and (max-device-width : 480px) {
+  .cont-input {
+    margin-top:187px;
+    padding:20px;
+    width:fit-content;
+      h3 {
       font-family: 'Raleway';
+      font-weight:bold;
+      justify-content:center;
+      }
+      a {
+        font-family: 'Raleway';
+      }
+  .form-inputs {
+    font-family: 'Raleway';
+    padding:20px;
+    width:44vw;
+    background-color: #f1f2f5;
+    margin-right:auto;
+    margin-left:auto;
+    border:medium solid grey;
+    border-radius: 5px;
+    .form-control {
+      width:40vw;
+      font-family: 'Arial';
     }
-.form-inputs {
-  font-family: 'Raleway';
-  padding:20px;
-  width:44vw;
-  background-color: #f1f2f5;
-  margin-right:auto;
-  margin-left:auto;
-  border:medium solid grey;
-  border-radius: 5px;
-  .form-control {
-    width:40vw;
-    font-family: 'Arial';
   }
-}
-.form-actions {
-  padding:2vh;
-  width:42vw;
-  font-family: 'Raleway';
+  .form-actions {
+    padding:2vh;
+    width:42vw;
+    font-family: 'Raleway';
+    }
   }
 }

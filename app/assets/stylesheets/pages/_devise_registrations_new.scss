@@ -1,23 +1,25 @@
-body {
-  color:black;
-}
-.cont-input{
-  margin-right:auto;
-  margin-left:auto;
-  h2{
-    font-size:20px;
+@media only screen and (max-device-width : 480px) {
+  body {
     color:black;
-    margin-right:auto;
-    margin-left:auto;
   }
-.form-inputs{
-
-  .form-control {
-    font-size:20px;
-    width:400px;
-    color:black;
+  .cont-input{
     margin-right:auto;
     margin-left:auto;
+    h2{
+      font-size:20px;
+      color:black;
+      margin-right:auto;
+      margin-left:auto;
+    }
+  .form-inputs{
+
+    .form-control {
+      font-size:20px;
+      width:400px;
+      color:black;
+      margin-right:auto;
+      margin-left:auto;
+      }
     }
   }
 }

@@ -1,53 +1,55 @@
-.title-profile {
-  background-color:white;
-  width:100%;
-  position:fixed;
-  box-shadow: 1px 1px 8px 1px grey;
-  z-index:1;
-  top:0px;
-  h1 {
-    margin-right: auto;
-    margin-left:auto;
-    font-family:'Marck Script';
-    font-weight:bold;
-    font-size: 80em;
-    color:#791E94;
-    text-align:center;
-    text-decoration: none;
-  }
-  p {
-    margin-top:10px;
-    text-align:center;
-  }
-  .current-user-avatar {
-    // flex-direction: column;
-    align-items:baseline;
-      img {
-      width:70px;
-      height:70px;
-      border-radius:50%;
-      object-fit:cover;
-      }
-      a {
-        font-family: 'Raleway';
-        font-weight:bold;
-        color:#791E94;
-        font-size:15px;
-      }
+@media only screen and (max-device-width : 480px) {
+  .title-profile {
+    background-color:white;
+    width:100%;
+    position:fixed;
+    box-shadow: 1px 1px 8px 1px grey;
+    z-index:1;
+    top:0px;
+    h1 {
+      margin-right: auto;
+      margin-left:auto;
+      font-family:'Marck Script';
+      font-weight:bold;
+      font-size: 200em;
+      color:#791E94;
+      text-align:center;
+      text-decoration: none;
     }
-  .section {
-    height:40px;
-    .row {
-      .column {
-        a {
-          color:#791E94;
-          font-family:'Raleway';
-          font-weight:bold;
+    p {
+      margin-top:10px;
+      text-align:center;
+    }
+    .current-user-avatar {
+      // flex-direction: column;
+      align-items:baseline;
+        img {
+        width:70px;
+        height:70px;
+        border-radius:50%;
+        object-fit:cover;
         }
-        // a:hover {
-        //   color: gold;
-        //   text-decoration: none;
-        // }
+        a {
+          font-family: 'Raleway';
+          font-weight:bold;
+          color:#791E94;
+          font-size:15px;
+        }
+      }
+    .section {
+      height:40px;
+      .row {
+        .column {
+          a {
+            color:#791E94;
+            font-family:'Raleway';
+            font-weight:bold;
+          }
+          // a:hover {
+          //   color: gold;
+          //   text-decoration: none;
+          // }
+        }
       }
     }
   }
