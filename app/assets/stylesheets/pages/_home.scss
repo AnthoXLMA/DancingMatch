@@ -2,16 +2,15 @@
   @media screen and (min-width: 320px) {
   .container-background {
     height:470px;
-    width: min-content;
+    width:fit-content;
     .background {
         // background-color:#f91be3;
         background-image: url(../assets/aditya-ali-SzI4No8rQ14-unsplash.jpg);
         background-opacity:0.9;
         background-size: cover;
-        width: min-content;
-        height: min-content;
-        margin-top:130px;
-        padding:10px;
+        width: fit-content;
+        margin-top: 130px;
+        height: 100%;
         .container {
           p {
             color:white;
@@ -26,7 +25,7 @@
         .search2 {
           margin-top:auto;
           margin-bottom:auto;
-          // width:30em;
+          width:30em;
           height:10px;
           margin-right:auto;
           margin-left:auto;
