@@ -1,15 +1,17 @@
-<div class="container-background">
-  <div class="background">
-    <div class="container">
-      <p>Dancing Partners est la première communauté de danseurs dans le monde entier.
-      Découvrez les talents de la danse, rencontrez les meilleurs danseurs, participez aux meilleurs concours de danse, dans le monde ou dans votre région.
-      </p>
-      <div class="search2">
-        <%= form_tag dances_path, method: :get do %>
-        <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Enter your dance and find your community" %>
-        <%= submit_tag "Search", class: "b-primary" %>
-        <% end %>
+
+  <div class="container-background">
+    <div class="background">
+      <div class="container">
+        <p>Dancing Partners est la première communauté de danseurs dans le monde entier.
+        Découvrez les talents de la danse, rencontrez les meilleurs danseurs, participez aux meilleurs concours de danse, dans le monde ou dans votre région.
+        </p>
+        <div class="search2">
+          <%= form_tag dances_path, method: :get do %>
+          <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Enter your dance and find your community" %>
+          <%= submit_tag "Search", class: "b-primary" %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
