@@ -1,17 +1,16 @@
 .footer-container {
-  height:100px;
-  width:100%;
-  bottom:0;
-  position:relative;
-  padding:20px;
-  background-color: #f1f2f5;
-  color:black;
-  font-family: 'Raleway';
-  text-align: center;
-  font-size:7px;
+    height: 100px;
+    width: 100%;
+    /* bottom: 0; */
+    position: fixed;
+    padding: 20px;
+    background-color: #f1f2f5;
+    color: black;
+    font-family: 'Raleway';
+    text-align: center;
+    font-size: 7px;
     a {
       font-size:15px;
       font-weight:bold;
     }
   }
-
