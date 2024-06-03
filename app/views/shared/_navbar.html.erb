@@ -1,3 +1,4 @@
+
     <% if current_user == nil %>
 <div class="title-profile">
   <h1><%= link_to "Dancing Partners", root_path %></h1>
@@ -21,14 +22,14 @@
 </div>
     <% else %>
 <div class="title-profile">
-  <div class="navbar-sup" style="display:flex;">
-    <div class="titres-navbar" style="margin-right:283px;margin-left:auto;">
+  <div class="navbar-sup" style="display:flex;" >
+    <div class="titres-navbar" style="margin-right:283px;margin-left:auto;" >
       <h1><%= link_to "Dancing Partners", root_path %></h1>
       <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
     </div>
-    <div class="current-user-avatar" style="padding:20px;">
+    <div class="current-user-avatar" style="padding:20px;" >
       <%= image_tag current_user.photo if current_user.photo.attached? %><br>
-      <a>Hello <%= current_user.first_name %>!</a>
+      <a><%= current_user.first_name %></a>
     </div>
   </div>
   <div class="section">
@@ -55,4 +56,6 @@
   </div>
 </div>
     <% end %>
+
+
 
