@@ -1,3 +1,5 @@
-.container-card-profile {
-  height:auto;
+@media only screen and (max-device-width : 480px) {
+  .container-card-profile {
+    height:auto;
+  }
 }
