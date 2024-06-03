@@ -1,4 +1,3 @@
-
 /* Styles pour cette Media Queries */
   .body {
       height:auto;
@@ -10,6 +9,7 @@
         background-image: url(../assets/aditya-ali-SzI4No8rQ14-unsplash.jpg);
         background-opacity:0.9;
         background-size: cover;
+        object-fit:cover;
         width:100%;
         height:100%;
         margin-top:195px;
@@ -55,9 +55,9 @@
         margin-top:50px;
         margin-left: 280px;
         transition-duration: 0.4s;
+        }
       }
     }
-  }
     // .b-primary:hover {
     // background-color: #f91be3;
     // color: white;
@@ -103,7 +103,5 @@
       }
     }
   }
-
-
 
 
