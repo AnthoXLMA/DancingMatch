@@ -1,8 +1,8 @@
 .footer-container {
     height: 100px;
-    width: 100%;
-    /* bottom: 0; */
-    position: fixed;
+    // width: -moz-fit-content;
+    /* width: fit-content; */
+    position: sticky;
     padding: 20px;
     background-color: #f1f2f5;
     color: black;
