@@ -44,21 +44,24 @@
             font-size:15px;
           }
         }
-      .section {
+      .section-navbar {
         height:40px;
-        .row {
-          .column {
+        display: flex;
+        justify-content:space-evenly;
+        // .row-2 {
+          .column-2 {
             a {
               color:#791E94;
               font-family:'Raleway';
               font-weight:bold;
+              font-size:8px;
             }
             // a:hover {
             //   color: gold;
             //   text-decoration: none;
             // }
           }
-        }
+        // }
       }
     }
   }
