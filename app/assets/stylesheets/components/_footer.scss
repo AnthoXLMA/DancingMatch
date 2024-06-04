@@ -1,9 +1,8 @@
+@media screen and (min-width: 430px) {
 .footer-container {
-    height: 100px;
-    // width: -moz-fit-content;
-    /* width: fit-content; */
-    position: sticky;
+    height: 120px;
     padding: 20px;
+    width: 450px;
     background-color: #f1f2f5;
     color: black;
     font-family: 'Raleway';
@@ -14,3 +13,4 @@
       font-weight:bold;
     }
   }
+}
