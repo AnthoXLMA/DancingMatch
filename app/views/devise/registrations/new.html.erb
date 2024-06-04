@@ -1,4 +1,7 @@
 <div class="container-card-profile">
+  <div class="background-p">
+    <img src= ../assets/aditya-ali-SzI4No8rQ14-unsplash.jpg >
+  </div>
   <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
@@ -48,7 +51,7 @@
     </div>
 
       <div class="mb-6">
-        <%= f.submit "Sign up", class: "btn btn-default block w-full text-center", method: :post %>
+        <%= f.submit "S'inscrire", class: "btn btn-default block w-full text-center", method: :post %>
       </div>
   <% end %>
 </div>
