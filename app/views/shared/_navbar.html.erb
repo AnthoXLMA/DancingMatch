@@ -3,21 +3,21 @@
   <div class="title-profile">
     <h1><%= link_to "Dancing Partners", root_path %></h1>
     <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
-    <div class="section">
-      <div class="row">
-        <div class="column">
-          <a class="link"><%= link_to "Connexion", new_user_session_path, class: "btn-ghost" %></a>
+    <div class="section-navbar">
+
+        <div class="column-2">
+          <a class="link"><%= link_to "Connexion", new_user_session_path %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Communauté", users_path %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Danses", dances_path %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Agenda", appointments_path, class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Agenda", appointments_path %></a>
         </div>
-      </div>
+
     </div>
   </div>
 
@@ -36,24 +36,24 @@
     </div>
   </div>
 
-    <div class="section">
-      <div class="row">
-        <div class="column">
-          <a class="link"><%= link_to "Profil", user_path(current_user), class: "btn-ghost" %></a>
+    <div class="section-navbar">
+      <div class="row-2">
+        <div class="column-2">
+          <a class="link"><%= link_to "Profil", user_path(current_user) %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Communauté", users_path, class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Communauté", users_path %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Danses", dances_path, class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Danses", dances_path %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Evénements", appointments_path, class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Evénements", appointments_path %></a>
         </div>
-        <div class="column">
-          <a class="link"><%= link_to "Edit", edit_user_path(current_user), class: "btn-ghost" %></a>
+        <div class="column-2">
+          <a class="link"><%= link_to "Edit", edit_user_path(current_user) %></a>
         </div>
-        <div class="column">
+        <div class="column-2">
           <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
         </div>
       </div>
