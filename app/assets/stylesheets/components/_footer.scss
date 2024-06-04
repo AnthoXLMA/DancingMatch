@@ -1,9 +1,7 @@
-@media screen and (min-width: 430px) {
+@media screen and (min-width: 320px) and (max-device-width : 480px) {
 .footer-container {
     height: 120px;
     width:430px;
-    // width: -moz-fit-content;
-    /* width: fit-content; */
     position: sticky;
     padding: 20px;
     width: 450px;
