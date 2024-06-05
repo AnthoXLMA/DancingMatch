@@ -1,18 +1,27 @@
 
-<div class="container-card-profile">
+<div class="container-show-profile">
   <div class="container1">
+      <div class ="container-map">
+          <div id="resultats"
+          data-my-appointments="<%= @appointments_selected.to_json %>">
+          </div>
+          <div id="map"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
+        <div id='map' style='width: 100%; height: 100%;'></div>
+      </div>
     <div class="my_profile">
-
-              <div class="dance-query">
-                <div class="query">
-                  <%= form_tag dances_path, method: :get do %>
-                  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Cherche ta danse" %>
-                </div>
-                <div class="button-OK">
-                  <%= submit_tag "Search", class: "btn-primary" %>
-                </div>
-                <% end %>
-              </div>
+        <div class="dance-query">
+          <div class="query">
+            <%= form_tag dances_path, method: :get do %>
+            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Cherche ta danse" %>
+          </div>
+          <div class="button-OK">
+            <%= submit_tag "Search", class: "btn-primary" %>
+          </div>
+          <% end %>
+        </div>
 
           <div class="banner-profile">
             <div class="image-profile">
@@ -33,9 +42,9 @@
                 <%= link_to "Edit my profile", edit_user_path(current_user) %><br>
               </h5>
             </div>
-          </div>
 
 
+  </div>
       <div class="container-appointments-profile">
         <div class="button-block">
           <div class="titres-cadre">
@@ -136,17 +145,7 @@
           </div>
         </div>
       </div>
-      <div id="resultats"
-        data-my-appointments="<%= @appointments_selected.to_json %>">
-      </div>
     </div>
-    <div class ="container-map">
-      <div id="map"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
-    <div id='map' style='width: 400px; height: 300px;'></div>
       <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
         var map = new mapboxgl.Map({
