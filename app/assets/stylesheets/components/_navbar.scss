@@ -1,8 +1,9 @@
 @media screen and (min-width: 320px) and (max-device-width : 480px) {
   .responsive-container {
-  background-color:red;
+    margin-bottom:15px;
     .title-profile {
       width:100%;
+      margin-bottom:15px;
       background-color:white;
       position:fixed;
       box-shadow: 1px 1px 8px 1px grey;
@@ -44,7 +45,75 @@
             font-size:15px;
           }
         }
-      .section-navbar {
+      .section-navbar-logout {
+        height:40px;
+        display: flex;
+        justify-content:space-evenly;
+        background-color:black;
+        // .row-2 {
+          .column-2 {
+            a {
+              color:#791E94;
+              font-family:'Raleway';
+              font-weight:bold;
+              font-size:8px;
+            }
+            // a:hover {
+            //   color: gold;
+            //   text-decoration: none;
+            // }
+          }
+        // }
+      }
+    }
+  }
+  .responsive-container-2 {
+    margin-bottom:15px;
+    .title-profile {
+      width:100%;
+      margin-bottom:15px;
+      background-color:white;
+      position:fixed;
+      box-shadow: 1px 1px 8px 1px grey;
+      z-index:1;
+      top:0px;
+      h1 {
+        margin-right: auto;
+        margin-left:auto;
+        font-family:'Marck Script';
+        font-weight:bold;
+        font-size: 2em;
+        color:#791E94;
+        text-align:center;
+        text-decoration: none;
+      }
+      p {
+        margin-top:10px;
+        text-align:center;
+      }
+      .navbar-sup {
+
+      }
+      .titres-navbar {
+        width:100%;
+      }
+      .current-user-avatar {
+        // flex-direction: column;
+        align-items:baseline;
+          img {
+          width:70px;
+          height:70px;
+          border-radius:50%;
+          object-fit:cover;
+          }
+          a {
+            font-family: 'Raleway';
+            font-weight:bold;
+            color:#791E94;
+            font-size:15px;
+          }
+        }
+      .section-navbar-login {
         height:40px;
         display: flex;
         justify-content:space-evenly;
