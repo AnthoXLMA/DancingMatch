@@ -1,9 +1,10 @@
-<div class="responsive-container">
+<div>
 <% if current_user == nil %>
+<div class="responsive-container">
   <div class="title-profile">
     <h1><%= link_to "Dancing Partners", root_path %></h1>
     <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
-    <div class="section-navbar">
+    <div class="section-navbar-logout">
 
         <div class="column-2">
           <a class="link"><%= link_to "Connexion", new_user_session_path %></a>
@@ -20,12 +21,12 @@
 
     </div>
   </div>
-
+</div>
     <% else %>
-
+<div class="responsive-container-2">
   <div class="title-profile">
     <div class="navbar-sup" style="display:flex;" >
-      <div class="titres-navbar" style="margin-right:283px; margin-left:auto;" >
+      <div class="titres-navbar" >
         <h1><%= link_to "Dancing Partners", root_path %></h1>
         <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
       </div>
@@ -34,10 +35,8 @@
         <a><%= current_user.first_name %></a>
       </div>
     </div>
-  </div>
+    <div class="section-navbar-login">
 
-    <div class="section-navbar">
-      <div class="row-2">
         <div class="column-2">
           <a class="link"><%= link_to "Profil", user_path(current_user) %></a>
         </div>
@@ -56,9 +55,9 @@
         <div class="column-2">
           <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
         </div>
-      </div>
+
     </div>
   </div>
-    <% end %>
 </div>
-
+  <% end %>
+</div>
