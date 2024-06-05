@@ -1,5 +1,5 @@
-<div class="container-card-profile" style="display:flex;">
-  <div class="contain-2">
+<div class="grid-user" style="display:flex;">
+  <div class="contain-user">
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
@@ -15,7 +15,7 @@
     </div>
     <% end %>
   </div>
-  <div class="colonne-droite">
+  <div class="search-motor">
     <div class="contain-3">
       <div class="card-search-types">
       <%= simple_form_for users_path, method: :get do |f| %>
