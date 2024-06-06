@@ -2,6 +2,7 @@
 .footer-container {
     height: 120px;
     // position: fixed;
+    z-index:1;
     margin-top:15px;
     padding: 20px;
     width: 100%;
@@ -9,7 +10,6 @@
     color: black;
     font-family: 'Raleway';
     text-align: center;
-    font-size: 7px;
     bottom:0px;
     a {
       font-size:15px;
