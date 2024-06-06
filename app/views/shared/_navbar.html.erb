@@ -31,7 +31,7 @@
         <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
       </div>
       <div class="current-user-avatar" style="padding:20px;" >
-        <%= image_tag current_user.photo if current_user.photo.attached? %><br>
+        <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %><br>
         <a><%= current_user.first_name %></a>
       </div>
     </div>
