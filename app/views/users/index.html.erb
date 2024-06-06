@@ -1,12 +1,21 @@
+  <div class ="container-map" style="height:200px; width:100%;">
+    <div id="resultats"
+    data-my-appointments="<%= @appointments_selected.to_json %>">
+    </div>
+    <div id="map"
+    data-markers="<%= @markers.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  <div id='map' style='width: 100%; height: 100%;'></div>
+  </div>
 <div class="grid-user" style="display:flex;">
-
   <div class="contain-user">
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
           <%= cl_image_tag i.photo.key %>
         </div>
-<!--         <div class="user-details">
+        <!-- <div class="user-details">
           <ul>
             <li><%= link_to i.first_name, user_profiles_path(i) %> <%= i.age %></li>
             <li><%= i.city %></li>
@@ -43,4 +52,11 @@
       </div>
     </div>
   </div>
+  <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+        var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v11'
+        });
+      </script>
 </div>

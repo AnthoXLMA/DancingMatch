@@ -1,13 +1,14 @@
 @media screen and (min-width: 320px) and (max-device-width : 480px) {
   .grid-user {
+    margin-top:10px;
     height:auto;
     .contain-user {
-      background-color: #6F6656;
-      margin-top:20px;
+      display: grid;
+      background-color: #f1f2f5;
       margin-bottom:10px;
       padding:10px;
       width:fit-content;
-      display: grid;
+      height:fit-content;
       grid-template-columns: 1fr 1fr 1fr 1fr;
       grid-gap: 10px;
       grid-auto-rows: minmax(1rem, auto);

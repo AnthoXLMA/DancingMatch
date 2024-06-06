@@ -1,13 +1,12 @@
-<div class="container-card-profile">
-  <div class="container1">
-    <div class="my_profile">
-      <div class="banner-profile">
+<div class="container-edition">
+  <div class="container-ed1">
+      <div class="request-profile">
         <%= simple_form_for(current_user, method: :put) do |f| %>
           <%= f.error_notification %>
         <div class="image-profile">
-          <%= image_tag current_user.photo if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
         </div>
-        <div class="my-informations" style="width:600px;">
+        <div class="my-informations">
           <a><%= f.label :photo %><br></a>
           <a><%= f.file_field :photo, as: :file %></a>
           <a><%= f.input :first_name,
@@ -52,7 +51,6 @@
           </div>
         </div>
       </div>
-    </div>
   </div>
 </div>
 
