@@ -1,4 +1,10 @@
 <div class="container-Map-N-Card">
+  <div class="container-map">
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>
   <div class="map-n-card">
     <div class="bouton-n-card">
       <h3>Rechercher un événement</h3>
@@ -37,12 +43,6 @@
             </div>
           <% end %>
         </div>
-    </div>
-    <div class="container-map">
-      <div id="map"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
     </div>
   </div>
   <div class="container text-center">
