@@ -80,7 +80,7 @@
           <div class="titres"><p>Membres</p></div>
             <div class="infos-card-2" style="padding:10px;">
               <% @users.each do |user| %>
-              <div style="margin-right:auto; margin-left:auto;">
+              <div class="profile-unique" style="margin-right:auto; margin-left:auto;">
                 <%= cl_image_tag user.photo.key if user.photo.attached? %><br>
                 <a><%= link_to user.first_name, user_profiles_path(user)  %></a>
               </div>
