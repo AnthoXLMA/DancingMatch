@@ -99,22 +99,29 @@
 
         }
         .titres-navbar {
-          width:100%;
+          width:70%;
         }
-        .current-user-avatar {
-          // flex-direction: column;
-          align-items:baseline;
+        .current-user-avatar-2 {
+          // align-items:baseline;
+          padding: 10px;
+          width: 30%;
+          text-align:center;
+          border:1x black;
+          .picProfile{
             img {
             width:70px;
             height:70px;
             border-radius:50%;
             object-fit:cover;
             }
+          }
+          .nameProfile{
             a {
               font-family: 'Raleway';
               font-weight:bold;
-              color:#791E94;
-              font-size:15px;
+              color:black;
+              font-size:10px;
+              }
             }
           }
         .section-navbar-login {

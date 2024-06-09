@@ -10,7 +10,7 @@
       padding:10px;
       width:50%;
       height:fit-content;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-gap: 10px;
       grid-auto-rows: minmax(1rem, auto);
       .card-community {
@@ -56,7 +56,6 @@
       border:solid;
       height:800px;
       width:50%;
-      margin-top:20px;
       margin-bottom:1rem;
 
       padding:1rem;

@@ -30,9 +30,13 @@
           <h1><%= link_to "Dancing Partners", root_path %></h1>
           <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
         </div>
-        <div class="current-user-avatar" style="padding:20px;" >
-          <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %><br>
-          <a><%= current_user.first_name %></a>
+        <div class="current-user-avatar-2" >
+          <div class="picProfile">
+            <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %><br>
+          </div>
+          <div class="nameProfile">
+            <a><%= current_user.first_name %></a>
+          </div>
         </div>
       </div>
       <div class="section-navbar-login">
