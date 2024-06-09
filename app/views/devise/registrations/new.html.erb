@@ -1,8 +1,8 @@
-<div class="cont-input">
+<div class="cont-input-new">
   <div class="container-card-profile">
     <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= f.error_notification %>
-      <div class="form-inputs">
+      <div class="form-inputs-registration">
         <%= f.input :email,
                     required: true,
                     autofocus: true,
