@@ -3,120 +3,123 @@
   {
   border:solid 1rem red;
 }
-.map-n-card {
-  display:flex;
-  height:1200px;
-  // border:solid;
-  .bouton-n-card {
-    margin-left:30px;
+.container-Map-N-Card {
+  .map-n-card {
+    width:100%;
+    display:flex;
+    height:1200px;
     // border:solid;
-    padding:5px;
-    height:100px;
-      .title_text {
-        font-family:"Raleway";
-        color:black;
-        margin-top: 20px;
-        margin-left: 60px;
-        }
-      .form-control {
-        width:500px;
-        display: inline-flex;
-        .btn {
-          display: inline-flex;
-        }
-      }
-    }
-    .container-appointments {
-      // display:grid;
+    .bouton-n-card {
+      margin-left:30px;
       // border:solid;
-      width:770px;
-      grid-template-columns: repeat(2, 1fr);
-      // grid-gap: 5px;
-      grid-auto-rows: minmax(100px, auto);
-      margin-right:5px;
-      margin-bottom:20px;
-      p {
-        color:black;
-        font-weight:10px;
-        font-size:15px;
+      padding:5px;
+      height:100px;
+        .title_text {
+          font-family:"Raleway";
+          color:black;
+          margin-top: 20px;
+          margin-left: 60px;
+          }
+        .form-control {
+          width:100%;
+          display: inline-flex;
+          .btn {
+            display: inline-flex;
+          }
+        }
       }
-      .appointment-card{
-        width:250px;
-        height:150px;
-        box-shadow: 3px 3px 20px 1px grey ;
-        border-radius:10px;
-        background-color: white;
-        padding:20px;
-        font-family: 'Roboto';
-        color:black;
-      }
-      .appointment-card2{
-        width:1200px;
-        height:800px;
-        box-shadow: 3px 3px 20px 1px grey ;
-        border-radius:10px;
-        background-color: white;
-        margin-top:30px;
-        padding:40px;
-        font-family: 'Raleway';
-        color:black;
+      .container-appointments {
+        // display:grid;
+        // border:solid;
+        width:70%;
+        grid-template-columns: repeat(2, 1fr);
+        // grid-gap: 5px;
+        grid-auto-rows: minmax(100px, auto);
+        margin-right:5px;
         margin-bottom:20px;
-        margin-left:50px;
-      }
-      .appointment-card3 {
-        display:flex;
-        width:760px;
-        height:260px;
-        margin-bottom: 20px;
-        border-bottom: darkgrey solid 1px;
-        font-family: 'Raleway';
-        color:black;
-        // align-items:flex-end;
-        .image-card-appointments {
-          img {
-            width: 330px;
-            height:225px;
-            border-radius: 20px;
-            object-fit:cover;
-          }
+        p {
+          color:black;
+          font-weight:10px;
+          font-size:15px;
         }
-        .information-event {
-            padding:5px;
-            width:350px;
-            height:230px;
-            margin-left:10px;
-            .event-uptitle {
-              margin-bottom:10px;
-              h3 {
-                font-weight:bold;
-                font-size: 20px;
+        .appointment-card{
+          width:20%;
+          height:50%;
+          box-shadow: 3px 3px 20px 1px grey ;
+          border-radius:10px;
+          background-color: white;
+          padding:20px;
+          font-family: 'Roboto';
+          color:black;
+        }
+        .appointment-card2{
+          width:90%;
+          height:800px;
+          box-shadow: 3px 3px 20px 1px grey ;
+          border-radius:10px;
+          background-color: white;
+          margin-top:30px;
+          padding:40px;
+          font-family: 'Raleway';
+          color:black;
+          margin-bottom:20px;
+          margin-left:50px;
+        }
+        .appointment-card3 {
+          display:flex;
+          width:760px;
+          height:260px;
+          margin-bottom: 20px;
+          border-bottom: darkgrey solid 1px;
+          font-family: 'Raleway';
+          color:black;
+          // align-items:flex-end;
+          .image-card-appointments {
+            img {
+              width: 330px;
+              height:225px;
+              border-radius: 20px;
+              object-fit:cover;
+            }
+          }
+          .information-event {
+              padding:5px;
+              width:350px;
+              height:230px;
+              margin-left:10px;
+              .event-uptitle {
+                margin-bottom:10px;
+                h3 {
+                  font-weight:bold;
+                  font-size: 20px;
+                }
+                a {
+                  color:grey;
+                  font-family: 'arial';
+                }
               }
-              a {
+              .event-subinformations {
+                p {
                 color:grey;
-                font-family: 'arial';
-              }
-            }
-            .event-subinformations {
-              p {
-              color:grey;
-              display:unset;
+                display:unset;
+                }
               }
             }
           }
+          .click-participate {
+                // margin-top:100px;
+          .btn {
+              width:110px;
+              }
+            }
         }
-        .click-participate {
-              // margin-top:100px;
-        .btn {
-            width:110px;
-            }
-          }
       }
     }
-  .container-map {
-      width:50%;
-      // border:solid medium black;
-      #map {
+    .container-map {
+        width:50%;
+        // border:solid medium black;
+        #map {
 
-      }
+        }
+    }
   }
-}
