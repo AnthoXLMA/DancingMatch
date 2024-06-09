@@ -2,14 +2,15 @@
   .grid-user {
     margin-top:10px;
     height:auto;
+    width:100%;
     .contain-user {
       display: grid;
       background-color: #f1f2f5;
       margin-bottom:10px;
       padding:10px;
-      width:fit-content;
+      width:50%;
       height:fit-content;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       grid-gap: 10px;
       grid-auto-rows: minmax(1rem, auto);
       .card-community {
@@ -54,8 +55,7 @@
       margin-left:1rem;
       border:solid;
       height:800px;
-      // width:28%;
-      margin-top:20px;
+      width:50%;
       margin-bottom:1rem;
 
       padding:1rem;

@@ -4,6 +4,8 @@
     background-color:white;
     margin-top: 130px;
     height: auto;
+    width: 100%;
+    padding:10px;
       h3 {
       font-family: 'Raleway';
       font-weight:bold;
@@ -15,10 +17,8 @@
   .form-inputs {
     font-family: 'Raleway';
     padding:20px;
-    width:44vw;
+    width:100%;
     background-color: #f1f2f5;
-    margin-right:auto;
-    margin-left:auto;
     border:medium solid grey;
     border-radius: 5px;
     .form-control {
