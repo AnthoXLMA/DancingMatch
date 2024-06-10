@@ -18,21 +18,24 @@
         <div class ="container-appointments">
           <% @appointments.each do |appointment| %>
           <div class="appointment-card3">
-            <div class="image-card-appointments">
-              <%= image_tag appointment.pic if appointment.pic.attached? %>
-            </div>
-            <div class="information-event">
-              <div id="event-uptitle">
-                <h3><%= appointment.name  %></h3>
-                <a><%= appointment.address %></a>
+            <div class="first-line-title">
+              <div class="image-card-appointments">
+                <%= image_tag appointment.pic if appointment.pic.attached? %>
               </div>
-              <div id="event-subinformations">
-                <p> <%= appointment.dance.title %></p>
-                <p> <%= appointment.user.first_name %></p>
-                <p> Début: <%= appointment.start_on %></p>
-                <p> Fin: <%= appointment.end_on %></p>
+              <div class="information-event">
+                <div id="event-uptitle">
+                  <h3><%= appointment.name  %></h3>
+                  <a><%= appointment.address %></a>
+                </div>
               </div>
             </div>
+            <div id="event-subinformations">
+              <p> <%= appointment.dance.title %></p>
+              <p> <%= appointment.user.first_name %></p>
+              <p> Début: <%= appointment.start_on %></p>
+              <p> Fin: <%= appointment.end_on %></p>
+            </div>
+          </div>
               <div id="click-participate">
                 <input type="submit" class="btn btn-primary" value="Je participe">
                 <%= link_to "Participer", appointment_subscriptions_path(appointment), method: :post %>
