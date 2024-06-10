@@ -1,8 +1,14 @@
 <div class="container-Map-N-Card">
-  <div class="container-map">
+  <div class="container-map" style="margin-top:30px; height:600px; width:100%;">
     <div id="map"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="container text-center">
+      <ul id="results" class="list-inline"></ul>
+    </div>
+    <div class="container text-center">
+      <ul id="results" class="list-inline"></ul>
     </div>
   </div>
   <div class="map-n-card">
@@ -48,30 +54,35 @@
         </div>
     </div>
   </div>
-  <div class="container text-center">
-    <ul id="results" class="list-inline"></ul>
-  </div>
 </div>
-
 <script>
-// var buttons = document.querySelectorAll('#click-participate');
-// // const results = document.querySelector("#results")
-// var button  = buttons.forEach(button => {
-//   var callajax = button.addEventListener('click', (event) => {
-//   function reqListener () {
-//     console.log(this.responseText);
-//     var json  = JSON.parse(this.response);
-//     var eur   = parseInt(json.EUR);
-//     var dt    = new Date();
-//     document.getElementById("cours").innerHTML=eur+ "&euro;";
-//     // document.querySelector("#results").innerHTML="Maj "+dt.toLocaleString();
-//   }
-//   var oReq    = new XMLHttpRequest();
-//   oReq.addEventListener("load", reqListener);
-//   oReq.open("GET", "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR");
-//   oReq.send();
-//     })
-// });
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [2.35, 48.853],
+    zoom: 11,
+  });
+</script>
+<script>
+  var buttons = document.querySelectorAll('#click-participate');
+  // const results = document.querySelector("#results")
+  var button  = buttons.forEach(button => {
+    var callajax = button.addEventListener('click', (event) => {
+    function reqListener () {
+      console.log(this.responseText);
+      var json  = JSON.parse(this.response);
+      var eur   = parseInt(json.EUR);
+      var dt    = new Date();
+      document.getElementById("cours").innerHTML=eur+ "&euro;";
+      // document.querySelector("#results").innerHTML="Maj "+dt.toLocaleString();
+    }
+    var oReq    = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR");
+    oReq.send();
+      })
+  });
 </script>
 <script>
 // const button = document.querySelector("#click-me")
