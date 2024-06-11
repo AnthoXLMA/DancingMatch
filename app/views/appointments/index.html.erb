@@ -1,11 +1,8 @@
 <div class="container-Map-N-Card">
-  <div class="container-map" style="margin-top:30px; height:600px; width:100%;">
+  <div class="container-map" style="height:600px; width:100%;">
     <div id="map"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
-    <div class="container text-center">
-      <ul id="results" class="list-inline"></ul>
     </div>
     <div class="container text-center">
       <ul id="results" class="list-inline"></ul>
@@ -26,7 +23,7 @@
         <div class="appointment-card3">
           <div class="first-line-title">
             <div class="image-card-appointments">
-              <%= image_tag appointment.pic if appointment.pic.attached? %>
+              <%= cl_image_tag appointment.pic.key if appointment.pic.attached? %>
             </div>
             <div class="information-event">
               <div id="event-uptitle">
@@ -57,7 +54,7 @@
     </div>
   </div>
 </div>
-<script>
+<!-- <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
   var map = new mapboxgl.Map({
     container: 'map',
@@ -66,8 +63,71 @@
     center: [2.35, 48.853],
     zoom: 11,
   });
-</script>
+</script> -->
 <script>
+// const initMapbox = () => {
+  const mapElement = document.getElementById('map');
+  if (mapElement) {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [2.35, 48.853],
+      zoom: 11,
+    });
+
+    const markers = JSON.parse(mapElement.dataset.markers);
+      markers.forEach((marker) => {
+      const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = `url('${marker.image_url}')`;
+        element.style.backgroundSize  = 'no-repeat';
+        element.style.width   = '25px';
+        element.style.height  = '60px';
+      new mapboxgl.Marker(element)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(map);
+    });
+
+    // dancers_location
+    // const dancers = JSON.parse(mapElement.dataset.markers);
+    //   dancers.forEach((dancer) => {
+    // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    // const element = document.createElement('div');
+    //   element.className   = 'marker';
+    //   element.style.backgroundImage = `url('${dancer.image_url}')`;
+    //   element.style.backgroundSize  = 'no-repeat';
+    //   element.style.width   = '25px';
+    //   element.style.height  = '60px';
+    // new mapboxgl.Marker(element)
+    // .setLngLat([dancer.lng, dancer.lat])
+    // .setPopup(popup)
+    // .addTo(map);
+    // });
+
+    // events_dance_id_location
+    const events = JSON.parse(mapElement.dataset.markers);
+      events.forEach((event) => {
+    const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
+    const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${event.image_url}')`;
+      element.style.backgroundSize  = 'no-repeat';
+      element.style.width   = '25px';
+      element.style.height  = '60px';
+    new mapboxgl.Marker(element)
+    .setLngLat([event.lng, event.lat])
+    .setPopup(popup)
+    .addTo(map);
+    });
+  };
+// }
+// export { initMapbox } ;
+</script>
+
+<!-- <script>
   var buttons = document.querySelectorAll('#click-participate');
   // const results = document.querySelector("#results")
   var button  = buttons.forEach(button => {
@@ -86,7 +146,7 @@
     oReq.send();
       })
   });
-</script>
+</script> -->
 <script>
 // const button = document.querySelector("#click-me")
 // button.addEventListener("click", (event) => {
