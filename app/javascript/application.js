@@ -18,6 +18,9 @@ require("channels")
 // WRITE YOUR OWN JS STARTING FROM HERE 👇
 // ----------------------------------------------------
 
+import { Application } from "@hotwired/stimulus"
+window.Stimulus = Application.start()
+
 // CSS
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "bootstrap";
