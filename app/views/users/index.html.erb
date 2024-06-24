@@ -13,7 +13,7 @@
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
-          <%= cl_image_tag i.photo.key %>
+          <%= cl_image_tag i.photo.key if i.photo.attached?  %>
         </div>
         <!-- <div class="user-details">
           <ul>
