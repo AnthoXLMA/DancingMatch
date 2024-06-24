@@ -4,6 +4,15 @@
   border:solid 1rem red;
 }
 .container-Map-N-Card {
+    .container-map {
+      h2 {
+        font-size: 20px;
+      }
+      img {
+        width:50%;
+        height:50%;
+      }
+  }
   .map-n-card {
     width:100%;
     display:flex;
