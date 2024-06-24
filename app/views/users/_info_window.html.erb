@@ -1,6 +1,8 @@
-<h2><%= user.first_name %></h2>
-<%= cl_image_tag user.photo.key if user.photo.attached?  %>
-<%= user.first_name %>
-
+<div class="mapcard" style= "color: violet; width: 100px; height: 100px;">
+  <h2>
+  <%= user.first_name %>
+  </h2>
+  <%= cl_image_tag user.photo.key if user.photo.attached?  %>
+</div>
 <!-- <h2><%= @appointments %></h2>
  -->
