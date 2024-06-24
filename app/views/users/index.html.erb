@@ -13,7 +13,7 @@
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
-          <%= cl_image_tag i.photo.key %>
+          <%= cl_image_tag i.photo.key if i.photo.attached? %>
         </div>
         <!-- <div class="user-details">
           <ul>
@@ -89,20 +89,20 @@
     });
 
     // dancers_location
-    const dancers = JSON.parse(mapElement.dataset.markers);
-      dancers.forEach((dancer) => {
-    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-    const element = document.createElement('div');
-      element.className   = 'marker';
-      element.style.backgroundImage = `url('${dancer.image_url}')`;
-      element.style.backgroundSize  = 'no-repeat';
-      element.style.width   = '25px';
-      element.style.height  = '60px';
-    new mapboxgl.Marker(element)
-    .setLngLat([dancer.lng, dancer.lat])
-    .setPopup(popup)
-    .addTo(map);
-    });
+    // const dancers = JSON.parse(mapElement.dataset.markers);
+    //   dancers.forEach((dancer) => {
+    // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    // const element = document.createElement('div');
+    //   element.className   = 'marker';
+    //   element.style.backgroundImage = `url('${dancer.image_url}')`;
+    //   element.style.backgroundSize  = 'no-repeat';
+    //   element.style.width   = '25px';
+    //   element.style.height  = '60px';
+    // new mapboxgl.Marker(element)
+    // .setLngLat([dancer.lng, dancer.lat])
+    // .setPopup(popup)
+    // .addTo(map);
+    // });
     // events_dance_id_location
     // const events = JSON.parse(mapElement.dataset.markers);
     //   events.forEach((event) => {
