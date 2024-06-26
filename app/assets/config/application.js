@@ -1,2 +1,2 @@
-// pin "application", preload: true
+pin "application", preload: true
 
