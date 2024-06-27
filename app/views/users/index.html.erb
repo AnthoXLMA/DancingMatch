@@ -71,27 +71,28 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
       const map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
+        style: 'mapbox://styles/mapbox/streets-v12',
         center: [2.35, 48.853],
         zoom: 11,
       });
 
-      const markers = JSON.parse(mapElement.dataset.markers);
-        markers.forEach((marker) => {
-        const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
-        const element = document.createElement('div');
-          element.className = 'marker';
-          element.style.backgroundImage = `url('${marker.image_url}')`;
-          element.style.backgroundSize  = 'no-repeat';
-          element.style.width   = '25px';
-          element.style.height  = '60px';
-        map.addImage(
-        new mapboxgl.Marker(element)
-        .setLngLat([marker.lng, marker.lat])
-        .setPopup(popup)
-        .addTo(map)
-        );
-      });
+    const markers = JSON.parse(mapElement.dataset.markers);
+      markers.forEach((marker) => {
+      const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = `url('${marker.image_url}')`;
+        element.style.backgroundSize  = 'no-repeat';
+        element.style.width   = '25px';
+        element.style.height  = '60px';
+      map.addImage(
+      new mapboxgl.Marker(element)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(map)
+      );
+    });
+
     // dancers_location
     // const dancers = JSON.parse(mapElement.dataset.markers);
     //   dancers.forEach((dancer) => {
@@ -107,6 +108,7 @@
     // .setPopup(popup)
     // .addTo(map);
     // });
+
     // events_dance_id_location
     // const events = JSON.parse(mapElement.dataset.markers);
     //   events.forEach((event) => {
@@ -123,10 +125,10 @@
     // .addTo(map);
     // });
     map.addControl(
-        new MapboxGeocoder({
-            accessToken: mapboxgl.accessToken,
-            mapboxgl: mapboxgl
-        })
+      new MapboxGeocoder({
+          accessToken: mapboxgl.accessToken,
+          mapboxgl: mapboxgl
+      })
     );
   };
 // }
