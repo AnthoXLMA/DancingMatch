@@ -85,13 +85,13 @@
           element.style.backgroundSize  = 'no-repeat';
           element.style.width   = '25px';
           element.style.height  = '60px';
+      });
         map.addImage(
         new mapboxgl.Marker(element)
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)
         .addTo(map)
         );
-      });
     // dancers_location
     // const dancers = JSON.parse(mapElement.dataset.markers);
     //   dancers.forEach((dancer) => {
