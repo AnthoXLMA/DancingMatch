@@ -69,16 +69,12 @@
   const mapElement = document.getElementById('map');
   if (mapElement) {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
-    // if (!mapboxgl.supported()) {
-    //     alert('Your browser does not support Mapbox GL');
-    // } else {
       const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [2.35, 48.853],
         zoom: 11,
       });
-    // };
 
       const markers = JSON.parse(mapElement.dataset.markers);
         markers.forEach((marker) => {
@@ -95,21 +91,22 @@
         .setPopup(popup)
         .addTo(map)
         );
+      });
     // dancers_location
-    const dancers = JSON.parse(mapElement.dataset.markers);
-      dancers.forEach((dancer) => {
-    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-    const element = document.createElement('div');
-      element.className   = 'marker';
-      element.style.backgroundImage = `url('${dancer.image_url}')`;
-      element.style.backgroundSize  = 'no-repeat';
-      element.style.width   = '25px';
-      element.style.height  = '60px';
-    new mapboxgl.Marker(element)
-    .setLngLat([dancer.lng, dancer.lat])
-    .setPopup(popup)
-    .addTo(map);
-    });
+    // const dancers = JSON.parse(mapElement.dataset.markers);
+    //   dancers.forEach((dancer) => {
+    // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    // const element = document.createElement('div');
+    //   element.className   = 'marker';
+    //   element.style.backgroundImage = `url('${dancer.image_url}')`;
+    //   element.style.backgroundSize  = 'no-repeat';
+    //   element.style.width   = '25px';
+    //   element.style.height  = '60px';
+    // new mapboxgl.Marker(element)
+    // .setLngLat([dancer.lng, dancer.lat])
+    // .setPopup(popup)
+    // .addTo(map);
+    // });
     // events_dance_id_location
     // const events = JSON.parse(mapElement.dataset.markers);
     //   events.forEach((event) => {
