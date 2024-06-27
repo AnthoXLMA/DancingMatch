@@ -1,5 +1,5 @@
 <div class ="container-map" style="height:600px; width:100%;">
-<!--     <div id="resultats"
+<!-- <div id="resultats"
   data-users="<%= @users_selected.to_json %>">
   </div> -->
   <div id="map"
@@ -62,7 +62,9 @@
     zoom: 11,
   });
 </script> -->
+
 <script>
+
 // const initMapbox = () => {
   const mapElement = document.getElementById('map');
   if (mapElement) {
@@ -122,6 +124,12 @@
     // .setPopup(popup)
     // .addTo(map);
     // });
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
   };
 // }
 // export { initMapbox } ;
