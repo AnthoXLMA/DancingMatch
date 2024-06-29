@@ -26,16 +26,5 @@
     "babel-loader": "8.2.2",
     "webpack-dev-server": "^5.0.4"
   },
-  "browserslist": {
-    "production": [
-      "defaults",
-      "not ie 11"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
 }
 

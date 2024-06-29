@@ -15,7 +15,6 @@ class UsersController < ApplicationController
     end
 
     @subscriptions = Subscription.where(user_id: :id)
-
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
