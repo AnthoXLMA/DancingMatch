@@ -133,33 +133,21 @@ fitMapToMarkers() {
       zoom: 5,
     });
 
-    // for (const feature of geojson.features) {
-    //   // create a HTML element for each feature
-    //   const el = document.createElement('div');
-    //   el.className = 'marker';
-
-    //   // make a marker for each feature and add to the map
-    //   new mapboxgl.Marker(el)
-    //   .setLngLat(feature.geometry.coordinates)
-    //   .addTo(map);
-    // }
-    map.on('load', () => {
-    const markers = JSON.parse(mapElement.dataset.markers);
-      markers.forEach((marker) => {
-      const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
-      const element = document.createElement('div');
-        element.className = 'marker';
-        element.style.backgroundImage = `url('${marker.image_url}')`;
-        element.style.backgroundSize  = 'no-repeat';
-        element.style.width   = '25px';
-        element.style.height  = '60px';
+    const dancers = JSON.parse(mapElement.dataset.markers);
+      dancers.forEach((dancer) => {
+      const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+      const el = document.createElement('div');
+        el.className = 'marker';
+        el.style.backgroundImage = `url('${dancer.image_url}')`;
+        el.style.backgroundSize  = 'no-repeat';
+        el.style.width   = '25px';
+        el.style.height  = '60px';
     // map.addImage(
-      new mapboxgl.Marker(element)
-      .setLngLat([marker.lng, marker.lat])
+      new mapboxgl.Marker(el)
+      .setLngLat([dancer.lng, dancer.lat])
       .setPopup(popup)
       .addTo(map)
       // );
-        });
       });
 
     // dancers_location
