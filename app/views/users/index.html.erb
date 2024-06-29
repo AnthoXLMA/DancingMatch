@@ -132,7 +132,7 @@ fitMapToMarkers() {
     center: [2.35, 48.853],
     zoom: 5,
     });
-  }
+
   const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
     const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -157,7 +157,7 @@ fitMapToMarkers() {
   const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
       .setLngLat([12.65147, 55.608166])
       .addTo(map);
-
+  }
     // dancers_location
     // const dancers = JSON.parse(mapElement.dataset.markers);
     //   dancers.forEach((dancer) => {
