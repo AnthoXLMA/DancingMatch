@@ -61,3 +61,4 @@ document.addEventListener('turbolinks:load', () => {
 // import "fichier js "
 // import initNavTabs from '../components/init_nav_tabs';
 
+import "controllers"

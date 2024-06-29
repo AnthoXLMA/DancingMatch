@@ -55,6 +55,7 @@ class UsersController < ApplicationController
     # @profile = @user.profiles.each do |profile|
     #   profile
     # end
+
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -63,6 +64,7 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
+
     if params[:query].present?
     @dances = Dance.where("lower(title) LIKE ?", "%#{params[:query].downcase}%")
     else
