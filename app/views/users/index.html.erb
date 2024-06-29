@@ -131,18 +131,19 @@ fitMapToMarkers() {
     style: 'mapbox://styles/mapbox/streets-v12',
     center: [2.35, 48.853],
     zoom: 5,
-  });
+    });
+  }
   const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((dancer) => {
-    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    markers.forEach((marker) => {
+    const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
     const el = document.createElement('div');
       el.className = 'marker';
-      el.style.backgroundImage = `url('${dancer.image_url}')`;
+      el.style.backgroundImage = `url('${marker.image_url}')`;
       el.style.backgroundSize  = 'no-repeat';
       el.style.width   = '25px';
       el.style.height  = '60px';
     new mapboxgl.Marker(el)
-    .setLngLat([dancer.lng, dancer.lat])
+    .setLngLat([marker.lng, marker.lat])
     .setPopup(popup)
     .addTo(map)
   });
@@ -188,14 +189,12 @@ fitMapToMarkers() {
     // .setPopup(popup)
     // .addTo(map);
     // });
-
   map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
     })
   );
-};
 // }
 // export { initMapbox } ;
 </script>
