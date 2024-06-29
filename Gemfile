@@ -61,3 +61,5 @@ gem 'error_highlight', '>= 0.4.0'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+gem "stimulus-rails", "~> 1.3"
