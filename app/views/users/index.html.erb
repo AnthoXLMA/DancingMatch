@@ -4,7 +4,7 @@
   </div> -->
   <div
     id="map"
-    data-map-markers-value="<%= @dancers.to_json %>"
+    data-markers="<%= @markers %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <!-- <div id='map' style='width: 100%; height: 100%;'></div> -->
@@ -54,19 +54,6 @@
     </div>
   </div>
 
-<!-- <script>
-
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    // Localisation Centrage PARIS NOTRE DAME
-    center: [2.35, 48.853],
-    zoom: 11,
-  });
-
-</script> -->
-
 <script>
 
 // const initMapbox = () => {
@@ -78,39 +65,41 @@
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [2.35, 48.853],
-      zoom: 11,
+      zoom: 5,
     });
 
-    // const markers = JSON.parse(mapElement.dataset.markers);
-    //   markers.forEach((marker) => {
-    //   const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    //   const element = document.createElement('div');
-    //     element.className = 'marker';
-    //     element.style.backgroundImage = `url('${marker.image_url}')`;
-    //     element.style.backgroundSize  = 'no-repeat';
-    //     element.style.width   = '25px';
-    //     element.style.height  = '60px';
-    //   new mapboxgl.Marker(element)
-    //   .setLngLat([marker.lng, marker.lat])
-    //   .setPopup(popup)
-    //   .addTo(map)
-    // });
+    const markers = JSON.parse(mapElement.dataset.markers);
+      markers.forEach((marker) => {
+      const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      const element = document.createElement('div');
+        element.className = 'marker';
+        element.style.backgroundImage = `url('${marker.image_url}')`;
+        element.style.backgroundSize  = 'no-repeat';
+        element.style.width   = '25px';
+        element.style.height  = '60px';
+    // map.addImage(
+      new mapboxgl.Marker(element)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(map)
+      // );
+    });
 
     // dancers_location
-    const dancers = JSON.parse(mapElement.dataset.markers);
-      dancers.forEach((dancer) => {
-    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-    const element = document.createElement('div');
-      element.className   = 'marker';
-      element.style.backgroundImage = `url('${dancer.image_url}')`;
-      element.style.backgroundSize  = 'no-repeat';
-      element.style.width   = '25px';
-      element.style.height  = '60px';
-    new mapboxgl.Marker(element)
-    .setLngLat([dancer.lng, dancer.lat])
-    .setPopup(popup)
-    .addTo(map);
-    });
+    // const dancers = JSON.parse(mapElement.dataset.markers);
+    //   dancers.forEach((dancer) => {
+    // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    // const element = document.createElement('div');
+    //   element.className   = 'marker';
+    //   element.style.backgroundImage = `url('${dancer.image_url}')`;
+    //   element.style.backgroundSize  = 'no-repeat';
+    //   element.style.width   = '25px';
+    //   element.style.height  = '60px';
+    // new mapboxgl.Marker(element)
+    // .setLngLat([dancer.lng, dancer.lat])
+    // .setPopup(popup)
+    // .addTo(map);
+    // });
 
     // events_dance_id_location
     // const events = JSON.parse(mapElement.dataset.markers);
