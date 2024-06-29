@@ -125,12 +125,25 @@ fitMapToMarkers() {
   const mapElement = document.getElementById('map');
   if (mapElement) {
     mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v12',
       center: [2.35, 48.853],
       zoom: 5,
     });
+
+    // for (const feature of geojson.features) {
+    //   // create a HTML element for each feature
+    //   const el = document.createElement('div');
+    //   el.className = 'marker';
+
+    //   // make a marker for each feature and add to the map
+    //   new mapboxgl.Marker(el)
+    //   .setLngLat(feature.geometry.coordinates)
+    //   .addTo(map);
+    // }
+
     const markers = JSON.parse(mapElement.dataset.markers);
       markers.forEach((marker) => {
       const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -147,6 +160,7 @@ fitMapToMarkers() {
       .addTo(map)
       // );
     });
+
     // dancers_location
     // const dancers = JSON.parse(mapElement.dataset.markers);
     //   dancers.forEach((dancer) => {
