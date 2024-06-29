@@ -13,7 +13,9 @@ class UsersController < ApplicationController
     else
       @users =  User.all
     end
+
     @subscriptions = Subscription.where(user_id: :id)
+
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -22,6 +24,7 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
+
   end
 
   def new

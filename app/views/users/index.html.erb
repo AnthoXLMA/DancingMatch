@@ -143,7 +143,7 @@ fitMapToMarkers() {
     //   .setLngLat(feature.geometry.coordinates)
     //   .addTo(map);
     // }
-
+    map.on('load', () => {
     const markers = JSON.parse(mapElement.dataset.markers);
       markers.forEach((marker) => {
       const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
@@ -159,7 +159,8 @@ fitMapToMarkers() {
       .setPopup(popup)
       .addTo(map)
       // );
-    });
+        });
+      });
 
     // dancers_location
     // const dancers = JSON.parse(mapElement.dataset.markers);
