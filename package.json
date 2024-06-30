@@ -22,6 +22,7 @@
     "worker-loader": "3.0.8"
   },
   "scripts": {
+    "start": "node app/javascript/application.js",
     "precompress": "{{ executes BEFORE the `compress` script }}",
     "compress": "{{ run command to compress files }}",
     "postcompress": "{{ executes AFTER `compress` script }}"
