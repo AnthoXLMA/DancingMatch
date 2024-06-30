@@ -1,1 +1,1 @@
-bundle exec puma -C config/puma.rb
+web: npm start
