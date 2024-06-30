@@ -21,6 +21,9 @@
     "turbolinks": "5.2.0",
     "worker-loader": "3.0.8"
   },
+  "scripts": {
+    "start": "node application.js"
+  },
   "version": "0.1.0",
   "devDependencies": {
     "babel-loader": "8.2.2",
