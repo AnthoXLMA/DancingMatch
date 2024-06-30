@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
-
+    @mapmarkers = @markers.to_json
   end
 
   def new
