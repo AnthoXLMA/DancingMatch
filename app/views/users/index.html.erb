@@ -3,7 +3,7 @@
   data-users="<%= @users_selected.to_json %>">
   </div> -->
   <div id="map"
-    data-markers="<%= @mapmarkers %>"
+    data-dancers="<%= @mapmarkers %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
@@ -127,19 +127,19 @@ fitMapToMarkers() {
     zoom: 5,
     });
 
-  const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-    const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    const el = document.createElement('div');
-      el.className = 'marker';
-      el.style.backgroundImage = `url('${marker.image_url}')`;
-      el.style.backgroundSize  = 'no-repeat';
-      el.style.width   = '25px';
-      el.style.height  = '60px';
-    new mapboxgl.Marker(el)
-    .setLngLat([marker.lng, marker.lat])
-    .setPopup(popup)
-    .addTo(map);
+  const dancers = JSON.parse(mapElement.dataset.dancers);
+    dancers.forEach((dancer) => {
+    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${dancer.image_url}')`;
+      element.style.backgroundSize  = 'no-repeat';
+      element.style.width   = '25px';
+      element.style.height  = '60px';
+      new mapboxgl.Marker(element)
+      .setLngLat([dancer.lng, dancer.lat])
+      .setPopup(popup)
+      .addTo(map)
   });
 
   // Create a default Marker and add it to the map.
