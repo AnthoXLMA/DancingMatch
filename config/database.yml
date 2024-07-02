@@ -72,10 +72,10 @@ test:
 # available as an environment variable. For example:
 # You can use this database configuration with:
 #
-production:
-    <<: *default
-    DATABASE_URL: "postgres://ucdo9qtpnnqe0b:pde645a4b4daee632fa7b68a3358ae885c10453120adb189c39261c3b6f675607@ccba8a0vn4fb2p.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dma7pukv33ako"
-    url: <%= ENV['DATABASE_URL'] %>
+# production:
+#     <<: *default
+#     DATABASE_URL: "postgres://ucdo9qtpnnqe0b:pde645a4b4daee632fa7b68a3358ae885c10453120adb189c39261c3b6f675607@ccba8a0vn4fb2p.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dma7pukv33ako"
+#     url: <%= ENV['DATABASE_URL'] %>
 
 # production:
 #   <<: *default
@@ -83,6 +83,12 @@ production:
 #     username: DancingMatch
 #     url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
 #     password: <%= ENV['DANCINGMATCH_DATABASE_PASSWORD'] %>
+
+production:
+  database: DancingMatch_production
+  adapter: postgresql
+  host: localhost
+  password:
 
 
 # production:
