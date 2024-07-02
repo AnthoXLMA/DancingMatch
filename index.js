@@ -5,7 +5,7 @@ const pool = new Pool({
   ssl: {
     rejectUnauthorized: false
   }
-})
+});
 
 .get('/db', async (req, res) => {
     try {
@@ -17,5 +17,5 @@ const pool = new Pool({
     } catch (err) {
       console.error(err);
       res.send("Error " + err);
-    }
+    };
   })

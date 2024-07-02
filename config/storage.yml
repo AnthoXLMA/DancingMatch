@@ -14,6 +14,9 @@ cloudinary:
   region: ""
   bucket: ""
 
+production:
+  service: heroku
+  folder: <%= ENV['DATABASE_URL'] %>
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
