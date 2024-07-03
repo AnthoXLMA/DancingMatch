@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     end
 
     @subscriptions = Subscription.where(user_id: :id)
-    @markers = @users.geocoded.map do |user|
+    @dancers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
         lng: user.longitude,
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg')
       }
     end
-    @mapmarkers = @markers.to_json
+    @mapmarkers = @dancers.to_json
   end
 
   def new
