@@ -68,7 +68,7 @@ const mapElement = document.getElementById('map');
 
   const dancers = JSON.parse(mapElement.dataset.dancers);
 
-  map.addControl(
+  map.addImage(
     dancers.forEach((dancer) => {
     const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
     const element = document.createElement('div');
@@ -84,7 +84,7 @@ const mapElement = document.getElementById('map');
     })
   );
 
-  map.addControl(
+  map.addImage(
     new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
