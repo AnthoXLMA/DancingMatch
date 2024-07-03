@@ -65,6 +65,7 @@ const mapElement = document.getElementById('map');
     zoom: 5,
     });
   const dancers = JSON.parse(mapElement.dataset.dancers);
+  map.addControl() => {
     dancers.forEach((dancer) => {
     const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
     const element = document.createElement('div');
@@ -77,7 +78,8 @@ const mapElement = document.getElementById('map');
       .setLngLat([dancer.lng, dancer.lat])
       .setPopup(popup)
       .addTo(map)
-  });
+    });
+  };
   map.addControl(
     new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
