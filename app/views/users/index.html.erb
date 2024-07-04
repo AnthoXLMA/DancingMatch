@@ -65,6 +65,7 @@
       center: [2.35, 48.853],
       zoom: 5,
       });
+  };
   const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
     const popup   = new mapboxgl.Popup().setHTML(marker.info_window_html);
@@ -85,7 +86,6 @@
         mapboxgl: mapboxgl
     })
   );
-};
 // Create a default Marker and add it to the map.
 // const marker1 = new mapboxgl.Marker()
 //     .setLngLat([12.554729, 55.70651])

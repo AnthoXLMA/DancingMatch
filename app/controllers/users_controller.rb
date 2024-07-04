@@ -59,7 +59,6 @@ class UsersController < ApplicationController
     # @profile = @user.profiles.each do |profile|
     #   profile
     # end
-
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
