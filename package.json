@@ -23,7 +23,7 @@
     "worker-loader": "3.0.8"
   },
   "version": "0.1.0",
-  "engine": {
+  "engines": {
     "node": "22.2.0",
     "npm": "10.7.0"
   },
@@ -38,7 +38,8 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node webpack.config.js",
+    // "start": "node webpack.config.js",
+    "start": "web:npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
