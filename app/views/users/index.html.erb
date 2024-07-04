@@ -3,7 +3,7 @@
   data-users="<%= @users_selected.to_json %>">
   </div> -->
   <div id="map"
-  data-markers="<%= @markers.to_json %>"
+  data-markers="<%= @markers %>"
   data-map-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
@@ -86,7 +86,6 @@
     })
   );
 };
-
 // Create a default Marker and add it to the map.
 // const marker1 = new mapboxgl.Marker()
 //     .setLngLat([12.554729, 55.70651])
