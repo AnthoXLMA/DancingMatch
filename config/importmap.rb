@@ -9,6 +9,7 @@ pin "mapbox-gl", to: "https://ga.jspm.io/npm:mapbox-gl@3.4.0/dist/mapbox-gl.js"
 pin "process", to: "https://ga.jspm.io/npm:@jspm/core@2.0.1/nodelibs/browser/process-production.js"
 pin "@hotwired/stimulus", to: "stimulus.min.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
+pin "turbo.min.js", to: "https://ga.jspm.io/npm:turbo.min.js@1.2.3-0/index.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 
 # pin "bootstrap", to: "https://ga.jspm.io/npm:bootstrap@5.2.3/dist/js/bootstrap.esm.js"
