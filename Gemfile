@@ -32,6 +32,7 @@ gem "autoprefixer-rails"
 # gem 'sinatra', '~> 1.4', '>= 1.4.7'
 gem "image_processing", ">= 1.2"
 gem "importmap-rails", "~> 1.2.3"
+gem "rails_12factor"
 
 #GEM Updating Juin 2024 - End
 
