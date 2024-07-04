@@ -6,7 +6,6 @@
     data-markers="<%= @mapmarkers %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div id="mapMarkers"></div>
 
 </div>
 
@@ -68,8 +67,7 @@ const mapElement = document.getElementById('map');
     zoom: 5,
     });
 
-var mapMarkers = document.querySelector("#addMarkersToMap");
-#addMarkersToMap() {
+addMarkersToMap() {
   this.markersValue.forEach((marker) => {
     const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
     // Create a HTML element for your custom marker
