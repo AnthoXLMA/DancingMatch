@@ -38,7 +38,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node webpack.config.js",
+    "start": "node app/javascript/controllers/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

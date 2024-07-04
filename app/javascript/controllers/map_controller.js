@@ -38,6 +38,7 @@ addMarkersToMap() {
   });
 }
 
+export { addMarkersToMap }
 
 fitMapToMarkers() {
   const bounds = new mapboxgl.LngLatBounds()
