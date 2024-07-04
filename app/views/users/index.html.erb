@@ -54,97 +54,97 @@
     </div>
   </div>
 
-<script>
-// const initMapbox = () => {
-const mapElement = document.getElementById('map');
-  if (mapElement) {
-  mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+  <script>
+  // const initMapbox = () => {
+  // const mapElement = document.getElementById('map');
+  //   if (mapElement) {
+  //   mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
 
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v12',
-    center: [2.35, 48.853],
-    zoom: 5,
-    });
+  //   const map = new mapboxgl.Map({
+  //     container: 'map',
+  //     style: 'mapbox://styles/mapbox/streets-v12',
+  //     center: [2.35, 48.853],
+  //     zoom: 5,
+  //     });
 
-// addMarkersToMap() {
-//   this.markersValue.forEach((marker) => {
-//     const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
-//     // Create a HTML element for your custom marker
-//     const customMarker = document.createElement("div")
-//     customMarker.innerHTML = marker.marker_html
-//     // Pass the element as an argument to the new marker
-//     new mapboxgl.Marker(customMarker)
-//       .setLngLat([marker.lng, marker.lat])
-//       .setPopup(popup)
-//       .addTo(this.map)
-//   })
-// };
+  // addMarkersToMap() {
+  //   this.markersValue.forEach((marker) => {
+  //     const popup = new mapboxgl.Popup().setHTML(marker.info_window_html)
+  //     // Create a HTML element for your custom marker
+  //     const customMarker = document.createElement("div")
+  //     customMarker.innerHTML = marker.marker_html
+  //     // Pass the element as an argument to the new marker
+  //     new mapboxgl.Marker(customMarker)
+  //       .setLngLat([marker.lng, marker.lat])
+  //       .setPopup(popup)
+  //       .addTo(this.map)
+  //   })
+  // };
 
-  const markers = JSON.parse(mapElement.dataset.markers);
-    markers.forEach((marker) => {
-    const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
-    const element = document.createElement('div');
-      element.className = 'custom-marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize  = 'no-repeat';
-      element.style.width   = '25px';
-      element.style.height  = '60px';
-      new mapboxgl.Marker(element)
-      .setLngLat([marker.lng, marker.lat])
-      .setPopup(popup)
-      .addTo(map)
-    })
+  //   const markers = JSON.parse(mapElement.dataset.markers);
+  //     markers.forEach((marker) => {
+  //     const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
+  //     const element = document.createElement('div');
+  //       element.className = 'custom-marker';
+  //       element.style.backgroundImage = `url('${marker.image_url}')`;
+  //       element.style.backgroundSize  = 'no-repeat';
+  //       element.style.width   = '25px';
+  //       element.style.height  = '60px';
+  //       new mapboxgl.Marker(element)
+  //       .setLngLat([marker.lng, marker.lat])
+  //       .setPopup(popup)
+  //       .addTo(map)
+  //     })
 
-  map.addControl(
-    new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    })
-  );
-};
-  // Create a default Marker and add it to the map.
-  // const marker1 = new mapboxgl.Marker()
-  //     .setLngLat([12.554729, 55.70651])
-  //     .addTo(map);
+  //   map.addControl(
+  //     new MapboxGeocoder({
+  //         accessToken: mapboxgl.accessToken,
+  //         mapboxgl: mapboxgl
+  //     })
+  //   );
+  // };
+    // Create a default Marker and add it to the map.
+    // const marker1 = new mapboxgl.Marker()
+    //     .setLngLat([12.554729, 55.70651])
+    //     .addTo(map);
 
-  // // Create a default Marker, colored black, rotated 45 degrees.
-  // const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
-  //     .setLngLat([12.65147, 55.608166])
-  //     .addTo(map);
-  // }
-    // dancers_location
-    // const dancers = JSON.parse(mapElement.dataset.markers);
-    //   dancers.forEach((dancer) => {
-    // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-    // const element = document.createElement('div');
-    //   element.className   = 'marker';
-    //   element.style.backgroundImage = `url('${dancer.image_url}')`;
-    //   element.style.backgroundSize  = 'no-repeat';
-    //   element.style.width   = '25px';
-    //   element.style.height  = '60px';
-    // new mapboxgl.Marker(element)
-    // .setLngLat([dancer.lng, dancer.lat])
-    // .setPopup(popup)
-    // .addTo(map);
-    // });
+    // // Create a default Marker, colored black, rotated 45 degrees.
+    // const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
+    //     .setLngLat([12.65147, 55.608166])
+    //     .addTo(map);
+    // }
+      // dancers_location
+      // const dancers = JSON.parse(mapElement.dataset.markers);
+      //   dancers.forEach((dancer) => {
+      // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+      // const element = document.createElement('div');
+      //   element.className   = 'marker';
+      //   element.style.backgroundImage = `url('${dancer.image_url}')`;
+      //   element.style.backgroundSize  = 'no-repeat';
+      //   element.style.width   = '25px';
+      //   element.style.height  = '60px';
+      // new mapboxgl.Marker(element)
+      // .setLngLat([dancer.lng, dancer.lat])
+      // .setPopup(popup)
+      // .addTo(map);
+      // });
 
-    // events_dance_id_location
-    // const events = JSON.parse(mapElement.dataset.markers);
-    //   events.forEach((event) => {
-    // const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
-    // const element = document.createElement('div');
-    //   element.className = 'marker';
-    //   element.style.backgroundImage = `url('${event.image_url}')`;
-    //   element.style.backgroundSize  = 'no-repeat';
-    //   element.style.width   = '25px';
-    //   element.style.height  = '60px';
-    // new mapboxgl.Marker(element)
-    // .setLngLat([event.lng, event.lat])
-    // .setPopup(popup)
-    // .addTo(map);
-    // });
-// };
-// export { initMapbox } ;
-</script>
+      // events_dance_id_location
+      // const events = JSON.parse(mapElement.dataset.markers);
+      //   events.forEach((event) => {
+      // const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
+      // const element = document.createElement('div');
+      //   element.className = 'marker';
+      //   element.style.backgroundImage = `url('${event.image_url}')`;
+      //   element.style.backgroundSize  = 'no-repeat';
+      //   element.style.width   = '25px';
+      //   element.style.height  = '60px';
+      // new mapboxgl.Marker(element)
+      // .setLngLat([event.lng, event.lat])
+      // .setPopup(popup)
+      // .addTo(map);
+      // });
+  // };
+  // export { initMapbox } ;
+  </script>
 </div>
