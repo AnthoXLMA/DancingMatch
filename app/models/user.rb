@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable, :validatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_address?
 
   GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple']
   DANCES          = Dance.all
@@ -38,8 +40,6 @@ class User < ApplicationRecord
   has_many :messages, through: :chatrooms
   has_many :reviews, dependent: :destroy
   has_many :requests, dependent: :destroy
-  geocoded_by :location
-    after_validation :geocode, if: :will_save_change_to_location?
 
   validates :first_name, presence: true, length: { minimum: 4 }
   validates :last_name, length: { minimum: 3 }
