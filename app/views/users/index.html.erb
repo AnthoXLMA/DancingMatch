@@ -3,8 +3,8 @@
   data-users="<%= @users_selected.to_json %>">
   </div> -->
   <div id="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  data-markers="<%= @markers.to_json %>"
+  data-map-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 
 <div class="grid-user" style="display:flex;">
@@ -52,8 +52,7 @@
     </div>
   </div>
 
-
-  <script>
+<script>
   // const initMapbox = () => {
   const mapElement = document.getElementById('map');
     if (mapElement) {
@@ -130,5 +129,5 @@
       // });
   // };
   // export { initMapbox } ;
-  </script>
+</script>
 </div>
