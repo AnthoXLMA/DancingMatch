@@ -39,7 +39,7 @@
   },
   "scripts": {
     // "start": "node webpack.config.js",
-    "start": "web:npm start",
+    "start": "web npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
