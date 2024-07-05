@@ -21,8 +21,6 @@ class UsersController < ApplicationController
         lng: user.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
         image_url: helpers.asset_url('mapbox-marker-icon-green.svg'),
-        # info_window_html: render_to_string(partial: "info_window", locals: {user: user}),
-        # marker_html: render_to_string(partial: "marker")
       }
     end
     @mapmarkers = @markers.to_json

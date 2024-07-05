@@ -7,7 +7,6 @@
   data-map-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
-
 <div class="grid-user" style="display:flex;">
   <div class="contain-user">
     <% @users.each do |i| %>
@@ -86,32 +85,6 @@
       })
     );
   };
-// Create a default Marker and add it to the map.
-// const marker1 = new mapboxgl.Marker()
-//     .setLngLat([12.554729, 55.70651])
-//     .addTo(map);
-
-// // Create a default Marker, colored black, rotated 45 degrees.
-// const marker2 = new mapboxgl.Marker({ color: 'black', rotation: 45 })
-//     .setLngLat([12.65147, 55.608166])
-//     .addTo(map);
-// }
-  // dancers_location
-  // const dancers = JSON.parse(mapElement.dataset.markers);
-  //   dancers.forEach((dancer) => {
-  // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-  // const element = document.createElement('div');
-  //   element.className   = 'marker';
-  //   element.style.backgroundImage = `url('${dancer.image_url}')`;
-  //   element.style.backgroundSize  = 'no-repeat';
-  //   element.style.width   = '25px';
-  //   element.style.height  = '60px';
-  // new mapboxgl.Marker(element)
-  // .setLngLat([dancer.lng, dancer.lat])
-  // .setPopup(popup)
-  // .addTo(map);
-  // });
-
   // events_dance_id_location
   // const events = JSON.parse(mapElement.dataset.markers);
   //   events.forEach((event) => {
