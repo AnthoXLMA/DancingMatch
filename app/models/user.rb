@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   geocoded_by :location
-  after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :geocode, if: :will_save_change_to_location?
 
   GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple']
   DANCES          = Dance.all
