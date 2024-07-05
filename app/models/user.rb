@@ -48,6 +48,7 @@ class User < ApplicationRecord
 
   after_create :build_profile
 
+
   def build_profile
     Profile.create(user: self) # Associations must be defined correctly for this syntax, avoids using ID's directly.
   end
