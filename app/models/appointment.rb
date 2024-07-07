@@ -6,6 +6,7 @@ class Appointment < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  ADDRESS        = [Geocoder.search(:address)]
 
   validates :name, presence: true, uniqueness: false
 end
