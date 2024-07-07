@@ -28,28 +28,28 @@ class UsersController < ApplicationController
 
     @appointments = Appointment.all
     @events = @appointments.geocoded.map do |appointment|
-      if appointment.dance_id == 3
+      if appointment.dance_id == 1
         {
           lat: appointment.latitude,
           lng: appointment.longitude,
           infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
           image_url: helpers.asset_url('mapbox-marker-icon-yellow.svg'),
         }
-      elsif appointment.dance_id == 5
+      elsif appointment.dance_id == 27
         {
           lat: appointment.latitude,
           lng: appointment.longitude,
           infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
           image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
         }
-      elsif appointment.dance_id == 6
+      elsif appointment.dance_id == 24
         {
           lat: appointment.latitude,
           lng: appointment.longitude,
           infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
           image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
         }
-      elsif appointment.dance_id == 12
+      elsif appointment.dance_id == 1
         {
           lat: appointment.latitude,
           lng: appointment.longitude,
