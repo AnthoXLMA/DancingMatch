@@ -15,6 +15,7 @@ class UsersController < ApplicationController
     end
 
     @subscriptions = Subscription.where(user_id: :id)
+
     @markers = @users.geocoded.map do |user|
       {
         lat: user.latitude,
@@ -24,6 +25,40 @@ class UsersController < ApplicationController
       }
     end
     @mapmarkers = @markers.to_json
+
+    @appointments = Appointment.all
+    @events = @appointments.geocoded.map do |appointment|
+      if appointment.dance_id == 3
+        {
+          lat: appointment.latitude,
+          lng: appointment.longitude,
+          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
+          image_url: helpers.asset_url('mapbox-marker-icon-yellow.svg'),
+        }
+      elsif appointment.dance_id == 5
+        {
+          lat: appointment.latitude,
+          lng: appointment.longitude,
+          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
+          image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
+        }
+      elsif appointment.dance_id == 6
+        {
+          lat: appointment.latitude,
+          lng: appointment.longitude,
+          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
+          image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
+        }
+      elsif appointment.dance_id == 12
+        {
+          lat: appointment.latitude,
+          lng: appointment.longitude,
+          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
+          image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
+        }
+      end
+    end
+    @mapevents = @events.to_json
   end
 
   def new
