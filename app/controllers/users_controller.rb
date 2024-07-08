@@ -16,47 +16,33 @@ class UsersController < ApplicationController
 
     @subscriptions = Subscription.where(user_id: :id)
 
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
-        image_url: helpers.asset_url('mapbox-marker-icon-green.svg'),
-      }
+    @dancers = @users.geocoded.map do |user|
+      if user.gender == 'Gentleman'
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('dance-man.png'),
+        }
+      else
+        {
+          lat: user.latitude,
+          lng: user.longitude,
+          infoWindow: render_to_string(partial: "info_window", locals: { user: user }),
+          image_url: helpers.asset_url('dance-woman.png'),
+        }
+      end
     end
     @mapmarkers = @markers.to_json
 
     @appointments = Appointment.all
     @events = @appointments.geocoded.map do |appointment|
-      if appointment.dance_id == 1
         {
           lat: appointment.latitude,
           lng: appointment.longitude,
           infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
-          image_url: helpers.asset_url('mapbox-marker-icon-yellow.svg'),
+          image_url: helpers.asset_url('show-icon.png'),
         }
-      elsif appointment.dance_id == 27
-        {
-          lat: appointment.latitude,
-          lng: appointment.longitude,
-          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
-          image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
-        }
-      elsif appointment.dance_id == 24
-        {
-          lat: appointment.latitude,
-          lng: appointment.longitude,
-          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
-          image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
-        }
-      elsif appointment.dance_id == 1
-        {
-          lat: appointment.latitude,
-          lng: appointment.longitude,
-          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
-          image_url: helpers.asset_url('mapbox-marker-icon-purple.svg'),
-        }
-      end
     end
     @mapevents = @events.to_json
   end
