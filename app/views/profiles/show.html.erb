@@ -59,7 +59,7 @@
       </div>
       <div class="profile-feed-card-2" style="padding:10px;">
         <% @users.each do |user| %>
-        <%= image_tag user.photo %>
+        <%= cl_image_tag user.photo.key if user.photo.attached? %>
         <% end %>
       </div>
     </div>
