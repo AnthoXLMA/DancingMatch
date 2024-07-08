@@ -20,7 +20,7 @@
       <div class="dance_card">
         <h3><%= link_to dance.title, dance_path(dance) %></h3>
         <div class="image-dance">
-        <%= image_tag dance.photo if dance.photo.attached? %>
+        <%= cl_image_tag dance.photo.key if dance.photo.attached? %>
       </div>
         <%= pluralize dance.profiles.count, "dancer" %><br>
         <%= pluralize dance.appointments.count, "événement" %>
