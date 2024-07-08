@@ -2,6 +2,9 @@
   <h2><%= user.first_name %></h2>
   <%= cl_image_tag user.photo.key if user.photo.attached?  %>
   <h2><%= user.city %></h2>
+  <h2><% user.profiles.each do |profile| %></h2>
+  <h2><%= profile.dance.title %></h2>
+  <% end %>
   <div class="title_text">
     <p><%= link_to "Contact" %></p>
   </div>

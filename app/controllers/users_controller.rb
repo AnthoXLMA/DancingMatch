@@ -37,14 +37,16 @@ class UsersController < ApplicationController
 
     @appointments = Appointment.all
     @events = @appointments.geocoded.map do |appointment|
-        {
-          lat: appointment.latitude,
-          lng: appointment.longitude,
-          infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
-          image_url: helpers.asset_url('show-icon.png'),
-        }
+      {
+        lat: appointment.latitude,
+        lng: appointment.longitude,
+        infoWindow: render_to_string(partial: "info_window_event", locals: { appointment: appointment }),
+        image_url: helpers.asset_url('show-icon.png'),
+      }
     end
     @mapevents = @events.to_json
+
+    @profiles = Profile.all
   end
 
   def new
