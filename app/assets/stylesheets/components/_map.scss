@@ -6,9 +6,21 @@
   border-radius: 50%;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  width: 100px;
+  width: 200px;
   height:auto;
   .info-window-user {
+    h2 {
+      font-size:15px;
+      color:black;
+    }
+    img {
+      background-size: cover;
+      border-radius: 50%;
+      width: 80px;
+      height:80px;
+    }
+  }
+  .info-window-event {
     h2 {
       font-size:15px;
       color:black;
