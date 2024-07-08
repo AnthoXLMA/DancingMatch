@@ -4,6 +4,7 @@
   </div> -->
   <div id="map"
   data-markers="<%= @markers.to_json %>"
+  data-events="<%= @events.to_json %>"
   data-dancers="<%= @dancers.to_json %>"
   data-map-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
@@ -86,23 +87,22 @@ const markers = JSON.parse(mapElement.dataset.markers);
         mapboxgl: mapboxgl
     })
   );
+  // events_dance_id_location
+  const events = JSON.parse(mapElement.dataset.events);
+    events.forEach((event) => {
+  const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
+  const e = document.createElement('div');
+    e.className = 'marker';
+    e.style.backgroundImage = `url('${event.image_url}')`;
+    e.style.backgroundSize  = 'no-repeat';
+    e.style.width   = '25px';
+    e.style.height  = '60px';
+  new mapboxgl.Marker(e)
+  .setLngLat([event.lng, event.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 };
-// events_dance_id_location
-// const events = JSON.parse(mapElement.dataset.markers);
-//   events.forEach((event) => {
-// const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
-// const element = document.createElement('div');
-//   element.className = 'marker';
-//   element.style.backgroundImage = `url('${event.image_url}')`;
-//   element.style.backgroundSize  = 'no-repeat';
-//   element.style.width   = '25px';
-//   element.style.height  = '60px';
-// new mapboxgl.Marker(element)
-// .setLngLat([event.lng, event.lat])
-// .setPopup(popup)
-// .addTo(map);
-// });
-// };
 // export { initMapbox } ;
 </script>
 
