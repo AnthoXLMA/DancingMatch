@@ -5,6 +5,7 @@
   <div id="map"
     data-dancers="<%= @dancers.to_json %>"
     data-events="<%= @events.to_json %>"
+    data-salsero_position_on_map="<%= @salsero_position_on_map.to_json %>"
     data-map-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
   <nav id="filter-group" class="filter-group"></nav>
@@ -97,20 +98,36 @@ const dancers = JSON.parse(mapElement.dataset.dancers);
   })
 );
 //MARKERS EVENTS DISPLAYING
-// const events = JSON.parse(mapElement.dataset.events);
-//   events.forEach((event) => {
-// const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
-// const e = document.createElement('div');
-//   e.className = 'icon-show';
-//   e.style.backgroundImage = `url('${event.image_url}')`;
-//   e.style.backgroundSize  = 'cover';
-//   e.style.width   = '40px';
-//   e.style.height  = '40px';
-// new mapboxgl.Marker(e)
-// .setLngLat([event.lng, event.lat])
-// .setPopup(popup)
-// .addTo(map);
-// });
+const events = JSON.parse(mapElement.dataset.events);
+  events.forEach((event) => {
+const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
+const e = document.createElement('div');
+  e.className = 'icon-show';
+  e.style.backgroundImage = `url('${event.image_url}')`;
+  e.style.backgroundSize  = 'cover';
+  e.style.width   = '40px';
+  e.style.height  = '40px';
+new mapboxgl.Marker(e)
+.setLngLat([event.lng, event.lat])
+.setPopup(popup)
+.addTo(map);
+});
+
+const salsero_position_on_map = JSON.parse(mapElement.dataset.salsero_position_on_map);
+  salsero_position_on_map.forEach((s) => {
+const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+const u = document.createElement('div');
+  u.className = 'marker';
+  u.style.backgroundImage = `url('${s.image_url}')`;
+  u.style.backgroundSize  = 'cover';
+  u.style.width   = '40px';
+  u.style.height  = '40px';
+new mapboxgl.Marker(u)
+.setLngLat([s.lng, s.lat])
+.setPopup(popup)
+.addTo(map);
+});
+
 
 // FIN DE LA MAP ELEMENT
 };

@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     @user = current_user
-    @profiles = Profile.all
     @dances = Dance.all
     if params[:query].present? || params[:gender_query].present? || params[:name_query].present?
       @users  = User.where("location ILIKE ?", "%#{params[:query]}%")
@@ -47,6 +46,24 @@ class UsersController < ApplicationController
     @mapevents = @events.to_json
 
     @profiles = Profile.all
+
+    # GEOLOCALISATION DES DANSEURS DE SALSA
+    @partners_of_salsa = []
+    @profiles.where(dance_id: 1).each do |salsa_partner|
+      @partners_of_salsa << salsa_partner if !@partners_of_salsa.include? salsa_partner
+    end
+    @salsero_json = []
+    @partners_of_salsa.each do |member|
+    @salsero_json << member.user
+    end
+    @salsero_position_on_map = @salsero_json.map do |salserito|
+      {
+        lat: salserito.latitude,
+        lng: salserito.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: salserito }),
+        image_url: helpers.asset_url('marker.svg'),
+      }
+    end
   end
 
   def new
