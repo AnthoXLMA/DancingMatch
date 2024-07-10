@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple']
   DANCES          = Dance.all
-  LOCATION        = [Geocoder.search(:city)]
+  LOCATION        = [Geocoder.search(:location)]
   SKILLS          = %w[
     level
     xp
