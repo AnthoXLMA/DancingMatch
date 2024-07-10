@@ -8,8 +8,31 @@
     data-salsero_position_on_map="<%= @salsero_position_on_map.to_json %>"
     data-merengue_position_on_map="<%= @merengue_position_on_map.to_json %>"
     data-bachata_position_on_map="<%= @bachata_position_on_map.to_json %>"
+    data-kizomba_position_on_map="<%= @kizomba_position_on_map.to_json %>"
+    data-reggaeton_position_on_map="<%= @reggaeton_position_on_map.to_json %>"
+    data-samba_position_on_map="<%= @samba_position_on_map.to_json %>"
+    data-tango_position_on_map="<%= @tango_position_on_map.to_json %>"
+    data-flamenco_position_on_map="<%= @flamenco_position_on_map.to_json %>"
+    data-jazz_position_on_map="<%= @jazz_position_on_map.to_json %>"
+    data-wcs_position_on_map="<%= @wcs_position_on_map.to_json %>"
+    data-break_position_on_map="<%= @break_position_on_map.to_json %>"
+    data-porto_position_on_map="<%= @porto_position_on_map.to_json %>"
+    data-foxtrot_position_on_map="<%= @foxtrot_position_on_map.to_json %>"
+    data-lindyhop_position_on_map="<%= @lindyhop_position_on_map.to_json %>"
+    data-pasodoble_position_on_map="<%= @pasodoble_position_on_map.to_json %>"
+    data-milonga_position_on_map="<%= @milonga_position_on_map.to_json %>"
+    data-lambada_position_on_map="<%= @lambada_position_on_map.to_json %>"
+    data-forro_position_on_map="<%= @forro_position_on_map.to_json %>"
+    data-rock_position_on_map="<%= @rock_position_on_map.to_json %>"
+    data-tapdance_position_on_map="<%= @tapdance_position_on_map.to_json %>"
+    data-chacha_position_on_map="<%= @chacha_position_on_map.to_json %>"
+    data-valse_position_on_map="<%= @valse_position_on_map.to_json %>"
+    data-capoeira_position_on_map="<%= @capoeira_position_on_map.to_json %>"
+    data-zumba_position_on_map="<%= @zumba_position_on_map.to_json %>"
+    data-poledance_position_on_map="<%= @poledance_position_on_map.to_json %>"
+    data-kompa_position_on_map="<%= @kompa_position_on_map.to_json %>"
+    data-zouk_position_on_map="<%= @zouk_position_on_map.to_json %>"
     data-map-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-
   <nav id="filter-group" class="filter-group"></nav>
 
   </div>
@@ -65,479 +88,462 @@
 <script>
 const mapElement = document.getElementById('map');
 
-//DEBUT DE LA MAP ELEMENT
-if (mapElement) {
+  //DEBUT DE LA MAP ELEMENT
+  if (mapElement) {
 
-//MAP ACCESS TOKEN
-mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+  //MAP ACCESS TOKEN
+  mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
 
-const filterGroup = document.getElementById('filter-group');
-// MAP DISPLAYING
-const map = new mapboxgl.Map({
-  container: 'map',
-  style: 'mapbox://styles/mapbox/streets-v12',
-  center: [2.35, 48.853],
-  zoom: 3,
-});
-//MARKERS DANCERS DISPLAYING
-const dancers = JSON.parse(mapElement.dataset.dancers);
-  dancers.forEach((dancer) => {
-  const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-  const element = document.createElement('div');
-    element.className = 'icon-dancer';
-    element.style.backgroundImage = `url('${dancer.image_url}')`;
-    element.style.backgroundSize  = 'cover';
-    element.style.width   = '30px';
-    element.style.height  = '30px';
-    new mapboxgl.Marker(element)
-    .setLngLat([dancer.lng, dancer.lat])
-    .setPopup(popup)
-    .addTo(map)
+  const filterGroup = document.getElementById('filter-group');
+  // MAP DISPLAYING
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [2.35, 48.853],
+    zoom: 3,
   });
-// MAP LOCATION SEARCH TOOLBAR
-  map.addControl(
-    new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl
-  })
-);
-//MARKERS EVENTS DISPLAYING
-const events = JSON.parse(mapElement.dataset.events);
-  events.forEach((event) => {
-const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
-const e = document.createElement('div');
-  e.className = 'icon-show';
-  e.style.backgroundImage = `url('${event.image_url}')`;
-  e.style.backgroundSize  = 'cover';
-  e.style.width   = '40px';
-  e.style.height  = '40px';
-new mapboxgl.Marker(e)
-.setLngLat([event.lng, event.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  //MARKERS DANCERS DISPLAYING
+  const dancers = JSON.parse(mapElement.dataset.dancers);
+    dancers.forEach((dancer) => {
+    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    const element = document.createElement('div');
+      element.className = 'icon-dancer';
+      element.style.backgroundImage = `url('${dancer.image_url}')`;
+      element.style.backgroundSize  = 'cover';
+      element.style.width   = '30px';
+      element.style.height  = '30px';
+      new mapboxgl.Marker(element)
+      .setLngLat([dancer.lng, dancer.lat])
+      .setPopup(popup)
+      .addTo(map)
+    });
+  // MAP LOCATION SEARCH TOOLBAR
+    map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+  );
+  //MARKERS EVENTS DISPLAYING
+  const events = JSON.parse(mapElement.dataset.events);
+    events.forEach((event) => {
+  const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
+  const e = document.createElement('div');
+    e.className = 'icon-show';
+    e.style.backgroundImage = `url('${event.image_url}')`;
+    e.style.backgroundSize  = 'cover';
+    e.style.width   = '40px';
+    e.style.height  = '40px';
+  new mapboxgl.Marker(e)
+  .setLngLat([event.lng, event.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const salsero_position_on_map = JSON.parse(mapElement.dataset.salsero_position_on_map);
-  salsero_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'marker';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const salsero_position_on_map = JSON.parse(mapElement.dataset.salsero_position_on_map);
+    salsero_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'marker';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const merengue_position_on_map = JSON.parse(mapElement.dataset.merengue_position_on_map);
-  merengue_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'marker';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const merengue_position_on_map = JSON.parse(mapElement.dataset.merengue_position_on_map);
+    merengue_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'marker';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const bachata_position_on_map = JSON.parse(mapElement.dataset.bachata_position_on_map);
-  bachata_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-green.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const bachata_position_on_map = JSON.parse(mapElement.dataset.bachata_position_on_map);
+    bachata_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-green.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const kizomba_position_on_map = JSON.parse(mapElement.dataset.kizomba_position_on_map);
-  kizomba_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-red.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const kizomba_position_on_map = JSON.parse(mapElement.dataset.kizomba_position_on_map);
+    kizomba_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-red.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const reggaeton_position_on_map = JSON.parse(mapElement.dataset.reggaeton_position_on_map);
-  reggaeton_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-gray.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const reggaeton_position_on_map = JSON.parse(mapElement.dataset.reggaeton_position_on_map);
+    reggaeton_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-gray.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const samba_position_on_map = JSON.parse(mapElement.dataset.samba_position_on_map);
-  samba_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const samba_position_on_map = JSON.parse(mapElement.dataset.samba_position_on_map);
+    samba_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const tango_position_on_map = JSON.parse(mapElement.dataset.tango_position_on_map);
-  tango_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const tango_position_on_map = JSON.parse(mapElement.dataset.tango_position_on_map);
+    tango_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const flamenco_position_on_map = JSON.parse(mapElement.dataset.flamenco_position_on_map);
-  flamenco_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const flamenco_position_on_map = JSON.parse(mapElement.dataset.flamenco_position_on_map);
+    flamenco_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const jazz_position_on_map = JSON.parse(mapElement.dataset.jazz_position_on_map);
-  jazz_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const jazz_position_on_map = JSON.parse(mapElement.dataset.jazz_position_on_map);
+    jazz_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const wcs_position_on_map = JSON.parse(mapElement.dataset.wcs_position_on_map);
-  wcs_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const wcs_position_on_map = JSON.parse(mapElement.dataset.wcs_position_on_map);
+    wcs_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const wcs_position_on_map = JSON.parse(mapElement.dataset.wcs_position_on_map);
-  wcs_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const break_position_on_map = JSON.parse(mapElement.dataset.break_position_on_map);
+    break_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const break_position_on_map = JSON.parse(mapElement.dataset.break_position_on_map);
-  break_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const porto_position_on_map = JSON.parse(mapElement.dataset.porto_position_on_map);
+    porto_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const porto_position_on_map = JSON.parse(mapElement.dataset.porto_position_on_map);
-  porto_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const foxtrot_position_on_map = JSON.parse(mapElement.dataset.foxtrot_position_on_map);
+    foxtrot_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const foxtrot_position_on_map = JSON.parse(mapElement.dataset.foxtrot_position_on_map);
-  foxtrot_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const lindyhop_position_on_map = JSON.parse(mapElement.dataset.lindyhop_position_on_map);
+    lindyhop_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const lindyhop_position_on_map = JSON.parse(mapElement.dataset.lindyhop_position_on_map);
-  lindyhop_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const pasodoble_position_on_map = JSON.parse(mapElement.dataset.pasodoble_position_on_map);
+    pasodoble_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const pasodoble_position_on_map = JSON.parse(mapElement.dataset.pasodoble_position_on_map);
-  pasodoble_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const milonga_position_on_map = JSON.parse(mapElement.dataset.milonga_position_on_map);
+    milonga_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const milonga_position_on_map = JSON.parse(mapElement.dataset.milonga_position_on_map);
-  milonga_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const lambada_position_on_map = JSON.parse(mapElement.dataset.lambada_position_on_map);
+    lambada_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const lambada_position_on_map = JSON.parse(mapElement.dataset.lambada_position_on_map);
-  lambada_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const forro_position_on_map = JSON.parse(mapElement.dataset.forro_position_on_map);
+    forro_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const forro_position_on_map = JSON.parse(mapElement.dataset.forro_position_on_map);
-  forro_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const rock_position_on_map = JSON.parse(mapElement.dataset.rock_position_on_map);
+    rock_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const rock_position_on_map = JSON.parse(mapElement.dataset.rock_position_on_map);
-  rock_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const tapdance_position_on_map = JSON.parse(mapElement.dataset.tapdance_position_on_map);
+    tapdance_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const tapdance_position_on_map = JSON.parse(mapElement.dataset.tapdance_position_on_map);
-  tapdance_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const chacha_position_on_map = JSON.parse(mapElement.dataset.chacha_position_on_map);
+    chacha_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const chacha_position_on_map = JSON.parse(mapElement.dataset.chacha_position_on_map);
-  chacha_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const valse_position_on_map = JSON.parse(mapElement.dataset.valse_position_on_map);
+    valse_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const valse_position_on_map = JSON.parse(mapElement.dataset.valse_position_on_map);
-  valse_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const capoeira_position_on_map = JSON.parse(mapElement.dataset.capoeira_position_on_map);
+    capoeira_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const capoeira_position_on_map = JSON.parse(mapElement.dataset.capoeira_position_on_map);
-  capoeira_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const zumba_position_on_map = JSON.parse(mapElement.dataset.zumba_position_on_map);
+    zumba_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const zumba_position_on_map = JSON.parse(mapElement.dataset.zumba_position_on_map);
-  zumba_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const poledance_position_on_map = JSON.parse(mapElement.dataset.poledance_position_on_map);
+    poledance_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const poledance_position_on_map = JSON.parse(mapElement.dataset.poledance_position_on_map);
-  poledance_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
+  const kompa_position_on_map = JSON.parse(mapElement.dataset.kompa_position_on_map);
+    kompa_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
-const kompa_position_on_map = JSON.parse(mapElement.dataset.kompa_position_on_map);
-  kompa_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
-
-const zouk_position_on_map = JSON.parse(mapElement.dataset.zouk_position_on_map);
-  zouk_position_on_map.forEach((s) => {
-const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
-const u = document.createElement('div');
-  u.className = 'mapbox-marker-icon-blue.svg';
-  u.style.backgroundImage = `url('${s.image_url}')`;
-  u.style.backgroundSize  = 'cover';
-  u.style.width   = '40px';
-  u.style.height  = '40px';
-new mapboxgl.Marker(u)
-.setLngLat([s.lng, s.lat])
-.setPopup(popup)
-.addTo(map);
-});
-
-
+  const zouk_position_on_map = JSON.parse(mapElement.dataset.zouk_position_on_map);
+    zouk_position_on_map.forEach((s) => {
+  const popup   = new mapboxgl.Popup().setHTML(s.infoWindow);
+  const u = document.createElement('div');
+    u.className = 'mapbox-marker-icon-blue.svg';
+    u.style.backgroundImage = `url('${s.image_url}')`;
+    u.style.backgroundSize  = 'cover';
+    u.style.width   = '15px';
+    u.style.height  = '20px'
+  new mapboxgl.Marker(u)
+  .setLngLat([s.lng, s.lat])
+  .setPopup(popup)
+  .addTo(map);
+  });
 
 // FIN DE LA MAP ELEMENT
 };

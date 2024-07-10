@@ -172,7 +172,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE TANGO
+    # GEOLOCALISATION DES DANSEURS DE FLAMENCO
     @partners_of_flamenco = []
     @profiles.where(dance_id: 8).each do |flamenco_partner|
       @partners_of_flamenco << flamenco_partner if !@partners_of_flamenco.include? flamenco_partner
@@ -334,7 +334,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE lambada
+    # GEOLOCALISATION DES DANSEURS DE LAMBADA
     @partners_of_lambada = []
     @profiles.where(dance_id: 19).each do |lambada_partner|
       @partners_of_lambada << lambada_partner if !@partners_of_lambada.include? lambada_partner
@@ -352,7 +352,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE forro
+    # GEOLOCALISATION DES DANSEURS DE FORRO
     @partners_of_forro = []
     @profiles.where(dance_id: 20).each do |forro_partner|
       @partners_of_forro << forro_partner if !@partners_of_forro.include? forro_partner
@@ -370,7 +370,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE rock
+    # GEOLOCALISATION DES DANSEURS DE ROCK
     @partners_of_rock = []
     @profiles.where(dance_id: 24).each do |rock_partner|
       @partners_of_rock << rock_partner if !@partners_of_rock.include? rock_partner
@@ -388,7 +388,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE tapdance
+    # GEOLOCALISATION DES DANSEURS DE TAPDANCE
     @partners_of_tapdance = []
     @profiles.where(dance_id: 25).each do |tapdance_partner|
       @partners_of_tapdance << tapdance_partner if !@partners_of_tapdance.include? tapdance_partner
@@ -406,7 +406,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE chacha
+    # GEOLOCALISATION DES DANSEURS DE CHACHA
     @partners_of_chacha = []
     @profiles.where(dance_id: 28).each do |chacha_partner|
       @partners_of_chacha << chacha_partner if !@partners_of_chacha.include? chacha_partner
@@ -424,7 +424,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE chacha
+    # GEOLOCALISATION DES DANSEURS DE VALSE
     @partners_of_valse = []
     @profiles.where(dance_id: 29).each do |valse_partner|
       @partners_of_valse << valse_partner if !@partners_of_valse.include? valse_partner
@@ -460,7 +460,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE CAPOEIRA
+    # GEOLOCALISATION DES DANSEURS DE ZUMBA
     @partners_of_zumba = []
     @profiles.where(dance_id: 31).each do |zumba_partner|
       @partners_of_zumba << zumba_partner if !@partners_of_zumba.include? zumba_partner
@@ -478,7 +478,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE CAPOEIRA
+    # GEOLOCALISATION DES DANSEURS DE POLEDANCE
     @partners_of_poledance = []
     @profiles.where(dance_id: 32).each do |poledance_partner|
       @partners_of_poledance << poledance_partner if !@partners_of_poledance.include? poledance_partner
@@ -496,7 +496,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE CAPOEIRA
+    # GEOLOCALISATION DES DANSEURS DE KOMPA
     @partners_of_kompa = []
     @profiles.where(dance_id: 34).each do |kompa_partner|
       @partners_of_kompa << kompa_partner if !@partners_of_kompa.include? kompa_partner
@@ -514,7 +514,7 @@ class UsersController < ApplicationController
       }
     end
 
-    # GEOLOCALISATION DES DANSEURS DE CAPOEIRA
+    # GEOLOCALISATION DES DANSEURS DE ZOUK
     @partners_of_zouk = []
     @profiles.where(dance_id: 35).each do |zouk_partner|
       @partners_of_zouk << zouk_partner if !@partners_of_zouk.include? zouk_partner
