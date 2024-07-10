@@ -1,7 +1,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
-  geocoded_by :position
-  after_validation :geocode
+  # geocoded_by :position
+  # after_validation :geocode
 
   has_one_attached :avatar
   belongs_to  :dance
@@ -43,7 +43,6 @@ class Profile < ApplicationRecord
   AMBITION        = ['teaching', 'social', 'professionnal', 'artistic']
   EMPATHIE        = ['none', 'social', 'professionnal', 'only_dancing']
   SOCIAL          = ['1', '2', '3', '4', '5']
-
 
   SKILLS = %W[
     level
