@@ -5,13 +5,14 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  # def configure_permitted_parameters
-  #   devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo) }
-  # end
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo) }
+    devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
+  end
 
-  # def sign_up_params
-  #   devise_parameter_sanitizer.sanitize(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo)
-  # end
+  def sign_up_params
+    devise_parameter_sanitizer.sanitize(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo)
+  end
 
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :last_name, :age, :experience, :contact, :gender, :photo)
@@ -42,7 +43,7 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :city, :last_name, :age, :experience, :contact, :gender, :photo])
-    devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:username, :password, :remember_me) }
+    devise_parameter_sanitizer.permit(:sign_in) { |u| u.permit(:username, :email, :password, :remember_me) }
   end
 
   # def default_url_options
