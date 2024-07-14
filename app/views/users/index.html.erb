@@ -38,6 +38,16 @@
 
 </div>
 
+<div class="wrapper">
+  <div class="filter-wrapper">
+<h3>Filter those markers: </h3>
+<p><button type="button" class="js-check-all active"> All</button></p>
+<div class="check-filters">
+  <label><input type="checkbox" value="fish" checked> Fish</label>
+  <label><input type="checkbox" value="cat" checked> Cat</label>
+  <label><input type="checkbox" value="dog" checked> Dog</label>
+</div>
+
 <div class="grid-user" style="display:flex;">
   <div class="contain-user">
     <% @users.each do |i| %>
@@ -88,7 +98,6 @@
 const mapElement = document.getElementById('map');
   //DEBUT DE LA MAP ELEMENT
   if (mapElement) {
-
     const places = {
         'type': 'FeatureCollection',
         'features': [
@@ -99,7 +108,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.038659, 38.931567]
+                    'coordinates': [2.35, 47.853]
                 }
             },
             {
@@ -109,7 +118,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.003168, 38.894651]
+                    'coordinates': [2.35, 50.853]
                 }
             },
             {
@@ -119,7 +128,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.090372, 38.881189]
+                    'coordinates': [2.30, 48.893]
                 }
             },
             {
@@ -129,7 +138,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.052477, 38.943951]
+                    'coordinates': [2.25, 47.853]
                 }
             },
             {
@@ -139,7 +148,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.031706, 38.914581]
+                    'coordinates': [2.20, 46.853]
                 }
             },
             {
@@ -149,7 +158,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.020945, 38.878241]
+                    'coordinates': [2.35, 48.853]
                 }
             },
             {
@@ -159,7 +168,7 @@ const mapElement = document.getElementById('map');
                 },
                 'geometry': {
                     'type': 'Point',
-                    'coordinates': [-77.007481, 38.876516]
+                    'coordinates': [2.35, 48.853]
                 }
             }
         ]
@@ -175,14 +184,37 @@ const mapElement = document.getElementById('map');
     center: [2.35, 48.853],
     zoom: 11,
   });
+
+      //MARKERS DANCERS DISPLAYING
+    const dancers = JSON.parse(mapElement.dataset.dancers);
+    dancers.forEach((dancer) => {
+    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+    const element = document.createElement('div');
+      element.className = 'icon-dancer';
+      element.style.backgroundImage = `url('${dancer.image_url}')`;
+      element.style.backgroundSize  = 'cover';
+      element.style.width   = '30px';
+      element.style.height  = '30px';
+      new mapboxgl.Marker(element)
+      .setLngLat([dancer.lng, dancer.lat])
+      .setPopup(popup)
+      .addTo(map)
+    });
+  // MAP LOCATION SEARCH TOOLBAR
+    map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+    })
+  );
   map.on('load', () => {
         // Add a GeoJSON source containing place coordinates and information.
-        map.addSource('places', {
+        map.addSource('dancers', {
             'type': 'geojson',
-            'data': places
+            'data': dancers
         });
 
-        for (const feature of places.features) {
+        for (const feature of dancers.features) {
             const symbol = feature.properties.icon;
             const layerID = `poi-${symbol}`;
 
@@ -191,7 +223,7 @@ const mapElement = document.getElementById('map');
                 map.addLayer({
                     'id': layerID,
                     'type': 'symbol',
-                    'source': 'places',
+                    'source': 'dancers',
                     'layout': {
                         // These icons are a part of the Mapbox Light style.
                         // To view all images available in a Mapbox style, open
@@ -227,28 +259,128 @@ const mapElement = document.getElementById('map');
             }
         }
     });
-  //MARKERS DANCERS DISPLAYING
-  const dancers = JSON.parse(mapElement.dataset.dancers);
-    dancers.forEach((dancer) => {
-    const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
-    const element = document.createElement('div');
-      element.className = 'icon-dancer';
-      element.style.backgroundImage = `url('${dancer.image_url}')`;
-      element.style.backgroundSize  = 'cover';
-      element.style.width   = '30px';
-      element.style.height  = '30px';
-      new mapboxgl.Marker(element)
-      .setLngLat([dancer.lng, dancer.lat])
-      .setPopup(popup)
-      .addTo(map)
+
+var jsonStringify = JSON.stringify(json)
+var jsonParse = JSON.parse(jsonStringify);
+
+var markers = [];
+var markerCluster;
+var filterSelect = jQuery('.filter');
+
+var filters;
+
+//creation de la map
+function initMap() {
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 6,
+      center: new google.maps.LatLng(45.882360730184025, 2.57080078125)
     });
-  // MAP LOCATION SEARCH TOOLBAR
-    map.addControl(
-      new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken,
-        mapboxgl: mapboxgl
-    })
-  );
+
+    for (var i = 0; i < json.length; i++){
+        setMarkers(json[i], map);
+    }
+
+    markerCluster = new MarkerClusterer(map, markers, {ignoreHiddenMarkers: true, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+}
+
+function setMarkers(marker, map) {
+    var markerMap = marker.geometry.coordinates;
+    var title = marker.title;
+    var animal = marker.animal;
+    var drink = marker.drink;
+    var name = marker.name;
+    var pos = new google.maps.LatLng(markerMap[1], markerMap[0]);
+    var content = marker;
+
+    markerMap = new google.maps.Marker({
+        position: pos,
+        title: title,
+        animal: animal,
+        drink: drink,
+        name: name,
+        map: map
+    });
+
+    markers.push(markerMap);
+
+    var infowindow = new google.maps.InfoWindow({
+        content: title + '<br/>' + animal + '<br/>' + drink + '<br/>' + name
+    });
+
+    // Marker click listener
+    google.maps.event.addListener(markerMap, 'click', (function (marker1, content) {
+        return function () {
+            infowindow.setContent(content);
+            infowindow.open(map, markerMap);
+            map.panTo(this.getPosition());
+            // map.setZoom(15);
+        }
+    })(markerMap, content));
+}
+
+function clusterManager(array) {
+    markerCluster.clearMarkers();
+
+    for (i=0; i < array.length; i++) {
+      markerCluster.addMarker(array[i]);
+    }
+}
+
+//@todo add inputsearch
+function newFilter() {
+
+    var filteredMarkers = [];
+
+    $.each(markers, function(index, marker) { // on parcourt les markers
+      //console.log('maker ', index);
+
+      $.each(filters, function(i, categoryFilter) { // on parcourt les différentes catégories présentes dans les filtres
+        if (marker.animal == categoryFilter) {//si le marker est l'une des categories, on l'ajoute au filteredMarkers
+          filteredMarkers.push(marker);
+        }
+      });
+    });
+  //console.log('filteredMarkers : ',filteredMarkers);
+
+    clusterManager(filteredMarkers);
+}
+
+
+
+
+$(document).ready(function() {
+
+
+  $('.check-filters input').on('change', function(){
+    filters = [];
+    $('.check-filters input:checked').each(function(index, elem) {
+      filters.push($(elem).val());
+    });
+    newFilter(filters);
+    //console.log('filters selected : ', filters);
+
+    //si tous les filtres sont cochés
+    if($('.check-filters input').length == $('.check-filters input:checked').length) {
+      //console.log('tous les filtres sont cochés', );
+      $('.js-check-all').addClass('active');
+    } else {
+      //console.log('Pas tous cochés');
+      $('.js-check-all').removeClass('active');
+    }
+  });
+
+  $('.js-check-all').on('click', function(e){
+    var $obj = $(e.currentTarget);
+    $obj.addClass('active');
+    $('.check-filters input').prop('checked', 'true').first().change();
+  });
+
+});
+
+
+jQuery(window).on('load', function(){
+    initMap();
+});
 
   //MARKERS EVENTS DISPLAYING
   const events = JSON.parse(mapElement.dataset.events);
