@@ -71,7 +71,7 @@ end
 
   def destroy
     @dance = Dance.find(params[:id])
-    @user = @dance.user
+    @user  = @dance.user
     @dance.destroy
     redirect_to profile_path(@user)
   end
