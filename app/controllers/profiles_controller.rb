@@ -1,59 +1,142 @@
 class ProfilesController < ApplicationController
-  def create
-    @user = current_user
-    @dance = Dance.new
-    @user.dance = @dance
-    @dance.save
-      redirect_to profile_path
-  end
+  before_action :authenticate_user!
+  before_action :set_profile
 
   def index
-    @users = User.all
-    @markers = @users.geocoded.map do |user|
-      {
-        lat: user.latitude,
-        lng: user.longitude
-      }
+    @users    = User.all
+    @user     = User.find(params[:user_id])
+    @profiles = Profile.all
+    @profile = @user.profiles.each do | profile |
+      profile.id
     end
+    #CANVAS DATAS
+    @profile_skills = User::SKILLS.each { |skill| @user[skill] }
+    @user_skills    = User::SKILLS.each { |skill| @user[skill] }
+    @review         = Review.new
   end
 
+<<<<<<< HEAD
   def show
     @user = current_user
     @dances = Dance.all
     @dance = Dance.new
     @user_dances = Dance.where(user_id: @user)
     @chatrooms = Chatroom.all
+=======
+  def new
+    @user         = current_user
+    @profiles     = @user.profiles.build
+    @profile      = Profile.new(profile_params)
+    @profile.user = @user
+    @profile.save
+    redirect_to profile_path(@profile)
+>>>>>>> 87642039e64e140e485442c7f940c8ace596168f
   end
 
-  def new
-    @dance = Dance.new
-    @user = current_user
+  def create
+    @dance    = Dance.find(params[:dance_id])
+    # @user   = current_user.id
+    @profile  = Profile.new(profile_params)
+    # @profile          = current_user.build_profile
+    # @profile.user     = @user
+    if !@profiles.include? @profile
+    # @profile.user_id  = current_user.id
+      @profile.save
+      redirect_to edit_profile_path(@profile)
+    else
+      redirect_to dances_path
+    end
+  end
+
+  def show
+    @profiles       = Profile.all
+    @profile        = Profile.find_by(id: params[:id])
+    @dance          = Dance.find_by(id: params[:id])
+    @user           = current_user
+    @profile_avatar = @user.photo
+    @dances         = Dance.all
+    @my_dances      = []
+    @user.dances.each do |profile_dance|
+      @dance        = profile_dance.title
+      @my_dances    << @dance if !@my_dances.include?(@dance)
+      end
+    if params[:dance]
+      @my_dances = @dances.select do |dance|
+        dance.title
+      end
+    end
+      # BARRE DE RECHERCHES DES DANSES
+    if params[:query].present?
+    @dance_search = Dance.where("title LIKE ?", "%" + params[:query] + "%")
+      else
     @dances = Dance.all
-    @dances.user = @user
-      redirect_to profile_path
+    end
+      # LISTER LES DANSES
+    # @my_selected_dances = @dances.select(params[:id])
+      # SELECTIONNER UNE DANSE ET L'AJOUTER AU PROFIL
+    # @my_profile_dances = []
+      # GEOLOCALISATION DES EVENTS
+    @appointments = Appointment.all
+    @markers = @appointments.geocoded.map do |appointment|
+      {
+        lat: appointment.latitude,
+        lng: appointment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
+        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
+      }
+    end
+      # GEOLOCALISATION DES USERS
+    @users = User.all
+    @dancer = @users.each do |dancer|
+      dancer.first_name
+    end
+    @user_skills = User::SKILLS.map { |skill| @user[skill] }
+    @profile_skills = Profile::SKILLS.map { |skill| @profile[skill] }
+    # @already_applied = current_user.applies.where(offer_id: @offer).exists?
+    @requests = Request.where(profile_id: @profile)
+    @reviews = Review.all
   end
 
   def edit
-    flash[:alert] = "alert"
-    @user = current_user
-    @dances = Dance.select('dances.*')
-    @menu_dances = @user.dances
-  end
-
-  def chatroom
-    general = Chatroom.find_by(name: "general")
-    redirect_to chatroom_path(general) if general
+    @profile      = Profile.find_by(id: params[:id])
+    @profiles     = Profile.all
+    @profile_user = @profiles.each do |profile|
+      puts profile.dance.title
+    end
+    @dances       = Dance.all
+      # Select et s'ajoute dans la show du profil
+    @my_dances    = @dances.select(params[:id])
+    @user_dances  = @dances.select(params[:id])
   end
 
   def update
-    @user = current_user
-    @user.update(user_params)
-    redirect_to profile_path
+    # @dances = Dance.all
+    @profile = Profile.find(params[:id])
+      if @profile.update(new_profile_params)
+        redirect_to profile_path(@profile)
+      else
+      render :edit
+    end
   end
 
-  private
+  def destroy
+    @profile = Profile.find_by(id: params[:id])
+    # @profile.user = current_user.profile
+    @profile.destroy
+    redirect_to user_path(current_user)
+  end
+
+private
+
+  def set_profile
+    @profile = Profile.find_by(id: params[:id])
+  end
+
+  def new_profile_params
+    params.require(:profile).permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
+  end
 
   def profile_params
-    params.permit(:pseudo, :gender, :age, :location, :experience, :contact, :email, :dance, :id)
+    params.permit(:user_id, :dance_id, :avatar, :investissement, :niveau, :training_per_week, :level, :xp, :coaching_status, :practice_a_week, :technique, :ambition, :empathie, :social)
   end
 end

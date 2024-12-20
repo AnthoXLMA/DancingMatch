@@ -1,27 +1,164 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
+<div class="container-Map-N-Card">
+  <div class="container-map" style="height:600px; width:100%;">
+    <div id="map"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="container text-center">
+      <ul id="results" class="list-inline"></ul>
     </div>
   </div>
-  <div class="menu-navbar">
-    <%= link_to "Back", :back %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "My profile", profile_path %>
-  </div>
-</div>
-
-<div class="title_text">
-  <p>Your appointments</p>
-</div>
-
-  <div class="appointment">
-    <% @appointments.each do |appointment| %>
-        <div class="user_name">
-          <h1 class="card_category_show"> <%= appointment.dance_id %></h1>
+  <div class="map-n-card">
+    <div class="bouton-n-card">
+      <h3>Rechercher un événement</h3>
+          <%= form_tag appointments_path, method: :get do %>
+            <%= text_field_tag :query, params[:appointment], class:"form-control", placeholder: "Lieu, ville ou événement" %>
+            <%= submit_tag "Search", class:"btn btn-primary" %>
+          <% end %>
+        <div class="title_text">
+          <p><%= link_to "Crée ton évenement", new_appointment_path, class:"btn btn-primary", id: "dance" %></p>
         </div>
-      <div class="appointment">
-        <h4><i class="fas fa-user"></i> <%= appointment.user.first_name %> <%= appointment.user.location %></h4>
+        <div class ="container-appointments">
+          <% @appointments.each do |appointment| %>
+        <div class="appointment-card3">
+          <div class="first-line-title">
+            <div class="image-card-appointments">
+              <%= cl_image_tag appointment.pic.key if appointment.pic.attached? %>
+            </div>
+            <div class="information-event">
+              <div id="event-uptitle">
+                <h3><%= appointment.name  %></h3>
+                <a><%= appointment.address %></a>
+              </div>
+            </div>
+          </div>
+          <div id="event-subinformations">
+            <p> <%= appointment.dance.title %></p>
+            <p> <%= appointment.user.first_name %></p>
+            <p> Début: <%= appointment.start_on %></p>
+            <p> Fin: <%= appointment.end_on %></p>
+          </div>
+          </div>
+              <div id="click-participate">
+                <input type="submit" class="btn btn-primary" value="Je participe">
+                <%= link_to "Participer", appointment_subscriptions_path(appointment), method: :post %>
+              </div>
+              <div class="horo" style="background-color:red; width:100px; height:20px; color:white; font-weight:bold; ">
+                <ul id="cours"></ul>
+              </div>
+            <% end %>
+            </div>
+          </div>
+        </div>
       </div>
-    <% end %>
+    </div>
   </div>
+</div>
+
+<script>
+// const initMapbox = () => {
+  const mapElement = document.getElementById('map');
+    if (mapElement) {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v12',
+    center: [2.35, 48.853],
+    zoom: 11,
+  });
+  const markers = JSON.parse(mapElement.dataset.markers);
+    markers.forEach((marker) => {
+    const popup   = new mapboxgl.Popup().setHTML(marker.infoWindow);
+    const element = document.createElement('div');
+      element.className = 'marker';
+      element.style.backgroundImage = `url('${marker.image_url}')`;
+      element.style.backgroundSize  = 'no-repeat';
+      element.style.width   = '25px';
+      element.style.height  = '60px';
+      new mapboxgl.Marker(element)
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(popup)
+      .addTo(map)
+    });
+    map.addControl(
+      new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+      })
+    );
+  };
+  // dancers_location
+  // const dancers = JSON.parse(mapElement.dataset.markers);
+  //   dancers.forEach((dancer) => {
+  // const popup   = new mapboxgl.Popup().setHTML(dancer.infoWindow);
+  // const element = document.createElement('div');
+  //   element.className   = 'marker';
+  //   element.style.backgroundImage = `url('${dancer.image_url}')`;
+  //   element.style.backgroundSize  = 'no-repeat';
+  //   element.style.width   = '25px';
+  //   element.style.height  = '60px';
+  // new mapboxgl.Marker(element)
+  // .setLngLat([dancer.lng, dancer.lat])
+  // .setPopup(popup)
+  // .addTo(map);
+  // });
+  // events_dance_id_location
+  // const events = JSON.parse(mapElement.dataset.markers);
+  //   events.forEach((event) => {
+  // const popup   = new mapboxgl.Popup().setHTML(event.infoWindow);
+  // const element = document.createElement('div');
+  //   element.className = 'marker';
+  //   element.style.backgroundImage = `url('${event.image_url}')`;
+  //   element.style.backgroundSize  = 'no-repeat';
+  //   element.style.width   = '25px';
+  //   element.style.height  = '60px';
+  // new mapboxgl.Marker(element)
+  // .setLngLat([event.lng, event.lat])
+  // .setPopup(popup)
+  // .addTo(map);
+  // });
+  //   map.addControl(
+  //     new MapboxGeocoder({
+  //         accessToken: mapboxgl.accessToken,
+  //         mapboxgl: mapboxgl
+  //     })
+  //   );
+// }
+// export { initMapbox } ;
+
+</script>
+
+<!-- <script>
+  var buttons = document.querySelectorAll('#click-participate');
+  // const results = document.querySelector("#results")
+  var button  = buttons.forEach(button => {
+    var callajax = button.addEventListener('click', (event) => {
+    function reqListener () {
+      console.log(this.responseText);
+      var json  = JSON.parse(this.response);
+      var eur   = parseInt(json.EUR);
+      var dt    = new Date();
+      document.getElementById("cours").innerHTML=eur+ "&euro;";
+      // document.querySelector("#results").innerHTML="Maj "+dt.toLocaleString();
+    }
+    var oReq    = new XMLHttpRequest();
+    oReq.addEventListener("load", reqListener);
+    oReq.open("GET", "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=EUR");
+    oReq.send();
+      })
+  });
+</script> -->
+
+<script>
+
+// const button = document.querySelector("#click-me")
+// button.addEventListener("click", (event) => {
+//   console.log(event);
+//   fetch(element)
+//   .then(response => response.json())
+//   .then((data) => {
+//     console.log(data);
+//   })
+// })
+
+</script>

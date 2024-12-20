@@ -1,10 +1,17 @@
 @import "home";
+@import "application";
 @import "partners_show";
 @import "partners_index";
 @import "dances_index";
 @import "dances_show";
 @import "profile_show";
 @import "profile_edit";
+@import "profile_index";
 @import "devise_sessions_new";
 @import "devise_registrations_new";
 @import "appointments_index";
+@import "users_index";
+@import "users_show";
+@import "users_edit";
+@import "users_create";
+@import "requests_show";

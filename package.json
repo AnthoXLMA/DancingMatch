@@ -1,23 +1,48 @@
 {
-  "name": "DancingMatch",
+  "name": "dancingmatch",
   "private": true,
   "dependencies": {
-    "@rails/actioncable": "^6.0.0",
-    "@rails/activestorage": "^6.0.0",
-    "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.3.0",
-    "bootstrap": "4.5.2",
+    "@rails/actioncable": "6.0.0",
+    "@rails/activestorage": "6.0.0",
+    "@rails/ujs": "6.0.0",
+    "@rails/webpacker": "^5.4.4",
+    "bootstrap": "^3.4.1",
+    "bootstrap-icons": "1.6.0",
     "chart.js": "^2.9.3",
+    "cloudinary": "1.2.2",
+    "flatpickr": "^4.6.9",
     "jquery": "^3.5.1",
-    "mapbox-gl": "^1.12.0",
+    "mapbox-gl": "3.4.0",
+    "pg": "^8.12.0",
+    "places.js": "1.19.0",
     "popper.js": "^1.16.1",
-    "progressbar.js": "^1.1.0",
-    "siema": "^1.5.1",
-    "sweetalert": "^2.1.2",
-    "turbolinks": "^5.2.0"
+    "progressbar.js": "^1.1.1",
+    "siema": "1.5.1",
+    "sweetalert": "2.1.2",
+    "turbolinks": "5.2.0",
+    "worker-loader": "3.0.8"
   },
   "version": "0.1.0",
+  "engines": {
+    "node": "22.2.0",
+    "npm": "10.7.0"
+  },
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
-  }
+    "babel-loader": "8.2.2",
+    "webpack-dev-server": "^5.0.4"
+  },
+  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "heroku-run-build-script": true
 }

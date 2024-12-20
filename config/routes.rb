@@ -1,60 +1,77 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "pages#home"
+  devise_for :users
 
-  devise_for :users do
+  devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resource :profile, only: [:index, :edit, :update, :show, :create] do
-    resources :dances, only: [:create, :show, :new]
+  root to: 'pages#home'
+
+  resources :users, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy]
   end
 
-  resources :profile, only: [:show] do
-    resources :chatrooms, only: [:show, :new]
+  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :users, only: [:index, :edit, :update, :show, :create, :destroy]
   end
 
-  resources :chatrooms, only: :show do
-    resources :messages, only: :create
+  resources :users, only: [:index, :show] do
+    resources :reviews, only: [:create, :index]
   end
 
-  resources :dances, only: [:show] do
-    resources :partners, only: [:show]
+  resources :users, only: [:index, :new, :create, :show] do
+    resources :requests, only: [:index, :new, :create, :show]
   end
 
-  resources :dances, only: [:index, :show, :create, :update, :new] do
+  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :dances, only: [:index, :create, :show, :new, :edit]
+  end
+
+  resources :profiles, only: [:index, :show] do
+    resources :meetings, only: [:create, :show]
+  end
+
+  resources :dances, only: [:index, :show, :new, :create] do
+    resources :users, only: [:show]
+  end
+
+  resources :users, only: [:index, :show, :new, :create, :update] do
+    resources :dances
+  end
+
+  resources :profiles, only: [:index, :new, :create, :show] do
+    resources :requests, only: [:index, :new, :create, :show, :destroy]
+  end
+
+  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
+    resources :appointments, only: [:create, :show, :new]
+  end
+
+  resources :appointments, only: [:index, :show, :new, :create] do
     resources :users
   end
 
-  resources :appointments, only: [:index, :new, :create]
+  resources :dances, only: [:show] do
+    resources :appointments
+  end
 
-  namespace :user do
-  resources :partners, only: [:index]
-    resources :appointments, only: [:index] do
+  resources :dances do
+    resources :profiles, only: [:new, :create, :show, :destroy]
+  end
+
+  resource :appointments do
+    resources :profiles
+  end
+
+  resources :appointments do
+    resources :subscriptions, only: [:new, :create, :destroy]
+  end
+
+  resources :requests, only: [:index] do
     member do
       patch :accept
-        patch :refuse
-      end
+      patch :refuse
     end
   end
-
-  resources :partners, only: [:index, :show] do
-    resources :dances, only: [:index, :show]
-  end
-
-  namespace :partners do
-    resources :dances, only: [:index, :show]
-      resources :appointments, only: [:index, :show]
-    end
-  end
-  # namespace :dances do
-  #   resources :partners, only: [:index, :show]
-  # end
-
-  #   resources :appointments, only: [] do
-  #     member do
-  #       patch :accept
-  #       patch :refuse
-  #       end
-  #     end
-  # end
+end

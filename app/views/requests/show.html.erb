@@ -1,0 +1,5 @@
+  <div class="container-card-profile">
+    <%= @user.requests.each do |request| %>
+    <%= request.profile.dance.title %>
+    <% end %>
+  </div>

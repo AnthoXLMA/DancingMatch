@@ -1,24 +1,35 @@
-body {
-  color:black;
-}
-
-.cont-input{
-  margin-top: 50px;
-  margin-right:auto;
-  margin-left:auto;
-  h2 {
-    font-size:20px;
-    color:black;
-    margin-right:auto;
-    margin-left:auto;
+@media screen and (min-width: 320px) {
+  .cont-input {
+    background-size: cover;
+    background-color:white;
+    margin-top: 130px;
+    height: auto;
+    width: 100%;
+    padding:10px;
+      h3 {
+      font-family: 'Raleway';
+      font-weight:bold;
+      justify-content:center;
+      }
+      a {
+        font-family: 'Raleway';
+      }
+  .form-inputs {
+    font-family: 'Raleway';
+    padding:20px;
+    width:100%;
+    background-color: #f1f2f5;
+    border:medium solid grey;
+    border-radius: 5px;
+    .form-control {
+      width:40vw;
+      font-family: 'Arial';
+    }
   }
-.form-inputs {
-  margin-right:auto;
-  margin-left:auto;
-  width:300px;
+  .form-actions {
+    padding:2vh;
+    width:42vw;
+    font-family: 'Raleway';
+    }
   }
- .form-actions {
-  margin-right:auto;
-  margin-left:auto;
- }
 }

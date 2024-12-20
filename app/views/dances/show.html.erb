@@ -1,8 +1,36 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
+<div class="container-card-profile">
+  <div class="container-3">
+    <div class="container-one-dance">
+      <div class="profile-dance-card2">
+        <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
+        All App Users: <a><%= @users.count %> </a><br>
+        Total Dances Profiles: <a><%= @profiles.count %> </a><br>
+        Total Community <a style="font-weight:bold;"><%= @style %> Dancers</a>: <%= @partners_of_this_dance.count %><br>
+        <div class="list-community-dancers">
+        <% @partners_of_this_dance.each do |member| %>
+          <div class="image-dancers">
+            <%= image_tag member.user.photo %><br>
+          </div>
+        <% end %>
+        <br>
+        </div>
+          <p><%= pluralize @appointments_on_map.count, "organisateur" %></p>
+          <div class="list-community-dancers">
+          <% @event_managers.each do |manager| %>
+            <div class="image-dancers">
+              <%= manager.first_name %>
+              <%= image_tag manager.photo %>
+            </div>
+          <% end %>
+        </div>
+        <div class="add-dance">
+          <div class="button"><a><%= link_to "Ajouter à ma sélection", new_dance_profile_path(@dance) %></a></div>
+          <div class="button"><a><%= link_to "Choisir comme danse favorite", profile_path(@dance), method: :put %></a></div>
+          <div class="button"><a><%= link_to "Créer", new_appointment_path(@dance.id), method: :get, class:"btn btn-primary", id: "dance" %></a></div>
+        </div>
+      </div>
     </div>
+<<<<<<< HEAD
   </div>
 <%= link_to "Back", :back %>
 <%= link_to "Home", root_path %>
@@ -39,7 +67,19 @@
       <h2>NEWS</h2>
     <div class="card-news">
       <h3>< Adel is looking for a partner></h3>
+=======
+    <div class="events-list">
+      <% @appointments_on_map.each do |an_event| %>
+        <div class="card-event-of-dance">
+            <%= image_tag an_event.pic %>
+          <div class="carte-details">
+            <a><%= an_event.name %></a><br>
+            <a><%= an_event.address %></a>
+            <%= image_tag an_event.user.photo %>
+          </div>
+        </div>
+      <% end %>
+>>>>>>> 87642039e64e140e485442c7f940c8ace596168f
     </div>
   </div>
 </div>
-

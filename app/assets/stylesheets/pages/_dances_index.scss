@@ -1,166 +1,206 @@
-// Place all the styles related to the dances controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-.container-dances {
-  background-color: #f1f2f5;
-  margin-top:40px;
-
-  .search {
-    width:300px;
-    margin-left:auto;
-    margin-right:auto;
-  }
-  h1 {
-    font-size:40px;
-  }
-  h2 {
-    font-size: 20px;
-    color:black;
-    font-weight:bold;
-    margin-left:552px;
-    margin-right:auto;
-  }
-
-  .search1 {
-    width:300px;
-    margin-right:auto;
-    margin-left:auto;
-
-    .b-prima {
-    background-color:#791E94;
-    color:white;
-    font-family:'Roboto';
-    font-weight:bold;
-    text-align:center;
-    padding: 7px 15px;
-    width:140px;
-    text-decoration: none;
-    border-radius:30px;
-    margin-top:30px;
-    margin-left: 90px;
-    margin-bottom:30px;
-    transition-duration: 0.4s;
+@media screen and (min-width: 320px) {
+  // Place all the styles related to the dances controller here.
+  // They will automatically be included in application.css.
+  // You can use Sass (SCSS) here: https://sass-lang.com/
+  .container-dances {
+    background-color: white;
+    width:100%;
+    padding:10px;
+    // height:auto;
+    .search {
+      width:90%;
+      margin-left:25%;
+      margin-right:25%;
     }
-
-    .b-prima:hover {
-    background-color: #f91be3;
-    color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-        }
-      }
-    }
-
-  .title {
-    text-align:center;
-
     h1 {
-      font-size:30px;
-      font-weight:bold;
+      font-size:60px;
     }
-  }
-
-  .dances {
-    display:grid;
-    text-align:center;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 10px;
-    justify-content:space-between;
-    margin-left: auto;
-    margin-right: auto;
-    width: 6em
-
-    h3 {
-      font-size: 20px;
-    }
-
-  .card-dances {
-    margin:20px;
-    border-radius: 2px;
-    min-width:200px;
-    width:200px;
-    height:120px;
-    padding: 5px;
-    // flex-grow: 1;
-    margin-left:30px;
-    margin-top: 10px;
-    // border: black;
-    // border-style:solid;
-    border-width: 1px;
-    box-shadow: 10px 3px 25px #bababa;
-    background-color:white;
     h2 {
-      font-size: 15px;
+      font-size: 20px;
+      color:black;
+      font-weight:bold;
+      margin-left:auto;
+      margin-right:auto;
     }
-    h3 {
-      justify-content:space-around;
-      color:#791E94;
-      font-size:25px;
-      transition-duration: 0.4s;
+    p {
+
+    }
+    .search1 {
+      width:100%;
+      margin-right:auto;
+      margin-left:auto;
+      display:flex;
+      flex-direction: column;
+      .enter-your-dance {
+        text-align:center;
       }
-    h3:hover{
-    color:#f91be3;
-    // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-    text-decoration: none;
+      .validate-your-dance {
+        text-align:center;
+        .b-prima-1 {
+        background-color:#791E94;
+        color:white;
+        font-family:'Roboto';
+        font-weight:bold;
+        text-align:center;
+        padding: 7px 15px;
+        width:70%;
+        text-decoration: none;
+        border-radius:30px;
+        margin-top:30px;
+        margin-bottom:30px;
+        transition-duration: 0.4s;
+        }
+        .b-prima:hover {
+        background-color: #f91be3;
+        color: white;
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+        }
       }
+    }
+     .container-card_dances {
+      display:grid;
+      text-align:center;
+      grid-template-columns: 1fr 1fr 1fr;
+      width:100%;
+      grid-gap: 10px;
+      justify-content:space-between;
+      text-align:center;
+       .dance_card {
+        background-color:#fff;
+        border:solid 1px grey;
+        width:100%;
+        height:100%;
+        margin-left: auto;
+        margin-right: auto;
+        // padding:10px;
+        border-radius:10px;
+        margin-bottom:30px;
+        font-family:'Raleway';
+        .image-dance {
+          img {
+          width:15px;
+          height:15px;
+          // border-radius:50%;
+            }
+          }
+          h3 {
+          color:white;
+          a {
+            font-size:15px;
+            text-decoration: none;
+            font-family: 'Marck Script';
+            color:#f91be3;
+            }
+          a:hover {
+            color:gold;
+            font-size:35px;
+            font-weight:bold;
+          }
+        }
+      }
+     }
+    }
+    .title {
+      text-align:center;
+
+      h1 {
+        font-size:30px;
+        font-weight:bold;
+      }
+    }
+
+    .dances {
+      display:grid;
+      text-align:center;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+      justify-content:space-between;
+      margin-left: auto;
+      margin-right: auto;
+      width: 6em;
+
+      h3 {
+        font-size: 20px;
+      }
+
+    .card-dances {
+      margin:20px;
+      border-radius: 2px;
+      min-width:200px;
+      width:200px;
+      height:120px;
+      padding: 5px;
+      font-family:'Raleway';
+      // flex-grow: 1;
+      margin-left:30px;
+      margin-top: 10px;
+      // border: black;
+      // border-style:solid;
+      border-width: 1px;
+      box-shadow: 10px 3px 25px #bababa;
+      background-color:white;
+      h2 {
+        font-size: 15px;
+      }
+      h3 {
+        justify-content:space-around;
+        color:#791E94;
+        font-size:25px;
+        transition-duration: 0.4s;
+        }
+      h3:hover{
+      color:#f91be3;
+      // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+      text-decoration: none;
+        }
+      }
+    }
+
+  .container-appointments-dances {
+    .appointment-card{
+      width:250px;
+      height:150px;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: white;
+      padding:20px;
+      font-family: helvetica;
+      color:black;
+    }
+    .appointment-card2{
+      width:1200px;
+      // height:auto;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: white;
+      margin-top:30px;
+      padding:40px;
+      font-family: helvetica;
+      color:black;
+      margin-bottom:20px;
+      margin-left:50px;
+      .map {
+        // width:100%;
+      }
+      .events-list {
+        margin-bottom:10px;
+        margin-top:10px;
+      }
+    }
+    .appointment-card3 {
+      width:300px;
+      height:500px;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: white;
+      margin-top:25px;
+      padding:40px;
+      font-family: 'Raleway';
+      color:black;
+      margin-bottom:20px;
+      margin-left:50px;
     }
   }
-.navbar-yourjob {
-  display:flex;
-  position:sticky;
-  justify-content:space-between;
-  top:0;
-  height:70px;
-  background-color:white;
-  z-index: 9;
-  opacity:10;
-
-    .logo {
-      padding-top: 4px;
-      padding-left: 6px;
-      position:sticky;
-        img {
-          height:50px;
-          width:50px;
-          margin-top: 0px;
-          margin-right: 0px;
-        }
-        h1 {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
-        }
-
-        .logo-text {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
-        }
-      }
-
-      .avatar {
-      margin-top: 2px;
-      margin-right: 5px;
-      position:sticky;
-      height: 50px;
-      width: 50px;
-      }
-}
-
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
 }
 
 // .logo {

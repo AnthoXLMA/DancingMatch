@@ -16,7 +16,6 @@
   end
 
   def city
-  request.env['ipinfo'].city if request.env['ipinfo'].city
- end
+    request.env['ipinfo'].city if request.env['ipinfo'].city
+  end
 end
-

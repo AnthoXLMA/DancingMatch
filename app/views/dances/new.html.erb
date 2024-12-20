@@ -1,26 +1,11 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
-    </div>
-  </div>
-<%= link_to "Back", :back %>
-<%= link_to "Home", root_path %>
-<%= link_to "My profile", profile_path %>
-</div>
-
 <div class="pt-30 container">
-  <h1 class="text-center">New Dance</h1>
+  <h1 class="text-center"> Add your Dance</h1>
   <div class="row justify-content-center">
     <div class="col-6">
       <%= simple_form_for(@dance) do |f| %>
-        <%= f.error_notification %>
-        <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
         <div class="form-inputs">
           <%= f.input :title %>
         </div>
-
         <div class="form-actions">
           <%= f.button :submit, class: "btn btn-flat" %>
         </div>

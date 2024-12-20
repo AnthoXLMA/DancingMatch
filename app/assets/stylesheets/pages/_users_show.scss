@@ -1,0 +1,274 @@
+@media screen and (min-width: 320px) {
+  .container-show-profile {
+  margin-top:196px;
+  // position:sticky;
+  .container1 {
+    display:grid;
+    .container-map {
+      width:100%;
+      height:700px;
+    }
+    .my_profile {
+        font-family: 'Roboto';
+        color:black;
+        padding:15px;
+        margin-top:0px;
+        width:100%;
+        border:thin solid #f1f2f5;
+      .dance-query {
+        display:flex;
+        margin-top:20px;
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-bottom:5px;
+        .query {
+          width:80%;
+          height:40px;
+        }
+        .button-OK {
+          margin-left:10px;
+          .btn-primary {
+            width:100%;
+            border-radius:5px;
+          }
+        }
+      }
+      .banner-profile {
+        display: flex;
+        background-color: #f1f2f5;
+        color:black;
+        border-radius: 5px;
+        border:solid 1px #f1f2f5;
+        height: 231px;
+        width: 100%;
+        // margin-top:20px;
+        .image-profile {
+          // padding:10px;
+          margin-left:10px;
+          margin-top:10px;
+          height:100px;
+          // width: 100px;
+          img {
+            padding:3px;
+            height:100%;
+            width: 100%;
+            border: solid 4px  white;
+            border-radius:10%;
+            object-fit: cover;
+            }
+          }
+        .my-informations {
+          height:100px;
+          // width:70%;
+          padding:10px;
+          color:grey;
+          h5 {
+            color:black;
+            font-size:15px;
+            font-weight:bold;
+          }
+          a {
+            color:black;
+            font-size:12px;
+            width:20%;
+          }
+        }
+        .menu-block {
+          padding:20px;
+          h5 {
+            color:black;
+            font-size:15px;
+            font-weight:bold;
+          }
+          a {
+            color:black;
+            font-size:12px;
+            width:20%;
+          }
+        }
+      }
+      .container-appointments-profile {
+        width: 100%;
+        margin-top: 15px;
+        display: grid;
+        grid-template-columns: repeat(1, 2fr);
+        grid-gap: 10px;
+        grid-auto-rows: minmax(10px, auto);
+        .button-block {
+        // display:flex;
+        margin-bottom:40px;
+          .titres-cadre {
+            color: black;
+            box-shadow: 0px 0px 8px 0px grey;
+            border-radius: 5px;
+            text-align:center;
+            width:100%;
+            margin-right:30px;
+            margin-bottom:10px;
+            min-height: 300px;
+            .titres {
+              background-color: #A675A1;
+              border-radius: 5px 5px 0px 0px;
+              height:3rem;
+              p {
+                color:white;
+                font-weight:bold;
+                padding:8px;
+              }
+              .accroche {
+                text-align:center;
+                // display: grid;
+                // grid-template-columns: 1fr 1fr;
+                // grid-gap: 5px;
+                // grid-auto-rows: minmax(10px, auto);
+                margin-bottom:10px;
+                p {
+                  color:black;
+                  font-weight:bold;
+                  font-family:'Roboto';
+                  font-size:10px;
+                }
+                .event-cards-2 {
+                  width:10%;
+                  height:10rem;
+                  box-shadow: 2px 2px 10px 1px rgba(1, 0, 1, 0.5);
+                  border-radius:5px 5px 5px 5px;
+                  img {
+                    width:10%;
+                    height:10rem;
+                  }
+                  h2 {
+                    font-size:10px;
+                    color:black;
+                  }
+                  p {
+                    font-size:10px;
+                    color:black;
+                  }
+                }
+              }
+            }
+            .infos-card {
+              text-align:initial;
+              margin-bottom:3px;
+              margin-top: 5px;
+              margin-left:5px;
+              padding:5px;
+              flex-wrap:wrap;
+              justify-content:space-around;
+              display:grid;
+              grid-template-columns: 1fr 1fr 1fr;
+              grid-gap: 20px;
+              grid-auto-rows: minmax(5px, auto);
+              .ecritures {
+                padding:10px;
+                text-align:center;
+                margin-right:auto;
+                margin-left:auto;
+              }
+              .carte-profil {
+                border:solid 1px #f1f2f5;
+                color: black;
+                box-shadow: 0px 0px 2px 0px grey;
+                border-radius: 5px;
+                text-align:center;
+                width:200px;
+                margin-right:0px;
+                margin-bottom:3px;
+              }
+            }
+            .infos-card-2 {
+              text-align:initial;
+              margin-bottom:5px;
+              margin-top: 5px;
+              margin-left:5px;
+              padding:10px;
+              flex-wrap:wrap;
+              justify-content:center;
+              display:grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              grid-gap: 0px;
+              grid-auto-rows: minmax(5px, auto);
+              p {
+              margin-top:30px;
+              display: block;
+              font-size: 1rem;
+              color: white;
+              font-weight:bold;
+              }
+              .profile-unique{
+                margin-top:5px;
+                text-align:center;
+                a {
+                  color:black;
+                  text-decoration:none;
+                  text-align:center;
+                  padding:3px;
+                }
+              }
+              img {
+                width:50px;
+                height:50px;
+                margin-bottom:10px;
+                border-radius:50%;
+                border:solid;
+                background-repeat:   no-repeat;
+                background-position: center;
+                // background-image: url(user.photo);
+                object-fit: cover;
+                }
+                .bi .bi-pen {
+                  width:5%;
+                  height:5%;
+                }
+              }
+            }
+            .my-event {
+              box-shadow: 0px 0px 8px 0px grey;
+              border-radius: 5px;
+              padding:10px;
+              text-align:center;
+              width:100%;
+              margin-right:30px;
+              margin-bottom:10px;
+              min-height: 400px;
+              .titres {
+                background-color: #A675A1;
+                border-radius: 5px 5px 0px 0px;
+                height:3rem;
+                p {
+                  color:white;
+                  font-weight:bold;
+                  padding:8px;
+                }
+              }
+
+              .card-my-event {
+                  width:30%;
+                  height:20%;
+                  border: solid 1px grey;
+                  border-radius: 5px;
+                  padding:10px;
+                .one-event {
+                  width:20%;
+                  height:150px;
+                  img {
+                    width:30%;
+                    height:150px;
+                    object-fit:cover;
+
+                  }
+                  a {
+                    font-size:10px;
+                    color:black;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

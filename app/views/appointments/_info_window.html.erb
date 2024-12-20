@@ -1,0 +1,5 @@
+<div class="info-window-appointment">
+  <h2><%= appointment.name %></h2>
+  <p><%= appointment.address %></p>
+  <%= cl_image_tag appointment.pic.key if appointment.pic.attached? %>
+</div>

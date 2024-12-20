@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: DancingMatch_development
+  database: development_DancingMatch
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: DancingMatch_test
+  database: test_DancingMatch
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -70,17 +70,26 @@ test:
 #
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
-#
-#   DATABASE_URL="postgres://myuser:mypass@localhost/somedatabase"
-#
 # You can use this database configuration with:
 #
-#   production:
+# production:
+#     <<: *default
+#     DATABASE_URL: "postgres://ucdo9qtpnnqe0b:pde645a4b4daee632fa7b68a3358ae885c10453120adb189c39261c3b6f675607@ccba8a0vn4fb2p.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dma7pukv33ako"
 #     url: <%= ENV['DATABASE_URL'] %>
-#
+
+# production:
+#   <<: *default
+#     database: DancingMatch_production
+#     username: DancingMatch
+#     url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
+#     password: <%= ENV['DANCINGMATCH_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
-  url: <%= ENV['POSTGRESQL_ADDON_URI'] %>
+  database: DancingMatch_production
+  adapter: postgresql
+  host: localhost
+  password:
+
 
 # production:
 #   <<: *default

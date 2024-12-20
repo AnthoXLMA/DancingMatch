@@ -1,7 +1,7 @@
 <% content_for :devise_form do %>
   <h2 class="heading text-4xl font-bold pt-4 mb-8">Edit <%= resource_name.to_s.humanize %></h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: user_registration_path(resource_name), html: { method: :put }) do |f| %>
 
     <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -23,6 +23,11 @@
     <div class="mb-6">
       <%= f.label :location, class:"label" %>
       <%= f.text_field :location, class:"input", value: 'Paris' %>
+    </div>
+
+    <div class="mb-6">
+      <%= f.label :city, class:"label" %>
+      <%= f.text_field :city, class:"input", value: 'Paris' %>
     </div>
 
     <div class="mb-6">

@@ -1,0 +1,19 @@
+@media screen and (min-width: 320px) {
+.footer-container {
+    height: 120px;
+    // position: fixed;
+    z-index:1;
+    margin-top:15px;
+    padding: 20px;
+    width: 100%;
+    background-color: #f1f2f5;
+    color: black;
+    font-family: 'Raleway';
+    text-align: center;
+    bottom:0px;
+    a {
+      font-size:15px;
+      font-weight:bold;
+    }
+  }
+}

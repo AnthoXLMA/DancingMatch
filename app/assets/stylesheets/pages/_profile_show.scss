@@ -1,589 +1,241 @@
-// Place all the styles related to the stylings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-.user-infos {
-  text-align:center;
-  margin-top:20px;
-  // height:100px;
-}
-
-.user-addon {
-  display:flex;
-  justify-content:space-around;
-
-    h3 {
-    font-size:20px;
-    }
-    a {
-        justify-content:space-around;
-        color:#791E94;
-        font-size:25px;
-        transition-duration: 0.4s;
-    }
-    a:hover{
-        color:#f91be3;
-        // box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-        text-decoration: none;
-    }
-  }
-
-.show-profile {
-  display:flex;
-
-
-  .container-left {
-    display:grid;
-    width:100%;
-    margin-left:0px;
-    height:auto;
-    h2 {
-      line-height: 1.3;
-      font-size:20px;
-    }
-    .user-details {
-      display:flex;
-      width:100%;
-      background-color:#791E94;
-      justify-content:space-between;
-      align-items:center;
-      align-self:center;
-      h1 {
-      margin-right: 10px;
-      margin-left:10px;
-      padding:10px;
-      font-size:40px;
-      font-weight: bold;
-      color:white;
-      }
-
-      h2 {
-      margin-right: 10px;
-      margin-left:10px;
-      padding:10px;
-      font-size:20px;
-      font-weight: bold;
-      color:white;
-    }
-  }
-
-  }
-  .container-right {
-    display:grid;
-    background-color:#B3B6B7;
-    border-width:1px;
-    border-radius:0px;
-    min-width:200px;
-    width:500px;
-    // height:auto;
-    padding:20px;
-    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.21);
-
-    .user-dances {
-      display:flex;
-    .list-mydances {
-
-    }
-  }
-  .user-partners {
-
-      }
-    }
-  }
-#map {
-  // display:flex;
-}
-
-.card-dans {
-  display:flex;
-}
-
-.card-dans1 {
-  justify-content:center;
-}
-.navbar-yourjob {
-  display:flex;
-  position:sticky;
-  justify-content:space-between;
-  height:70px;
-  background-color:white;
-  z-index: 9;
-  opacity:10;
-
-    .logo {
-      padding-top: 4px;
-      padding-left: 6px;
-      position:sticky;
-        img {
-          height:50px;
-          width:50px;
-          margin-top: 0px;
-          margin-right: 0px;
-        }
-        h1 {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
-        }
-        h2 {
-          font-size: 20px;
-        }
-        a {
-          margin-right:20px;
-        }
-
-        .logo-text {
-          margin-right: 40px;
-          font-family:'Marck Script';
-          font-weight:bold;
-          font-size: 20px;
-          color:#791E94;
-        }
-      }
-
-      .avatar {
-      margin-top: 2px;
-      margin-right: 5px;
-      position:sticky;
-      height: 50px;
-      width: 50px;
-      }
-}
-
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-}
-
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
-
-
-.profile-card {
-  width:500px;
-  border:1px black;
-  box-shadow:10px;
-}
-// .logo {
-//   width:300px;
-//   height:400px;
-
-// }
-.all-elements {
-    display: flex;
-    padding: 1%;
-    height: 100vh;
-    overflow: hidden;
-}
-
-
-// profile card and its elements
-
-.btn-ghost {
-  margin-right:auto;
-  margin-left:auto;
-
-    a.btn-ghost {
-    margin:30px 50px;
-    text-decoration: none;
-  }
-}
-
-.profile-card {
-    display: flex;
-    position:sticky;
-    background: white;
-    margin: 10px auto 1% 1%;
-    width: 65%;
-    height: 670px;
-    box-shadow: 10px 10px 25px 10px rgba(0,0,0,0.21);
-    flex-direction: column;
-    border-radius: 20px 20px 20px 20px;
-
-    h1 {
-      color:#3f3d57;
-      font-size:40px;
-      margin: 0;
-    }
-
-    h2 {
-        color:black;
-        font-family:'Roboto';
-        font-size: 30px;
-        // font-weight: bold;
-        line-height: 0.7em;
-    }
-
-    p {
-        color:#3f3d57;
-        font-family:initial;
-        font-size: 15px;
-        font-style:oblique;
-        margin-bottom: 0px;
-    }
-
-    h4 {
-      font-style:oblique;
-      font-size:15px;
-      font-weight:200;
-    }
-}
-
-.profil-test-btn {
-  padding: 20px;
-}
-
-.profile-card-top {
-    display: flex;
-    // justify-content: space-between;
-    // position: relative;
-    height: 250px;
-    border-radius:20px 20px 0 20px;
-
-    .quote {
-        align-self: flex-end;
-        margin-top:33px;
-        margin-left:20px;
-        // margin-top: 20px;
-        border-left: solid 4px #2F97C1;
-        padding-left: 20px;
-        margin-right:20px;
-        text-align:justify;
-
-        h5 {
-        color:#3f3d57;
-        font-family:'Roboto';
-        font-size: 20px;
-        font-weight: bold;
-        line-height: 0.7em;
-        }
-      }
-
-    .full-name {
-      margin-left:20px;
-      color:#2F97C1;
-      span {
-        font-weight:lighter;
-      }
-      // text-align:center;
-    }
-
-    .user-infos {
-        margin-right:20px
-      }
-
-    .line-infos {
-      h3 {
-        font-weight:100;
-        font-size:20px;
-        margin-left:20px;
-        margin-top: 20px;
-        margin-bottom: 30px;
-      }
-    }
-
-    .name-infos {
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding: 20px 0;
-      // margin-right:20px;
-
-
-      // .tab-content {
-      //   margin-left:10px;
-      //   padding:20px;
-      //   h3 {
-      //     font-size: 15px;
-      //   }
-      //   p {
-      //     font-size: 15px;
-      //   }
-      // }
-    }
-
-    .image-block {
-        display: flex;
-        justify-content: flex-end;
-    }
-}
-
-.profile-pic {
-    object-fit: cover;
-    height: auto;
-    width: 175px;
-    border-radius:20px 0 0 0;
-  }
-
-// skills and grades
-
-.tableaux {
-  display:flex;
-  justify-content:space-evenly;
-  margin-top:30px;
-
-  h5 {
-    color: #2F97c1;
-    font-style: italic;
-  }
-}
-
-
-// .fa-star .orange {
-//   color: orange;
-// }
-
-// .fa-star .grey {
-//   color: grey;
-// }
-
-.tableau1 {
-  margin-left: 60px;
-}
-
-.tableau2 {
-  margin-right:60px;
-}
-.border_profile {
-  border-left: solid 1px #3f3d57;
-}
-
-.tableau1 {
-  .grid-skills {
-    display: flex;
-    margin-left:auto;
-    margin-right:auto;
-
-    .skills-line {
-      display:flex;
-      align-items:center;
-
-      .rating-group {
-        width: 115px;
-
-        h5 {
-          display: flex;
-          justify-content: flex-end;
-        }
-
-        .rating__label {
-            cursor: pointer;
-            padding: 0 0.1em;
-            font-size: 1.5rem;
-        }
-      }
-
-      .skills {
-        h3 {
-          font-size: 15px;
-          font-weight: 200;
-          padding-left: 15px;
-        }
-      }
-    }
-  }
-
-  // h3 span {
-  //   border-bottom: solid #2F97C1;
-  // }
-}
-
-
-.rating-group label {
-    margin-bottom: 0px !important;
-  }
-
-.skills h3 {
-  margin-top: 10px;
-}
-
-.tableau2 {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  .grid-skills {
-    display: flex;
-    align-content: flex-end;
-
-    .skills-line {
-      display:flex;
-      align-items:center;
-
-
-
-      .rating-group {
-        width: 115px;
-
-
-        .rating__label {
-            cursor: pointer;
-            padding: 0 0.1em;
-            font-size: 1.5rem;
-        }
-      }
-
-
-      .skills {
-        h3 {
-          font-size: 15px;
-          font-weight: 200;
-          padding-right: 15px;
-        }
-      }
-    }
-  }
-}
-
-
-
-.row {
-  .col-sm-3 {
-    display:flex;
-  }
-}
-
-// application title and application cards
-.applications-column {
-  overflow-y: auto;
-  z-index: 999;
-  max-height: calc(100vh - 0rem);
-  margin: auto;
-  margin-top:-8px;
-  width:300px;
-
-  h3 {
-    position:sticky;
-    // margin:20px;
-    font-family: 'Roboto';
-    font-weight: bold;
-    color: white;
-    background: #2F97C1;
-    text-align: center;
-    line-height: 40px;
-    // box-shadow: 10px 10px 25px 10px rgba(0,0,0,0.21);
-    border-radius: 5px;
-  }
-
-.offer-card {
-    color: #3f3d57;
-    border:solid 1px rgba(0,0,0,0.21);
-    text-align: center;
+@media screen and (min-width: 320px){
+  .title-profile {
     background-color:white;
-    margin: 20px auto;
-    padding: 10px 0;
-    // box-shadow: 10px 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-
-    h2 {
-        font-size: 16px;
-        font-weight:500;
-        width: 120px;
-        margin: 0;
-        }
-
-    h4 {
-       font-weight:200;
-     }
-
-    p {
-      font-size: 10px;
-      line-height: 1.4;
-      opacity: .7;
-      margin-bottom: 0;
-      margin-top: 8px;
-      margin-right:10px;
+    width:100%;
+    position:fixed;
+    box-shadow: 1px 1px 8px 1px grey;
+    z-index:1;
+    top:0px;
+      h1 {
+      margin-right: 40px;
+      font-family:'Marck Script';
+      font-weight:bold;
+      font-size: 80px;
+      color:#791E94;
+      text-align:center;
+      text-decoration: none;
+      }
+      p {
+        margin-top:10px;
+        text-align:center;
+        font-family:'Raleway';
+      }
+      a {
+        color:#791E94;
+      }
+      a:hover {
+      color: gold;
+      text-decoration: none;
+      }
+      .section {
+        height:50px;
+      }
     }
-
-    .status-apply {
-        font-style: italic;
-        // text-align: right;
-        margin-right: 5px;
-        // margin-top: 0px;
+  .container-card-profile {
+    margin-top:196px;
+    position:sticky;
+    padding:10px;
+    .container-profile-infos {
+      padding:10px;
+      height:900px;
+      width:25%;
+      border:1px solid grey;
     }
-  }
-}
+    .container-profile-middle-column {
+      padding:10px;
+      height:900px;
+      width:60%;
+      border:solid 1px grey;
+      background-color: #ebebebe3;
+      p {
 
-.company-logo-infos {
-    display: flex;
-
-    .logo-company {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-
+      }
+      .my-requests {
+        background-color: white;
+        border-radius:10px;
+        // border:solid 1px grey;
+        box-shadow: 0px 0px 10px -2px;
+        height:200px;
+        padding:10px;
+        margin-bottom:20px;
         img {
-        height: 75px;
+          border-radius:50%;
+          width:100px;
+          height:100px;
+          object-fit:cover;
         }
-
-        p.bordure_verticale {
-        height: 100px;
-        padding-right: 10px;
-        border-right: 0.5px solid black;
-  }
+      }
     }
-
-    .company-infos {
-      width: 100%;
-        text-align: left;
-        // padding-left: 7%;
-        margin-top: 5px;
-        h2 {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-right: 5px;
-          width: 100%;
-          p {
-            display: contents;
-            height: 10px;
+    .container-profile-right-column {
+      padding:10px;
+      height:900px;
+      background-color:red;
+      width:30%;
+      border:1px solid grey;
+      .profile-feed {
+        height:900px;
+        .profile-feed-card-1 {
+        background-color:white;
+        height:100px;
+        margin-bottom:5px;
+        // display: grid;
+        // grid-template-columns: 1fr 1fr 1fr 1fr;
+        // grid-gap: 10px;
+        img {
+          border-radius:50%;
+          width:80px;
+          height:80px;
           }
         }
+        .profile-feed-card-2 {
+        background-color:white;
+        height:auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 10px;
+        img {
+          border-radius:50%;
+          width:80px;
+          height:80px;
+          object-fit:cover;
+          margin-right: auto;
+          margin-left: auto;
+          }
+        }
+      }
     }
-    // .border_card {
-    //   border-left: solid 1px #3f3d57;
-    //   margin-top: 10px;
-    // }
-}
+  .container1 {
+    // display:flex;
+    // margin-right:10px;
+    // width:100%;
+    // z-index:1;
+      .map {
+        // margin-left: 850px;
+        // margin-right:0px;
+        // width:50%;
+        // position:fixed;
+      }
+      .my_profile {
 
-.colored-text {
-    color: #1F6684;
+        .banner-profile {
 
-    i {
-        padding-right: 2px;
+          .image-profile{
+
+            img {
+
+
+              }
+            }
+            .my-informations {
+
+              a {
+
+              }
+            }
+          }
+        .menu {
+          margin-left: 30px;
+          margin-top:10px;
+          margin-bottom:10px;
+          .btn {
+          width: 200px;
+          margin-right:25px;
+          justify-content:center;
+          box-shadow: 1px 1px 5px 1px darkgrey;
+          a {
+              color:white;
+              text-decoration:none;
+            }
+          }
+          .btn:hover{
+            color:white;
+            background-color:#791E94;
+            font-weight:bold;
+            }
+          a:hover {
+          color:white;
+          // background-color: #791E94;
+          font-weight:bold;
+            }
+          }
+          h1 {
+          color:black;
+          margin-right:10px;
+          margin-left:10px;
+        }
+      }
     }
-}
 
-.offer-card:hover {
-    color: white;
-    background-color:#2F97C1;
-    border:1px solid #2F97C1;
+  .container-appointments-profile {
 
-    .company-infos {
-        border-left-color: white;
+      .button-block {
+
+      .titres-cadre {
+
+        .titres {
+
+          p {
+
+          }
+        }
+        .infos-card {
+
+        p {
+
+        }
+        a {
+
+        }
+        img {
+
+          }
+          .bi .bi-pen{
+
+          }
+        }
+      }
     }
-    .colored-text {
-        color: white;
+    .appointment-card{
+      width: 8.5rem;
+      height: 5.5rem;
+      background-color: white;
+      padding:20px;
+      font-family: 'Roboto';
+      color:black;
+      border: 1px solid grey;
+      border-radius: 5px;
     }
-    // .logo-company {
-    //   // background-color:white;
-    // }
+    .appointment-card2{
+      width:1200px;
+      height:800px;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: yellow;
+      margin-top:30px;
+      padding:40px;
+      font-family: 'Roboto';
+      color:black;
+      margin-bottom:20px;
+      margin-left:50px;
+    }
+    .appointment-card3{
+      width:300px;
+      height:500px;
+      margin-bottom:40px;
+      box-shadow: 3px 3px 20px 1px grey ;
+      border-radius:10px;
+      background-color: white;
+      margin-top:25px;
+      padding:40px;
+      font-family: 'Roboto';
+      color:black;
+      margin-bottom:20px;
+      margin-left:50px;
+    }
   }
 
-.sentence {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 70vh;
-  text-align: center;
-  font-size: 15px;
-  line-height: 50px;
-  color: grey;
-  font-family: "Roboto";
+  .my_dances {
+    display:flex;
+    }
+  }
 }

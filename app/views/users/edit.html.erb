@@ -1,0 +1,57 @@
+<div class="container-edition">
+  <div class="container-ed1">
+      <div class="request-profile">
+        <%= simple_form_for(current_user, method: :put) do |f| %>
+          <%= f.error_notification %>
+        <div class="image-profile">
+          <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
+        </div>
+        <div class="my-informations">
+          <a><%= f.label :photo %><br></a>
+          <a><%= f.file_field :photo, as: :file %></a>
+          <a><%= f.input :first_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { value: current_user.first_name } %></a>
+          <a><%= f.input :last_name,
+                  required: true,
+                  autofocus: true,
+                  input_html: { value: current_user.last_name } %></a>
+          <a><%= f.input :age,
+                  required: true,
+                  autofocus: true,
+                  input_html: { placeholder: current_user.age }%></a>
+          <a><%= f.input :location,
+                  required: true,
+                  autofocus: true,
+                  input_html: { placeholder: current_user.location }%></a>
+          <a><%= f.input :city,
+                  required: true,
+                  autofocus: true,
+                  input_html: { placeholder: current_user.city }%></a>
+          <%= f.label :gender %>
+          <a><%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %></a><br>
+          <%= f.label :level %>
+          <a><%= f.select :level, User::LEVELS.map { |level| [level] } %></a><br>
+          <%= f.label :xp %>
+          <a><%= f.select :xp, User::XPS.map { |xp| [xp] } %></a><br>
+          <%= f.label :status %>
+          <a><%= f.select :coaching_status, User::COACHING_STATUS.map { |coaching_status| [coaching_status] } %></a><br>
+          <%= f.label :hours_a_week %>
+          <a><%= f.select :practice_a_week, User::PRACTICE_A_WEEK.map { |practice_a_week| [practice_a_week] } %></a><br>
+          <%= f.label :technique %>
+          <a><%= f.select :technique, User::TECHNIQUE.map { |technique| [technique] } %></a><br>
+          <%= f.label :ambition %>
+          <a><%= f.select :ambition, User::AMBITION.map { |ambition| [ambition] } %></a><br>
+          <%= f.label :social %>
+          <a><%= f.select :social, User::SOCIAL.map { |social| [social] } %></a><br>
+          <div class="mb-6">
+            <%= f.button :submit, "Update", method: :put %>
+          <% end %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+

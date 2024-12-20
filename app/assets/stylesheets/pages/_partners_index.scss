@@ -1,16 +1,15 @@
+@media screen and (min-width: 320px){
 // Place all the styles related to the dances controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
   .title {
     position:sticky;
     text-align:center;
-
     h1 {
       font-size:50px;
       font-weight:bold;
     }
   }
-
   .partners {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
@@ -19,7 +18,6 @@
     h3 {
       font-size: 20px;
     }
-
   .card-partners {
     // display: grid;
     margin:20px;
@@ -36,7 +34,6 @@
     border-width: 1px;
     box-shadow: 0px 0px 1px 0px;
     background-color:white;
-
     h2 {
       color:white;
       margin-left:20px;
@@ -49,4 +46,5 @@
       }
     }
   }
+}
 

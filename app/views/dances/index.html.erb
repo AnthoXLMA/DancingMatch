@@ -1,32 +1,31 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
+<div class="container-card-profile">
+  <div class="container-dances">
+    <div class="search1">
+      <div class="enter-your-dance">
+        <%= form_tag dances_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:dance],
+          class: "form-control",
+          placeholder: "Nom de la danse"
+        %>
+      </div>
+      <div class="validate-your-dance">
+        <%= submit_tag "Search", class: "b-prima-1" %>
+      </div>
+      <% end %>
     </div>
-  </div>
-    <%= link_to "Back", :back %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "My profile", profile_path %>
-  </div>
-<div class="container-dances">
-  <h2> Dancing Partners has found <%=  @style.count %> result(s) </h2>
-  <div class="search1">
-    <%= form_tag dances_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a dance"
-    %>
-    <%= submit_tag "Search", class: "b-prima" %>
-    <% end %>
-  </div>
-  <div class="dances">
+      <p>Dancing Partners has found <%=  pluralize @style.count, "dance" %></p>
+        <div class="container-card_dances">
       <% @dances.each do |dance| %>
-    <div class="card-dances">
-      <h3><%= link_to dance.title, dance_path(dance) %></h3>
-      <p><%=  @dancers.count %> partners</p>
+      <div class="dance_card">
+        <h3><%= link_to dance.title, dance_path(dance) %></h3>
+        <div class="image-dance">
+        <%= cl_image_tag dance.photo.key if dance.photo.attached? %>
+      </div>
+        <%= pluralize dance.profiles.count, "dancer" %><br>
+        <%= pluralize dance.appointments.count, "événement" %>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-  <%= link_to "Back", :back %>
 </div>

@@ -1,0 +1,8 @@
+<div class="info-window-event">
+  <h2><%= appointment.name %></h2>
+  <%= cl_image_tag appointment.pic.key if appointment.pic.attached?  %>
+  <h2><%= appointment.address %></h2>
+  <div class="title_text">
+    <p><%= link_to "Participer" %></p>
+  </div>
+</div>

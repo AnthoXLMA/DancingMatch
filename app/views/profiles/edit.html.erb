@@ -1,90 +1,178 @@
-<div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
-  <div class="logo">
-    <div class="logo-text">
-      <h1>Dancing Partners</h1>
-    </div>
+<div class="container-card-profile" style="height:1000px; display:flex;">
+<div class="formulaire">
+  <%= simple_form_for @profile do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+  <h2><%= @profile.dance.title %></h2>
+    <%= f.label :Category %>
+    <%= f.select :investissement, Profile::INVESTISSEMENT.map { |i| [i] } %><br>
+    <%= f.label :Experience_Level %>
+    <%= f.select :niveau, Profile::NIVEAU.map { |n| [n] } %><br>
+    <%= f.label :Training_hours_per_week %>
+    <%= f.select :training_per_week, Profile::TRAINING_per_Week.map { |t| [t] } %><br>
   </div>
-   <div class="menu-navbar">
-    <%= link_to "Back", :back %>
-    <%= link_to "Home", root_path %>
-    <%= link_to "My profile", profile_path %>
-  </div>
-</div>
-
-<%= simple_form_for(@user, as: @user, url: registration_path(@user), html: { method: :put }) do |f| %>
-<%= f.error_notification %>
-
-<div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :location,
-                required: true,
-                input_html: { autocomplete: "location" } %>
-    <%= f.input :experience,
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.input :dance,
-                required: true,
-                input_html: { autocomplete: "Coach, Student, Entertainment" } %>
-    <%= f.input :experience,
-                required: true,
-                input_html: { autocomplete: "current-password" } %>
-    <%= f.select(:dances, [['Salsa'],
-                          ['Merengue'],
-                          ['Bachata'],
-                          ['Type D', 'Type D'],
-                          ['Type E', 'Type E']
-                         ],{ :prompt => "Please select"},
-                           { :multiple => true, :size => 10 }
-                         ) %>
-      <%= f.input :dance,
-        required: true,
-        autofocus: true,
-        label: "Your dance",
-        collection: ["Salsa", "Merengue", "Bachata", "Kizomba"],
-        input_html: { multiple: true },
-        include_hidden: false
-    %>
-  </div>
-
-<div class="dance-selection">
-  <h1>Select your dances</h1>
-  <div class="alt-menu">
-    <div class="dances_menu">
-      <h2><% @user.dances.each do |dance| %></h2>
-        <div class="menu">
-         <ol><%= dance.title %></ol>
-        </div>
-      <% end %>
-    </div>
-      <p><%= @menu_dances.each do |dance| %>
-        <% dance.title %>
-        <% end %>
-        <p>
-    <p>Which dancer are you?
-      independent coach / professional / Entertainment / Novice <p>
-    <p>What is your level? professional / intermediary / novice <p>
-      <div class="col-12 col-md-4">
-        <h4 class="text-center">Update</h4>
-        <%= simple_form_for profile_path do |f| %>
-          <div class="fields">
-            <%= f.select(:dance, dances_for_select, :prompt => @dances) %>
-            <%= f.input :age, placeholder: @user %>
-            Your dancing experience: <%= f.input :experience, placeholder: @user %>
-            <%= f.input :type, placeholder: @user %>
-            <%= f.button :submit, class: "btn btn-flat" %>
-          </div>
-        <% end %>
-      </div>
-  </div>
-
   <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+    <%= f.submit "Update", method: :put %>
   </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= link_to "Cancel my account", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-</div>
+  <% end %>
+<%= simple_form_for @profile do |f| %>
+    <div class="siema">
+      <div class="skill-card" data-skill-completed="<%= @profile.level.present? %>">
+          <h3>Level</h3>
+          <p>Quel est votre niveau de danse</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.level %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[level]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="level-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[level]", n, @profile.level == n, id: "level-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+        <%= image_tag "interpersonal_skills.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.xp.present? %>">
+          <h3>xp</h3>
+          <p>Quelle est votre expérience de danse?</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.xp %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[xp]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="xp-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[xp]", n, @profile.xp == n, id: "xp-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "rigor.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.coaching_status.present? %>">
+          <h3>Coaching Status</h3>
+          <p>Quel est votre niveau de coaching?</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.coaching_status %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[coaching_status]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="coaching_status-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[coaching_status]", n, @profile.coaching_status == n, id: "coaching_status-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "independence.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.practice_a_week.present? %>">
+          <h3>Practice-a-Week</h3>
+          <p>Quel est votre investissement hebdomadaire?</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.practice_a_week %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[practice_a_week]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="practice_a_week-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[practice_a_week]", n, @profile.practice_a_week == n, id: "practice_a_week-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "communication.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.technique.present? %>">
+          <h3>Technique</h3>
+          <p>Quel est votre niveau de technique de danse?</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.technique %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[technique]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="technique-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[technique]", n, @profile.technique == n, id: "technique-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "teamwork.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.ambition.present? %>">
+          <h3>Ambition</h3>
+          <p>Quel est votre niveau d'ambition</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.ambition %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[ambition]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="ambition-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[ambition]", n, @profile.ambition == n, id: "ambition-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "creativity.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.empathie.present? %>">
+          <h3>empathie</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.empathie %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[empathie]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="empathie-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[empathie]", n, @profile.empathie == n, id: "empathie-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "initiative.svg", class: "skill-image" %>
+      </div>
+      <div class="skill-card" data-skill-completed="<%= @profile.social.present? %>">
+          <h3>Social</h3>
+          <p>The ability to solve problems with relevance and novelty</p>
+          <%# star rating %>
+          <div class="stars-line full-stars-rating">
+            <div class="rating-group">
+              <% unless @profile.social %>
+                <input disabled checked class="rating__input rating__input--none" name="profile[social]" id="adapt-none" value="0" type="radio">
+              <% end %>
+              <% (1..5).each do |n| %>
+                <label aria-label="<%= n %> star" class="rating__label" for="social-<%= n %>"><i class="rating__icon rating__icon--star fa fa-star"></i></label>
+                <%= radio_button_tag("profile[social]", n, @profile.social == n, id: "social-#{n}", class: 'rating__input') %>
+              <% end %>
+            </div>
+          </div>
+          <%# image du skill %>
+          <%= image_tag "stress_management.svg", class: "skill-image" %>
+      </div>
+    </div> <%# div du siema %>
+    <%# boutton pour passer au skill suivant puis si last skill : end questions%>
+  </div>
+    <div class="btns-next-prev">
+      <div class="choices">
+        <button class="prev btn-pn"><i class="fas fa-chevron-left" style="margin-right: 2px;"></i> Previous skill</button>
+        <button class="next btn-pn" style="text-align: center;">Next skill <i class="fas fa-chevron-right" style="margin-left: 2px;"></i></button>
+      </div>
+      <div class="form-actions">
+        <%= f.submit "Update", method: :put %>
+      </div>
+    </div>
+      <% end %>
+  </div>
+</div> <%# div du container-card-profile %>

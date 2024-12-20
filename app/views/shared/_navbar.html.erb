@@ -1,34 +1,67 @@
-<!-- <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <% end %>
+<div class="contenu-body">
+  <% if current_user == nil %>
+  <div class="responsive-container">
+    <div class="title-profile">
+      <h1><%= link_to "Dancing Partners", root_path %></h1>
+      <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
+      <div class="section-navbar-logout">
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+          <div class="column-2">
+            <a class="link"><%= link_to "Connexion", new_user_session_path %></a>
           </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+          <div class="column-2">
+            <a class="link"><%= link_to "Communauté", users_path %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Danses", dances_path %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Agenda", appointments_path %></a>
+          </div>
+
+      </div>
+    </div>
   </div>
-</div> -->
+      <% else %>
+  <div class="responsive-container-2">
+    <div class="title-profile">
+      <div class="navbar-sup" style="display:flex;" >
+        <div class="titres-navbar" >
+          <h1><%= link_to "Dancing Partners", root_path %></h1>
+          <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
+        </div>
+        <div class="current-user-avatar-2" >
+          <div class="picProfile">
+            <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %><br>
+          </div>
+          <div class="nameProfile">
+            <a><%= current_user.first_name %></a>
+          </div>
+        </div>
+      </div>
+      <div class="section-navbar-login">
+
+          <div class="column-2">
+            <a class="link"><%= link_to "Profil", user_path(current_user) %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Communauté", users_path %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Danses", dances_path %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Evénements", appointments_path %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Edit", edit_user_path(current_user) %></a>
+          </div>
+          <div class="column-2">
+            <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
+          </div>
+
+      </div>
+    </div>
+  </div>
+    <% end %>
+</div>

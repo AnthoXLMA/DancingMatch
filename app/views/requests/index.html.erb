@@ -1,0 +1,11 @@
+<div class="container-card-profile">
+  <% @requests.each do |r| %>
+  <div style="border:solid; width:200px; height:200px;">
+  <h3>RDV n°<%= r.id %></h3>
+  <%= r.user.first_name %> wants to meet
+  <%= r.profile.user.first_name %> to dance
+  <%= r.profile.dance.title %>
+  </div>
+  <br>
+  <% end %>
+</div>

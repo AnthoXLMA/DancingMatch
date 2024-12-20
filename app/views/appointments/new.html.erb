@@ -1,0 +1,24 @@
+<div class="container-card-profile">
+  <%= simple_form_for (@appointment) do |f| %>
+  <div class="container_one">
+    <%= f.input :start_on, label: "Sélectionnez vos dates:",
+                            as: :string,
+                           required: false,
+                           input_html: { id: "range_start" } %>
+    <%= f.input :end_on,  label: false,
+                            as: :string,
+                             required: false,
+                             input_html: { id: "range_end" } %>
+    <%= f.input :name, placeholder: "Donne un nom à ton événement" %>
+    <%= f.input :address %>
+    <%= f.collection_select :dance_id, Dance.all, :id, :title, prompt: true %>
+    <%= f.file_field :pic, as: :file %>
+    <%= f.button :submit, method: :post %>
+  </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="appointment-form-div"
+     data-appointments-date="<%= @appointments_dates.to_json %>">
+</div>

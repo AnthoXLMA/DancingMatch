@@ -1,0 +1,29 @@
+<div class="container-card-profile">
+<h1><%= link_to @style, appointment_path(@appointment) %></h1>
+  <div class="add-dance">
+    <%= link_to "Select this dance", profile_path(@appointment) %>
+    <%= link_to "Choose", profile_path(@appointment.id), method: :post, class:"btn-ghost", id: "appointment" %>
+  </div>
+  <div id="appointment-form-div"
+     data-appointments-date="<%= @appointments_dates.to_json %>">
+  </div>
+  <div class="bouton-home">
+    <%= link_to "Home", root_path %>
+  </div>
+  <div class="image-card-appointments">
+    <%= image_tag @appointment.pic if @appointment.pic.attached? %>
+  </div>
+  <div class="container3">
+    <div class="bouton">
+      <div class="card-partner">
+
+      </div>
+    </div>
+  <div class="news">
+      <h2>NEWS</h2>
+    <div class="card-news">
+      <h3>< **** is looking for a partner ></h3>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="navbar-yourjob" style="box-shadow: 10px 3px 25px #bababa;  justify-content:space-between;">
   <div class="logo">
     <div class="logo-text">
@@ -12,27 +13,35 @@
     <%= link_to "My profile", profile_path %>
   </div>
 </div>
-
-<div class="user-infos">
-  <div class="user-addon">
-    <h3><%= link_to "Home", root_path %><h3>
-    <h3><%= link_to "Meet all partners", partners_path %></h3>
-    <h3><%= link_to "See all dances", dances_path %></h3>
-    <h3><%= link_to "Update your profile", edit_profile_path %></h3>
-    <h3><%= link_to "Chatroom", chatroom_path(@chatrooms) %></h3>
-    <h3><%= link_to "Add an event", appointments_path %></h3>
-    <h3><%= link_to "Create a Dance", profile_dances_path %></h3>
-  </div>
-</div>
-
-<div class="show-profile">
-  <div class="container-left">
-    <div class="user-details">
-      <h1><%= @user.first_name %></h1>
-      <h2><%= @user.location %></h2>
-      <h2><%= @user.age %> years old</h2>
-      <h2><%= @user.experience %> years dancing XP</h2>
+=======
+<div class="container-card-profile" style="display:flex;">
+  <div class="container-profile-infos" style="height:1200px;">
+    <h2>
+      <%= @profile.dance.title %>
+      LEVEL <%= @profile.level %>
+      <%= @profile.niveau %>
+      <%= @profile.investissement %>
+      <%= @profile.training_per_week %>h/week
+    </h2>
+      <%= 'SKILLS' %>
+    <h2 id="skill-id">
+      <p><%= @profile.level %></p>
+      <p><%= @profile.xp %></p>
+      <p><%= @profile.coaching_status %></p>
+      <p><%= @profile.practice_a_week%></p>
+      <p><%= @profile.ambition %></p>
+      <p><%= @profile.empathie %></p>
+      <p><%= @profile.social %></p>
+    </h2>
+    <div class="button">
+      <%= link_to "Modifie ce profile", edit_profile_path %></a>
     </div>
+>>>>>>> 87642039e64e140e485442c7f940c8ace596168f
+
+    <div class="button">
+      <%= button_to "Destroy", user_profile_path(@profile), method: :delete %>
+    </div>
+<<<<<<< HEAD
     <div class="user-dances">
       <div class="cards">
       <h3>You have <%= @user.dances.count %> dances selected</h3>
@@ -59,20 +68,62 @@
             <%= f.select(:title, dances_for_select, :prompt => 'Select') %>
             <%= f.submit "Select" %>
           </div>
+=======
+    <br>
+    <% @user.profiles.each do |perfil| %>
+    <li><%= link_to perfil.dance.title, profile_path(perfil) %></li>
+    <%= button_to "Supprime ce profile",  user_profile_path(perfil.id), method: :delete %>
+      <% end %>
+    </div>
+    <div class="container-profile-middle-column" style="height:1200px;">
+      FIL D'ACTUALITE
+    <p><%= pluralize @requests.count, "demande" %></p>
+      <% @requests.each do |my_request| %>
+    <div class="my-requests">
+      Vous avez une nouvelle demande:
+      <br>
+        <%= my_request.user.first_name %>
+        <%= my_request.user.last_name %>
+        <%= my_request.user.created_at %>
+        <%= image_tag my_request.user.photo %>
+      <br>
+    </div>
+    <% end %>
+  </div>
+  <div class="container-profile-right-column" style="height:1200px;">
+    <div class="profile-feed">
+      <div class="profile-feed-card-1">
+        <%= pluralize @profiles.count, "profil" %>
+      </div>
+      <div class="profile-feed-card-1">
+        <%= pluralize @users.count, "membre" %>
+      </div>
+      <div class="profile-feed-card-1">
+        EVENEMENTS PREVUS
+        <%= pluralize @appointments.count, "événement" %>
+      </div>
+      <div class="profile-feed-card-2" style="padding:10px;">
+        <% @users.each do |user| %>
+        <%= cl_image_tag user.photo.key if user.photo.attached? %>
+>>>>>>> 87642039e64e140e485442c7f940c8ace596168f
         <% end %>
       </div>
+    </div>
   </div>
 </div>
-</div>
-</div>
-</div>
-      <div>
-      <%= form_for @dance do |f| %>
-      <%= f.collection_check_boxes :title, Dance.all, :id, :title %>
-      <%= f.submit %>
-        <% end %>
-      </div>
+  <ul id="results"></ul>
+  <ul id="resultats"></ul>
+  <form action="" id="form">
+    <input type="email" id="email">
+    <input type="password" id="password">
+    <input type="submit">
+  </form>
+  <section class="conteneur">
+    <section class="table1">
+      <section>
+        <article>
 
+<<<<<<< HEAD
   <div>
     <h1><%= link_to "Create a new chat", new_profile_chatroom_path(@chatrooms) %></h1>
   </div>
@@ -83,3 +134,131 @@
        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
 
+=======
+        </article>
+        <article>
+
+        </article>
+      </section>
+    </section>
+  </section>
+<script type="text/javascript">
+  const skill = document.querySelector("#skill-id");
+  const parseSkill = skill.querySelectorAll('p');
+  const totalSkill = parseSkill.forEach(function(skillNumber) {
+    function userTotal(skillNumber) {
+      const calculate = skillNumber;
+        let sum = 0;
+          for (let i = 0; i < calculate.length; i++){
+            sum += calculate[i];
+          }
+        };
+      console.log(userTotal(parseSkill));
+    });
+  results.insertAdjacentHTML("beforeend",totalSkill);
+  var somme = 0;
+  for (var n=0; n <= 10; n = n+1) {
+    somme = somme+n;
+  }
+  document.getElementById("results").innerHTML="Voilà où nous en sommes aujourd'hui, le début de Javascript! Bientôt nous pourrons créer des éléments dynamiques et autres fonctionnalités plus puissantes,plus rapides, et... plus techniques! Nous avons hâte d'achever ce projet! Ici, vous retrouverez l'ensemble des fonctions script de la page. Tentez parfois de recharger la page pour voir les changements. Essayez de faire défiler ce texte avec un compteur entre chaque lettre...";
+</script>
+<script>
+  const signUp = (event) => {
+  event.preventDefault()
+  const emailValue = document.getElementById("email").value
+  const passwordValue = document.getElementById("password").value
+  fetch("https://reqres.in/api/register", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({"email": emailValue, "password": passwordValue})
+  })
+    .then(response => response.json())
+    .then((data) => {
+      console.log(data)
+    })
+  }
+  const form = document.querySelector("#form")
+  form.addEventListener("submit", signUp)
+</script>
+<script>
+  var somme = 0;
+  for (var n=0; n <= 10; n = n+1) {
+    somme = somme+n;
+  }
+  document.getElementById("resultats").innerHTML="Somme = " +somme;
+</script>
+<script>
+  window.addEventListener('load', ev => {
+    const defaults = {
+        "backgroundColor": "#ffffff",
+        "color": "#000000",
+        "fontFamily": "cursive",
+        "fontSize": "1.2em",
+        "fontWeight": "normal",
+        "lineHeight": "1.5em",
+        "letterSpacing": "0.15em",
+        "mozHyphens": "auto",
+        "webkitHyphens": "auto",
+        "msHyphens": "auto",
+        "hyphens": "auto",
+        "interval": 100,
+        "text": ""
+    };
+    const str1 = "Voilà où nous en sommes seulement aujourd'hui, le début de Javascript!" +
+        " Bientôt nous pourrons créer des éléments dynamiques et autres fonctionnalités plus puissantes,plus rapides, et... plus techniques!" +
+        " Nous avons hâte d'achever ce projet! Ici, vous retrouverez l'ensemble des fonctions script de la page."+
+        " Tentez parfois de recharger la page pour voir les changements."+
+        " Essayez de faire défiler ce texte avec un compteur entre chaque lettre."+
+        "Cela semble OK";
+    const dvjhEcrit = (options, parent) => {
+        let
+            opts = Object.assign({}, defaults, options),
+            interval = parseInt(opts.interval, 10) || 100,
+            tabChaine = opts.text,
+            longueur = tabChaine.length,
+            conteneur = document.createElement('div'),
+            showText = k => {
+                if (k < longueur) {
+
+                    //$(conteneur).append(tabChaine[k++]);
+
+                    conteneur.append(tabChaine[k++]);
+
+                    setTimeout(function () {
+                        showText(k);
+                    }, interval);
+                }
+            };
+
+        conteneur.style = {
+            "backgroundColor": opts.backgroundColor,
+            "color": opts.color,
+            "fontFamily": opts.fontFamily,
+            "fontSize": opts.fontSize,
+            "fontWeight": opts.fontWeight,
+            "lineHeight": opts.lineHeight,
+            "letterSpacing": opts.letterSpacing,
+            "-moz-hyphens": opts.mozHypens,
+            "-webkit-hyphens": opts.webkitHypens,
+            "-ms-hyphens": opts.msHypens,
+            "hyphens": opts.hyphens
+        };
+
+        parent.appendChild(conteneur);
+
+        showText(0);
+    }
+    dvjhEcrit({
+        "text": str1
+    }, document.querySelector('article'));
+
+    // fin code du test
+
+}, {
+    capture: false,
+    passive: true,
+    once: false
+});
+document.getElementById("results").innerHTML(str1);
+</script>
+>>>>>>> 87642039e64e140e485442c7f940c8ace596168f

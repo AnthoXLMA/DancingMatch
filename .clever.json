@@ -1,1 +1,15 @@
+<<<<<<< HEAD
 {"apps":[{"app_id":"app_ab3e29d0-08d1-46e0-ac8d-cddefa13267e","org_id":"user_90e2a040-45cf-4221-b9cc-e7b67bff23e3","deploy_url":"https://push-par-clevercloud-customers.services.clever-cloud.com/app_ab3e29d0-08d1-46e0-ac8d-cddefa13267e.git","name":"Danc_Part","alias":"Danc_Part"}]}
+=======
+{
+  "apps": [
+    {
+      "app_id": "app_af5f81a9-2d27-4029-9ccf-2fb5b4185c1c",
+      "org_id": "user_90e2a040-45cf-4221-b9cc-e7b67bff23e3",
+      "deploy_url": "https://push-n2-par-clevercloud-customers.services.clever-cloud.com/app_af5f81a9-2d27-4029-9ccf-2fb5b4185c1c.git",
+      "name": "DancingPartners",
+      "alias": "DancingPartners"
+    }
+  ]
+}
+>>>>>>> 87642039e64e140e485442c7f940c8ace596168f
