@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def sign_up_params
-    devise_parameter_sanitizer.sanitize(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :city, :last_name, :age, :experience, :contact, :gender, :photo)
+    devise_parameter_sanitizer.sanitize(:email, :password, :encrypted_password, :password_confirmation, :first_name, :location, :city, :website, :last_name, :age, :experience, :contact, :gender, :photo)
   end
 
   # def configure_sign_up_params
