@@ -9,11 +9,11 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ton prénom" }%>
-         <%= f.input :last_name,
-                    required: true,
+<!--          <%= f.input :last_name,
+                    required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "Ton nom" }%>
-         <%= f.input :city,
+                    input_html: { autocomplete: "Ton nom" }%> -->
+        <%= f.input :city,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ta ville" }%>
@@ -31,11 +31,11 @@
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :contact,
-                    required: true,
+                    required: false,
                     autofocus: true,
                     input_html: { autocomplete: "Ton numéro de téléphone" }%>
         <%= f.input :age,
-                    required: true,
+                    required: false,
                     autofocus: true,
                     input_html: { autocomplete: "Ton âge" }%>
         <%= f.input :location,
@@ -43,7 +43,7 @@
                     autofocus: true,
                     input_html: { autocomplete: "Ton adresse" }%>
         <%= f.input :website,
-                    required: true,
+                    required: false,
                     autofocus: true,
                     input_html: { autocomplete: "URL" }%>
         <%= f.label :photo %><br>

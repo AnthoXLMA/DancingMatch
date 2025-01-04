@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable, :validatable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
@@ -44,7 +43,7 @@ class User < ApplicationRecord
   has_many :requests, dependent: :destroy
 
   validates :first_name, presence: true, length: { minimum: 4 }
-  validates :last_name, length: { minimum: 3 }
+  # validates :last_name, length: { minimum: 3 }
   validates_confirmation_of :password
 
   after_create :build_profile
