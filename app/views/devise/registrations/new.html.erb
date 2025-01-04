@@ -17,6 +17,8 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ta ville" }%>
+        <%= f.label :experience %>
+        <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
@@ -36,8 +38,6 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ton âge" }%>
-        <%= f.label :experience %>
-        <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
         <%= f.input :location,
                     required: true,
                     autofocus: true,
