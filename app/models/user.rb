@@ -7,7 +7,8 @@ class User < ApplicationRecord
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
-  GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple']
+  GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple', 'Association']
+  EXPERIENCE      = ['Débutant', 'Intermédiaire', 'Avancé']
   DANCES          = Dance.all
   LOCATION        = [Geocoder.search(:location)]
   SKILLS          = %w[

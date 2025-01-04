@@ -3,14 +3,20 @@
     <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs-registration">
+        <%= f.label :genre %><br>
+        <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ton prénom" }%>
-<!--         <%= f.input :last_name,
+         <%= f.input :last_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Ton nom" }%> -->
+                    input_html: { autocomplete: "Ton nom" }%>
+         <%= f.input :city,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Ta ville" }%>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
@@ -30,20 +36,16 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ton âge" }%>
-        <%= f.input :experience,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "Ton experience" }%>
+        <%= f.label :experience %>
+        <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
         <%= f.input :location,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ton adresse" }%>
-        <%= f.input :city,
+        <%= f.input :website,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Ta ville" }%>
-        <%= f.label :genre %><br>
-        <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
+                    input_html: { autocomplete: "URL" }%>
         <%= f.label :photo %><br>
         <%= f.file_field :photo, as: :file %>
       </div>
