@@ -5,6 +5,8 @@
       <div class="form-inputs-registration">
         <%= f.label :genre %><br>
         <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
+        <%= f.label :experience %>
+        <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
@@ -17,8 +19,6 @@
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "Ta ville" }%>
-        <%= f.label :experience %>
-        <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
         <%= f.input :email,
                     required: true,
                     autofocus: true,
@@ -30,14 +30,14 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :contact,
+<!--        <%= f.input :contact,
                     required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "Ton numéro de téléphone" }%>
-        <%= f.input :age,
+                    input_html: { autocomplete: "Ton numéro de téléphone" }%> -->
+<!--        <%= f.input :age,
                     required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "Ton âge" }%>
+                    input_html: { autocomplete: "Ton âge" }%> -->
         <%= f.input :location,
                     required: true,
                     autofocus: true,
