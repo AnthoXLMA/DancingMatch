@@ -3,6 +3,14 @@
     <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs-registration">
+        <%= f.input :first_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Ton prénom" }%>
+<!--         <%= f.input :last_name,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "Ton nom" }%> -->
         <%= f.input :email,
                     required: true,
                     autofocus: true,
@@ -14,14 +22,6 @@
         <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
-        <%= f.input :first_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "Ton prénom" }%>
-        <%= f.input :last_name,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "Ton nom" }%>
         <%= f.input :contact,
                     required: true,
                     autofocus: true,
