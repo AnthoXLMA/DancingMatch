@@ -3,6 +3,7 @@
     <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= f.error_notification %>
       <div class="form-inputs-registration">
+
         <%= f.label :genre %><br>
         <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
         <%= f.label :experience %>
