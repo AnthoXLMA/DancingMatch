@@ -1,25 +1,35 @@
+<div class="dp-background">
+    <div class="container">
 <div class="cont-input-new">
+  <div class="container-form">
   <div class="container-card-profile">
     <%= simple_form_for(resource, as: resource_name, url: user_registration_path) do |f| %>
       <%= f.error_notification %>
-      <div class="form-inputs-registration">
+    <div class="form-inputs-registration">
+        <div style="margin-right: auto; margin-left: auto; padding: 10px; justify-content: center; text-align: center;">
+        <a><%= f.label :genre %></a>
+        <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %>
+        <br>
+        </div>
+        <div style="margin-right: auto; margin-left: auto; padding: 10px; justify-content: center; text-align: center;">
+          <%= f.label :experience %>
+          <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
 
-        <%= f.label :genre %><br>
-        <%= f.select :gender, User::GENDER_TYPES.map { |gender| [gender] } %><br>
-        <%= f.label :experience %>
-        <%= f.select :gender, User::EXPERIENCE.map { |experience| [experience] } %><br>
         <%= f.input :first_name,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Ton prénom" }%>
+                    input_html: { autocomplete: "Ton prénom" } %>
 <!--          <%= f.input :last_name,
                     required: false,
                     autofocus: true,
                     input_html: { autocomplete: "Ton nom" }%> -->
-        <%= f.input :city,
+<!--         <%= f.input :city,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "Ta ville" }%>
+                    input_html: { autocomplete: "Ta ville" }%> -->
         <%= f.input :email,
                     required: true,
                     autofocus: true,
@@ -49,11 +59,12 @@
                     input_html: { autocomplete: "URL" }%>
         <%= f.label :photo %><br>
         <%= f.file_field :photo, as: :file %>
-      </div>
-
         <div class="mb-6">
           <%= f.submit "S'inscrire", class: "btn btn-default block w-full text-center", method: :post %>
         </div>
+        </div>
+      </div>
     <% end %>
   </div>
+    </div>
 </div>
