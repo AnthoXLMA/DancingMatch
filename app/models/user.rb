@@ -1,10 +1,28 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable, :omniauthable, :validatable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+
+
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  # omniauth :facebook
+  # validates :facebook_uid, uniqueness: true, allow_nil: true
+
+  # def self.from_omniauth(auth)
+  #   user = User.where(provider: auth.provider, uid: auth.uid).first
+
+  #   unless user
+  #     user = User.create(
+  #       provider: auth.provider,
+  #       uid: auth.uid,
+  #       name: auth.info.name,
+  #       email: auth.info.email,
+  #       facebook_token: auth.credentials.token
+  #     )
+  #   end
+
+  #   user
+  # end
+
 
   GENDER_TYPES    = ['Gentleman', 'Lady', 'Couple', 'Association']
   EXPERIENCE      = ['Débutant', 'Intermédiaire', 'Avancé']

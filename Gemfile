@@ -34,6 +34,9 @@ gem "image_processing", ">= 1.2"
 gem "importmap-rails", "~> 1.2.3"
 gem "rails_12factor"
 
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 #GEM Updating Juin 2024 - End
 
 gem "aws-sdk-s3", require: false
