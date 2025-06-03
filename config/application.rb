@@ -9,10 +9,14 @@ Bundler.require(*Rails.groups)
 module DancingMatch
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.1
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
     config.active_support.cache_format_version = 7.0
     config.action_view.embed_authenticity_token_in_remote_forms = true
     config.assets.initialize_on_precompile = false
+    config.api_only = true
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

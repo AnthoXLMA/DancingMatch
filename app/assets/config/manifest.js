@@ -9,3 +9,4 @@
 
 
 // <%= javascript_importmap_tags %>
+//= link_tree ../builds

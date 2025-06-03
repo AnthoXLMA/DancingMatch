@@ -75,4 +75,7 @@ Rails.application.routes.draw do
       patch :refuse
     end
   end
+  namespace :api do
+  resources :users, only: [:show, :update]
+end
 end

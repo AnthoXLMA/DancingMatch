@@ -2,7 +2,7 @@
   <div class="container-3">
     <div class="container-one-dance">
       <div class="profile-dance-card2">
-        <h1>Carte de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
+        <h1>Grille de la communauté</h1><h2 style="text-decoration:none;"><%= link_to @style, dance_path(@dance) %></h2>
         All App Users: <a><%= @users.count %> </a><br>
         Total Dances Profiles: <a><%= @profiles.count %> </a><br>
         Total Community <a style="font-weight:bold;"><%= @style %> Dancers</a>: <%= @partners_of_this_dance.count %><br>
@@ -44,3 +44,23 @@
     </div>
   </div>
 </div>
+
+<h2 class="text-xl font-bold mb-4">Danseurs de <%= @style %></h2>
+<p class="mb-2 text-sm text-gray-600">
+  Total : <strong><%= @partners_of_this_dance.count %></strong>
+</p>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-6">
+  <% @partners_of_this_dance.each do |member| %>
+    <div class="bg-white rounded-lg shadow p-3 flex flex-col items-center text-center hover:shadow-md transition">
+      <% if member.user.photo.attached? %>
+        <%= image_tag member.user.photo, class: "w-2 h-2 rounded-full object-cover border mb-2" %>
+      <% else %>
+        <div class="w-20 h-20 rounded-full bg-gray-200 mb-2 flex items-center justify-center text-sm text-gray-500">No Photo</div>
+      <% end %>
+      <p class="font-medium text-sm"><%= member.user.first_name %></p>
+      <p class="text-xs text-gray-500"><%= member.user.city %></p>
+    </div>
+  <% end %>
+</div>
+
