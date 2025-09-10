@@ -1,21 +1,119 @@
-
-  <div class="container-background">
-    <div class="background">
-      <div class="background-picture">
-        <!-- OK en local --> <!-- <img src= "assets/aditya-ali-SzI4No8rQ14-unsplash.jpg" > -->
-        <img src= "https://res.cloudinary.com/hnnyhemvj/image/upload/v1720115386/aditya-ali-SzI4No8rQ14-unsplash_qaiq68.jpg">
-      </div>
-      <div class="container">
-        <p>Dancing Partners est une communauté en ligne de danseurs permettant de trouver vos partenaires de danse.
-          Découvrez les agendas la danse, rencontrez vos danseurs favoris, participez aux meilleurs évènements de danse, et devenez organisateurs de vos évènements.
-        </p>
-        <div class="search2">
-          <%= form_tag dances_path, method: :get do %>
+<div class="container-background">
+  <div class="background">
+    <div class="background-picture">
+      <img src="https://res.cloudinary.com/hnnyhemvj/image/upload/v1720115386/aditya-ali-SzI4No8rQ14-unsplash_qaiq68.jpg" alt="Background image" />
+    </div>
+    <div class="container">
+      <p>
+        Dancing Partners est une communauté en ligne de danseurs permettant de trouver vos partenaires de danse.
+        Découvrez les agendas la danse, rencontrez vos danseurs favoris, participez aux meilleurs évènements de danse, et devenez organisateurs de vos évènements.
+      </p>
+      <div class="search2">
+        <%= form_tag dances_path, method: :get do %>
           <%= text_field_tag :query, params[:dance], class: "form-control", placeholder: "Enter your dance and find your community" %>
           <%= submit_tag "Search", class: "b-primary" %>
         <% end %>
-        </div>
       </div>
     </div>
   </div>
+</div>
 
+<style>
+  /* Conteneur principal, prend tout l'écran */
+.container-background, .background {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image de fond : toujours couvrir tout, centrer, responsive */
+.background-picture {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.background-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* adapte l'image pour remplir le conteneur */
+  object-position: center;
+  display: block;
+}
+
+/* Contenu au-dessus */
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;  /* limite largeur pour un meilleur confort lecture */
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.8); /* fond semi-transparent pour lisibilité */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+/* Texte */
+.container p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Formulaire */
+.search2 {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap; /* sur mobile les champs se passent à la ligne */
+  justify-content: center;
+}
+
+/* Input et bouton */
+.form-control {
+  flex: 1 1 auto;
+  min-width: 200px;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.b-primary {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.b-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive : texte et formulaire plus petits sur petits écrans */
+@media (max-width: 480px) {
+  .container {
+    max-width: 90vw;
+    padding: 15px;
+  }
+  .container p {
+    font-size: 1rem;
+  }
+  .form-control {
+    min-width: 100%;
+  }
+  .search2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+</style>

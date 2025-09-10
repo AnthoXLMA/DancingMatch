@@ -36,6 +36,11 @@ gem "rails_12factor"
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+# Gemfile
+gem "rack-cors"
+# Gemfile
+gem "devise"
+gem "devise_token_auth"
 
 #GEM Updating Juin 2024 - End
 
