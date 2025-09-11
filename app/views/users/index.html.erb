@@ -50,11 +50,31 @@
 
 <div class="grid-user" style="display:flex;">
   <div class="contain-user">
+    <% if @users.present? %>
+      <% @users.each do |user| %>
+        <div class="card-community">
+          <div class="image-user-card">
+            <%= cl_image_tag user.photo.key if user.photo.attached? %>
+          </div>
+          <div class="user-info">
+            <p><%= user.name %></p>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>Aucun utilisateur trouvé.</p>
+    <% end %>
+  </div>
+</div>
+
+
+<!-- <div class="grid-user" style="display:flex;">
+  <div class="contain-user">
     <% @users.each do |i| %>
     <div class="card-community">
         <div class="image-user-card">
           <%= cl_image_tag i.photo.key if i.photo.attached? %>
-        </div>
+        </div> -->
         <!-- <div class="user-details">
           <ul>
             <li><%= link_to i.first_name, user_profiles_path(i) %> <%= i.age %></li>
@@ -62,7 +82,7 @@
             <li><%= link_to "See More Details", user_profiles_path(i) %></li>
           </ul>
         </div> -->
-    </div>
+    <!-- </div>
   <% end %>
   </div>
   <div class="search-motor">
@@ -92,7 +112,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 <script>
 const mapElement = document.getElementById('map');

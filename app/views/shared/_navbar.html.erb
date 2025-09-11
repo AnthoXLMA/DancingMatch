@@ -1,67 +1,28 @@
-<div class="contenu-body">
-  <% if current_user == nil %>
-  <div class="responsive-container">
-    <div class="title-profile">
-      <h1><%= link_to "Dancing Partners", root_path %></h1>
-      <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
-      <div class="section-navbar-logout">
-
-          <div class="column-2">
-            <a class="link"><%= link_to "Connexion", new_user_session_path %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Communauté", users_path %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Danses", dances_path %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Agenda", appointments_path %></a>
-          </div>
-
-      </div>
-    </div>
+<nav class="bg-white shadow-md px-6 py-4 flex justify-between items-center">
+  <div class="flex items-center space-x-3">
+    <h1 class="text-2xl font-bold text-primary"><%= link_to "Dancing Partners", root_path %></h1>
+    <span class="text-gray-500 hidden sm:inline">The First Worldwide Dancers Community</span>
   </div>
-      <% else %>
-  <div class="responsive-container-2">
-    <div class="title-profile">
-      <div class="navbar-sup" style="display:flex;" >
-        <div class="titres-navbar" >
-          <h1><%= link_to "Dancing Partners", root_path %></h1>
-          <p><%= link_to "The First WorldWide Dancers Community", root_path %></p>
-        </div>
-        <div class="current-user-avatar-2" >
-          <div class="picProfile">
-            <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %><br>
-          </div>
-          <div class="nameProfile">
-            <a><%= current_user.first_name %></a>
-          </div>
-        </div>
-      </div>
-      <div class="section-navbar-login">
 
-          <div class="column-2">
-            <a class="link"><%= link_to "Profil", user_path(current_user) %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Communauté", users_path %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Danses", dances_path %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Evénements", appointments_path %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Edit", edit_user_path(current_user) %></a>
-          </div>
-          <div class="column-2">
-            <a class="link"><%= link_to "Déconnexion", destroy_user_session_path, method: :delete %></a>
-          </div>
-
+  <div class="flex items-center space-x-4">
+    <% if user_signed_in? %>
+      <%= link_to "Communauté", users_path, class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Danses", dances_path, class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Agenda", appointments_path, class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Profil", user_path(current_user), class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "text-red-500 hover:text-red-600 font-medium" %>
+      <div class="ml-4">
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "w-10 h-10 rounded-full border-2 border-primary" %>
+        <% else %>
+          <%= image_tag current_user.gender_image, class: "w-10 h-10 rounded-full border-2 border-primary" %>
+        <% end %>
       </div>
-    </div>
-  </div>
+    <% else %>
+      <%= link_to "Connexion", new_user_session_path, class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Communauté", users_path, class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Danses", dances_path, class: "text-gray-700 hover:text-primary font-medium" %>
+      <%= link_to "Agenda", appointments_path, class: "text-gray-700 hover:text-primary font-medium" %>
     <% end %>
-</div>
+  </div>
+</nav>

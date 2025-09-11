@@ -1,74 +1,42 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  # devise_scope :user do
-  #   get '/users/sign_out' => 'devise/sessions#destroy'
-  # end
-
+  # Devise for user authentication
   devise_for :users
 
+  # Root path
   root to: 'pages#home'
 
-  resources :users, only: [:index, :edit, :update, :show, :create, :destroy] do
-    resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy]
-  end
-
-  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
-    resources :users, only: [:index, :edit, :update, :show, :create, :destroy]
-  end
-
-  resources :users, only: [:index, :show] do
-    resources :reviews, only: [:create, :index]
-  end
-
-  resources :users, only: [:index, :new, :create, :show] do
+  # Users and nested resources
+  resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :profiles, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :reviews, only: [:index, :create]
     resources :requests, only: [:index, :new, :create, :show]
+    resources :dances, only: [:index, :new, :create, :show, :edit, :update, :destroy]
   end
 
-  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
-    resources :dances, only: [:index, :create, :show, :new, :edit]
-  end
-
-  resources :profiles, only: [:index, :show] do
+  # Profiles and nested resources
+  resources :profiles, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
+    resources :users, only: [:index, :show, :edit, :update, :create, :destroy]
+    resources :dances, only: [:index, :new, :create, :show, :edit]
     resources :meetings, only: [:create, :show]
-  end
-
-  resources :dances, only: [:index, :show, :new, :create] do
-    resources :users, only: [:show]
-  end
-
-  resources :users, only: [:index, :show, :new, :create, :update] do
-    resources :dances
-  end
-
-  resources :profiles, only: [:index, :new, :create, :show] do
     resources :requests, only: [:index, :new, :create, :show, :destroy]
+    resources :appointments, only: [:new, :create, :show]
   end
 
-  resources :profiles, only: [:index, :edit, :update, :show, :create, :destroy] do
-    resources :appointments, only: [:create, :show, :new]
-  end
-
-  resources :appointments, only: [:index, :show, :new, :create] do
-    resources :users
-  end
-
-  resources :dances, only: [:show] do
-    resources :appointments
-  end
-
-  resources :dances do
+  # Dances and nested resources
+  resources :dances, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :users, only: [:show]
+    resources :appointments, only: [:index, :new, :create, :show, :edit, :update, :destroy]
     resources :profiles, only: [:new, :create, :show, :destroy]
   end
 
-  resource :appointments do
-    resources :profiles
-  end
-
-  resources :appointments do
+  # Appointments and nested resources
+  resources :appointments, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
+    resources :users, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+    resources :profiles, only: [:index, :new, :create, :edit, :update, :show, :destroy]
     resources :subscriptions, only: [:new, :create, :destroy]
   end
 
+  # Requests with custom member actions
   resources :requests, only: [:index] do
     member do
       patch :accept

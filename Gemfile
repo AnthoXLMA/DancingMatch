@@ -16,6 +16,7 @@ gem 'coffee-rails'
 gem 'bootsnap', require: false
 gem 'listen'
 gem "devise"
+gem 'webpacker', '~> 5.4'
 
 #GEM Updating Juin 2024 - Start
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
@@ -36,6 +37,11 @@ gem "rails_12factor"
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+# Gemfile
+gem "rack-cors"
+# Gemfile
+gem "devise"
+gem "devise_token_auth"
 
 #GEM Updating Juin 2024 - End
 
