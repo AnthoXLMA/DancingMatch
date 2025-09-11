@@ -1,85 +1,83 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show]
+  before_action :set_appointment, only: [:show, :accept, :refuse, :destroy]
+  before_action :authenticate_user!
+  before_action :authorize_user!, only: [:accept, :refuse, :destroy]
 
+  # GET /appointments
   def index
-    @user = current_user
-    @appointments = Appointment.all
-    @markers = @appointments.geocoded.map do |appointment|
-      {
-        lat: appointment.latitude,
-        lng: appointment.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment }),
-        image_url: helpers.asset_url('mapbox-marker-icon-blue.svg')
-      }
-    end
-    @appointment_picture = @appointments.each do |appointment|
-      appointment.pic
-    end
-      if params[:query].present?
-        @appointments = Appointment.where("address ILIKE ?", "%#{params[:query]}%")
-
-      else
-        @appointments = Appointment.all
-    end
+    @appointments = params[:query].present? ? Appointment.where("address ILIKE ?", "%#{params[:query]}%") : Appointment.all
+    @markers = geo_markers(@appointments)
   end
 
-  def new
-    # @dance = Dance.find(params[:dance_id])
-    @appointment = Appointment.new
-    @appointment.save
-  end
-
-  def create
-    @user = current_user
-    @appointment = Appointment.new(appointment_params)
-    @appointment.user = @user
-    @appointment.save
-      redirect_to appointments_path(@appointments)
-  end
-
+  # GET /appointments/:id
   def show
-    @user = current_user
-    @appointments = Appointment.all
-    @appointment = Appointment.find(params[:id])
-    @appointment_picture = @appointment.pic
-    @appointments_dates = @appointments.map do |appointment|
-      {
-        from: appointment.start_on,
-        to:   appointment.end_on
-      }
+  end
+
+  # GET /appointments/new
+  def new
+    @appointment = current_user.appointments.build
+  end
+
+  # POST /appointments
+  def create
+    @appointment = current_user.appointments.build(appointment_params)
+    if @appointment.save
+      redirect_to appointments_path, notice: "Rendez-vous créé avec succès."
+    else
+      flash.now[:alert] = "Erreur lors de la création du rendez-vous."
+      render :new
     end
-    # Select et s'ajoute dans la show du profil
-    @user_events = Appointment.where(id: params[:id])
-    @style = @appointment.dance.title
   end
 
+  # PATCH /appointments/:id/accept
   def accept
-    @appointment = Appointment.find(params[:id])
-    @appointment.status = 'accepted'
-    @appointment.save
-    redirect_to appointment_user_path
+    if @appointment.update(status: 'accepted')
+      redirect_to appointments_path, notice: "Rendez-vous accepté."
+    else
+      redirect_to appointments_path, alert: "Impossible de modifier le rendez-vous."
+    end
   end
 
+  # PATCH /appointments/:id/refuse
   def refuse
-    @appintment = Appointment.find(params[:id])
-    @appointment.status = 'refused'
-    @appointment.save
-    redirect_to apppointment_user_path
+    if @appointment.update(status: 'refused')
+      redirect_to appointments_path, notice: "Rendez-vous refusé."
+    else
+      redirect_to appointments_path, alert: "Impossible de modifier le rendez-vous."
+    end
   end
 
+  # DELETE /appointments/:id
   def destroy
-    @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to appointments_path
+    redirect_to appointments_path, notice: "Rendez-vous supprimé."
   end
 
   private
 
   def set_appointment
     @appointment = Appointment.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to appointments_path, alert: "Rendez-vous introuvable."
   end
 
   def appointment_params
-    params.require(:appointment).permit(:id, :start_on, :end_on, :name, :address, :user_id, :dance_id, :pic)
+    params.require(:appointment).permit(:start_on, :end_on, :name, :address, :dance_id, :pic)
+  end
+
+  def geo_markers(objects)
+    objects.geocoded.map do |appointment|
+      {
+        lat: appointment.latitude,
+        lng: appointment.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { appointment: appointment })
+      }
+    end
+  end
+
+  def authorize_user!
+    unless @appointment.user == current_user
+      redirect_to appointments_path, alert: "Non autorisé à modifier ce rendez-vous."
+    end
   end
 end

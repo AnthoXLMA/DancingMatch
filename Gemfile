@@ -16,6 +16,7 @@ gem 'coffee-rails'
 gem 'bootsnap', require: false
 gem 'listen'
 gem "devise"
+gem 'webpacker', '~> 5.4'
 
 #GEM Updating Juin 2024 - Start
 gem 'geocoder', '~> 1.3', '>= 1.3.7'

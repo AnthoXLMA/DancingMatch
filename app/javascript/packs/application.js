@@ -21,7 +21,10 @@ require("channels")
 import 'mapbox-gl/dist/mapbox-gl.css';
 import "bootstrap";
 import "./src/application.scss";
+import "stylesheets/application.scss"
 import "@popperjs/core";
+
+
 
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
@@ -47,6 +50,29 @@ document.addEventListener('turbolinks:load', () => {
   // initCalendar();
   // selectEvent();
 });
+import mapboxgl from "mapbox-gl";
+
+document.addEventListener('DOMContentLoaded', () => {
+  const markers = JSON.parse(document.getElementById('map').dataset.markers);
+
+  mapboxgl.accessToken = document.getElementById('map').dataset.mapboxToken;
+  const map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    center: [markers[0].lng, markers[0].lat],
+    zoom: 10
+  });
+
+  markers.forEach(marker => {
+    new mapboxgl.Marker({ color: "#FF5A5F" })
+      .setLngLat([marker.lng, marker.lat])
+      .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(marker.infoWindow))
+      .addTo(map);
+  });
+});
+
+
+
 
 // External imports
 // import swal from 'sweetalert';

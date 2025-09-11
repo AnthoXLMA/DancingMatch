@@ -1,119 +1,89 @@
 class Profile < ApplicationRecord
+  # -----------------------------
+  # Associations
+  # -----------------------------
   belongs_to :user
-  # geocoded_by :position
-  # after_validation :geocode
-
+  belongs_to :dance, optional: true
+  has_one :feed, dependent: :destroy
   has_one_attached :avatar
-  belongs_to  :dance
-  has_one     :feed
-  has_many    :dances
-  has_many    :appointments
-  has_many    :meetings
-  has_many    :requests, dependent: :destroy
+  has_many :appointments, dependent: :destroy
+  has_many :meetings, dependent: :destroy
+  has_many :requests, dependent: :destroy
 
- INVESTISSEMENT = [
-  'Social Dancer',
-  'Student Dancer',
-  'Training Dancer',
-  'Coach',
-  'Artist',
-  'Choreographer'
-  ]
+  # -----------------------------
+  # Constants
+  # -----------------------------
+  INVESTISSEMENT = [
+    'Social Dancer', 'Student Dancer', 'Training Dancer',
+    'Coach', 'Artist', 'Choreographer'
+  ].freeze
 
   NIVEAU = [
-    'Novice - 0 to. 1 XP year',
+    'Novice - 0 to 1 XP year',
     'Intermédiaire - 1 to 3 XP years',
     'Avancé - 4 to 6 XP years',
-    'Expert - 6 years min.'
-  ]
+    'Expert - 6+ years'
+  ].freeze
 
-  TRAINING_per_Week = [
+  TRAINING_PER_WEEK = [
     '1 to 5 hours per week',
     '5 to 10 hours per week',
     '10 to 15 hours per week',
     '15 to 30 hours per week',
-    '30 hours min. per week'
-  ]
+    '30+ hours per week'
+  ].freeze
 
-  LEVELS          = ['1', '2', '3', '4', '5']
-  XPS             = (1..90)
-  COACHING_STATUS = ['novice', 'intermediaire', 'etudiant', 'teacher', 'jury']
-  PRACTICE_A_WEEK = (1..60)
-  TECHNIQUE       = ['1', '2', '3', '4', '5']
-  AMBITION        = ['teaching', 'social', 'professionnal', 'artistic']
-  EMPATHIE        = ['none', 'social', 'professionnal', 'only_dancing']
-  SOCIAL          = ['1', '2', '3', '4', '5']
+  LEVELS          = ['1', '2', '3', '4', '5'].freeze
+  XPS             = (1..90).to_a.freeze
+  COACHING_STATUS = ['novice', 'intermediaire', 'etudiant', 'teacher', 'jury'].freeze
+  PRACTICE_A_WEEK = (1..60).to_a.freeze
+  TECHNIQUE       = ['1', '2', '3', '4', '5'].freeze
+  AMBITION        = ['teaching', 'social', 'professionnal', 'artistic'].freeze
+  EMPATHIE        = ['none', 'social', 'professionnal', 'only_dancing'].freeze
+  SOCIAL          = ['1', '2', '3', '4', '5'].freeze
 
-  SKILLS = %W[
-    level
-    xp
-    coaching_status
-    practice_a_week
-    technique
-    ambition
-    empathie
-    social
-  ]
+  SKILLS = %w[level xp coaching_status practice_a_week technique ambition empathie social].freeze
 
-  def matching_percentage_calc
-   <<~PLOP
-     ( round(
-         100.0 * (
-           (CASE WHEN profiles.level            <= '#{level}' THEN 1  ELSE 0 END) +
-           (CASE WHEN profiles.xp               <= '#{xp}' THEN 1 ELSE 0 END) +
-           (CASE WHEN profiles.coaching_status  <= '#{coaching_status}' THEN 1 ELSE 0 END) +
-           (CASE WHEN profiles.practice_a_week  <= '#{practice_a_week}' THEN 1 ELSE 0 END) +
-           (CASE WHEN profiles.technique        <= '#{technique}' THEN 1 ELSE 0 END) +
-           (CASE WHEN profiles.ambition         <= '#{ambition}' THEN 1 ELSE 0 END) +
-           (CASE WHEN profiles.empathie         <= '#{empathie}' THEN 1 ELSE 0 END) +
-           (CASE WHEN profiles.social           <= '#{social}' THEN 1 ELSE 0 END) +
-         )
-         / 15
-       , 2)
-     )
-   PLOP
-  end
+  # -----------------------------
+  # Validations
+  # -----------------------------
+  validates :user, presence: true
+  validates :dance, presence: true, allow_nil: true
 
-  def matching_percentage_calc
-    <<~PLOP
-      (
-        (
-          (CASE WHEN profiles.level::int - 3            <= '#{level}' THEN 100 - (profiles.level::int - '#{level}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.xp::int - 3               <= '#{xp}' THEN 100 - (profiles.xp::int - '#{xp}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.coaching_status::int - 3  <= '#{coaching_status}' THEN 100 - (profiles.coaching_status::int - '#{coaching_status}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.practice_a_week::int - 3  <= '#{practice_a_week}' THEN 100 - (profiles.practice_a_week::int - '#{practice_a_week}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.technique::int - 3        <= '#{technique}' THEN 100 - (profiles.technique::int - '#{technique}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.ambition::int - 3         <= '#{ambition}' THEN 100 - (profiles.ambition::int - '#{ambition}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.empathie::int - 3         <= '#{empathie}' THEN 100 - (profiles.empathie::int - '#{empathie}'::int) * 25  ELSE 0 END) +
-          (CASE WHEN profiles.social::int - 3           <= '#{social}' THEN 100 - (profiles.social::int - '#{social}'::int) * 25  ELSE 0 END) +
-        )
-        / 15
-      )
-    PLOP
-  end
+  # -----------------------------
+  # Instance Methods
+  # -----------------------------
 
-  def matching_percentage_calc
-    skills_cases = SKILLS.map do |skill|
-      <<~STRING
-        (
-          CASE
-            WHEN profiles.#{skill}       <= #{self[skill]} THEN 100
-            WHEN (profiles.#{skill} - 1) <= #{self[skill]} THEN 75
-            WHEN (profiles.#{skill} - 2) <= #{self[skill]} THEN 50
-            WHEN (profiles.#{skill} - 3) <= #{self[skill]} THEN 25
-            ELSE
-              0
-          END
-        )
-      STRING
-    end
-    skills_query = skills_cases.join(" +\n")
-    <<~SQL
-      ( ({skills_query}) / 15::decimal )
-    SQL
-  end
-
+  # Vérifie si toutes les compétences sont renseignées
   def all_skills_rated?
     SKILLS.all? { |skill| self[skill].present? }
+  end
+
+  # Calcul du pourcentage de compatibilité entre profils
+  def matching_percentage(other_profile)
+    return 0 unless other_profile
+
+    total = SKILLS.sum do |skill|
+      difference = (self[skill].to_i - other_profile[skill].to_i).abs
+      case difference
+      when 0 then 100
+      when 1 then 75
+      when 2 then 50
+      when 3 then 25
+      else 0
+      end
+    end
+
+    # Normalisation sur 15 compétences
+    (total.to_f / (SKILLS.size * 100) * 100).round(2)
+  end
+
+  # Retourne l'avatar de profil ou une image par défaut
+  def avatar_url
+    if avatar.attached?
+      Rails.application.routes.url_helpers.rails_blob_url(avatar, only_path: true)
+    else
+      ActionController::Base.helpers.asset_path("default_profile.png")
+    end
   end
 end

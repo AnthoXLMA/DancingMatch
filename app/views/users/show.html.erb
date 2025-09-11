@@ -1,159 +1,172 @@
+<div class="max-w-6xl mx-auto p-6 space-y-8 font-sans text-gray-800">
 
-<div class="container-show-profile">
-  <div class="container1">
-      <!-- <div class ="container-map">
-          <div id="resultats"
-          data-my-appointments="<%= @appointments_selected.to_json %>">
+  <!-- PROFILE HEADER -->
+  <div class="flex flex-col md:flex-row items-center bg-gradient-to-r from-white via-gray-50 to-white shadow-xl rounded-2xl p-6 md:p-8 space-y-4 md:space-y-0 md:space-x-8">
+    <div class="flex-shrink-0 relative">
+      <% if @user.photo.attached? %>
+        <%= cl_image_tag @user.photo.key, class: "w-36 h-36 rounded-full object-cover border-4 border-red-500 shadow-md" %>
+      <% else %>
+        <%= image_tag @user.gender_image, class: "w-36 h-36 rounded-full object-cover border-4 border-red-500 shadow-md" %>
+      <% end %>
+    </div>
+    <div class="flex-1 space-y-2">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900"><%= @user.first_name %> <%= @user.last_name %></h1>
+      <p class="text-gray-600 text-sm md:text-base"><%= @user.gender %> • <%= @user.age %> ans • <%= @user.location %></p>
+      <p class="text-gray-600 text-sm md:text-base"><%= @user.experience %> ans d'expérience</p>
+      <%= link_to "Éditer mon profil", edit_user_path(@user), class: "inline-block mt-2 px-6 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition shadow" %>
+    </div>
+  </div>
+
+  <!-- MAP -->
+  <div class="w-full h-96 rounded-2xl overflow-hidden shadow-xl ring-1 ring-gray-200">
+    <div id="map" class="w-full h-full"></div>
+    <script>
+      const markers = <%= raw @markers.to_json %>;
+
+      mapboxgl.accessToken = '<%= ENV['MAPBOX_API_KEY'] %>';
+      const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [<%= @user.longitude %>, <%= @user.latitude %>],
+        zoom: 10
+      });
+
+      markers.forEach(marker => {
+        new mapboxgl.Marker({ color: "#FF5A5F" })
+          .setLngLat([marker.lng, marker.lat])
+          .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(marker.infoWindow))
+          .addTo(map);
+      });
+    </script>
+  </div>
+
+  <!-- MEMBERS GRID -->
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold text-gray-900">Membres</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <% if @users.present? %>
+        <% @users.each do |user| %>
+          <div class="bg-white rounded-2xl shadow p-4 flex flex-col items-center hover:shadow-2xl transition transform hover:-translate-y-1 duration-200">
+            <% if user.photo.attached? %>
+              <%= cl_image_tag user.photo.key, class: "w-24 h-24 rounded-full object-cover mb-2" %>
+            <% else %>
+              <%= image_tag user.gender_image, class: "w-24 h-24 rounded-full object-cover mb-2" %>
+            <% end %>
+            <p class="font-semibold text-center text-gray-900"><%= link_to user.first_name, user_profiles_path(user), class: "hover:text-red-500 transition" %></p>
+            <p class="text-gray-500 text-sm"><%= user.location %></p>
           </div>
-          <div id="map"
-          data-markers="<%= @markers.to_json %>"
-          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-        </div>
-        <div id='map' style='width: 100%; height: 100%;'></div>
-      </div> -->
-    <div class="my_profile">
-        <div class="dance-query">
-          <div class="query">
-            <%= form_tag dances_path, method: :get do %>
-            <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Cherche ta danse" %>
+        <% end %>
+      <% else %>
+        <p class="text-gray-500">Aucun autre membre trouvé.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- PROFILES DANCES -->
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold text-gray-900">Mes profils danses</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <% if @user.profiles.present? %>
+        <% @user.profiles.each do |profile| %>
+          <div class="bg-white rounded-2xl shadow p-4 hover:shadow-2xl hover:bg-gradient-to-r hover:from-white hover:via-gray-50 hover:to-white transition duration-200">
+            <h3 class="font-bold text-lg text-gray-900"><%= profile.dance.title %></h3>
+            <ul class="text-gray-600 text-sm mt-2 space-y-1">
+              <li>Investissement : <%= profile.investissement %></li>
+              <li>Niveau : <%= profile.niveau %></li>
+              <li>Training/week : <%= profile.training_per_week %></li>
+            </ul>
+            <div class="mt-2 flex space-x-2">
+              <%= link_to "Edit", edit_profile_path(profile), class: "text-red-500 hover:underline text-sm" %>
+              <%= button_to "Destroy", profile_path(profile), method: :delete, class: "text-gray-500 hover:underline text-sm" %>
+            </div>
           </div>
-          <div class="button-OK">
-            <%= submit_tag "Search", class: "btn-primary" %>
-          </div>
+        <% end %>
+      <% else %>
+        <p class="text-gray-500">Vous n'avez pas encore sélectionné de profils danse.</p>
+      <% end %>
+    </div>
+  </div>
+
+  <!-- REQUESTS SENT & RECEIVED -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl shadow p-4">
+      <h2 class="font-bold text-xl mb-2 text-gray-900">Demandes envoyées</h2>
+      <% if current_user.requests.present? %>
+        <ul class="list-disc list-inside text-gray-600 space-y-1">
+          <% current_user.requests.each do |r| %>
+            <li><%= r.profile.dance.title %> avec <%= r.profile.user.first_name %></li>
           <% end %>
-        </div>
-
-          <div class="banner-profile">
-            <div class="image-profile">
-              <%= cl_image_tag current_user.photo.key if current_user.photo.attached? %>
-            </div>
-            <div class="my-informations">
-              <h5><%= current_user.first_name %> <%= current_user.last_name %></h5>
-              <a><%= current_user.gender %></a><br>
-              <a><%= current_user.age %> years old</a><br>
-              <a><%= current_user.location %></a><br>
-              <a><%= current_user.experience %> years experience</a><br>
-            </div>
-            <div class ="menu-block">
-              <h5>
-                <%= pluralize current_user.reviews.size, "review" %><br>
-                <%= link_to "See all reviews", user_reviews_path(current_user) %><br>
-                <%= link_to "See all requests", user_requests_path(current_user) %><br>
-                <%= link_to "Edit my profile", edit_user_path(current_user) %><br>
-              </h5>
-            </div>
-
-
-  </div>
-      <div class="container-appointments-profile">
-        <div class="button-block">
-          <div class="titres-cadre">
-            <div class="titres">
-              <p>Mes profils danses <%= link_to "+", dances_path %></p>
-            </div>
-              <% if @user.profiles.blank? %>
-            <div class="infos-card" >
-              <div class="ecriture">
-                <%= link_to "Sélectionnez vos danses en cliquant ici", dances_path %><br></a>
-              </div>
-            </div>
-              <% else %>
-            <div class="infos-card" >
-              <% @user.profiles.each do |pro_file| %>
-            <div class="carte-profil" >
-              <%= link_to pro_file.dance.title, profile_path(pro_file) %>
-              <%= button_to 'Destroy', profile_path(pro_file), method: :delete %>
-              <%= link_to "Edit", edit_profile_path(pro_file) %>
-              <i class="bi bi-pen"></i>
-              <ul>
-                <a><%= pro_file.investissement %></a>
-                <a><%= pro_file.niveau %></a>
-                <a><%= pro_file.training_per_week %> hours/week</a>
-              </ul>
-            </div>
-                <% end %>
-              </div>
-            <% end %>
-        </div>
-
-        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres"><p>Membres</p></div>
-            <div class="infos-card-2" style="padding:10px;">
-              <% @users.each do |user| %>
-              <div class="profile-unique" style="margin-right:auto; margin-left:auto;">
-                <%= cl_image_tag user.photo.key if user.photo.attached? %><br>
-                <a><%= link_to user.first_name, user_profiles_path(user)  %></a>
-              </div>
-            <% end %>
-            </div>
-        </div>
-
-        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres"><p>Vous avez effectué ces demandes</p>
-            <div class="infos-card">
-              <% current_user.requests.each do |r| %>
-              <%= r.profile.dance.title %> with <%= r.profile.user.first_name %><br>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="titres-cadre" style="background-color: #FFFF; color:black;">
-          <div class="titres">
-            <p>Vous avez reçu ces demandes</p>
-              <div class="infos-card">
-                <% @dancing_partners.each do |dancing_partner| %>
-                <%= dancing_partner.user.first_name %> wants to dance <%= dancing_partner.profile.dance.title %><br>
-                <%= link_to "Voir la demande", requests_path(dancing_partner) %><br>
-              <% end %>
-              </div>
-          </div>
-        </div>
-
-          <div class="my-event" style="display:grid;
-                                        grid-template-columns: 1fr 1fr;
-                                        grid-gap: 10px;
-                                        grid-auto-rows: minmax(5px, auto);">
-            <% current_user.appointments.each do |user_events| %>
-              <div class="card-my-event">
-                <div class="one-event">
-                  <%= image_tag user_events.pic if user_events.pic.attached? %>
-                  <a><%= user_events.name %></a>
-                  <a><%= user_events.start_on %></a>
-                  <a><%= user_events.address %></a>
-                  <a><%= link_to "Voir sur la carte", appointments_path %></a>
-                </div>
-              </div>
-            <% end %>
-
-          </div>
-          <div class="my-event" style="display:grid;
-                                        grid-template-columns: 1fr 1fr;
-                                        grid-gap: 10px;
-                                        grid-auto-rows: minmax(5px, auto);">
-            <% current_user.subscriptions.each do |subscription| %>
-              <div class="card-my-event">
-                <div class="one-event">
-                  <%= image_tag subscription.appointment.pic if subscription.appointment.pic.attached? %>
-                  <a><%= subscription.appointment.name %></a>
-                  <a><%= subscription.appointment.start_on %></a>
-                  <a><%= subscription.appointment.address %></a>
-                  <a><%= link_to "Voir sur la carte", appointments_path %></a>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+        </ul>
+      <% else %>
+        <p class="text-gray-500">Aucune demande envoyée.</p>
+      <% end %>
     </div>
-<!--       <script>
-        mapboxgl.accessToken = 'pk.eyJ1IjoiYW50bWFuNDMiLCJhIjoiY2x3eHk0aWF1MWY2bzJucjFodnEwemRwayJ9.O7VyKyjd4FebVbtQPuGj7g';
-        var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v11'
-        });
-      </script> -->
+
+    <div class="bg-white rounded-2xl shadow p-4">
+      <h2 class="font-bold text-xl mb-2 text-gray-900">Demandes reçues</h2>
+      <% if @dancing_partners.present? %>
+        <ul class="list-disc list-inside text-gray-600 space-y-1">
+          <% @dancing_partners.each do |dp| %>
+            <li>
+              <%= dp.user.first_name %> veut danser <%= dp.profile.dance.title %>
+              <%= link_to "Voir la demande", requests_path(dp), class: "text-red-500 hover:underline ml-2" %>
+            </li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p class="text-gray-500">Aucune demande reçue.</p>
+      <% end %>
     </div>
   </div>
 
+  <!-- APPOINTMENTS -->
+  <div class="space-y-4">
+    <h2 class="text-2xl font-bold text-gray-900">Mes événements</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <% current_user.appointments.each do |event| %>
+        <div class="bg-white rounded-2xl shadow p-4 flex items-start space-x-4 hover:shadow-2xl transition transform hover:-translate-y-1 duration-200">
+          <% if event.pic.attached? %>
+            <%= image_tag event.pic, class: "w-24 h-24 object-cover rounded-lg" %>
+          <% end %>
+          <div>
+            <p class="font-bold text-lg text-gray-900"><%= event.name %></p>
+            <p class="text-gray-600 text-sm"><%= event.start_on %></p>
+            <p class="text-gray-600 text-sm"><%= event.address %></p>
+            <%= link_to "Voir sur la carte", appointments_path, class: "text-red-500 hover:underline mt-1 inline-block text-sm" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+</div>
+
+<div id="map"
+     data-mapbox-token="<%= ENV['MAPBOX_API_KEY'] %>"
+     data-markers="<%= raw @markers.to_json %>"
+     class="w-full h-96 rounded-xl shadow-lg">
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mapElement = document.getElementById('map');
+    const markers = JSON.parse(mapElement.dataset.markers);
+    const mapboxToken = mapElement.dataset.mapboxToken;
+
+    mapboxgl.accessToken = mapboxToken;
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [<%= @user.longitude %>, <%= @user.latitude %>],
+      zoom: 10
+    });
+
+    markers.forEach(marker => {
+      new mapboxgl.Marker({ color: "#FF5A5F" })
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(marker.infoWindow))
+        .addTo(map);
+    });
+  });
+</script>
 
